@@ -180,10 +180,12 @@
   "description": null,
   "category": "vanilla",
   "kind": "condition",
-  "bodyParts": [],
-  "limbSpecific": false,
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
   "isBuff": false,
-  "maxStrength": null,
+  "maxStrength": 200,
   "showInScannerThreshold": null,
   "detectedBy": [],
   "icon": null,
@@ -203,7 +205,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
  },
  {
   "id": "acidosis",
@@ -877,11 +879,13 @@
   "description": null,
   "category": "functionality",
   "kind": "utility",
-  "bodyParts": [],
+  "bodyParts": [
+   "head"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
   "detectedBy": [],
   "icon": null,
   "causeOfDeath": null,
@@ -1559,10 +1563,12 @@
   "description": null,
   "category": "vanilla",
   "kind": "condition",
-  "bodyParts": [],
-  "limbSpecific": false,
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
   "isBuff": false,
-  "maxStrength": null,
+  "maxStrength": 100,
   "showInScannerThreshold": null,
   "detectedBy": [],
   "icon": null,
@@ -1615,7 +1621,39 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "bleedingnonstop",
+  "name": "Bleeding",
+  "description": "Blood pours freely from this ragged and particularly nasty open wound",
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [
+   {
+    "item": "suture",
+    "note": ""
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
  },
  {
   "id": "bloating",
@@ -1658,14 +1696,18 @@
   "id": "bloodloss",
   "name": "Blood Loss",
   "description": null,
-  "category": "blood",
+  "category": "vanilla",
   "kind": "vital",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 200,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -1736,7 +1778,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
  },
  {
   "id": "bloodpressure",
@@ -1791,10 +1833,12 @@
   "description": null,
   "category": "vanilla",
   "kind": "condition",
-  "bodyParts": [],
-  "limbSpecific": false,
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
   "isBuff": false,
-  "maxStrength": null,
+  "maxStrength": 200,
   "showInScannerThreshold": null,
   "detectedBy": [],
   "icon": null,
@@ -1829,7 +1873,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
  },
  {
   "id": "blurredvision",
@@ -2066,12 +2110,14 @@
   "id": "burn",
   "name": "Burn",
   "description": null,
-  "category": "functionality",
-  "kind": "utility",
-  "bodyParts": [],
-  "limbSpecific": false,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
   "isBuff": false,
-  "maxStrength": null,
+  "maxStrength": 200,
   "showInScannerThreshold": null,
   "detectedBy": [],
   "icon": null,
@@ -2111,8 +2157,35 @@
   ],
   "danger": null,
   "guide": null,
-  "hidden": true,
-  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "burning",
+  "name": "Burning",
+  "description": "The target is burning.",
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 15,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
  },
  {
   "id": "cardiacarrest",
@@ -2360,12 +2433,16 @@
   "description": null,
   "category": "vanilla",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "head"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 10,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -4204,14 +4281,18 @@
   "id": "heartdamage",
   "name": "Heart Damage",
   "description": null,
-  "category": "blood",
+  "category": "heart",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 20,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -4274,7 +4355,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+  "source": "Assets/Content/XML/Afflictions/Heart.xml"
  },
  {
   "id": "heartremoved",
@@ -4421,9 +4502,9 @@
    "shortnessofbreath",
    "abdominalpain",
    "kidneydamage",
-   "organdamage",
-   "liverdamage",
    "heartdamage",
+   "liverdamage",
+   "organdamage",
    "lungdamage",
    "bloodloss",
    "chestpain",
@@ -4601,12 +4682,12 @@
   "causes": [
    {
     "type": "affliction",
-    "id": "bloodloss",
+    "id": "oxygenlow",
     "text": null
    },
    {
     "type": "affliction",
-    "id": "oxygenlow",
+    "id": "bloodloss",
     "text": null
    },
    {
@@ -4767,12 +4848,12 @@
    },
    {
     "type": "affliction",
-    "id": "bloodloss",
+    "id": "afadrenaline",
     "text": null
    },
    {
     "type": "affliction",
-    "id": "afadrenaline",
+    "id": "bloodloss",
     "text": null
    },
    {
@@ -5087,14 +5168,18 @@
   "id": "internalbleeding",
   "name": "Internal Bleeding",
   "description": null,
-  "category": "head",
+  "category": "torso",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -5133,20 +5218,24 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Head.xml"
+  "source": "Assets/Content/XML/Afflictions/Torso.xml"
  },
  {
   "id": "internaldamage",
   "name": "Internal Damage",
   "description": null,
-  "category": "bones",
+  "category": "vanilla",
   "kind": "condition",
-  "bodyParts": [],
-  "limbSpecific": false,
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 200,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -5193,7 +5282,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
  },
  {
   "id": "invertcontrols",
@@ -5261,14 +5350,18 @@
   "id": "kidneydamage",
   "name": "Kidney Damage",
   "description": null,
-  "category": "blood",
+  "category": "kidneys",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 10,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -5333,7 +5426,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+  "source": "Assets/Content/XML/Afflictions/Kidneys.xml"
  },
  {
   "id": "kidneyremoved",
@@ -5578,14 +5671,18 @@
   "id": "liverdamage",
   "name": "Liver Damage",
   "description": null,
-  "category": "blood",
+  "category": "liver",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 20,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -5648,7 +5745,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+  "source": "Assets/Content/XML/Afflictions/Liver.xml"
  },
  {
   "id": "liverremoved",
@@ -6012,14 +6109,18 @@
   "id": "lungdamage",
   "name": "Lung Damage",
   "description": null,
-  "category": "blood",
+  "category": "lungs",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 20,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -6065,7 +6166,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+  "source": "Assets/Content/XML/Afflictions/Lungs.xml"
  },
  {
   "id": "lungremoved",
@@ -6207,7 +6308,7 @@
   "bodyParts": [],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
+  "maxStrength": 100,
   "showInScannerThreshold": null,
   "detectedBy": [],
   "icon": null,
@@ -6711,11 +6812,13 @@
   "description": null,
   "category": "vanilla",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "head"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
+  "maxStrength": 100,
+  "showInScannerThreshold": 1000,
   "detectedBy": [],
   "icon": null,
   "causeOfDeath": null,
@@ -6788,14 +6891,18 @@
   "id": "organdamage",
   "name": "Organ Damage",
   "description": null,
-  "category": "blood",
+  "category": "vanilla",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 200,
+  "showInScannerThreshold": 10,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -6824,7 +6931,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
  },
  {
   "id": "oxygenlow",
@@ -6832,12 +6939,16 @@
   "description": null,
   "category": "vanilla",
   "kind": "vital",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 200,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -7057,14 +7168,18 @@
   "id": "pneumothorax",
   "name": "Pneumothorax",
   "description": null,
-  "category": "bones",
+  "category": "lungs",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "torso"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {
@@ -7123,7 +7238,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+  "source": "Assets/Content/XML/Afflictions/Lungs.xml"
  },
  {
   "id": "psychosis",
@@ -7289,12 +7404,12 @@
    },
    {
     "type": "affliction",
-    "id": "lungdamage",
+    "id": "neurotrauma",
     "text": null
    },
    {
     "type": "affliction",
-    "id": "neurotrauma",
+    "id": "lungdamage",
     "text": null
    },
    {
@@ -7755,15 +7870,22 @@
   "id": "severepain",
   "name": "Severe Pain",
   "description": null,
-  "category": "bones",
+  "category": "functionality",
   "kind": "utility",
   "bodyParts": [],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
   "detectedBy": [],
-  "icon": null,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#449dc6"
+  },
   "causeOfDeath": null,
   "code": {
    "title": "Severe Pain",
@@ -7796,7 +7918,7 @@
   "danger": null,
   "guide": null,
   "hidden": true,
-  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
  },
  {
   "id": "severepainlite",
@@ -7807,10 +7929,17 @@
   "bodyParts": [],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
   "detectedBy": [],
-  "icon": null,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#449dc6"
+  },
   "causeOfDeath": null,
   "code": null,
   "symptoms": [],
@@ -8115,14 +8244,18 @@
   "id": "spinalcordinjury",
   "name": "Spinal Cord Injury",
   "description": "The spine has been injured due to a Neck Fracture, causing full-body Paralysis and Analgesia - though it does not cause Unconsciousness. It must be surgically repaired using Spinal Cord Implants.",
-  "category": "bones",
+  "category": "head",
   "kind": "condition",
-  "bodyParts": [],
+  "bodyParts": [
+   "head"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": "Died of paralysis",
   "code": {
@@ -8158,7 +8291,7 @@
   "danger": null,
   "guide": null,
   "hidden": false,
-  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+  "source": "Assets/Content/XML/Afflictions/Head.xml"
  },
  {
   "id": "sra_amputation",
@@ -8441,7 +8574,7 @@
   "id": "stun",
   "name": "Stun",
   "description": null,
-  "category": "functionality",
+  "category": "vanilla",
   "kind": "utility",
   "bodyParts": [],
   "limbSpecific": false,
@@ -8479,7 +8612,7 @@
   "danger": null,
   "guide": null,
   "hidden": true,
-  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
  },
  {
   "id": "sufforinpoisoning",
@@ -8986,12 +9119,16 @@
   "description": "Usually occurring during unsafe surgery conditions, causing potentially lethal Hypotension. To perform safe surgery a patient must be under the effects of Analgesia and near any Bed, or be Unconscious.",
   "category": "surgical",
   "kind": "surgical",
-  "bodyParts": [],
+  "bodyParts": [
+   "head"
+  ],
   "limbSpecific": false,
   "isBuff": false,
-  "maxStrength": null,
-  "showInScannerThreshold": null,
-  "detectedBy": [],
+  "maxStrength": 100,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
   "icon": null,
   "causeOfDeath": null,
   "code": {

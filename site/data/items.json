@@ -9290,6 +9290,7 @@
    "gunshotwound",
    "surgeryincision",
    "bleeding",
+   "bleedingnonstop",
    "aorticrupture",
    "tamponade",
    "tshocktimeout"
@@ -9330,6 +9331,12 @@
    },
    {
     "affliction": "bleeding",
+    "amount": "-40",
+    "notes": "",
+    "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1613; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1854-1890; SurgicalEquipment.xml:7-50"
+   },
+   {
+    "affliction": "bleedingnonstop",
     "amount": "-40",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1613; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1854-1890; SurgicalEquipment.xml:7-50"
