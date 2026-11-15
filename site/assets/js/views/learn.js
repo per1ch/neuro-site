@@ -49,7 +49,7 @@ export async function lesson(el, slug) {
     <article class="prose" style="margin-top:12px">
       <div class="eyebrow">Lesson ${esc(l.order)}${data.readingTime ? ` · ${esc(data.readingTime)} min read` : ""}${data.difficulty || data.level ? ` · ${esc(data.difficulty || data.level)}` : ""}</div>
       ${hasH1 ? "" : `<h1>${esc(data.title || slug)}</h1>`}
-      ${renderMarkdown(body)}
+      ${allowDetails(renderMarkdown(body))}
     </article>
     <nav class="lesson-nav" aria-label="Lesson navigation">
       ${prev ? `<a class="btn" href="#/learn/${encodeURIComponent(prev.slug)}">← ${esc(prev.title || prev.slug)}</a>` : "<span></span>"}
@@ -93,6 +93,14 @@ function itemChips(spec) {
   if (!spec) return "";
   const parts = Array.isArray(spec) ? spec : String(spec).split(/\s*(?:\/|,| or )\s*/);
   return `<div class="chip-row" style="margin-top:6px">${parts.filter(Boolean).map((p) => db.item.has(p) || db.aff.has(p) ? refChip(p, db.item.has(p) ? "item" : undefined) : `<span class="tag">${esc(p)}</span>`).join("")}</div>`;
+}
+
+/** Re-enable bare <details>/<summary> (quiz answers) after the renderer escaped them. Only attribute-free tags. */
+function allowDetails(html) {
+  return html
+    .replace(/<p>\s*(&lt;details&gt;)/g, "$1")
+    .replace(/(&lt;\/details&gt;)\s*<\/p>/g, "$1")
+    .replace(/&lt;(\/?)(details|summary)&gt;/g, "<$1$2>");
 }
 
 function scrollToFragment() {

@@ -407,3 +407,7 @@ a.step:hover { text-decoration: none; border-color: var(--line-strong); }
 }
 .bodymap-stage { position: relative; top: auto; }
 @media (min-width: 901px) { .bodymap-layout > div:first-child { position: sticky; top: 24px; } }
+.prose details { margin: .4em 0 1.2em; padding: 8px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg-1); }
+.prose details[open] { border-color: rgba(62, 230, 196, .4); }
+.prose summary { cursor: pointer; color: var(--accent); font-weight: 600; font-size: .9rem; }
+.prose details > p:last-child { margin-bottom: 0; }
