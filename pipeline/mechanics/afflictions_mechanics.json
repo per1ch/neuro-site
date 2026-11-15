@@ -1,0 +1,4034 @@
+{
+ "afflictions": [
+  {
+   "id": "bloodloss",
+   "howYouGetIt": "Blood leaves the body from limb 'bleeding' (strength x (1-resistance)/60 per second unless that limb is tourniqueted), arterial cuts (+1.5/s each while not tourniqueted), internal bleeding (strength/40 per second), carotid cuts and aortic rupture (+4 every 1-3 s), open surgical incisions without a hemostat (+0.7/s), hemotransfusion shock, and drawing blood with a blood analyzer/empty blood pack.",
+   "whatItDoes": "Blood amount = 100 - bloodloss. Lower blood amount lowers the target blood pressure one-for-one. Below 60% blood it adds hypoxemia ((60-blood)/4 per second) and causes a (harmless) raised heart rate; below 50% blood the body increasingly fails to recover from hypoxemia (no recovery at 0 blood). Vanilla 'bled to death' cause of death is declared for it.",
+   "danger": "lethal",
+   "progression": "Accumulates from bleeding sources; max 200. The XML override removes 0.4 every 4 s (about 0.1/s) on its own.",
+   "naturalRecovery": "conditional: very slow (~0.1/s) natural regeneration from XML once bleeding stops.",
+   "treatment": "Stop the sources (bandage/tourniquet/suture), then transfuse: a compatible blood pack removes 30 bloodloss and adds 30 blood pressure; an incompatible pack removes only 20 and causes hemotransfusion shock. Saline/Ringer's raise blood pressure but do not restore blood. Deusizine reduces it slightly.",
+   "thresholds": [
+    {
+     "value": 40,
+     "meaning": "blood amount < 60%: hypoxemia gain and harmless tachycardia"
+    },
+    {
+     "value": 50,
+     "meaning": "blood amount < 50%: hypoxemia recovery starts to be suppressed"
+    },
+    {
+     "value": 100,
+     "meaning": "no blood left: hypoxemia cannot recover"
+    }
+   ],
+   "causedBy": [
+    "bleeding",
+    "arterialcut",
+    "internalbleeding",
+    "carotidarterialcut",
+    "aorticrupture",
+    "surgeryincision",
+    "hemotransfusionshock",
+    "item:bloodanalyzer",
+    "item:emptybloodpack"
+   ],
+   "leadsTo": [
+    "bloodpressure",
+    "hypoxemia",
+    "increasedheartrate"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3317-3328; SharedProject/SharedSource/NT Components/NTStatsData.cs:42-45; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3434-3445; Assets/Content/XML/Afflictions/Overrides.xml:23-46; SharedProject/SharedSource/NT Components/NTItemsData.cs:74-140"
+  },
+  {
+   "id": "bloodpressure",
+   "howYouGetIt": "Always present (default 100). Each 2 s update it moves 20% of the way toward a target value (only ~6.7% per update when rising). Target = blood amount - tamponade/2 - 5 x pressure-drug (max 45) - anesthesia (max 15) + 10 x adrenaline (max 30) + 5 x saline (max 30) + 5 x Ringer's (max 30), then multiplied up by liver damage and kidney damage (up to x1.5 each at 100), alcohol withdrawal (up to x1.5), and multiplied down by traumatic shock (0 at shock 50), fibrillation (x(100-fib)/100) and cardiac arrest (x0).",
+   "whatItDoes": "Low pressure (hypotension): below 60 lightheadedness + headache, below 55 blurred vision, below 50 pale skin, below 30 confusion; below 70 it drives hypoxemia up ((70-BP)/7 per second); below about 81 it speeds up fibrillation. High pressure (hypertension) above 150: each update a heart-attack chance of (BP-150)/50 x 2% (not with streptokinase in blood or no heart) and a stroke chance of (BP-150)/50 x 2% (+5% while streptokinase is in blood). Kidneys take extra damage when BP > 120.",
+   "danger": "serious",
+   "progression": "Lerps toward its target every update; clamped 5-200. Does not change in stasis.",
+   "naturalRecovery": "conditional: returns toward normal on its own once the inputs (blood amount, drugs, shock, heart rhythm) are normal.",
+   "treatment": "Hypotension: stop bleeding and transfuse blood (+30 BP and restores blood), saline/Ringer's (raise target up to +30), adrenaline (+up to 30), CPR (+5/s while cpr_buff active). Hypertension: nitroglycerin / sodium nitroprusside ('afpressuredrug' lowers the target by 5 per point, max 45), treat liver/kidney damage and alcohol withdrawal.",
+   "thresholds": [
+    {
+     "value": 30,
+     "meaning": "confusion (if conscious)"
+    },
+    {
+     "value": 50,
+     "meaning": "pale skin"
+    },
+    {
+     "value": 55,
+     "meaning": "blurred vision"
+    },
+    {
+     "value": 60,
+     "meaning": "lightheadedness and headache"
+    },
+    {
+     "value": 70,
+     "meaning": "below this, hypoxemia rises"
+    },
+    {
+     "value": 81,
+     "meaning": "below ~81 fibrillation speed starts increasing"
+    },
+    {
+     "value": 120,
+     "meaning": "above this, extra kidney damage"
+    },
+    {
+     "value": 150,
+     "meaning": "above this, heart attack and stroke chances"
+    }
+   ],
+   "causedBy": [
+    "bloodloss",
+    "tamponade",
+    "afpressuredrug",
+    "anesthesia",
+    "afadrenaline",
+    "afsaline",
+    "afringerssolution",
+    "liverdamage",
+    "kidneydamage",
+    "alcoholwithdrawal",
+    "traumaticshock",
+    "fibrillation",
+    "cardiacarrest",
+    "cpr_buff",
+    "item:bloodpack"
+   ],
+   "leadsTo": [
+    "lightheadedness",
+    "headache",
+    "blurredvision",
+    "paleskin",
+    "confusion",
+    "hypoxemia",
+    "fibrillation",
+    "heartattack",
+    "stroke",
+    "kidneydamage"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3329-3425; Assets/Content/XML/Afflictions/Blood.xml"
+  },
+  {
+   "id": "hypoxemia",
+   "howYouGetIt": "Lack of oxygen in the blood. Each second it changes by (50 - available oxygen)/8. Available oxygen = the character's breathing oxygen (0-100) x (1 - fibrillation/100), capped at 100 - pneumothorax/2, and forced to 0 during cardiac arrest, with lung damage at 100, or with lungs removed. It also rises by (70-BP)/7 per second when blood pressure is under 70 and by (60-blood)/4 per second when blood amount is under 60%. Respiratory arrest causes it indirectly via oxygenlow. Cyanide poisoning adds it directly.",
+   "whatItDoes": "Neurotrauma +hypoxemia/100 per second, bone damage +hypoxemia/1000 per second, and organ damage to heart/lungs/liver/kidneys (+hypoxemia/400 per second each). Above 10 hyperventilation, above 20 shortness of breath, above 40 headache, above 50 confusion, above 70 a 5% chance per update of respiratory arrest, above 80 unconsciousness and a 1% chance per update of cardiac arrest. Above 80 it also keeps cardiac arrest from clearing; above 70 it keeps respiratory arrest from clearing; above 30 it blocks mannitol's neurotrauma healing. Raises fibrillation speed (up to +1.5).",
+   "danger": "lethal",
+   "progression": "Clamped 0-100. Recovers at up to double speed when oxygen is good, but recovery fades out as blood amount drops below 50%. Frozen in stasis.",
+   "naturalRecovery": "conditional: recovers on its own once breathing, circulation and blood volume are restored.",
+   "treatment": "Restore breathing (bag-valve mask removes respiratory arrest/oxygenlow, operating table/hospital bed artificial ventilation), restore circulation (CPR, defibrillation), stop bleeding and transfuse, raise blood pressure, drain pneumothorax. Liquid oxygenite removes 100 (with organ damage side effects); deusizine reduces it.",
+   "thresholds": [
+    {
+     "value": 10,
+     "meaning": "hyperventilation"
+    },
+    {
+     "value": 20,
+     "meaning": "shortness of breath"
+    },
+    {
+     "value": 30,
+     "meaning": "mannitol stops working above this"
+    },
+    {
+     "value": 40,
+     "meaning": "headache"
+    },
+    {
+     "value": 50,
+     "meaning": "confusion"
+    },
+    {
+     "value": 70,
+     "meaning": "5% per update respiratory arrest; prevents respiratory arrest clearing"
+    },
+    {
+     "value": 80,
+     "meaning": "unconscious, 1% per update cardiac arrest; prevents cardiac arrest clearing"
+    }
+   ],
+   "causedBy": [
+    "oxygenlow",
+    "respiratoryarrest",
+    "cardiacarrest",
+    "fibrillation",
+    "pneumothorax",
+    "lungdamage",
+    "lungremoved",
+    "bloodpressure",
+    "bloodloss"
+   ],
+   "leadsTo": [
+    "neurotrauma",
+    "bonedamage",
+    "heartdamage",
+    "lungdamage",
+    "liverdamage",
+    "kidneydamage",
+    "hyperventilation",
+    "shortnessofbreath",
+    "headache",
+    "confusion",
+    "respiratoryarrest",
+    "unconsciousness",
+    "cardiacarrest",
+    "fibrillation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3426-3527; SharedProject/SharedSource/NT Components/NTStatsData.cs:22-33; SharedProject/SharedSource/NT Components/NTStatsData.cs:65-74"
+  },
+  {
+   "id": "oxygenlow",
+   "howYouGetIt": "Vanilla 'low oxygen' affliction, overridden. NT adds +15 per second while respiratory arrest is present; also from drowning/no air (vanilla), morbusine poisoning, a tourniquet applied to the head (set to 200) and some bag-valve-mask misuse branches.",
+   "whatItDoes": "In vanilla Barotrauma oxygenlow lowers the character's oxygen; NT reads that oxygen as 'available oxygen', so rising oxygenlow drives hypoxemia. Vanilla suffocation death ('Suffocated') is declared for it (exact vanilla death threshold not in this repo).",
+   "danger": "lethal",
+   "progression": "Max 200. Grows 15/s during respiratory arrest; otherwise follows vanilla breathing behaviour (uncertain).",
+   "naturalRecovery": "conditional: vanilla recovery when breathing normally.",
+   "treatment": "Bag-valve mask (removes oxygenlow and respiratory arrest), artificial ventilation from operating table/hospital bed (-100/s if lungs present), AutoPulse (-3/s).",
+   "thresholds": [
+    {
+     "value": 200,
+     "meaning": "maximum"
+    }
+   ],
+   "causedBy": [
+    "respiratoryarrest",
+    "item:tourniquet",
+    "morbusinepoisoning"
+   ],
+   "leadsTo": [
+    "hypoxemia"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:15-32; Assets/Content/XML/Afflictions/Overrides.xml:4-21; SharedProject/SharedSource/NT Components/NTItemsData.cs:765-790"
+  },
+  {
+   "id": "acidosis",
+   "howYouGetIt": "Blood too acidic. +0.09/s while hypoventilating (unless on artificial ventilation); +0.18/s during cardiac arrest, or during respiratory arrest without cardiac arrest and without artificial ventilation; kidney damage over 80 adds (kidney-80)/20 x 0.1 per second; saline in blood +0.1/s; some blood packs carry acid (tag).",
+   "whatItDoes": "Above 15 confusion, above 20 headache (if conscious), above 35 weakness, above 60 each update a coma chance of 5% + (acidosis-60)% (+14 coma) and a 5% seizure chance. Above 20 it causes harmless tachycardia; it raises fibrillation speed by acidosis/200 (max +0.5). Above 20 it slows coma recovery.",
+   "danger": "serious",
+   "progression": "Decays 0.03/s on its own. Acidosis and alkalosis cancel each other 1:1 when both are above 1. Frozen in stasis.",
+   "naturalRecovery": "true: slow decay of 0.03/s when causes are removed.",
+   "treatment": "Fix the breathing/circulation cause; Ringer's solution (adds alkalosis 0.1/s which neutralises acidosis); blood transfusions move it ~10% toward normal; operating table dialysis reduces it (XML, -0.8).",
+   "thresholds": [
+    {
+     "value": 15,
+     "meaning": "confusion"
+    },
+    {
+     "value": 20,
+     "meaning": "headache, harmless tachycardia"
+    },
+    {
+     "value": 35,
+     "meaning": "weakness"
+    },
+    {
+     "value": 60,
+     "meaning": "coma and seizure chances"
+    }
+   ],
+   "causedBy": [
+    "hypoventilation",
+    "respiratoryarrest",
+    "cardiacarrest",
+    "kidneydamage",
+    "afsaline",
+    "item:bloodpack"
+   ],
+   "leadsTo": [
+    "confusion",
+    "headache",
+    "weakness",
+    "coma",
+    "seizure",
+    "increasedheartrate",
+    "fibrillation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3573-3638; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3534-3578 (alkalosis interaction)"
+  },
+  {
+   "id": "alkalosis",
+   "howYouGetIt": "Blood too alkaline. From hyperventilation (+0.09/s), vomiting (+0.1/s), nausea (+0.1/s), Ringer's solution in blood (+0.1/s), and some blood packs (tag).",
+   "whatItDoes": "Above 20 palpitations (unless in cardiac arrest); above 60 a 5% seizure chance per update. Above 20 it slows coma recovery.",
+   "danger": "moderate",
+   "progression": "Decays 0.03/s; cancels acidosis 1:1. Frozen in stasis.",
+   "naturalRecovery": "true: decays 0.03/s.",
+   "treatment": "Stop the cause (treat hyperventilation, nausea/vomiting); saline adds acidosis which neutralises it; transfusions move it ~10% toward normal; operating table dialysis (XML).",
+   "thresholds": [
+    {
+     "value": 20,
+     "meaning": "palpitations"
+    },
+    {
+     "value": 60,
+     "meaning": "5% seizure chance per update"
+    }
+   ],
+   "causedBy": [
+    "hyperventilation",
+    "vomiting",
+    "nausea_nt",
+    "afringerssolution",
+    "item:bloodpack"
+   ],
+   "leadsTo": [
+    "palpitations",
+    "seizure"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3528-3572"
+  },
+  {
+   "id": "immunity",
+   "howYouGetIt": "Always present; starts at 100 when a human spawns (blood type is assigned at the same time).",
+   "whatItDoes": "Fights infection: wounds and burns heal faster (immunity/3000 per second extra), infected wounds shrink by immunity/200 per second, blunt trauma heals by immunity/8000 per second, and infected-cavity growth slows with high immunity. High immunity also makes incompatible transfusions worse (hemotransfusion shock = immunity - 6) and raises organ transplant rejection chance (only if the organ-rejection config is on).",
+   "danger": "beneficial",
+   "progression": "Regenerates 0.5 + immunity/100 per second (0.5-1.5/s), clamped 5-100. Every open wound/burn/foreign body drains it (its infection index / 3), an infected cavity drains ~1-1.4/s, immunosuppressant drains 4/s. Frozen in stasis.",
+   "naturalRecovery": "true: regenerates on its own.",
+   "treatment": "Not something to treat; azathioprine (immunosuppressant) deliberately lowers it before transfusions/transplants.",
+   "thresholds": [
+    {
+     "value": 5,
+     "meaning": "minimum"
+    },
+    {
+     "value": 100,
+     "meaning": "maximum/default"
+    }
+   ],
+   "causedBy": [
+    "lacerations",
+    "burn",
+    "gunshotwound",
+    "explosiondamage",
+    "bitewounds",
+    "foreignbody",
+    "infectedcavity",
+    "afimmunosuppressant"
+   ],
+   "leadsTo": [
+    "infectedwound",
+    "infectedcavity",
+    "hemotransfusionshock"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3761-3793; SharedProject/SharedSource/NT Components/Blood.cs:86-104"
+  },
+  {
+   "id": "sepsis",
+   "howYouGetIt": "Blood infection. Rolled each update on a limb that has a foreign body: chance = gangrene(if >=15)/400 + infected wound(if >=50)/1000 + foreign-body artery-cut chance; on success +2 sepsis (x sepsis-rate config). Also from contaminated blood packs (tag 'sepsis', +1), a failed azathioprine injection (50%, +1), and operating-table/dialysis side effects (XML). Note: in this code the sepsis roll lives inside the foreign-body update, so infected wounds/gangrene only seed sepsis on limbs that also have a foreign body.",
+   "whatItDoes": "Neurotrauma +0.4 x sepsis/100 per second, bone damage +sepsis/500 per second, organ damage to heart/lungs/liver/kidneys +sepsis/300 per second each. Above 5 fever and gangrene creeping into extremities (4% per limb per update, +(0.5+sepsis/150) x2), above 15 hyperventilation, above 20 harmless tachycardia, above 40 confusion.",
+   "danger": "lethal",
+   "progression": "Once above 0.1 it grows by 0.05/s forever (about 3 per minute); max 100. Frozen in stasis.",
+   "naturalRecovery": "false: never goes away on its own.",
+   "treatment": "Broad-spectrum antibiotics: while 'afantibiotics' is in blood, sepsis drops 1/s (antibiotics themselves cause mild organ damage). Remove foreign bodies and clean infected wounds to stop new sepsis.",
+   "thresholds": [
+    {
+     "value": 5,
+     "meaning": "fever, gangrene spreading in extremities"
+    },
+    {
+     "value": 15,
+     "meaning": "hyperventilation"
+    },
+    {
+     "value": 20,
+     "meaning": "harmless tachycardia"
+    },
+    {
+     "value": 40,
+     "meaning": "confusion"
+    }
+   ],
+   "causedBy": [
+    "foreignbody",
+    "gangrene",
+    "infectedwound",
+    "item:bloodpack",
+    "item:immunosuppressant"
+   ],
+   "leadsTo": [
+    "neurotrauma",
+    "bonedamage",
+    "heartdamage",
+    "lungdamage",
+    "liverdamage",
+    "kidneydamage",
+    "fever",
+    "gangrene",
+    "hyperventilation",
+    "confusion",
+    "increasedheartrate"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3699-3760; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2895-2965 (foreignbody sepsis roll); SharedProject/SharedSource/NT Components/NTItemsData.cs:743-760"
+  },
+  {
+   "id": "hemotransfusionshock",
+   "howYouGetIt": "Transfusion reaction. Giving a blood pack the recipient is not compatible with adds (recipient immunity - 6) shock; alien blood adds 100.",
+   "whatItDoes": "Symptoms appear as it fades (lower = more symptoms): below 90 wheezing, below 80 abdominal pain, below 70 shortness of breath, below 60 chest pain, below 40 vomiting. XML: every 1-3 s while below 70: +1 bloodloss and organ damage (+0.25 each to liver, kidney, heart, lungs and vanilla organ damage; +0.5 each below 15).",
+   "danger": "serious",
+   "progression": "Decays 0.5/s (XML).",
+   "naturalRecovery": "true: wears off at 0.5/s, but the damage it deals while fading is permanent until healed.",
+   "treatment": "Streptokinase removes 100. Prevent it by matching blood types or lowering immunity with azathioprine first (lower immunity = smaller shock).",
+   "thresholds": [
+    {
+     "value": 15,
+     "meaning": "below: double organ damage per tick"
+    },
+    {
+     "value": 40,
+     "meaning": "below: vomiting"
+    },
+    {
+     "value": 60,
+     "meaning": "below: chest pain"
+    },
+    {
+     "value": 70,
+     "meaning": "below: shortness of breath + bloodloss/organ damage ticks"
+    },
+    {
+     "value": 80,
+     "meaning": "below: abdominal pain"
+    },
+    {
+     "value": 90,
+     "meaning": "below: wheezing"
+    }
+   ],
+   "causedBy": [
+    "item:bloodpack",
+    "item:alienblood"
+   ],
+   "leadsTo": [
+    "bloodloss",
+    "liverdamage",
+    "kidneydamage",
+    "heartdamage",
+    "lungdamage",
+    "organdamage",
+    "wheezing",
+    "abdominalpain",
+    "shortnessofbreath",
+    "chestpain",
+    "vomiting"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3639-3698; Assets/Content/XML/Afflictions/Blood.xml; SharedProject/SharedSource/NT Components/NTItemsData.cs:74-140; SharedProject/SharedSource/NT Components/NTItemsData.cs:1282-1300"
+  },
+  {
+   "id": "respiratoryarrest",
+   "howYouGetIt": "Breathing stops. Added (set to max) by: lung damage > 99 (80% per update), opiate overdose > 60, hypoxemia > 70 (5% per update), traumatic shock > 30 (20% per update), neurotrauma > 100 (5% per update), lungs removed, brain removed, morbusine poisoning, lung transplant procedures.",
+   "whatItDoes": "Adds oxygenlow +15/s (so hypoxemia climbs) and acidosis +0.18/s (when not also in cardiac arrest and not on artificial ventilation). Removes hyper/hypoventilation and shortness of breath symptoms.",
+   "danger": "lethal",
+   "progression": "Stays while any sustaining condition holds: stasis, lungs or brain removed, opiate overdose > 60, lung damage > 99, traumatic shock > 30, neurotrauma > 100, hypoxemia > 70. Otherwise it fades by 5/s, or 50/s if the patient is conscious.",
+   "naturalRecovery": "conditional: clears by itself once every sustaining condition is gone.",
+   "treatment": "Bag-valve mask (removes up to 100 respiratory arrest and oxygenlow), artificial ventilation on an operating table/hospital bed, then fix the cause (naloxone for opioids, drain/treat lungs, lower hypoxemia).",
+   "thresholds": [
+    {
+     "value": 1,
+     "meaning": "any strength stops breathing effects"
+    }
+   ],
+   "causedBy": [
+    "lungdamage",
+    "opiateoverdose",
+    "hypoxemia",
+    "traumaticshock",
+    "neurotrauma",
+    "lungremoved",
+    "brainremoved",
+    "stasis",
+    "morbusinepoisoning"
+   ],
+   "leadsTo": [
+    "oxygenlow",
+    "acidosis",
+    "hypoxemia"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:111-151; Assets/Content/XML/Afflictions/Lungs.xml"
+  },
+  {
+   "id": "pneumothorax",
+   "howYouGetIt": "Collapsed lung. Torso hits: gunshot (30% chance if the lung is hit, +5), explosion, bite, laceration, blunt trauma and internal damage (chance roughly strength/50), fall damage that breaks ribs (strength/70); an unbandaged rib fracture adds 5 every 60-120 s if none is present; a chest needle used without pneumothorax/tamponade adds 1.",
+   "whatItDoes": "Above 15 hyperventilation; above 30 harmless tachycardia; above 40 shortness of breath. Caps available oxygen at 100 - pneumothorax/2.",
+   "danger": "serious",
+   "progression": "Grows 0.5/s up to 100. With a chest needle in (needlec), it instead shrinks ~0.5/s but never below 15.",
+   "naturalRecovery": "false: grows unless treated.",
+   "treatment": "Needle decompression (needle on torso, medical 20) to hold it at 15; surgical drainage tube with torso skin retracted (>=95) removes it; lung transplant/removal resets it.",
+   "thresholds": [
+    {
+     "value": 15,
+     "meaning": "hyperventilation; needle cannot reduce below this"
+    },
+    {
+     "value": 30,
+     "meaning": "harmless tachycardia"
+    },
+    {
+     "value": 40,
+     "meaning": "shortness of breath"
+    },
+    {
+     "value": 100,
+     "meaning": "maximum"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:lacerations",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "fracturedribs",
+    "item:needle"
+   ],
+   "leadsTo": [
+    "hyperventilation",
+    "shortnessofbreath",
+    "increasedheartrate",
+    "hypoxemia"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:933-972; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:169-511; SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1698; Assets/Content/XML/Afflictions/Bones.xml (fracturedribs periodic effect)"
+  },
+  {
+   "id": "lungdamage",
+   "howYouGetIt": "Organ damage to the lungs. Gunshot to the torso (30% chance, +strength), blunt trauma and internal damage to the torso (+0-100% of strength), general organ damage from sepsis/hypoxemia/radiation, antibiotics (+0.1/s), hemotransfusion shock, liquid oxygenite, smoking (cigars/pipe), BVM misuse, organ scalpel mistakes (+20).",
+   "whatItDoes": "Above 45 shortness of breath, above 50 cough, above 99 an 80% chance per update of respiratory arrest. At exactly 100 no oxygen is absorbed at all. Above 40 it slows coma recovery.",
+   "danger": "lethal",
+   "progression": "Heals 0.01/s x healing rate x organ-heal multiplier; at 99+ it locks at 100 and never heals. Frozen in stasis.",
+   "naturalRecovery": "conditional: slow natural healing below 99; none at 99+.",
+   "treatment": "Thiamine (organ healing x5 while in blood), avoid further damage; lung transplant replaces it with a lung of the item's condition.",
+   "thresholds": [
+    {
+     "value": 45,
+     "meaning": "shortness of breath"
+    },
+    {
+     "value": 50,
+     "meaning": "cough"
+    },
+    {
+     "value": 99,
+     "meaning": "locks at 100; 80% per update respiratory arrest"
+    },
+    {
+     "value": 100,
+     "meaning": "no oxygen uptake"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "sepsis",
+    "hypoxemia",
+    "radiationsickness",
+    "afantibiotics",
+    "hemotransfusionshock",
+    "item:liquidoxygenite",
+    "item:cigar"
+   ],
+   "leadsTo": [
+    "shortnessofbreath",
+    "cough",
+    "respiratoryarrest",
+    "hypoxemia"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:261-307; SharedProject/SharedSource/Libraries/HelperFunctions.cs:2000-2017; SharedProject/SharedSource/NT Components/NTStatsData.cs:22-33; SharedProject/SharedSource/NT Components/NTItemsData.cs:586-636"
+  },
+  {
+   "id": "lungremoved",
+   "howYouGetIt": "Surgery: using the lung organ scalpel twice on the torso with skin retracted removes the lungs (first use only frees them = lungswap).",
+   "whatItDoes": "Forces respiratory arrest and unconsciousness every update; available oxygen is 0. Strength shows 100 while the torso skin is retracted, 1 otherwise.",
+   "danger": "lethal",
+   "progression": "Permanent until a lung is transplanted.",
+   "naturalRecovery": "false",
+   "treatment": "Lung transplant item on the torso with retracted skin (surgery skill 40 for full effect).",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_lungs"
+   ],
+   "leadsTo": [
+    "respiratoryarrest",
+    "unconsciousness",
+    "hypoxemia"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:308-333; SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2182; SharedProject/SharedSource/NT Components/NTItemsData.cs:586-636"
+  },
+  {
+   "id": "hyperventilation",
+   "howYouGetIt": "Fast breathing symptom. Set by hypoxemia > 10, pneumothorax > 15, sepsis > 15, adrenaline in blood > 1.",
+   "whatItDoes": "Adds alkalosis 0.09/s. Hyperventilation and hypoventilation cancel each other out. Removed during respiratory arrest.",
+   "danger": "minor",
+   "progression": "Symptom: lasts only while a cause keeps refreshing it.",
+   "naturalRecovery": "true: disappears when the cause goes.",
+   "treatment": "Treat the cause (hypoxemia, pneumothorax, sepsis).",
+   "thresholds": [],
+   "causedBy": [
+    "hypoxemia",
+    "pneumothorax",
+    "sepsis",
+    "afadrenaline"
+   ],
+   "leadsTo": [
+    "alkalosis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4104-4128"
+  },
+  {
+   "id": "hypoventilation",
+   "howYouGetIt": "Slow breathing symptom. Set by opioids in blood (afopioid > 1), anaesthetic in blood (afanaesthetic > 1), opiate overdose > 30.",
+   "whatItDoes": "Adds acidosis 0.09/s (unless on artificial ventilation). Cancels with hyperventilation. Removed during respiratory arrest.",
+   "danger": "moderate",
+   "progression": "Symptom: lasts only while a cause keeps refreshing it.",
+   "naturalRecovery": "true",
+   "treatment": "Let opioids/anaesthetic wear off, naloxone, artificial ventilation.",
+   "thresholds": [],
+   "causedBy": [
+    "afopioid",
+    "afanaesthetic",
+    "opiateoverdose"
+   ],
+   "leadsTo": [
+    "acidosis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4129-4162"
+  },
+  {
+   "id": "shortnessofbreath",
+   "howYouGetIt": "Symptom from lung damage > 45, heart damage > 80, tamponade > 10, pneumothorax > 40, hypoxemia > 20, heart attack, hemotransfusion shock < 70.",
+   "whatItDoes": "Cosmetic/diagnostic symptom; removed whenever respiratory arrest is present.",
+   "danger": "minor",
+   "progression": "Symptom.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [
+    "lungdamage",
+    "heartdamage",
+    "tamponade",
+    "pneumothorax",
+    "hypoxemia",
+    "heartattack",
+    "hemotransfusionshock"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4023-4040"
+  },
+  {
+   "id": "artificialventilation",
+   "howYouGetIt": "Lying on an operating table (+100) or hospital bed (+100).",
+   "whatItDoes": "Removes 100 oxygenlow per second if the patient has lungs; stops hypoventilation, respiratory arrest and cardiac arrest from adding acidosis.",
+   "danger": "utility",
+   "progression": "Decays 20/s, so it only lasts while on the bed/table.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:operatingtable",
+    "item:opdeco_hospitalbed"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1492-1512; Assets/Content/XML/Items/OtherEquipment.xml; Assets/Content/XML/Items/Override.xml"
+  },
+  {
+   "id": "increasedheartrate",
+   "howYouGetIt": "Always evaluated (formerly tachycardia). Harmless floor of 2 if sepsis > 20, blood amount < 60, acidosis > 20, pneumothorax > 30, adrenaline > 1 or alcohol withdrawal > 75. The dangerous part is the 'fibrillation speed' = -0.1 + aortic rupture (max 2) + acidosis/200 (max 0.5) + 2 x clamp(0.9 - (BP + 5 x pressure drug, max 20)/90) + 1.5 x hypoxemia/100 + (traumatic shock - 5)/40 (max 3) - adrenaline (max 0.9); halved if positive and adrenaline is present.",
+   "whatItDoes": "Grows by 5 x fibrillation speed per second; when it reaches 100 it converts into fibrillation 5. If the speed is negative it recovers.",
+   "danger": "serious",
+   "progression": "Rises or falls with the fibrillation speed; first evaluation is delayed 2 updates. Removed (with fibrillation) during cardiac arrest or with heart removed.",
+   "naturalRecovery": "conditional: falls when the drivers (low BP, hypoxemia, acidosis, shock, aortic rupture) are fixed.",
+   "treatment": "Fix the drivers; defibrillator (success chance (medical/100)^2) or AED clears it and fibrillation.",
+   "thresholds": [
+    {
+     "value": 100,
+     "meaning": "converts to fibrillation"
+    }
+   ],
+   "causedBy": [
+    "sepsis",
+    "bloodloss",
+    "acidosis",
+    "pneumothorax",
+    "afadrenaline",
+    "alcoholwithdrawal",
+    "aorticrupture",
+    "bloodpressure",
+    "hypoxemia",
+    "traumaticshock"
+   ],
+   "leadsTo": [
+    "fibrillation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:441-517; SharedProject/SharedSource/NT Components/NTItemsData.cs:928-1037"
+  },
+  {
+   "id": "fibrillation",
+   "howYouGetIt": "Heart quivers instead of pumping. Reached when increased heart rate hits 100 (starts at 5); grows by the fibrillation speed per second. Also from anesthesia side effects, adrenaline given in cardiac arrest (+20), and CPR converting a nearly-resolved cardiac arrest (+20).",
+   "whatItDoes": "Reduces available oxygen (x(1-fib/100)) and blood pressure (x(100-fib)/100). Above 20, each update a chance of (fib/100)^4 to cause cardiac arrest (e.g. ~0.2% at 20, 6% at 50, 41% at 80). Above 20 it also sustains cardiac arrest.",
+   "danger": "lethal",
+   "progression": "Changes by the fibrillation speed each second (can fall if drivers are fixed). Set to 0 once cardiac arrest starts.",
+   "naturalRecovery": "conditional",
+   "treatment": "Defibrillator (clears it with chance (medical/100)^2) or AED (always clears if needed); CPR reduces it 1/s; fix low BP/hypoxemia/acidosis/shock.",
+   "thresholds": [
+    {
+     "value": 20,
+     "meaning": "cardiac arrest chance (fib/100)^4 per update; sustains cardiac arrest"
+    }
+   ],
+   "causedBy": [
+    "increasedheartrate",
+    "anesthesia",
+    "item:adrenaline",
+    "cpr_buff",
+    "cpr_buff_auto"
+   ],
+   "leadsTo": [
+    "cardiacarrest",
+    "hypoxemia",
+    "bloodpressure"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:518-545; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1921-1975"
+  },
+  {
+   "id": "cardiacarrest",
+   "howYouGetIt": "Heart stops. Set by: fibrillation > 20 (chance (fib/100)^4 per update), heart damage > 99 (30% per update), hypoxemia > 80 (1% per update), traumatic shock > 40 (10% per update), coma > 40 (3% per update), heart or brain removed, morbusine poisoning, heart transplant procedures.",
+   "whatItDoes": "Blood pressure target drops to 0, available oxygen 0 (hypoxemia rises fast), acidosis +0.18/s, 5% chance per update of +14 coma.",
+   "danger": "lethal",
+   "progression": "It is cleared instantly at the next update when none of these hold: stasis, heart removed, brain removed, heart damage > 99, traumatic shock > 40, coma > 40, hypoxemia > 80, fibrillation > 20. (Because arrest itself pushes hypoxemia past 80 within seconds, in practice it usually stays; interpretation of the code.)",
+   "naturalRecovery": "conditional: only if all sustaining conditions are gone.",
+   "treatment": "CPR (cpr_buff: -2/s, +5 BP/s; when it drops to 5 or below it turns into fibrillation 20, which then needs defibrillation), AutoPulse (-1.5/s), defibrillator (clears arrest with chance (medical/100)^4), AED (clears with chance clamp(medical/200, 20%-40%)), adrenaline (-100 arrest but +20 fibrillation). Then fix hypoxemia/shock/heart damage.",
+   "thresholds": [
+    {
+     "value": 1,
+     "meaning": "any strength: no circulation"
+    },
+    {
+     "value": 5,
+     "meaning": "CPR converts arrest at or below this into fibrillation 20"
+    }
+   ],
+   "causedBy": [
+    "fibrillation",
+    "heartdamage",
+    "hypoxemia",
+    "traumaticshock",
+    "coma",
+    "heartremoved",
+    "brainremoved",
+    "stasis",
+    "morbusinepoisoning"
+   ],
+   "leadsTo": [
+    "bloodpressure",
+    "hypoxemia",
+    "acidosis",
+    "coma"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:546-587; SharedProject/SharedSource/MP+SP Serverside/Cpr.cs:1-73; SharedProject/SharedSource/NT Components/NTItemsData.cs:928-1037; SharedProject/SharedSource/NT Components/NTItemsData.cs:1373-1389"
+  },
+  {
+   "id": "heartattack",
+   "howYouGetIt": "Hypertension: blood pressure > 150 gives each update a chance of (BP-150)/50 x 2% (+50 heart attack). The Styptic Powder/antibiotic glue item ('antibleeding3') adds 100.",
+   "whatItDoes": "Sweating, shortness of breath, and heart damage +0.5/s (scaled by heart attack strength up to 0.5).",
+   "danger": "serious",
+   "progression": "Grows 1/s (the code comment says 'regeneration' but the value is +1/s). Removed if heart is removed.",
+   "naturalRecovery": "false: grows over time per code.",
+   "treatment": "Streptokinase removes 100 (but increases stroke risk while in blood); lower blood pressure.",
+   "thresholds": [],
+   "causedBy": [
+    "bloodpressure",
+    "item:antibleeding3"
+   ],
+   "leadsTo": [
+    "sweating",
+    "shortnessofbreath",
+    "heartdamage"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:641-675; SharedProject/SharedSource/NT Components/NTItemsData.cs:886-900"
+  },
+  {
+   "id": "heartdamage",
+   "howYouGetIt": "Organ damage to the heart. Gunshot to the torso hitting the heart (chance strength/50, +strength), blunt/internal damage to torso (+0-100% strength), heart attack (up to 0.5/s), general organ damage (sepsis/hypoxemia/radiation), antibiotics (+0.1/s), mannitol (+10/+20 over 10 s), hemotransfusion shock, sufforin poisoning, liquid oxygenite, organ scalpel mistakes (+20).",
+   "whatItDoes": "Above 50 cough, above 80 leg swelling and shortness of breath, above 99 a 30% chance per update of cardiac arrest (and arrest cannot clear). Above 30 slows coma recovery.",
+   "danger": "lethal",
+   "progression": "Heals 0.01/s x healing rate x organ heal multiplier; locks at 100 once at 99+. Frozen in stasis.",
+   "naturalRecovery": "conditional: slow healing below 99; none at 99+.",
+   "treatment": "Thiamine (x5 organ healing), avoid causes; heart transplant.",
+   "thresholds": [
+    {
+     "value": 50,
+     "meaning": "cough"
+    },
+    {
+     "value": 80,
+     "meaning": "leg swelling, shortness of breath"
+    },
+    {
+     "value": 99,
+     "meaning": "locks at 100; 30% per update cardiac arrest"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "heartattack",
+    "sepsis",
+    "hypoxemia",
+    "radiationsickness",
+    "afantibiotics",
+    "hemotransfusionshock",
+    "item:mannitol",
+    "sufforinpoisoning"
+   ],
+   "leadsTo": [
+    "cough",
+    "legswelling",
+    "shortnessofbreath",
+    "cardiacarrest"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:676-728; SharedProject/SharedSource/Libraries/HelperFunctions.cs:2000-2017; SharedProject/SharedSource/NT Components/NTItemsData.cs:538-584"
+  },
+  {
+   "id": "heartremoved",
+   "howYouGetIt": "Surgery: heart organ scalpel used twice on the torso with retracted skin.",
+   "whatItDoes": "Forces cardiac arrest every update. Shows 100 while torso skin is retracted, else 1.",
+   "danger": "lethal",
+   "progression": "Permanent until transplant.",
+   "naturalRecovery": "false",
+   "treatment": "Heart transplant item on torso with retracted skin.",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_heart"
+   ],
+   "leadsTo": [
+    "cardiacarrest"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:729-748; SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2235"
+  },
+  {
+   "id": "tamponade",
+   "howYouGetIt": "Blood around the heart. Gunshot to the torso hitting the heart (+5); lacerations to the torso (chance (strength-5)/50, +5).",
+   "whatItDoes": "Lowers blood pressure target by tamponade/2. Above 10 shortness of breath, above 20 cough, above 30 weakness.",
+   "danger": "lethal",
+   "progression": "Grows 0.5/s to 100; with a chest needle it shrinks ~0.5/s but not below 5. Removed if the heart is removed.",
+   "naturalRecovery": "false",
+   "treatment": "Chest needle (temporary), drainage tube or suture with torso skin retracted (>=95) removes it (unless the 'open/close tamponade' config is enabled).",
+   "thresholds": [
+    {
+     "value": 5,
+     "meaning": "needle cannot reduce below this"
+    },
+    {
+     "value": 10,
+     "meaning": "shortness of breath"
+    },
+    {
+     "value": 20,
+     "meaning": "cough"
+    },
+    {
+     "value": 30,
+     "meaning": "weakness"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:lacerations"
+   ],
+   "leadsTo": [
+    "bloodpressure",
+    "shortnessofbreath",
+    "cough",
+    "weakness"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:387-440; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:169-275; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:447-511; SharedProject/SharedSource/NT Components/NTItemsData.cs:1461-1500; SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1698"
+  },
+  {
+   "id": "aorticrupture",
+   "howYouGetIt": "Torn aorta. No damage handler in this C# code adds it; it is listed as a 'vital' scanner affliction (source probably damage XML outside this file; uncertain).",
+   "whatItDoes": "XML: every 1-3 s +8 internal bleeding and +4 blood loss unless the aorta is ballooned. Chest and abdominal pain. Raises fibrillation speed by up to +2.",
+   "danger": "lethal",
+   "progression": "Does not heal by itself.",
+   "naturalRecovery": "false",
+   "treatment": "Endovascular balloon (torso with incision) stops the bleeding (ballooned aorta, also zeroes internal bleeding), then a medical stent removes both. Suture only works with the 'hardmode aortic rupture' config.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:unknown"
+   ],
+   "leadsTo": [
+    "internalbleeding",
+    "bloodloss",
+    "chestpain",
+    "abdominalpain",
+    "fibrillation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2205-2229; Assets/Content/XML/Afflictions/Torso.xml:4-34; SharedProject/SharedSource/NT Components/NTItemsData.cs:2494-2546"
+  },
+  {
+   "id": "balloonedaorta",
+   "howYouGetIt": "Using an endovascular balloon on a torso with a surgical incision.",
+   "whatItDoes": "Stops aortic rupture/carotid bleeding ticks, reduces bleeding in all 4 limbs (XML -2 each), but causes gangrene in the extremities (+2 every 1-3 s each, XML) and organ damage +0.5/s, liver +0.5/s, kidney +0.5/s.",
+   "danger": "serious",
+   "progression": "Stays until removed.",
+   "naturalRecovery": "false",
+   "treatment": "Medical stent removes it (and the aortic rupture).",
+   "thresholds": [],
+   "causedBy": [
+    "item:endovascballoon"
+   ],
+   "leadsTo": [
+    "gangrene",
+    "organdamage",
+    "liverdamage",
+    "kidneydamage"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2185-2204; Assets/Content/XML/Afflictions/Surgical.xml; SharedProject/SharedSource/NT Components/NTItemsData.cs:2494-2546"
+  },
+  {
+   "id": "neurotrauma",
+   "howYouGetIt": "Brain damage (max 200). Hypoxemia (+hypoxemia/100 per s), sepsis (+0.4 x sepsis/100 per s), liver damage (+liver/800 per s), kidney damage (+kidney/1000 per s), stroke (up to +2/s), brain removed (+2.4 per update, +4 without mannitol), head hits from gunshots/blunt trauma/falls (70% chance, +10-40% of strength), meth/hyperzine, tourniquet on the head (+15), streptokinase with an existing stroke (+10). Mannitol in blood reduces most gains by up to 50%.",
+   "whatItDoes": "Above 100 unconsciousness and 5% per update respiratory arrest (and respiratory arrest cannot clear). XML vitality loss grows to 0.9 x max vitality at 180 and 2 x at 200 (lethal range).",
+   "danger": "lethal",
+   "progression": "Natural healing 0.1 x healing rate per second (x2.5 when that exceeds 0.08/s, i.e. ~0.25/s normally); NO healing while a skull fracture is present. Frozen in stasis.",
+   "naturalRecovery": "conditional: heals slowly unless the skull is fractured.",
+   "treatment": "Mannitol: -2/s while blood pressure >= 70 and hypoxemia <= 30 (and halves new gain); fix skull fracture (osteosynthesis) so it can regenerate; brain transplant.",
+   "thresholds": [
+    {
+     "value": 100,
+     "meaning": "unconscious, 5% per update respiratory arrest"
+    },
+    {
+     "value": 180,
+     "meaning": "vitality loss 0.9 x max vitality"
+    },
+    {
+     "value": 200,
+     "meaning": "maximum; 2 x max vitality loss"
+    }
+   ],
+   "causedBy": [
+    "hypoxemia",
+    "sepsis",
+    "liverdamage",
+    "kidneydamage",
+    "stroke",
+    "brainremoved",
+    "damage:gunshotwound",
+    "damage:blunttrauma",
+    "fall",
+    "item:tourniquet",
+    "item:meth",
+    "item:hyperzine"
+   ],
+   "leadsTo": [
+    "unconsciousness",
+    "respiratoryarrest"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1746-1789; Assets/Content/XML/Afflictions/Brain.xml"
+  },
+  {
+   "id": "stroke",
+   "howYouGetIt": "Hypertension above 150 (chance (BP-150)/50 x 2% + 5% while streptokinase is in blood, per update, +5); streptokinase given while a stroke exists (+5).",
+   "whatItDoes": "Neurotrauma +0.1 x min(stroke,20) per second (max 2/s), headache, and a 5% chance per update of +14 coma and +10 seizure.",
+   "danger": "lethal",
+   "progression": "Clears at clotting rate/20 per second (~0.05/s; slower with liver damage or streptokinase). Frozen in stasis.",
+   "naturalRecovery": "true: slowly, depends on clotting rate.",
+   "treatment": "Suture with the head skin retracted (>=95) removes it; mannitol to limit neurotrauma; lower blood pressure.",
+   "thresholds": [
+    {
+     "value": 1,
+     "meaning": "headache, coma/seizure chances"
+    }
+   ],
+   "causedBy": [
+    "bloodpressure",
+    "afstreptokinase"
+   ],
+   "leadsTo": [
+    "neurotrauma",
+    "headache",
+    "coma",
+    "seizure"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1702-1745; SharedProject/SharedSource/NT Components/NTItemsData.cs:1495-1500"
+  },
+  {
+   "id": "seizure",
+   "howYouGetIt": "Radiation sickness >= 50 (chance strength/200 x 10%), opiate overdose > 60 (chance od/500), alcohol withdrawal > 50 (strength/1000), alkalosis > 60 (5%), acidosis > 60 (5%), stroke (5%), anesthesia side effects. Usually +10 per trigger.",
+   "whatItDoes": "Unconsciousness and random limb spasms while above 0.1.",
+   "danger": "serious",
+   "progression": "Decays 1/s.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the trigger.",
+   "thresholds": [],
+   "causedBy": [
+    "radiationsickness",
+    "opiateoverdose",
+    "alcoholwithdrawal",
+    "alkalosis",
+    "acidosis",
+    "stroke",
+    "anesthesia"
+   ],
+   "leadsTo": [
+    "unconsciousness",
+    "spasm"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1790-1819"
+  },
+  {
+   "id": "coma",
+   "howYouGetIt": "Cardiac arrest (5% per update, +14), stroke (5%, +14), acidosis > 60 (chance 5% + (acidosis-60)%, +14), naloxone ('antinarc') +0.5, morbusine poisoning per header comment.",
+   "whatItDoes": "Above 15 unconsciousness; above 40 a 3% chance per update of cardiac arrest, and blocks cardiac arrest from clearing.",
+   "danger": "lethal",
+   "progression": "Decays 0.5/s if acidosis < 20, alkalosis < 20, heart damage < 30, lung damage < 40 and available oxygen > 60; otherwise only 0.2/s. Frozen in stasis.",
+   "naturalRecovery": "true: always decays, faster with healthy vitals.",
+   "treatment": "Correct acid-base balance, oxygenation and organ damage to speed recovery.",
+   "thresholds": [
+    {
+     "value": 15,
+     "meaning": "unconscious"
+    },
+    {
+     "value": 40,
+     "meaning": "3% cardiac arrest chance per update"
+    }
+   ],
+   "causedBy": [
+    "cardiacarrest",
+    "stroke",
+    "acidosis",
+    "item:antinarc"
+   ],
+   "leadsTo": [
+    "unconsciousness",
+    "cardiacarrest"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1820-1864"
+  },
+  {
+   "id": "concussion",
+   "howYouGetIt": "Head hits of strength >= 15 from explosions, bites, blunt trauma, internal damage (chance min(strength/60, 70%)) and falls (min(strength/100, 70%)); amount up to 10, reduced by helmet/suit concussion resistance.",
+   "whatItDoes": "Random symptom (chance 2-8% per update scaling with strength): nausea, blurred vision, headache or confusion for several updates. Slight screen blur (XML).",
+   "danger": "minor",
+   "progression": "Decays 0.01/s (max 10).",
+   "naturalRecovery": "true",
+   "treatment": "Wait; helmets reduce it.",
+   "thresholds": [
+    {
+     "value": 10,
+     "meaning": "maximum"
+    }
+   ],
+   "causedBy": [
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "fall"
+   ],
+   "leadsTo": [
+    "nausea_nt",
+    "blurredvision",
+    "headache",
+    "confusion"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4163-4219; Assets/Content/XML/Afflictions/Overrides.xml"
+  },
+  {
+   "id": "brainremoved",
+   "howYouGetIt": "Surgery: brain organ scalpel used twice on the head with retracted skin.",
+   "whatItDoes": "Forces cardiac arrest, respiratory arrest and unconsciousness; neurotrauma +2.4 per update (+4.0 without mannitol).",
+   "danger": "lethal",
+   "progression": "Permanent until a brain transplant.",
+   "naturalRecovery": "false",
+   "treatment": "Brain transplant item (reduces neurotrauma by its condition).",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_brain"
+   ],
+   "leadsTo": [
+    "cardiacarrest",
+    "respiratoryarrest",
+    "unconsciousness",
+    "neurotrauma"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:342-378; SharedProject/SharedSource/NT Components/NTItemsData.cs:690-711; SharedProject/SharedSource/NT Components/NTItemsData.cs:2292-2340"
+  },
+  {
+   "id": "spinalcordinjury",
+   "howYouGetIt": "An unstable (unbandaged) fractured neck at 100 adds 5 every 20-50 s (XML).",
+   "whatItDoes": "Paralysis: speed multiplier set to -9001 (cannot move), stunned, and it keeps analgesia at least ~5 (no pain). Enables 'give in' option.",
+   "danger": "serious",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Spinal implant surgery (head/neck with retracted skin, surgery skill 45) removes it.",
+   "thresholds": [],
+   "causedBy": [
+    "fracturedneck"
+   ],
+   "leadsTo": [
+    "stun",
+    "analgesia"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1865-1874; Assets/Content/XML/Afflictions/Head.xml; Assets/Content/XML/Afflictions/Bones.xml; SharedProject/SharedSource/NT Components/NTItemsData.cs:1808-1853; SharedProject/SharedSource/NT Components/NTStatsData.cs:75-116"
+  },
+  {
+   "id": "carotidarterialcut",
+   "howYouGetIt": "Cut neck artery. Not added by OnDamaged.cs; source is outside this C# code (uncertain).",
+   "whatItDoes": "Grows 1/s; every 1-3 s +8 internal bleeding and +4 blood loss unless the aorta is ballooned (XML).",
+   "danger": "lethal",
+   "progression": "Grows 1/s (XML).",
+   "naturalRecovery": "false",
+   "treatment": "Suture with the head skin retracted (>=95).",
+   "thresholds": [],
+   "causedBy": [
+    "damage:unknown"
+   ],
+   "leadsTo": [
+    "internalbleeding",
+    "bloodloss"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1875-1884; Assets/Content/XML/Afflictions/Head.xml; SharedProject/SharedSource/NT Components/NTItemsData.cs:1461-1468"
+  },
+  {
+   "id": "fracturedskull",
+   "howYouGetIt": "Head hits: gunshot (chance strength/90), explosion/bite/blunt/internal/laceration at strength >= 15 (chance ~(strength-10)/60, max 70%), falls >= 15 strength, bone damage > 90 (1% per limb per update).",
+   "whatItDoes": "Headache (if conscious); completely stops neurotrauma regeneration.",
+   "danger": "serious",
+   "progression": "Grows 4/s once present (to 100).",
+   "naturalRecovery": "false",
+   "treatment": "Osteosynthesis implants on the head after drilling (surgery skill 45).",
+   "thresholds": [
+    {
+     "value": 1,
+     "meaning": "blocks neurotrauma healing"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "damage:lacerations",
+    "fall",
+    "bonedamage"
+   ],
+   "leadsTo": [
+    "headache",
+    "neurotrauma"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:195-222; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1640-1662; SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1807"
+  },
+  {
+   "id": "fracturedneck",
+   "howYouGetIt": "Head hits at strength >= 15 from explosions, blunt trauma and internal damage (chance ~min((strength-10)/60, 70%)), falls with head strength >= 55.",
+   "whatItDoes": "If not bandaged: +0.1 internal damage per second (XML) and, once at 100, +5 spinal cord injury every 20-50 s.",
+   "danger": "serious",
+   "progression": "Grows 4/s to 100.",
+   "naturalRecovery": "false",
+   "treatment": "Bandage the head to stabilise; osteosynthesis implants to fix.",
+   "thresholds": [
+    {
+     "value": 100,
+     "meaning": "spinal cord injury risk if unbandaged"
+    }
+   ],
+   "causedBy": [
+    "damage:explosiondamage",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "fall"
+   ],
+   "leadsTo": [
+    "internaldamage",
+    "spinalcordinjury"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:177-194; Assets/Content/XML/Afflictions/Bones.xml; SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1807"
+  },
+  {
+   "id": "fracturedribs",
+   "howYouGetIt": "Torso hits: gunshot (chance strength x 2%, max 30%), explosion >= 10 (strength/50), bite/laceration >= 10 ((strength-10)/50), blunt trauma (strength/50), internal damage ((strength-5)/50), falls ((strength-15)/100), failed CPR (0.2/medical skill), bone damage > 90.",
+   "whatItDoes": "Chest pain (if conscious and not sedated); if unbandaged, +5 pneumothorax every 60-120 s when none is present (XML).",
+   "danger": "serious",
+   "progression": "Grows 4/s to 100.",
+   "naturalRecovery": "false",
+   "treatment": "Bandage the torso to prevent pneumothorax; osteosynthesis implants after drilling.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:lacerations",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "fall",
+    "item:cpr",
+    "bonedamage"
+   ],
+   "leadsTo": [
+    "chestpain",
+    "pneumothorax"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:152-176; SharedProject/SharedSource/MP+SP Serverside/Cpr.cs:40-66; Assets/Content/XML/Afflictions/Bones.xml"
+  },
+  {
+   "id": "kidneydamage",
+   "howYouGetIt": "Gunshot to the torso (50% chance a missed lung/heart hit goes to liver or kidney, +strength), blunt/internal damage to torso (+0-100% strength), general organ damage (sepsis/hypoxemia/radiation), high blood pressure (> 120), antibiotics (+0.175/s), mannitol (+10/+20 over 10 s), ballooned aorta (+0.5/s), hemotransfusion shock, sufforin poisoning, organ scalpel mistakes (+10).",
+   "whatItDoes": "Raises blood pressure target (up to x1.5 at 100). Neurotrauma +kidney/1000 per second. Above 60 nausea, leg swelling and a vomiting chance ((k-60)/40 x 7% per update); above 70 bone damage +(k-70)/30 x 0.15 per second; above 80 acidosis +(k-80)/20 x 0.1 per second.",
+   "danger": "serious",
+   "progression": "Heals 0.02/s below 50, does not heal between 50 and 51, heals 0.01/s from 51 to 99, locks at 100 from 99+ (x healing rate x organ-heal multiplier). Frozen in stasis.",
+   "naturalRecovery": "conditional: below 99, except the 50-51 plateau.",
+   "treatment": "Thiamine (x5 organ healing), keep blood pressure normal, kidney transplant (kidney damage drops by half the item condition).",
+   "thresholds": [
+    {
+     "value": 50,
+     "meaning": "healing slows/plateaus 50-51"
+    },
+    {
+     "value": 60,
+     "meaning": "nausea, leg swelling, vomiting chance"
+    },
+    {
+     "value": 70,
+     "meaning": "bone damage"
+    },
+    {
+     "value": 80,
+     "meaning": "acidosis"
+    },
+    {
+     "value": 99,
+     "meaning": "locks at 100"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "sepsis",
+    "hypoxemia",
+    "radiationsickness",
+    "bloodpressure",
+    "afantibiotics",
+    "item:mannitol",
+    "balloonedaorta",
+    "hemotransfusionshock",
+    "sufforinpoisoning"
+   ],
+   "leadsTo": [
+    "bloodpressure",
+    "neurotrauma",
+    "nausea_nt",
+    "legswelling",
+    "vomiting",
+    "bonedamage",
+    "acidosis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:758-821; SharedProject/SharedSource/Libraries/HelperFunctions.cs:2019-2038; SharedProject/SharedSource/NT Components/NTItemsData.cs:638-688"
+  },
+  {
+   "id": "liverdamage",
+   "howYouGetIt": "Same torso damage sources as kidneys (gunshot liver hit, blunt/internal trauma), general organ damage (sepsis/hypoxemia/radiation), antibiotics (+0.175/s), drinking (drunk > 40: +0.1-0.2), ballooned aorta (+0.5/s), hemotransfusion shock, sufforin poisoning, organ scalpel mistakes (+20).",
+   "whatItDoes": "Raises blood pressure target (up to x1.5). Lowers clotting rate (x(1-liver/100)) so bleeding, internal bleeding and strokes heal slower. Neurotrauma +liver/800 per second. Above 40 leg swelling, above 50 bloating, above 65 abdominal discomfort, above 80 jaundice, at 99+ a 5% chance per update of vomiting blood and +2 internal bleeding.",
+   "danger": "serious",
+   "progression": "Heals 0.01/s x healing rate x organ-heal multiplier; locks at 100 at 99+. Frozen in stasis.",
+   "naturalRecovery": "conditional: below 99.",
+   "treatment": "Thiamine, stop drinking/antibiotic overuse, liver transplant.",
+   "thresholds": [
+    {
+     "value": 40,
+     "meaning": "leg swelling"
+    },
+    {
+     "value": 50,
+     "meaning": "bloating"
+    },
+    {
+     "value": 65,
+     "meaning": "abdominal discomfort"
+    },
+    {
+     "value": 80,
+     "meaning": "jaundice"
+    },
+    {
+     "value": 99,
+     "meaning": "locks at 100; internal bleeding chance"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "sepsis",
+    "hypoxemia",
+    "radiationsickness",
+    "afantibiotics",
+    "drunk",
+    "balloonedaorta",
+    "hemotransfusionshock",
+    "sufforinpoisoning"
+   ],
+   "leadsTo": [
+    "bloodpressure",
+    "neurotrauma",
+    "legswelling",
+    "bloating",
+    "abdominaldiscomfort",
+    "jaundice",
+    "vomitingblood",
+    "internalbleeding"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:838-908; SharedProject/SharedSource/NT Components/NTStatsData.cs:34-41; SharedProject/SharedSource/NT Components/NTItemsData.cs:486-536"
+  },
+  {
+   "id": "organdamage",
+   "howYouGetIt": "Vanilla generic organ damage, used by NT as a side counter: gunshots (strength/4), blunt/internal torso trauma, antibiotics (+0.2/s), mannitol, ballooned aorta (+0.5/s), hemotransfusion shock, needle misuse (+10), organ scalpels, transplants.",
+   "whatItDoes": "Vitality loss up to 2 x max vitality at 200 (XML). No other NT logic.",
+   "danger": "serious",
+   "progression": "Decays 0.01/s (XML).",
+   "naturalRecovery": "true: very slow.",
+   "treatment": "Transplants reduce it; deusizine.",
+   "thresholds": [
+    {
+     "value": 200,
+     "meaning": "maximum"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "afantibiotics",
+    "balloonedaorta",
+    "hemotransfusionshock"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:909-916; Assets/Content/XML/Afflictions/Overrides.xml"
+  },
+  {
+   "id": "infectedcavity",
+   "howYouGetIt": "Gunshot to the torso that hits liver/kidneys (+5).",
+   "whatItDoes": "Drains immunity 1-1.4/s. Above 5 nausea, fever, abdominal pain; above 40 abdominal discomfort. (Header says it leads to sepsis, but the code shown does not add sepsis directly.)",
+   "danger": "lethal",
+   "progression": "If no antibiotics in blood or already above 20: grows by 0.65 - 0.0125 x max(0.44 x immunity, 20) per second (+0.1/s at full immunity, up to +0.4/s at low immunity). With antibiotics and <= 20 it shrinks 0.8/s. Paused by combat stimulant and stasis.",
+   "naturalRecovery": "false",
+   "treatment": "Early: broad-spectrum antibiotics while still <= 20. Later: surgery - retract torso skin and spray it with an antiseptic sprayer loaded with saline (cavity cleaning reaches 100 and removes it).",
+   "thresholds": [
+    {
+     "value": 5,
+     "meaning": "nausea, fever, abdominal pain"
+    },
+    {
+     "value": 20,
+     "meaning": "antibiotics no longer shrink it"
+    },
+    {
+     "value": 40,
+     "meaning": "abdominal discomfort"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound"
+   ],
+   "leadsTo": [
+    "immunity",
+    "nausea_nt",
+    "fever",
+    "abdominalpain",
+    "abdominaldiscomfort"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:588-640; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:169-275; SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2493"
+  },
+  {
+   "id": "caviclean",
+   "howYouGetIt": "Antiseptic sprayer with saline used on the torso while infected cavity and retracted skin are present.",
+   "whatItDoes": "When it reaches 100 it removes itself and the infected cavity.",
+   "danger": "utility",
+   "progression": "Grows 10/s (XML).",
+   "naturalRecovery": "n/a",
+   "treatment": "Removed by suturing.",
+   "thresholds": [
+    {
+     "value": 100,
+     "meaning": "cures infected cavity"
+    }
+   ],
+   "causedBy": [
+    "item:antisepticspray"
+   ],
+   "leadsTo": [
+    "infectedcavity"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2111-2131; SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2493"
+  },
+  {
+   "id": "lungswap",
+   "howYouGetIt": "Surgery: first use of the lung organ scalpel with skin retracted frees the organ for a swap.",
+   "whatItDoes": "No effect by itself; marks that the organ is detached. Removed when the incision is sutured.",
+   "danger": "utility",
+   "progression": "Static.",
+   "naturalRecovery": "n/a",
+   "treatment": "Suture the incision.",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_lungs"
+   ],
+   "leadsTo": [
+    "lungremoved"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:334-341; SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1460"
+  },
+  {
+   "id": "brainswap",
+   "howYouGetIt": "Surgery: first use of the brain organ scalpel with skin retracted frees the organ for a swap.",
+   "whatItDoes": "No effect by itself; marks that the organ is detached. Removed when the incision is sutured.",
+   "danger": "utility",
+   "progression": "Static.",
+   "naturalRecovery": "n/a",
+   "treatment": "Suture the incision.",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_brain"
+   ],
+   "leadsTo": [
+    "brainremoved"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:379-386; SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1460"
+  },
+  {
+   "id": "heartswap",
+   "howYouGetIt": "Surgery: first use of the heart organ scalpel with skin retracted frees the organ for a swap.",
+   "whatItDoes": "No effect by itself; marks that the organ is detached. Removed when the incision is sutured.",
+   "danger": "utility",
+   "progression": "Static.",
+   "naturalRecovery": "n/a",
+   "treatment": "Suture the incision.",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_heart"
+   ],
+   "leadsTo": [
+    "heartremoved"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:749-757; SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1460"
+  },
+  {
+   "id": "kidneyswap",
+   "howYouGetIt": "Surgery: first use of the kidney organ scalpel with skin retracted frees the organ for a swap.",
+   "whatItDoes": "No effect by itself; marks that the organ is detached. Removed when the incision is sutured.",
+   "danger": "utility",
+   "progression": "Static.",
+   "naturalRecovery": "n/a",
+   "treatment": "Suture the incision.",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_kidneys"
+   ],
+   "leadsTo": [
+    "kidneyremoved"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:830-837; SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1460"
+  },
+  {
+   "id": "liverswap",
+   "howYouGetIt": "Surgery: first use of the liver organ scalpel with skin retracted frees the organ for a swap.",
+   "whatItDoes": "No effect by itself; marks that the organ is detached. Removed when the incision is sutured.",
+   "danger": "utility",
+   "progression": "Static.",
+   "naturalRecovery": "n/a",
+   "treatment": "Suture the incision.",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_liver"
+   ],
+   "leadsTo": [
+    "liverremoved"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:925-932; SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1460"
+  },
+  {
+   "id": "kidneyremoved",
+   "howYouGetIt": "Kidney organ scalpel used twice (removal). Kidney damage is set to 100 (or 50 if only one kidney was taken, per item code).",
+   "whatItDoes": "No effect by itself; the kidney damage it sets causes the effects.",
+   "danger": "serious",
+   "progression": "Permanent until transplant.",
+   "naturalRecovery": "false",
+   "treatment": "Kidney transplant.",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_kidneys"
+   ],
+   "leadsTo": [
+    "kidneydamage"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:822-829; SharedProject/SharedSource/NT Components/NTItemsData.cs:2236-2291"
+  },
+  {
+   "id": "liverremoved",
+   "howYouGetIt": "Liver organ scalpel used twice; liver damage is set to 100.",
+   "whatItDoes": "No effect by itself; liver damage 100 causes the effects.",
+   "danger": "serious",
+   "progression": "Permanent until transplant.",
+   "naturalRecovery": "false",
+   "treatment": "Liver transplant.",
+   "thresholds": [],
+   "causedBy": [
+    "item:organscalpel_liver"
+   ],
+   "leadsTo": [
+    "liverdamage"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:917-924; SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2128"
+  },
+  {
+   "id": "opiateoverdose",
+   "howYouGetIt": "Opioid painkillers: opium, morphine ('antidama1'), fentanyl ('antidama2', +5/+8), BVM analgesic gas; more per dose when given repeatedly.",
+   "whatItDoes": "Above 30 hypoventilation; above 50 speed x0.5; above 60 respiratory arrest every update, unconsciousness and a seizure chance of strength/500 per update. Keeps respiratory arrest from clearing above 60.",
+   "danger": "lethal",
+   "progression": "Decays 0.4/s below 50 and only 0.1/s above 50 (XML).",
+   "naturalRecovery": "true: slowly.",
+   "treatment": "Naloxone ('antinarc') removes 2-3 per tick along with opioids/analgesia (may add a little coma); breathe for the patient (BVM / ventilation) until it drops below 60.",
+   "thresholds": [
+    {
+     "value": 30,
+     "meaning": "hypoventilation"
+    },
+    {
+     "value": 50,
+     "meaning": "slow decay, speed halved"
+    },
+    {
+     "value": 60,
+     "meaning": "respiratory arrest, unconscious, seizures"
+    }
+   ],
+   "causedBy": [
+    "item:opium",
+    "item:antidama1",
+    "item:antidama2",
+    "item:bvm"
+   ],
+   "leadsTo": [
+    "hypoventilation",
+    "respiratoryarrest",
+    "unconsciousness",
+    "seizure"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:223-260; Assets/Content/XML/Afflictions/Overrides.xml; Assets/Content/XML/Items/Override.xml"
+  },
+  {
+   "id": "afopioid",
+   "howYouGetIt": "Opioid level in blood from opium, morphine, fentanyl, BVM gas, operating table analgesic tank.",
+   "whatItDoes": "Above 1: hypoventilation (-> acidosis).",
+   "danger": "minor",
+   "progression": "Decays 0.3/s.",
+   "naturalRecovery": "true",
+   "treatment": "Wears off; naloxone removes it.",
+   "thresholds": [
+    {
+     "value": 1,
+     "meaning": "hypoventilation"
+    }
+   ],
+   "causedBy": [
+    "item:opium",
+    "item:antidama1",
+    "item:antidama2",
+    "item:operatingtable"
+   ],
+   "leadsTo": [
+    "hypoventilation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1430-1453"
+  },
+  {
+   "id": "afanaesthetic",
+   "howYouGetIt": "Propofol (+100).",
+   "whatItDoes": "Above 1: hypoventilation.",
+   "danger": "minor",
+   "progression": "Decays 0.3/s.",
+   "naturalRecovery": "true",
+   "treatment": "Wears off; anaparalyzant removes it.",
+   "thresholds": [
+    {
+     "value": 1,
+     "meaning": "hypoventilation"
+    }
+   ],
+   "causedBy": [
+    "item:propofol"
+   ],
+   "leadsTo": [
+    "hypoventilation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1454-1476; SharedProject/SharedSource/NT Components/NTItemsData.cs:903-927"
+  },
+  {
+   "id": "opiatewithdrawal",
+   "howYouGetIt": "Opiate addiction (XML): addiction 20-40 adds 0.15, 40-80 adds 0.25, 80-100 adds 0.5 per tick when not dosing.",
+   "whatItDoes": "Counts toward 'withdrawal' stat: speed x0.9 above 20, x0.7 above 40, x0.5 above 80.",
+   "danger": "moderate",
+   "progression": "Decays 0.05-0.2/s (XML).",
+   "naturalRecovery": "true",
+   "treatment": "Another opioid dose removes some (opium/morphine/fentanyl), or wait it out.",
+   "thresholds": [
+    {
+     "value": 20,
+     "meaning": "speed x0.9"
+    },
+    {
+     "value": 40,
+     "meaning": "speed x0.7"
+    },
+    {
+     "value": 80,
+     "meaning": "speed x0.5"
+    }
+   ],
+   "causedBy": [
+    "opiateaddiction"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1518-1522; Assets/Content/XML/Afflictions/Overrides.xml; SharedProject/SharedSource/NT Components/NTStatsData.cs:60-64"
+  },
+  {
+   "id": "chemwithdrawal",
+   "howYouGetIt": "Chem addiction (meth/hyperzine) - XML: addiction 20+ adds 0.1-0.8 per tick.",
+   "whatItDoes": "Speed reduction (x0.9 / x0.7 / x0.5 at 20/40/80), via the shared withdrawal stat and XML.",
+   "danger": "moderate",
+   "progression": "Decays 0.05-0.2/s (XML).",
+   "naturalRecovery": "true",
+   "treatment": "Another dose of the stimulant, or wait. Combat stimulant talent reduces it.",
+   "thresholds": [
+    {
+     "value": 20,
+     "meaning": "speed x0.9"
+    },
+    {
+     "value": 40,
+     "meaning": "speed x0.7"
+    },
+    {
+     "value": 80,
+     "meaning": "speed x0.5"
+    }
+   ],
+   "causedBy": [
+    "chemaddiction"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1513-1517; Assets/Content/XML/Afflictions/Overrides.xml; SharedProject/SharedSource/NT Components/NTStatsData.cs:60-64"
+  },
+  {
+   "id": "alcoholaddiction",
+   "howYouGetIt": "Drinking: drunk 20-40 adds 0.05, above 40 adds 0.1 per tick (XML).",
+   "whatItDoes": "XML: at 20-40 adds 0.1 alcohol withdrawal, 40-80 adds 0.25, 80+ adds 0.5 per tick.",
+   "danger": "moderate",
+   "progression": "Decays 0.02-0.05/s (XML).",
+   "naturalRecovery": "true: slowly.",
+   "treatment": "Stop drinking and ride out withdrawal; drinking suppresses withdrawal.",
+   "thresholds": [
+    {
+     "value": 20,
+     "meaning": "withdrawal starts"
+    }
+   ],
+   "causedBy": [
+    "drunk"
+   ],
+   "leadsTo": [
+    "alcoholwithdrawal"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1523-1532; Assets/Content/XML/Afflictions/Functionality.xml"
+  },
+  {
+   "id": "alcoholwithdrawal",
+   "howYouGetIt": "Alcohol addiction without drinking (XML).",
+   "whatItDoes": "Above 20 craving, 30 sweating, 40 nausea, 50 headache + seizure chance (strength/1000 per update), 60 vomiting, 80 confusion, 90 fever. Above 75 harmless tachycardia; raises blood pressure target (x(1+w/200)). Counts in the withdrawal speed penalty.",
+   "danger": "serious",
+   "progression": "Decays 0.05-0.2/s (XML).",
+   "naturalRecovery": "true",
+   "treatment": "Drinking alcohol removes 1-2 per tick; antipsychosis medicine (haloperidol) removes 25-100.",
+   "thresholds": [
+    {
+     "value": 20,
+     "meaning": "craving"
+    },
+    {
+     "value": 30,
+     "meaning": "sweating"
+    },
+    {
+     "value": 40,
+     "meaning": "nausea"
+    },
+    {
+     "value": 50,
+     "meaning": "headache, seizures"
+    },
+    {
+     "value": 60,
+     "meaning": "vomiting"
+    },
+    {
+     "value": 75,
+     "meaning": "tachycardia"
+    },
+    {
+     "value": 80,
+     "meaning": "confusion"
+    },
+    {
+     "value": 90,
+     "meaning": "fever"
+    }
+   ],
+   "causedBy": [
+    "alcoholaddiction"
+   ],
+   "leadsTo": [
+    "craving",
+    "sweating",
+    "nausea_nt",
+    "headache",
+    "seizure",
+    "vomiting",
+    "confusion",
+    "fever",
+    "increasedheartrate",
+    "bloodpressure"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1533-1604; Assets/Content/XML/Items/Override.xml"
+  },
+  {
+   "id": "drunk",
+   "howYouGetIt": "Drinking alcohol (vanilla override).",
+   "whatItDoes": "Above 20 gives some analgesia, counts as 'sedated' (no pain/surgery shock checks); above 40 liver damage +0.1-0.2 and alcohol addiction; speed x0.8/x0.7/x0.5 above 20/40/80; above 100 vomiting.",
+   "danger": "minor",
+   "progression": "Decays 0.1-0.2/s (XML).",
+   "naturalRecovery": "true",
+   "treatment": "Wait.",
+   "thresholds": [
+    {
+     "value": 20,
+     "meaning": "sedated, analgesia"
+    },
+    {
+     "value": 40,
+     "meaning": "liver damage, addiction"
+    },
+    {
+     "value": 80,
+     "meaning": "speed x0.5"
+    },
+    {
+     "value": 100,
+     "meaning": "vomiting"
+    }
+   ],
+   "causedBy": [
+    "item:alcohol"
+   ],
+   "leadsTo": [
+    "analgesia",
+    "liverdamage",
+    "alcoholaddiction",
+    "vomiting"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:33-54; Assets/Content/XML/Afflictions/Overrides.xml; SharedProject/SharedSource/NT Components/NTStatsData.cs:52-59"
+  },
+  {
+   "id": "psychosis",
+   "howYouGetIt": "Traumatic shock (shock/100 per second while conscious), alien blood (+30), anesthesia side effects (+10), stimulants, anaparalyzant (+5).",
+   "whatItDoes": "Vanilla psychosis (hallucinations).",
+   "danger": "moderate",
+   "progression": "Vanilla behaviour.",
+   "naturalRecovery": "true (vanilla)",
+   "treatment": "Antipsychosis medicine, Blahaj (-2), cigars/pipe.",
+   "thresholds": [],
+   "causedBy": [
+    "traumaticshock",
+    "item:alienblood",
+    "anesthesia",
+    "item:meth"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:55-66"
+  },
+  {
+   "id": "radiationsickness",
+   "howYouGetIt": "Radiation, radiotoxin, health scanner use (+1 target, +0.6 user per scan).",
+   "whatItDoes": "Above 25: extra lung and bone damage (scaled from existing damage) and organ damage to heart/liver/kidneys ((rad-25)/400 per second). At/above 50 seizure chance rad/200 x 10% per update. Above 80 nausea. XML: burns.",
+   "danger": "serious",
+   "progression": "Decays 0.02/s.",
+   "naturalRecovery": "true: very slowly.",
+   "treatment": "Vanilla anti-radiation treatments (not in this code).",
+   "thresholds": [
+    {
+     "value": 25,
+     "meaning": "organ/bone damage"
+    },
+    {
+     "value": 50,
+     "meaning": "seizures"
+    },
+    {
+     "value": 80,
+     "meaning": "nausea"
+    }
+   ],
+   "causedBy": [
+    "item:healthscanner"
+   ],
+   "leadsTo": [
+    "lungdamage",
+    "bonedamage",
+    "heartdamage",
+    "liverdamage",
+    "kidneydamage",
+    "seizure",
+    "nausea_nt"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:67-110; SharedProject/SharedSource/NT Components/NTItemsData.cs:1108-1160"
+  },
+  {
+   "id": "afadrenaline",
+   "howYouGetIt": "Adrenaline item (+55).",
+   "whatItDoes": "Blood pressure target +10 per point (max +30), hyperventilation above 1, halves and reduces fibrillation speed (up to -0.9), +speed (adrenaline/100), keeps analgesia ~5, melee damage bonus; legs: walking on an uncasted fracture causes bleeding (+15).",
+   "danger": "beneficial",
+   "progression": "Decays 1/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:adrenaline"
+   ],
+   "leadsTo": [
+    "bloodpressure",
+    "hyperventilation",
+    "analgesia",
+    "bleeding"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1885-1910"
+  },
+  {
+   "id": "afsaline",
+   "howYouGetIt": "Saline ('antibloodloss1') over 10 s (50, or 30 on skill fail).",
+   "whatItDoes": "Blood pressure target +5 per point (max +30); acidosis +0.1/s.",
+   "danger": "beneficial",
+   "progression": "Decays 0.25/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:saline"
+   ],
+   "leadsTo": [
+    "bloodpressure",
+    "acidosis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1925-1939"
+  },
+  {
+   "id": "afringerssolution",
+   "howYouGetIt": "Ringer's solution over 10 s (50/30).",
+   "whatItDoes": "Blood pressure target +5 per point (max +30); alkalosis +0.1/s.",
+   "danger": "beneficial",
+   "progression": "Decays 0.25/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:ringerssolution"
+   ],
+   "leadsTo": [
+    "bloodpressure",
+    "alkalosis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1940-1963"
+  },
+  {
+   "id": "afmannitol",
+   "howYouGetIt": "Mannitol over 10 s (50/30); also causes organ/heart/kidney damage.",
+   "whatItDoes": "Reduces neurotrauma gain by up to 50%; -2 neurotrauma/s while BP >= 70 and hypoxemia <= 30.",
+   "danger": "beneficial",
+   "progression": "Decays 0.5/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:mannitol"
+   ],
+   "leadsTo": [
+    "neurotrauma"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1964-1988"
+  },
+  {
+   "id": "afimmunosuppressant",
+   "howYouGetIt": "Azathioprine over 10 s (50/30); failure may add sepsis.",
+   "whatItDoes": "Immunity -4/s while immunity >= 2.5.",
+   "danger": "beneficial",
+   "progression": "Decays 0.25/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:immunosuppressant"
+   ],
+   "leadsTo": [
+    "immunity"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1989-2012"
+  },
+  {
+   "id": "afpressuredrug",
+   "howYouGetIt": "Nitroglycerin (+100, or 50) or sodium nitroprusside ('pressuremeds', 50/30 over 10 s).",
+   "whatItDoes": "Lowers blood pressure target by 5 per point (max -45); in the fibrillation formula it counts as up to +20 BP (protective). Header calls it 'pressure-increasing' but the code subtracts.",
+   "danger": "beneficial",
+   "progression": "Decays 0.25/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:pressuredrug"
+   ],
+   "leadsTo": [
+    "bloodpressure"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2013-2032"
+  },
+  {
+   "id": "afthiamine",
+   "howYouGetIt": "Thiamine over 10 s (50/30).",
+   "whatItDoes": "Organ damage healing multiplier +4 (x5 total) while present.",
+   "danger": "beneficial",
+   "progression": "Decays 0.25/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:thiamine"
+   ],
+   "leadsTo": [
+    "heartdamage",
+    "lungdamage",
+    "liverdamage",
+    "kidneydamage"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2033-2052"
+  },
+  {
+   "id": "afstreptokinase",
+   "howYouGetIt": "Streptokinase (+50; also removes heart attack and hemotransfusion shock).",
+   "whatItDoes": "Blocks new heart attacks from hypertension but adds +5% stroke chance at BP > 150; reduces clotting rate (x(1-strepto), so 0 clotting at >= 1).",
+   "danger": "beneficial",
+   "progression": "Decays 0.25/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:streptokinase"
+   ],
+   "leadsTo": [
+    "stroke"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2053-2073"
+  },
+  {
+   "id": "afantibiotics",
+   "howYouGetIt": "Broad-spectrum antibiotics.",
+   "whatItDoes": "Sepsis -1/s, husk infection -0.5/s (if < 75), infected cavity shrinks if <= 20; side effects: organ damage +0.2/s, kidney +0.175, liver +0.175, heart +0.1, lung +0.1 per second.",
+   "danger": "beneficial",
+   "progression": "Decays 0.5/s.",
+   "naturalRecovery": "n/a (drug level)",
+   "treatment": "Wears off.",
+   "thresholds": [],
+   "causedBy": [
+    "item:antibiotics"
+   ],
+   "leadsTo": [
+    "sepsis",
+    "infectedcavity",
+    "organdamage",
+    "kidneydamage",
+    "liverdamage",
+    "heartdamage",
+    "lungdamage"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2074-2110"
+  },
+  {
+   "id": "needlec",
+   "howYouGetIt": "Chest needle on the torso (no retracted skin, medical 20) when pneumothorax or tamponade is present (+100).",
+   "whatItDoes": "Pneumothorax shrinks toward 15 and tamponade toward 5 instead of growing.",
+   "danger": "beneficial",
+   "progression": "Decays 0.15/s (~11 minutes).",
+   "naturalRecovery": "n/a",
+   "treatment": "Removed by drainage / lung procedures.",
+   "thresholds": [],
+   "causedBy": [
+    "item:needle"
+   ],
+   "leadsTo": [
+    "pneumothorax",
+    "tamponade"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1911-1924; SharedProject/SharedSource/NT Components/NTItemsData.cs:1660-1698"
+  },
+  {
+   "id": "combatstimulant",
+   "howYouGetIt": "Talent buff (combat stimulant).",
+   "whatItDoes": "XML: rapidly heals damage, burns, blood loss, bleeding, internal bleeding and chem withdrawal (0.1-0.2 per 0.1 s); pauses infected-cavity growth.",
+   "danger": "beneficial",
+   "progression": "Decays 1/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "talent"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2357-2364; Assets/Content/XML/Afflictions/Overrides.xml"
+  },
+  {
+   "id": "analgesia",
+   "howYouGetIt": "Painkillers (opium, morphine, fentanyl), anesthesia (keeps >= 5), adrenaline, drinking, spinal cord injury, operating table.",
+   "whatItDoes": "Removes pain (5/10/100 per tick at strength 0-5 / 5-20 / 20+); makes the patient 'sedated' (no fracture/dislocation pain, no traumatic shock from incisions) and allows surgery (analgesia >= 1).",
+   "danger": "beneficial",
+   "progression": "Decays 0.3/s (XML).",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [
+    {
+     "value": 1,
+     "meaning": "surgery possible"
+    },
+    {
+     "value": 20,
+     "meaning": "removes all pain"
+    }
+   ],
+   "causedBy": [
+    "item:opium",
+    "item:antidama1",
+    "item:antidama2",
+    "anesthesia",
+    "afadrenaline",
+    "drunk"
+   ],
+   "leadsTo": [
+    "pain"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1605-1604; Assets/Content/XML/Afflictions/Functionality.xml; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1913-1918"
+  },
+  {
+   "id": "anesthesia",
+   "howYouGetIt": "Propofol: +1 per injection (+15 with the propofol talent) until 15, then topped to 15.",
+   "whatItDoes": "Keeps analgesia >= 5; above 10 sedated; above 15 unconscious-like stun, safe surgery +3, removes pain, traumatic shock decays 2/s. Lowers BP target by up to 15, speed x0.5. Random side effects (6% per update): vomiting blood, blurred vision, confusion, fever, seizure, fibrillation burst, or psychosis.",
+   "danger": "utility",
+   "progression": "Grows 0.3/s (XML) and removes itself at 99+.",
+   "naturalRecovery": "n/a",
+   "treatment": "Anaparalyzant removes it.",
+   "thresholds": [
+    {
+     "value": 10,
+     "meaning": "sedated"
+    },
+    {
+     "value": 15,
+     "meaning": "safe surgery, stun, traumatic shock reduction"
+    },
+    {
+     "value": 99,
+     "meaning": "removes itself"
+    }
+   ],
+   "causedBy": [
+    "item:propofol"
+   ],
+   "leadsTo": [
+    "analgesia",
+    "safesurgery",
+    "vomitingblood",
+    "blurredvision",
+    "confusion",
+    "fever",
+    "seizure",
+    "fibrillation",
+    "psychosis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1605-1701; Assets/Content/XML/Afflictions/Functionality.xml"
+  },
+  {
+   "id": "safesurgery",
+   "howYouGetIt": "Operating table (+70), hospital bed and bunks (+2), anesthesia > 15 (+3).",
+   "whatItDoes": "Retracting skin, drilling and sawing do not cause traumatic shock; with sedation, traumatic shock decays 2/s.",
+   "danger": "utility",
+   "progression": "Decays 30/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:operatingtable",
+    "anesthesia"
+   ],
+   "leadsTo": [
+    "traumaticshock"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1477-1491; Assets/Content/XML/Afflictions/Surgical.xml"
+  },
+  {
+   "id": "traumaticshock",
+   "howYouGetIt": "Surgery on an awake, unsedated patient: open incision +2/s without analgesia/anesthesia and conscious; retracted skin +2/s, drilled or sawed bones +1.5/s without safe surgery while conscious (XML); tweezers through a normal wound +5.",
+   "whatItDoes": "Blood pressure target x(100-2 x shock)/100 (0 at 50); fibrillation speed +(shock-5)/40. Above 5 (conscious) shock pain and psychosis; above 30 a 20% per update respiratory arrest chance; above 40 a 10% per update cardiac arrest chance (and blocks both from clearing).",
+   "danger": "lethal",
+   "progression": "Decays 0.5/s, or 2/s if (sedated and on safe surgery) or anesthesia > 15. Removed by tshocktimeout.",
+   "naturalRecovery": "true",
+   "treatment": "Do surgery on an operating table with painkillers/anesthesia; stop operating to let it fall.",
+   "thresholds": [
+    {
+     "value": 5,
+     "meaning": "shock pain, psychosis"
+    },
+    {
+     "value": 30,
+     "meaning": "respiratory arrest risk"
+    },
+    {
+     "value": 40,
+     "meaning": "cardiac arrest risk"
+    },
+    {
+     "value": 50,
+     "meaning": "blood pressure target 0"
+    }
+   ],
+   "causedBy": [
+    "surgeryincision",
+    "retractedskin",
+    "drilledbones",
+    "sawedbones",
+    "item:tweezers"
+   ],
+   "leadsTo": [
+    "shockpain",
+    "psychosis",
+    "respiratoryarrest",
+    "cardiacarrest",
+    "bloodpressure",
+    "fibrillation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2132-2184; Assets/Content/XML/Afflictions/Surgical.xml"
+  },
+  {
+   "id": "tshocktimeout",
+   "howYouGetIt": "Applied during level change.",
+   "whatItDoes": "Instantly removes traumatic shock while present.",
+   "danger": "utility",
+   "progression": "Decays 3/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "Suturing sets it to -100.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [
+    "traumaticshock"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1100-1115"
+  },
+  {
+   "id": "surgeryincision",
+   "howYouGetIt": "Advanced scalpel on a limb (removes sutures, casts, bandages there).",
+   "whatItDoes": "Grows 30/s (XML). Without a clamped hemostat: +0.7 blood loss/s. Without analgesia/anesthesia while conscious: +2 traumatic shock/s.",
+   "danger": "utility",
+   "progression": "Grows to 100.",
+   "naturalRecovery": "n/a",
+   "treatment": "Suture closes it.",
+   "thresholds": [],
+   "causedBy": [
+    "item:advscalpel"
+   ],
+   "leadsTo": [
+    "bloodloss",
+    "traumaticshock"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2365-2374; Assets/Content/XML/Afflictions/Surgical.xml; SharedProject/SharedSource/NT Components/NTItemsData.cs:1854-1880"
+  },
+  {
+   "id": "clampedbleeding",
+   "howYouGetIt": "Hemostat on an incised limb.",
+   "whatItDoes": "Stops incision blood loss.",
+   "danger": "utility",
+   "progression": "Grows 20/s (XML).",
+   "naturalRecovery": "n/a",
+   "treatment": "Removed by suturing.",
+   "thresholds": [],
+   "causedBy": [
+    "item:advhemostat"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2375-2384; Assets/Content/XML/Afflictions/Surgical.xml"
+  },
+  {
+   "id": "retractedskin",
+   "howYouGetIt": "Skin retractors on an incised limb.",
+   "whatItDoes": "Required for organ/artery/internal surgery (>=95-99). Without safe surgery while conscious: +2 traumatic shock/s.",
+   "danger": "utility",
+   "progression": "Grows 10/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "Removed by suturing.",
+   "thresholds": [],
+   "causedBy": [
+    "item:advretractors"
+   ],
+   "leadsTo": [
+    "traumaticshock"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2395-2404; Assets/Content/XML/Afflictions/Surgical.xml"
+  },
+  {
+   "id": "drilledbones",
+   "howYouGetIt": "Surgical drill.",
+   "whatItDoes": "Required for osteosynthesis implants (>= 99). Without safe surgery while conscious: +1.5 traumatic shock/s.",
+   "danger": "utility",
+   "progression": "Grows 15/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "Removed by suturing / implants.",
+   "thresholds": [],
+   "causedBy": [
+    "item:surgicaldrill"
+   ],
+   "leadsTo": [
+    "traumaticshock"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2385-2394; Assets/Content/XML/Afflictions/Surgical.xml"
+  },
+  {
+   "id": "sawedbones",
+   "howYouGetIt": "Surgical saw.",
+   "whatItDoes": "Without safe surgery while conscious: +1.5 traumatic shock/s. Suturing a limb with sawed bones performs a surgical amputation.",
+   "danger": "utility",
+   "progression": "Grows 10/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "Suture.",
+   "thresholds": [],
+   "causedBy": [
+    "item:surgerysaw"
+   ],
+   "leadsTo": [
+    "traumaticshock",
+    "sra_amputation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2444-2453; Assets/Content/XML/Afflictions/Surgical.xml; SharedProject/SharedSource/NT Components/NTItemsData.cs:1548-1566"
+  },
+  {
+   "id": "suturedi",
+   "howYouGetIt": "Suturing a surgical incision.",
+   "whatItDoes": "Cosmetic marker.",
+   "danger": "utility",
+   "progression": "Decays 1/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:suture"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2405-2424"
+  },
+  {
+   "id": "suturedw",
+   "howYouGetIt": "Suturing open wounds (amount = damage healed).",
+   "whatItDoes": "Up to 0.8 x max vitality loss (XML) while it fades.",
+   "danger": "minor",
+   "progression": "Decays 0.3/s.",
+   "naturalRecovery": "true",
+   "treatment": "Wait.",
+   "thresholds": [],
+   "causedBy": [
+    "item:suture"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2425-2443; Assets/Content/XML/Afflictions/Surgical.xml"
+  },
+  {
+   "id": "stasis",
+   "howYouGetIt": "Stasis bag worn (+3).",
+   "whatItDoes": "'Stasis' stat: freezes most progression (organ damage, hypoxemia, BP, sepsis, infections, coma, stroke, neurotrauma); also sustains cardiac and respiratory arrest; counts as sedated; reduces husk infection below 100.",
+   "danger": "beneficial",
+   "progression": "Decays 1/s; refreshed while the bag is worn.",
+   "naturalRecovery": "n/a",
+   "treatment": "Remove the bag.",
+   "thresholds": [],
+   "causedBy": [
+    "item:stasisbag"
+   ],
+   "leadsTo": [
+    "cardiacarrest",
+    "respiratoryarrest"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1251-1278"
+  },
+  {
+   "id": "cpr_buff",
+   "howYouGetIt": "Successful CPR (+2) unless an AutoPulse is working.",
+   "whatItDoes": "Cardiac arrest -2/s, fibrillation -1/s, blood pressure +5/s; when arrest is in (0,5] it is cleared and fibrillation set +20.",
+   "danger": "beneficial",
+   "progression": "Decays 0.5/s (~4 s per success).",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [
+    {
+     "value": 5,
+     "meaning": "arrest at or below 5 converts to fibrillation"
+    }
+   ],
+   "causedBy": [
+    "item:cpr"
+   ],
+   "leadsTo": [
+    "cardiacarrest",
+    "fibrillation",
+    "bloodpressure"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1130-1166; SharedProject/SharedSource/MP+SP Serverside/Cpr.cs:10-35"
+  },
+  {
+   "id": "cpr_buff_auto",
+   "howYouGetIt": "AutoPulse device (+10, XML).",
+   "whatItDoes": "Cardiac arrest -1.5/s, fibrillation -1/s, blood pressure +5/s, oxygenlow -3/s; arrest <= 0.5 converts to fibrillation 20.",
+   "danger": "beneficial",
+   "progression": "Decays 0.5/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:autocpr"
+   ],
+   "leadsTo": [
+    "cardiacarrest",
+    "fibrillation",
+    "bloodpressure",
+    "oxygenlow"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1167-1205"
+  },
+  {
+   "id": "cpr_fracturebuff",
+   "howYouGetIt": "Any CPR attempt (success or fail).",
+   "whatItDoes": "Prevents fall damage and blunt-trauma fractures while present.",
+   "danger": "utility",
+   "progression": "Decays 0.5/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:cpr"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1206-1220; SharedProject/SharedSource/MP+SP Serverside/Cpr.cs:36-66"
+  },
+  {
+   "id": "givein",
+   "howYouGetIt": "Refreshed while unconscious.",
+   "whatItDoes": "Enables the give-in (die) button for stuck players.",
+   "danger": "utility",
+   "progression": "Decays 0.5/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "unconsciousness"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1116-1129"
+  },
+  {
+   "id": "tra_amputation",
+   "howYouGetIt": "Traumatic loss of the right arm: a damage hit on an already-fractured right arm can rip it off (gunshot strength/60, explosion strength/60, bite (strength-5)/60, laceration strength/60, blunt trauma > 15 strength/100, internal damage (strength-10)/60 chance).",
+   "whatItDoes": "Indicator only. The amputation event itself (XML gate) adds a fracture, an arterial cut and severe pain to that limb and drops the limb item.",
+   "danger": "serious",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Reattach a limb/prosthetic item ('rarm', 'larm', 'rleg', 'lleg' or prosthetic variants); stop the arterial bleed with a tourniquet.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:lacerations",
+    "damage:blunttrauma",
+    "damage:internaldamage"
+   ],
+   "leadsTo": [
+    "fracturedextremity",
+    "arterialcut",
+    "severepain"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:973-981; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:169-695; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1816-1850; Assets/Content/XML/Afflictions/Functionality.xml (gate_ta_*)"
+  },
+  {
+   "id": "sra_amputation",
+   "howYouGetIt": "Surgical amputation of the right arm: suturing a limb whose bones were sawed.",
+   "whatItDoes": "Indicator only; clears gangrene on that limb and blocks new gangrene there.",
+   "danger": "moderate",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Reattach a limb/prosthetic.",
+   "thresholds": [],
+   "causedBy": [
+    "sawedbones",
+    "item:suture"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1014-1021; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1852-1912"
+  },
+  {
+   "id": "tla_amputation",
+   "howYouGetIt": "Traumatic loss of the left arm: a damage hit on an already-fractured left arm can rip it off (gunshot strength/60, explosion strength/60, bite (strength-5)/60, laceration strength/60, blunt trauma > 15 strength/100, internal damage (strength-10)/60 chance).",
+   "whatItDoes": "Indicator only. The amputation event itself (XML gate) adds a fracture, an arterial cut and severe pain to that limb and drops the limb item.",
+   "danger": "serious",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Reattach a limb/prosthetic item ('rarm', 'larm', 'rleg', 'lleg' or prosthetic variants); stop the arterial bleed with a tourniquet.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:lacerations",
+    "damage:blunttrauma",
+    "damage:internaldamage"
+   ],
+   "leadsTo": [
+    "fracturedextremity",
+    "arterialcut",
+    "severepain"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:982-989; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:169-695; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1816-1850; Assets/Content/XML/Afflictions/Functionality.xml (gate_ta_*)"
+  },
+  {
+   "id": "sla_amputation",
+   "howYouGetIt": "Surgical amputation of the left arm: suturing a limb whose bones were sawed.",
+   "whatItDoes": "Indicator only; clears gangrene on that limb and blocks new gangrene there.",
+   "danger": "moderate",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Reattach a limb/prosthetic.",
+   "thresholds": [],
+   "causedBy": [
+    "sawedbones",
+    "item:suture"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1022-1029; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1852-1912"
+  },
+  {
+   "id": "trl_amputation",
+   "howYouGetIt": "Traumatic loss of the right leg: a damage hit on an already-fractured right leg can rip it off (gunshot strength/60, explosion strength/60, bite (strength-5)/60, laceration strength/60, blunt trauma > 15 strength/100, internal damage (strength-10)/60 chance).",
+   "whatItDoes": "Indicator only. The amputation event itself (XML gate) adds a fracture, an arterial cut and severe pain to that limb and drops the limb item.",
+   "danger": "serious",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Reattach a limb/prosthetic item ('rarm', 'larm', 'rleg', 'lleg' or prosthetic variants); stop the arterial bleed with a tourniquet.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:lacerations",
+    "damage:blunttrauma",
+    "damage:internaldamage"
+   ],
+   "leadsTo": [
+    "fracturedextremity",
+    "arterialcut",
+    "severepain"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:990-997; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:169-695; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1816-1850; Assets/Content/XML/Afflictions/Functionality.xml (gate_ta_*)"
+  },
+  {
+   "id": "srl_amputation",
+   "howYouGetIt": "Surgical amputation of the right leg: suturing a limb whose bones were sawed.",
+   "whatItDoes": "Indicator only; clears gangrene on that limb and blocks new gangrene there.",
+   "danger": "moderate",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Reattach a limb/prosthetic.",
+   "thresholds": [],
+   "causedBy": [
+    "sawedbones",
+    "item:suture"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1030-1037; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1852-1912"
+  },
+  {
+   "id": "tll_amputation",
+   "howYouGetIt": "Traumatic loss of the left leg: a damage hit on an already-fractured left leg can rip it off (gunshot strength/60, explosion strength/60, bite (strength-5)/60, laceration strength/60, blunt trauma > 15 strength/100, internal damage (strength-10)/60 chance).",
+   "whatItDoes": "Indicator only. The amputation event itself (XML gate) adds a fracture, an arterial cut and severe pain to that limb and drops the limb item.",
+   "danger": "serious",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Reattach a limb/prosthetic item ('rarm', 'larm', 'rleg', 'lleg' or prosthetic variants); stop the arterial bleed with a tourniquet.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:lacerations",
+    "damage:blunttrauma",
+    "damage:internaldamage"
+   ],
+   "leadsTo": [
+    "fracturedextremity",
+    "arterialcut",
+    "severepain"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:998-1005; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:169-695; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1816-1850; Assets/Content/XML/Afflictions/Functionality.xml (gate_ta_*)"
+  },
+  {
+   "id": "sll_amputation",
+   "howYouGetIt": "Surgical amputation of the left leg: suturing a limb whose bones were sawed.",
+   "whatItDoes": "Indicator only; clears gangrene on that limb and blocks new gangrene there.",
+   "danger": "moderate",
+   "progression": "Permanent.",
+   "naturalRecovery": "false",
+   "treatment": "Reattach a limb/prosthetic.",
+   "thresholds": [],
+   "causedBy": [
+    "sawedbones",
+    "item:suture"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1038-1045; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1852-1912"
+  },
+  {
+   "id": "th_amputation",
+   "howYouGetIt": "Head ripped off: explosion to the head >= 75 strength (25% chance).",
+   "whatItDoes": "Instant death (1000 x max vitality loss).",
+   "danger": "lethal",
+   "progression": "n/a",
+   "naturalRecovery": "false",
+   "treatment": "None.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:explosiondamage"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1006-1013; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:276-375; Assets/Content/XML/Afflictions/Extremities.xml"
+  },
+  {
+   "id": "sh_amputation",
+   "howYouGetIt": "Surgical decapitation (sawed head sutured).",
+   "whatItDoes": "Instant death (1000 x max vitality loss).",
+   "danger": "lethal",
+   "progression": "n/a",
+   "naturalRecovery": "false",
+   "treatment": "None.",
+   "thresholds": [],
+   "causedBy": [
+    "sawedbones"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1046-1053; Assets/Content/XML/Afflictions/Extremities.xml"
+  },
+  {
+   "id": "fracturedextremity",
+   "howYouGetIt": "Arm/leg hits: gunshot (strength/60), explosion (strength/60), bite/laceration/internal ((strength-5)/60), blunt ((strength-2)/60), falls ((strength-15)/100), bone damage > 90 (1% per limb per update), traumatic amputation, failed dislocation reduction with a wrench, failed reattachment.",
+   "whatItDoes": "Limb is unusable (locks arm/leg). Without a cast and not sedated: intense pain and +0.1 internal damage per second. Legs: walking on it with adrenaline and no cast adds +15 bleeding. New fractures remove existing casts (config).",
+   "danger": "serious",
+   "progression": "Grows 2/s without a cast (to 100). Arms: progression stops between 90 and 100 if bandaged.",
+   "naturalRecovery": "false",
+   "treatment": "Bandage then gypsum (plaster cast, medical 40): -20 immediately, then heals 1/3 per second (full in ~5 min); or osteosynthesis implants after drilling (surgery 45).",
+   "thresholds": [
+    {
+     "value": 90,
+     "meaning": "bandaged arms stop progressing here"
+    },
+    {
+     "value": 100,
+     "meaning": "maximum"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:lacerations",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "fall",
+    "bonedamage",
+    "item:wrench"
+   ],
+   "leadsTo": [
+    "intensepain",
+    "internaldamage",
+    "bleeding",
+    "screaming"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2507-2554; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1640-1662; SharedProject/SharedSource/NT Components/NTItemsData.cs:803-831; SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1807; SharedProject/SharedSource/MP+SP Serverside/FallDamage.cs:176-313"
+  },
+  {
+   "id": "dislocation",
+   "howYouGetIt": "Extremity hits: explosion (35% chance), blunt trauma ((strength-2)/80, max 50%), internal damage (25%), falls ((strength-15)/100).",
+   "whatItDoes": "Severe pain on onset. Unless sedated and without cast/bandage: +0.1 internal damage/s, intense pain, legs slow the character (x0.8). At 100 an arm counts as locked.",
+   "danger": "moderate",
+   "progression": "Grows 10/s up to 6, then 1.5/s (XML).",
+   "naturalRecovery": "false",
+   "treatment": "Wrench on the limb: medical 60 (30 with analgesia or adrenaline) pops it back in; failure fractures the limb. Bandage/cast to stop internal damage.",
+   "thresholds": [
+    {
+     "value": 100,
+     "meaning": "arm locked"
+    }
+   ],
+   "causedBy": [
+    "damage:explosiondamage",
+    "damage:blunttrauma",
+    "damage:internaldamage",
+    "fall"
+   ],
+   "leadsTo": [
+    "internaldamage",
+    "intensepain",
+    "severepain"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2555-2585; SharedProject/SharedSource/NT Components/NTItemsData.cs:25-54; Assets/Content/XML/Afflictions/Bones.xml"
+  },
+  {
+   "id": "bonedamage",
+   "howYouGetIt": "Hypoxemia (/1000 per s), sepsis (/500 per s), kidney damage > 70, radiation sickness > 25.",
+   "whatItDoes": "Above 90: each update every limb has a 1% chance to fracture.",
+   "danger": "serious",
+   "progression": "Heals like organs (0.01/s, locks at 100 at 99+). Below 90 also heals 0.3/s per limb with bone growth stimulation; at 90+ heals 2/s if 6+ limbs stimulated. (Code counts 'bonegrowth', not 'stimulatedbonegrowth' - possible mismatch, uncertain.) Frozen in stasis.",
+   "naturalRecovery": "conditional",
+   "treatment": "Remove the causes; osteosynthesis implants give stimulated bone growth.",
+   "thresholds": [
+    {
+     "value": 90,
+     "meaning": "random fractures"
+    },
+    {
+     "value": 99,
+     "meaning": "locks at 100"
+    }
+   ],
+   "causedBy": [
+    "hypoxemia",
+    "sepsis",
+    "kidneydamage",
+    "radiationsickness"
+   ],
+   "leadsTo": [
+    "fracturedextremity",
+    "fracturedribs",
+    "fracturedskull"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2263-2308; SharedProject/SharedSource/NT Components/NTStatsData.cs:185-194"
+  },
+  {
+   "id": "stimulatedbonegrowth",
+   "howYouGetIt": "Successful osteosynthesis implant (+100 on that limb).",
+   "whatItDoes": "Intended to speed bone-damage healing (see bonedamage note).",
+   "danger": "beneficial",
+   "progression": "Decays 0.5/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:osteosynthesisimplants"
+   ],
+   "leadsTo": [
+    "bonedamage"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2487-2506; SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1807"
+  },
+  {
+   "id": "bleeding",
+   "howYouGetIt": "Vanilla limb bleeding from cuts/gunshots/bites; surgery tool failures (+10-15), needle misuse, chest-tube/tweezers (+1-3), walking on a broken leg with adrenaline (+15).",
+   "whatItDoes": "Blood loss = strength x (1 - resistance)/60 per second unless that limb is tourniqueted. Bleeding > 80 on a limb with a foreign body causes an arterial cut. Dirties bandages faster.",
+   "danger": "serious",
+   "progression": "Clots by clotting rate x 0.1 per second (+0.5/s if bandaged, +0.25/s if dirty bandage). Clotting falls with liver damage and streptokinase.",
+   "naturalRecovery": "true: clots slowly.",
+   "treatment": "Bandage (-18 to -30), plastiseal (-24 to -48), suture (-40), tourniquet stops blood loss, ballooned aorta reduces it.",
+   "thresholds": [
+    {
+     "value": 80,
+     "meaning": "with a foreign body: arterial cut"
+    }
+   ],
+   "causedBy": [
+    "damage:lacerations",
+    "damage:gunshotwound",
+    "damage:bitewounds",
+    "item:advscalpel"
+   ],
+   "leadsTo": [
+    "bloodloss",
+    "arterialcut"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2454-2486; SharedProject/SharedSource/NT Components/NTItemsData.cs:1319-1372"
+  },
+  {
+   "id": "arterialcut",
+   "howYouGetIt": "Fall-damage open fractures (chance (strength-2)/60 after a limb break), foreign body >= 20 (chance (fb/100)^6 x 50% per update) or bleeding > 80 with a foreign body, traumatic amputations.",
+   "whatItDoes": "XML: +1.5 blood loss per second unless tourniqueted; grows 1/s.",
+   "danger": "lethal",
+   "progression": "Grows; does not heal on its own.",
+   "naturalRecovery": "false",
+   "treatment": "Tourniquet stops the blood loss immediately (risk: gangrene); permanent fix is suturing with the limb's skin retracted (>= 95).",
+   "thresholds": [],
+   "causedBy": [
+    "fall",
+    "foreignbody",
+    "bleeding",
+    "tra_amputation"
+   ],
+   "leadsTo": [
+    "bloodloss"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2632-2641; Assets/Content/XML/Afflictions/Extremities.xml; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1669-1673; SharedProject/SharedSource/NT Components/NTItemsData.cs:1461-1464"
+  },
+  {
+   "id": "tourniqueted",
+   "howYouGetIt": "Tourniquet on an extremity (medical 30; failure adds blunt trauma). On the head it instead strangles: oxygenlow 200 and +15 neurotrauma.",
+   "whatItDoes": "Stops that limb's bleeding and arterial blood loss (XML -0.5 bleeding). Each update 10% chance of +1 gangrene (x gangrene speed).",
+   "danger": "utility",
+   "progression": "Static.",
+   "naturalRecovery": "n/a",
+   "treatment": "Cut off with trauma shears/diving knife; suture with retracted skin removes it.",
+   "thresholds": [],
+   "causedBy": [
+    "item:tourniquet"
+   ],
+   "leadsTo": [
+    "gangrene"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2586-2604; SharedProject/SharedSource/NT Components/NTItemsData.cs:765-790"
+  },
+  {
+   "id": "gangrene",
+   "howYouGetIt": "Tourniquets (10% per update +1), sepsis > 5 (4% per extremity per update), ballooned aorta (+2 every 1-3 s per limb).",
+   "whatItDoes": "Vitality loss 0-15 at 15-50 and 15-25 at 50-100 (XML). >= 15 feeds sepsis chance (gangrene/400) on limbs with a foreign body. Extremities only.",
+   "danger": "serious",
+   "progression": "Heals 0.01/s only while below 15; above 15 it never heals.",
+   "naturalRecovery": "conditional: only below 15.",
+   "treatment": "Remove the tourniquet early; above 15 surgical amputation of the limb removes it (and the limb item is not dropped).",
+   "thresholds": [
+    {
+     "value": 15,
+     "meaning": "no healing, sepsis contribution, vitality loss"
+    },
+    {
+     "value": 50,
+     "meaning": "heavier vitality loss"
+    }
+   ],
+   "causedBy": [
+    "tourniqueted",
+    "sepsis",
+    "balloonedaorta"
+   ],
+   "leadsTo": [
+    "sepsis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2642-2674; Assets/Content/XML/Afflictions/Extremities.xml"
+  },
+  {
+   "id": "plastercast",
+   "howYouGetIt": "Gypsum on a bandaged, non-incised extremity (medical 40).",
+   "whatItDoes": "Heals the fracture 1/3 per second, stops fracture growth and pain; leg casts slow you (x0.8).",
+   "danger": "beneficial",
+   "progression": "Static.",
+   "naturalRecovery": "n/a",
+   "treatment": "Remove with trauma shears.",
+   "thresholds": [],
+   "causedBy": [
+    "item:gypsum"
+   ],
+   "leadsTo": [
+    "fracturedextremity"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2605-2631; SharedProject/SharedSource/NT Components/NTItemsData.cs:803-831"
+  },
+  {
+   "id": "bandaged",
+   "howYouGetIt": "Bandage (36-60) or plastiseal (50-100) on a limb.",
+   "whatItDoes": "Speeds bleeding clotting (+0.5/s), heals lacerations and burns 0.1/s, infected wounds -1.5/s; slows the character x0.9. Required before a cast.",
+   "danger": "beneficial",
+   "progression": "Wears down 0.1/s + wound load/100 (max 0.4) + bleeding/20; at <= 0.5 it becomes a dirty bandage.",
+   "naturalRecovery": "n/a",
+   "treatment": "Replace before it turns dirty.",
+   "thresholds": [
+    {
+     "value": 0.5,
+     "meaning": "turns into dirty bandage"
+    }
+   ],
+   "causedBy": [
+    "item:antibleeding1",
+    "item:antibleeding2"
+   ],
+   "leadsTo": [
+    "bandageddirty"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2675-2739; SharedProject/SharedSource/NT Components/NTItemsData.cs:1319-1372"
+  },
+  {
+   "id": "bandageddirty",
+   "howYouGetIt": "A bandage that wore out.",
+   "whatItDoes": "Still clots (+0.25/s) and heals wounds at half speed (0.05/s), but above 10 it feeds infection into wounds and drains immunity.",
+   "danger": "minor",
+   "progression": "Grows at the dirtying speed.",
+   "naturalRecovery": "n/a",
+   "treatment": "Apply a fresh bandage (removes the dirty one) or cut it off.",
+   "thresholds": [
+    {
+     "value": 10,
+     "meaning": "infection source"
+    }
+   ],
+   "causedBy": [
+    "bandaged"
+   ],
+   "leadsTo": [
+    "infectedwound"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2740-2787"
+  },
+  {
+   "id": "iced",
+   "howYouGetIt": "Gel ice pack (75-100).",
+   "whatItDoes": "Heals blunt trauma 0.3/s; on the torso reduces internal bleeding 0.2/s; slows 5% per limb; multiplies wound infection growth (up to x10).",
+   "danger": "beneficial",
+   "progression": "Decays 1.7/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:gelipack"
+   ],
+   "leadsTo": [
+    "blunttrauma",
+    "internalbleeding"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2788-2821; SharedProject/SharedSource/NT Components/NTItemsData.cs:791-802"
+  },
+  {
+   "id": "ointmented",
+   "howYouGetIt": "Antibiotic ointment (60-120) or antiseptic spray (+20).",
+   "whatItDoes": "Faster wound/burn healing (+0.12/s) and strong infected-wound reduction (3 per point per second).",
+   "danger": "beneficial",
+   "progression": "Decays 0.6/s.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:ointment",
+    "item:antisepticspray"
+   ],
+   "leadsTo": [
+    "infectedwound"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2822-2842; SharedProject/SharedSource/NT Components/NTItemsData.cs:725-742"
+  },
+  {
+   "id": "infectedwound",
+   "howYouGetIt": "Open wounds seed it each second: lacerations/gunshot/explosion strength/200, bites strength/150, burns strength/100, foreign body strength/200 (more with dirty bandages). Net change = seeding - immunity/200 - 1.5 if bandaged - 3 x ointment, + dirty bandage/20.",
+   "whatItDoes": "Above 10 inflammation. >= 50 contributes to sepsis chance on limbs with a foreign body.",
+   "danger": "moderate",
+   "progression": "Grows only when seeding beats immunity/bandage; growth multiplied by ice packs. Frozen in stasis.",
+   "naturalRecovery": "conditional: shrinks with healthy immunity.",
+   "treatment": "Bandage, antibiotic ointment (-72), antiseptic spray (-100), Styptic/antibleeding3 (-100).",
+   "thresholds": [
+    {
+     "value": 10,
+     "meaning": "inflammation"
+    },
+    {
+     "value": 50,
+     "meaning": "sepsis contribution"
+    }
+   ],
+   "causedBy": [
+    "lacerations",
+    "gunshotwound",
+    "explosiondamage",
+    "bitewounds",
+    "burn",
+    "foreignbody",
+    "bandageddirty"
+   ],
+   "leadsTo": [
+    "inflammation",
+    "sepsis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2843-2888"
+  },
+  {
+   "id": "foreignbody",
+   "howYouGetIt": "Shrapnel/bullets: gunshots (75% chance, up to 20; up to 30 if it broke a bone), explosions (75% chance, strength/2).",
+   "whatItDoes": "Infects the wound, drains immunity, inflammation above 15; >= 20 risk of arterial cut ((fb/100)^6 x 50% per update); bleeding > 80 also cuts the artery; rolls sepsis chance for the limb.",
+   "danger": "serious",
+   "progression": "Heals 0.05/s only below 15.",
+   "naturalRecovery": "conditional: only small ones.",
+   "treatment": "Tweezers (through the wound or surgically with retracted skin) remove 3-10 per use.",
+   "thresholds": [
+    {
+     "value": 15,
+     "meaning": "inflammation; no healing above"
+    },
+    {
+     "value": 20,
+     "meaning": "arterial cut risk"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage"
+   ],
+   "leadsTo": [
+    "infectedwound",
+    "inflammation",
+    "arterialcut",
+    "sepsis",
+    "immunity"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2889-2960; SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2079"
+  },
+  {
+   "id": "burn",
+   "howYouGetIt": "Fire (onfire +5), burning, acid burns, surgical drill misuse, nitroglycerin, liquid oxygenite.",
+   "whatItDoes": "Converted into displayed burn degree: 1-20 first-degree, 20-50 second-degree, above 50 third-degree. Seeds infection (burn/100 per s), drains immunity. Vitality loss up to 2x at 200.",
+   "danger": "serious",
+   "progression": "Heals only below 50 (immunity/3000 + bandage 0.1 + ointment 0.12, x healing rate).",
+   "naturalRecovery": "conditional: below 50.",
+   "treatment": "Bandages/ointment; plastiseal removes 12-24 on burns > 50, or all burns (up to 200) on a limb with retracted skin (skin graft).",
+   "thresholds": [
+    {
+     "value": 20,
+     "meaning": "second degree"
+    },
+    {
+     "value": 50,
+     "meaning": "third degree; no natural healing"
+    }
+   ],
+   "causedBy": [
+    "onfire",
+    "acidburn",
+    "item:surgicaldrill"
+   ],
+   "leadsTo": [
+    "firstdegreeburn",
+    "seconddegreeburn",
+    "thirddegreeburn",
+    "infectedwound",
+    "immunity"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2961-3020; SharedProject/SharedSource/NT Components/NTItemsData.cs:1337-1372"
+  },
+  {
+   "id": "firstdegreeburn",
+   "howYouGetIt": "Display of 'burn' strength: burn 1-20 (shown as burn x 5).",
+   "whatItDoes": "Indicator of burn severity; healed together with burns by bandages.",
+   "danger": "moderate",
+   "progression": "Mirrors burn.",
+   "naturalRecovery": "conditional",
+   "treatment": "Treat the burn.",
+   "thresholds": [],
+   "causedBy": [
+    "burn"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3021-3027"
+  },
+  {
+   "id": "seconddegreeburn",
+   "howYouGetIt": "Display of 'burn' strength: burn 20-50.",
+   "whatItDoes": "Indicator of burn severity; healed together with burns by bandages.",
+   "danger": "moderate",
+   "progression": "Mirrors burn.",
+   "naturalRecovery": "conditional",
+   "treatment": "Treat the burn.",
+   "thresholds": [],
+   "causedBy": [
+    "burn"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3028-3034"
+  },
+  {
+   "id": "thirddegreeburn",
+   "howYouGetIt": "Display of 'burn' strength: burn above 50.",
+   "whatItDoes": "Indicator of burn severity; healed together with burns by bandages.",
+   "danger": "moderate",
+   "progression": "Mirrors burn.",
+   "naturalRecovery": "conditional",
+   "treatment": "Treat the burn.",
+   "thresholds": [],
+   "causedBy": [
+    "burn"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3035-3041"
+  },
+  {
+   "id": "acidburn",
+   "howYouGetIt": "Acid damage.",
+   "whatItDoes": "Instantly converted into regular burn on that limb.",
+   "danger": "moderate",
+   "progression": "Converted next update.",
+   "naturalRecovery": "n/a",
+   "treatment": "Treat as burn.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:acid"
+   ],
+   "leadsTo": [
+    "burn"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3042-3057"
+  },
+  {
+   "id": "onfire",
+   "howYouGetIt": "Standing in fire.",
+   "whatItDoes": "+5 burn per second while > 1 and severe pain; removed by water or pressure suits.",
+   "danger": "serious",
+   "progression": "Decays 0.2/s; rolling on the ground (ragdoll) helps.",
+   "naturalRecovery": "true",
+   "treatment": "Get into water / extinguish.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:fire"
+   ],
+   "leadsTo": [
+    "burn",
+    "severepain"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1605-1604; Assets/Content/XML/Afflictions/Functionality.xml"
+  },
+  {
+   "id": "lacerations",
+   "howYouGetIt": "Cuts (vanilla laceration damage; surgery tool failures). Each hit is processed by NT's damage handler (s = hit strength after resistance).",
+   "whatItDoes": "Damage that also seeds infection and drains immunity. Hit effects: Torso: ribs ((s-10)/50), pneumothorax ((s-5)/50), tamponade ((s-5)/50), internal bleeding (20-50% of s at >=5). Head: skull fracture. Limbs: fracture ((s-5)/60) and amputation of broken limbs.",
+   "danger": "serious",
+   "progression": "Heals naturally only below 50 (100 for bites): immunity/3000 + 0.1 bandage + 0.12 ointment per second x healing rate.",
+   "naturalRecovery": "conditional: below 50.",
+   "treatment": "Bandage/ointment; suture removes 20 and stops bleeding.",
+   "thresholds": [
+    {
+     "value": 50,
+     "meaning": "no natural healing above (bites: 100)"
+    }
+   ],
+   "causedBy": [
+    "damage:lacerations"
+   ],
+   "leadsTo": [
+    "infectedwound",
+    "immunity",
+    "fracturedribs",
+    "pneumothorax",
+    "internalbleeding",
+    "fracturedextremity",
+    "foreignbody"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3058-3107; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:160-511; SharedProject/SharedSource/NT Components/NTItemsData.cs:1518-1566"
+  },
+  {
+   "id": "gunshotwound",
+   "howYouGetIt": "Being shot. Each hit is processed by NT's damage handler (s = hit strength after resistance).",
+   "whatItDoes": "Damage that also seeds infection and drains immunity. Hit effects: Torso: rib fracture (2% x s, max 30%), lung hit 30% (+5 pneumothorax, lung damage s), else heart hit s/50 (tamponade, heart damage s), else 50% liver/kidney (+infected cavity), internal bleeding 30-60% of s. Head: skull fracture s/90, neurotrauma 10-40% of s (70%). Limbs: fracture s/60, amputation of broken limbs. Foreign body almost always.",
+   "danger": "serious",
+   "progression": "Heals naturally only below 50 (100 for bites): immunity/3000 + 0.1 bandage + 0.12 ointment per second x healing rate.",
+   "naturalRecovery": "conditional: below 50.",
+   "treatment": "Bandage/ointment; suture removes 20 and stops bleeding.",
+   "thresholds": [
+    {
+     "value": 50,
+     "meaning": "no natural healing above (bites: 100)"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound"
+   ],
+   "leadsTo": [
+    "infectedwound",
+    "immunity",
+    "fracturedribs",
+    "pneumothorax",
+    "internalbleeding",
+    "fracturedextremity",
+    "foreignbody"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3108-3154; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:160-511; SharedProject/SharedSource/NT Components/NTItemsData.cs:1518-1566"
+  },
+  {
+   "id": "explosiondamage",
+   "howYouGetIt": "Explosions. Each hit is processed by NT's damage handler (s = hit strength after resistance).",
+   "whatItDoes": "Damage that also seeds infection and drains immunity. Hit effects: Foreign body (75%). Torso: rib fracture, pneumothorax, internal bleeding. Head: concussion, skull + neck fracture (min(s/60,70%)), decapitation at s >= 75 (25%). Limbs: fracture s/60, dislocation 35%, amputation of broken limbs.",
+   "danger": "serious",
+   "progression": "Heals naturally only below 50 (100 for bites): immunity/3000 + 0.1 bandage + 0.12 ointment per second x healing rate.",
+   "naturalRecovery": "conditional: below 50.",
+   "treatment": "Bandage/ointment; suture removes 20 and stops bleeding.",
+   "thresholds": [
+    {
+     "value": 50,
+     "meaning": "no natural healing above (bites: 100)"
+    }
+   ],
+   "causedBy": [
+    "damage:explosiondamage"
+   ],
+   "leadsTo": [
+    "infectedwound",
+    "immunity",
+    "fracturedribs",
+    "pneumothorax",
+    "internalbleeding",
+    "fracturedextremity",
+    "foreignbody"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3155-3204; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:160-511; SharedProject/SharedSource/NT Components/NTItemsData.cs:1518-1566"
+  },
+  {
+   "id": "bitewounds",
+   "howYouGetIt": "Creature bites. Each hit is processed by NT's damage handler (s = hit strength after resistance).",
+   "whatItDoes": "Damage that also seeds infection and drains immunity. Hit effects: Torso: ribs, pneumothorax, internal bleeding. Head: concussion, skull fracture. Limbs: fracture/amputation ((s-5)/60).",
+   "danger": "serious",
+   "progression": "Heals naturally only below 50 (100 for bites): immunity/3000 + 0.1 bandage + 0.12 ointment per second x healing rate.",
+   "naturalRecovery": "conditional: below 50.",
+   "treatment": "Bandage/ointment; suture removes 20 and stops bleeding.",
+   "thresholds": [
+    {
+     "value": 50,
+     "meaning": "no natural healing above (bites: 100)"
+    }
+   ],
+   "causedBy": [
+    "damage:bitewounds"
+   ],
+   "leadsTo": [
+    "infectedwound",
+    "immunity",
+    "fracturedribs",
+    "pneumothorax",
+    "internalbleeding",
+    "fracturedextremity",
+    "foreignbody"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3205-3253; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:160-511; SharedProject/SharedSource/NT Components/NTItemsData.cs:1518-1566"
+  },
+  {
+   "id": "blunttrauma",
+   "howYouGetIt": "Blunt hits, falls, failed CPR (+0.3 torso), tool/toolbox hits.",
+   "whatItDoes": "Hit effects: torso rib fracture (s/50) + random organ damage (0-100% of s to lungs, heart, liver, kidneys, organ damage) + pneumothorax; head concussion, skull/neck fracture, neurotrauma 10-40% of s; limbs fracture, dislocation, amputation of broken limbs. Vitality loss up to 2x at 200.",
+   "danger": "serious",
+   "progression": "Heals below 100 at immunity/8000 + ice 0.3 + bandage 0.1 + ointment 0.12 per second.",
+   "naturalRecovery": "conditional",
+   "treatment": "Ice packs, bandages.",
+   "thresholds": [
+    {
+     "value": 100,
+     "meaning": "no natural healing above"
+    }
+   ],
+   "causedBy": [
+    "damage:blunttrauma",
+    "fall"
+   ],
+   "leadsTo": [
+    "fracturedribs",
+    "lungdamage",
+    "heartdamage",
+    "liverdamage",
+    "kidneydamage",
+    "concussion",
+    "fracturedskull",
+    "fracturedneck",
+    "neurotrauma",
+    "fracturedextremity",
+    "dislocation"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3254-3292; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:512-610"
+  },
+  {
+   "id": "internaldamage",
+   "howYouGetIt": "Internal damage hits; also from untreated fractures/dislocations (0.1/s), unbandaged neck fracture, failed sutures/tweezers/surgery tools.",
+   "whatItDoes": "Same hit table as blunt trauma (organ damage to torso organs, fractures, dislocation 25%). Vitality loss up to 2x at 200.",
+   "danger": "serious",
+   "progression": "Heals 0.05/s only below 50.",
+   "naturalRecovery": "conditional",
+   "treatment": "Fix the fracture/dislocation; deusizine.",
+   "thresholds": [
+    {
+     "value": 50,
+     "meaning": "no natural healing above"
+    }
+   ],
+   "causedBy": [
+    "damage:internaldamage",
+    "fracturedextremity",
+    "dislocation",
+    "fracturedneck"
+   ],
+   "leadsTo": [
+    "lungdamage",
+    "heartdamage",
+    "liverdamage",
+    "kidneydamage",
+    "fracturedribs",
+    "fracturedextremity"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3293-3316; SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:611-695"
+  },
+  {
+   "id": "internalbleeding",
+   "howYouGetIt": "Torso hits >= 5: gunshot (30-60% of s), explosion/bite/laceration (20-50%); carotid cut and aortic rupture (+8 per tick), liver damage 99+ (+2).",
+   "whatItDoes": "Blood loss = strength/40 per second. Above 50 vomiting blood.",
+   "danger": "lethal",
+   "progression": "Clears 0.02 x clotting rate per second (very slow). Frozen in stasis.",
+   "naturalRecovery": "true: very slowly.",
+   "treatment": "Ice pack on torso (-0.2/s), endovascular balloon (sets 0), suture with retracted torso skin.",
+   "thresholds": [
+    {
+     "value": 50,
+     "meaning": "vomiting blood"
+    }
+   ],
+   "causedBy": [
+    "damage:gunshotwound",
+    "damage:explosiondamage",
+    "damage:bitewounds",
+    "damage:lacerations",
+    "carotidarterialcut",
+    "aorticrupture",
+    "liverdamage"
+   ],
+   "leadsTo": [
+    "bloodloss",
+    "vomitingblood"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2230-2262"
+  },
+  {
+   "id": "inflammation",
+   "howYouGetIt": "Infected wound > 10 or foreign body > 15 on the limb (+0.5/s).",
+   "whatItDoes": "Symptom marker (max 2).",
+   "danger": "minor",
+   "progression": "Decays 0.1/s.",
+   "naturalRecovery": "true",
+   "treatment": "Treat infection/foreign body.",
+   "thresholds": [],
+   "causedBy": [
+    "infectedwound",
+    "foreignbody"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4315-4335"
+  },
+  {
+   "id": "pain",
+   "howYouGetIt": "Taking damage (vanilla/XML).",
+   "whatItDoes": "Pain sounds and brief slowdowns; removed by analgesia.",
+   "danger": "minor",
+   "progression": "Decays 0.2/s.",
+   "naturalRecovery": "true",
+   "treatment": "Painkillers.",
+   "thresholds": [],
+   "causedBy": [
+    "damage:any"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1605-1604; Assets/Content/XML/Afflictions/Functionality.xml"
+  },
+  {
+   "id": "severepain",
+   "howYouGetIt": "Fractures, dislocations, amputations, wrench reductions without analgesia.",
+   "whatItDoes": "Screaming and a 3 s stun unless analgesia/anesthesia/unconscious.",
+   "danger": "minor",
+   "progression": "Removes itself (max 2).",
+   "naturalRecovery": "true",
+   "treatment": "Painkillers prevent the stun.",
+   "thresholds": [],
+   "causedBy": [
+    "dislocation",
+    "tra_amputation",
+    "item:wrench"
+   ],
+   "leadsTo": [
+    "screaming"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1605-1604"
+  },
+  {
+   "id": "shockpain",
+   "howYouGetIt": "Traumatic shock > 5 while conscious (+10/s).",
+   "whatItDoes": "Pain sounds and slowdown.",
+   "danger": "minor",
+   "progression": "Decays 0.7/s.",
+   "naturalRecovery": "true",
+   "treatment": "Reduce traumatic shock.",
+   "thresholds": [],
+   "causedBy": [
+    "traumaticshock"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1605-1604"
+  },
+  {
+   "id": "screaming",
+   "howYouGetIt": "Fractures, amputations, dislocations.",
+   "whatItDoes": "Character screams unless analgesia/anesthesia/unconscious.",
+   "danger": "minor",
+   "progression": "Instant.",
+   "naturalRecovery": "true",
+   "treatment": "Painkillers.",
+   "thresholds": [],
+   "causedBy": [
+    "severepain"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1605-1604"
+  },
+  {
+   "id": "intensepain",
+   "howYouGetIt": "Untreated fractures/dislocations (not sedated), tweezers on unsedated patients.",
+   "whatItDoes": "Limb pain symptom.",
+   "danger": "minor",
+   "progression": "Symptom.",
+   "naturalRecovery": "true",
+   "treatment": "Cast/bandage, painkillers.",
+   "thresholds": [],
+   "causedBy": [
+    "fracturedextremity",
+    "dislocation"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4014-4022"
+  },
+  {
+   "id": "cough",
+   "howYouGetIt": "Lung damage > 50, heart damage > 50, tamponade > 20 (conscious, has lungs).",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3794-3802"
+  },
+  {
+   "id": "paleskin",
+   "howYouGetIt": "Blood pressure < 50.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3803-3811"
+  },
+  {
+   "id": "lightheadedness",
+   "howYouGetIt": "Blood pressure < 60 (conscious).",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3812-3820"
+  },
+  {
+   "id": "blurredvision",
+   "howYouGetIt": "Blood pressure < 55, concussion, anesthesia side effect.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3821-3829"
+  },
+  {
+   "id": "confusion",
+   "howYouGetIt": "BP < 30, hypoxemia > 50, acidosis > 15, sepsis > 40, alcohol withdrawal > 80, concussion, anesthesia.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3830-3838"
+  },
+  {
+   "id": "headache",
+   "howYouGetIt": "BP < 60, hypoxemia > 40, acidosis > 20, stroke, skull fracture, alcohol withdrawal > 50, concussion.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3839-3847"
+  },
+  {
+   "id": "legswelling",
+   "howYouGetIt": "Heart damage > 80, liver damage > 40, kidney damage > 60 (not on cybernetic legs).",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3848-3856"
+  },
+  {
+   "id": "weakness",
+   "howYouGetIt": "Tamponade > 30, acidosis > 35. Lowers melee damage (XML).",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3857-3865"
+  },
+  {
+   "id": "wheezing",
+   "howYouGetIt": "Hemotransfusion shock < 90.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3866-3874"
+  },
+  {
+   "id": "vomitingblood",
+   "howYouGetIt": "Liver damage 99+, internal bleeding > 50, anesthesia side effect.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3891-3899"
+  },
+  {
+   "id": "fever",
+   "howYouGetIt": "Sepsis > 5, infected cavity > 5, alcohol withdrawal > 90, anesthesia.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3900-3908"
+  },
+  {
+   "id": "abdominaldiscomfort",
+   "howYouGetIt": "Liver damage > 65, infected cavity > 40.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3909-3917"
+  },
+  {
+   "id": "bloating",
+   "howYouGetIt": "Liver damage > 50.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3918-3926"
+  },
+  {
+   "id": "jaundice",
+   "howYouGetIt": "Liver damage > 80.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3927-3935"
+  },
+  {
+   "id": "sweating",
+   "howYouGetIt": "Heart attack, alcohol withdrawal > 30.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3936-3944"
+  },
+  {
+   "id": "palpitations",
+   "howYouGetIt": "Alkalosis > 20.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3945-3953"
+  },
+  {
+   "id": "craving",
+   "howYouGetIt": "Alcohol withdrawal > 20.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3968-3976"
+  },
+  {
+   "id": "chestpain",
+   "howYouGetIt": "Rib fracture, aortic rupture, hemotransfusion shock < 60 (not sedated).",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3996-4004"
+  },
+  {
+   "id": "abdominalpain",
+   "howYouGetIt": "Infected cavity > 5, aortic rupture, hemotransfusion shock < 80.",
+   "whatItDoes": "Diagnostic symptom shown while the cause persists.",
+   "danger": "minor",
+   "progression": "Symptom: refreshed by causes, disappears ~2 updates after.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4005-4013"
+  },
+  {
+   "id": "vomiting",
+   "howYouGetIt": "Kidney damage > 60 (chance), drunk > 100, alcohol withdrawal > 60, hemotransfusion shock < 40.",
+   "whatItDoes": "Periodic vomiting stops/stuns you briefly; speed x0.8; adds alkalosis 0.1/s.",
+   "danger": "minor",
+   "progression": "Symptom.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [
+    "kidneydamage",
+    "drunk",
+    "alcoholwithdrawal",
+    "hemotransfusionshock"
+   ],
+   "leadsTo": [
+    "alkalosis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3875-3890"
+  },
+  {
+   "id": "nausea_nt",
+   "howYouGetIt": "Kidney damage > 60, infected cavity > 5, radiation > 80, alcohol withdrawal > 40, concussion.",
+   "whatItDoes": "Adds alkalosis 0.1/s.",
+   "danger": "minor",
+   "progression": "Symptom.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [
+    "kidneydamage",
+    "infectedcavity",
+    "radiationsickness",
+    "alcoholwithdrawal",
+    "concussion"
+   ],
+   "leadsTo": [
+    "alkalosis"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3977-3995"
+  },
+  {
+   "id": "unconsciousness",
+   "howYouGetIt": "Neurotrauma > 100, hypoxemia > 80, coma > 15, seizure, opiate overdose > 60, lungs/brain removed, vitality below 0.",
+   "whatItDoes": "Knocked out (stunned); allows surgery; enables give-in.",
+   "danger": "serious",
+   "progression": "Symptom.",
+   "naturalRecovery": "true",
+   "treatment": "Treat the cause.",
+   "thresholds": [],
+   "causedBy": [
+    "neurotrauma",
+    "hypoxemia",
+    "coma",
+    "seizure",
+    "opiateoverdose"
+   ],
+   "leadsTo": [
+    "givein"
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3954-3967"
+  },
+  {
+   "id": "spasm",
+   "howYouGetIt": "Seizure (50% per limb per update).",
+   "whatItDoes": "Limb twitching.",
+   "danger": "minor",
+   "progression": "Removes itself.",
+   "naturalRecovery": "true",
+   "treatment": "Stop the seizure.",
+   "thresholds": [],
+   "causedBy": [
+    "seizure"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4336-4346"
+  },
+  {
+   "id": "onwheelchair",
+   "howYouGetIt": "Wearing the NT wheelchair.",
+   "whatItDoes": "Wheelchair movement; speed x0.8, -0.2 per broken/dislocated/missing arm.",
+   "danger": "utility",
+   "progression": "While worn and conscious.",
+   "naturalRecovery": "n/a",
+   "treatment": "n/a",
+   "thresholds": [],
+   "causedBy": [
+    "item:nt_wheelchair"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4041-4076"
+  },
+  {
+   "id": "forceprone",
+   "howYouGetIt": "Both legs locked (broken/dislocated/amputated) while conscious and not climbing/wheelchaired.",
+   "whatItDoes": "Character crawls; very slow.",
+   "danger": "utility",
+   "progression": "While both legs locked.",
+   "naturalRecovery": "n/a",
+   "treatment": "Fix the legs or use a wheelchair.",
+   "thresholds": [],
+   "causedBy": [
+    "fracturedextremity",
+    "dislocation"
+   ],
+   "leadsTo": [],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:4077-4103"
+  }
+ ],
+ "systems": [
+  {
+   "id": "timing",
+   "title": "Update timing",
+   "explanation": "Neurotrauma updates every human once per cycle of 120 game ticks (config 'NT_UpdateInterval_High', default 120 = ~2 s at 60 ticks/s). Every rate in this guide written as 'per second' is multiplied by that 2 s step; every 'chance per update' is rolled once per ~2 s cycle. Symptoms set for '2' last 2 cycles.",
+   "keyNumbers": [
+    {
+     "label": "Update interval",
+     "value": "120 ticks (~2 s)"
+    },
+    {
+     "label": "deltaTime per update",
+     "value": "2"
+    }
+   ],
+   "source": "SharedProject/SharedSource/MP+SP Serverside/HumanUpdate.cs:109-140; SharedProject/SharedSource/Config/ConfigData.cs:1339-1349"
+  },
+  {
+   "id": "bloodpressure",
+   "title": "Blood pressure model",
+   "explanation": "Blood pressure (default 100, range 5-200) moves 20% of the way toward a target each update (a third as fast when rising). Target = blood amount (100 - bloodloss) - tamponade/2 - pressure-lowering drugs (5/pt, max 45) - anesthesia (max 15) + adrenaline (10/pt, max 30) + saline (5/pt, max 30) + Ringer's (5/pt, max 30); then multiplied by liver and kidney damage (up to x1.5 each) and alcohol withdrawal (up to x1.5), and reduced by traumatic shock (zero at 50), fibrillation and cardiac arrest (zero). Hypotension symptoms start under 60; under 70 it starts causing hypoxemia; under ~81 it speeds fibrillation. Hypertension over 150 rolls heart attack and stroke each update; over 120 damages kidneys.",
+   "keyNumbers": [
+    {
+     "label": "Normal",
+     "value": "100"
+    },
+    {
+     "label": "Lightheaded/headache",
+     "value": "< 60"
+    },
+    {
+     "label": "Blurred vision",
+     "value": "< 55"
+    },
+    {
+     "label": "Pale skin",
+     "value": "< 50"
+    },
+    {
+     "label": "Confusion",
+     "value": "< 30"
+    },
+    {
+     "label": "Hypoxemia gain",
+     "value": "< 70: (70-BP)/7 per s"
+    },
+    {
+     "label": "Fibrillation pressure term",
+     "value": "< ~81"
+    },
+    {
+     "label": "Kidney damage",
+     "value": "> 120"
+    },
+    {
+     "label": "Heart attack / stroke",
+     "value": "> 150: (BP-150)/50 x 2% each per update"
+    },
+    {
+     "label": "Transfusion",
+     "value": "+30 BP"
+    }
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3334-3431"
+  },
+  {
+   "id": "bloodtypes",
+   "title": "Blood types & transfusions",
+   "explanation": "Every human gets a random blood type on spawn weighted O- 7, O+ 37, A- 6, A+ 36, B- 2, B+ 8, AB- 1, AB+ 3 (out of 100; optionally deterministic by name). A pack is compatible when every antigen in the pack (A, B, Rh+) is also in the recipient: O- is the universal donor, AB+ the universal recipient. Compatible pack: -30 bloodloss, +30 BP. Incompatible: -20 bloodloss, +30 BP and hemotransfusion shock equal to recipient immunity - 6 (so lowering immunity with azathioprine first reduces the reaction; streptokinase cures it). Packs also nudge acidosis/alkalosis ~10% toward neutral and may carry sepsis or acid/alkali contamination (the blood analyzer shows this). Code quirk (uncertain): the recipient's A check is `bloodtype.Contains(\"a\")`, and the word 'negative' contains an 'a', so Rh-negative recipients (e.g. O-, B-) are treated as accepting A-antigen packs.",
+   "keyNumbers": [
+    {
+     "label": "O-",
+     "value": "7%"
+    },
+    {
+     "label": "O+",
+     "value": "37%"
+    },
+    {
+     "label": "A-",
+     "value": "6%"
+    },
+    {
+     "label": "A+",
+     "value": "36%"
+    },
+    {
+     "label": "B-",
+     "value": "2%"
+    },
+    {
+     "label": "B+",
+     "value": "8%"
+    },
+    {
+     "label": "AB-",
+     "value": "1%"
+    },
+    {
+     "label": "AB+",
+     "value": "3%"
+    },
+    {
+     "label": "Compatible pack",
+     "value": "-30 bloodloss, +30 BP"
+    },
+    {
+     "label": "Incompatible pack",
+     "value": "-20 bloodloss, +30 BP, shock = immunity - 6"
+    }
+   ],
+   "source": "SharedProject/SharedSource/NT Components/Blood.cs:8-75; SharedProject/SharedSource/NT Components/NTItemsData.cs:74-140"
+  },
+  {
+   "id": "oxygen",
+   "title": "Oxygen and hypoxemia chain",
+   "explanation": "Breathing oxygen (vanilla 0-100, lowered by 'oxygenlow') becomes 'available oxygen' after fibrillation (x(1-fib/100)), pneumothorax (capped at 100 - pneumo/2), and is zero in cardiac arrest, with lungs at 100 damage or removed. Hypoxemia changes by (50 - available oxygen)/8 per second, plus extra gain from low blood pressure (< 70) and low blood volume (< 60%). Respiratory arrest adds oxygenlow +15/s. Hypoxemia then damages the brain (neurotrauma hypoxemia/100 per s), organs (/400 per s each) and bones, and above 70/80 triggers respiratory and cardiac arrest - a feedback loop.",
+   "keyNumbers": [
+    {
+     "label": "Hyperventilation",
+     "value": "> 10"
+    },
+    {
+     "label": "Shortness of breath",
+     "value": "> 20"
+    },
+    {
+     "label": "Headache",
+     "value": "> 40"
+    },
+    {
+     "label": "Confusion",
+     "value": "> 50"
+    },
+    {
+     "label": "Respiratory arrest chance",
+     "value": "> 70: 5%/update"
+    },
+    {
+     "label": "Unconscious + cardiac arrest chance",
+     "value": "> 80: 1%/update"
+    },
+    {
+     "label": "Oxygenlow during resp. arrest",
+     "value": "+15/s"
+    }
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3432-3533; SharedProject/SharedSource/NT Components/NTStatsData.cs:65-74; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:15-32"
+  },
+  {
+   "id": "cardiac",
+   "title": "Heart rhythm, cardiac arrest and CPR",
+   "explanation": "A 'fibrillation speed' is computed from aortic rupture, acidosis, low blood pressure, hypoxemia and traumatic shock (minus adrenaline). It fills increased heart rate (x5 per s); at 100 that becomes fibrillation 5, which keeps growing; above 20 each update rolls (fib/100)^4 for cardiac arrest. Cardiac arrest drops BP to zero, stops oxygen uptake, adds acidosis and may cause coma. It ends when none of its sustaining conditions hold (no stasis, organs present, heart damage <= 99, shock <= 40, coma <= 40, hypoxemia <= 80, fibrillation <= 20). CPR success gives cpr_buff (-2 arrest/s, -1 fibrillation/s, +5 BP/s); when arrest falls to 5 or below it becomes fibrillation 20, which must then be shocked. Failed CPR causes blunt trauma and a rib-fracture chance of 0.2/medical skill. Defibrillator: clears fibrillation with chance (skill/100)^2 and arrest with (skill/100)^4; AED: always clears fibrillation, arrest with 20-40% (skill/200). Adrenaline: -100 arrest but +20 fibrillation. AutoPulse acts like continuous CPR (-1.5/s).",
+   "keyNumbers": [
+    {
+     "label": "Tachy -> fibrillation",
+     "value": "increasedheartrate 100"
+    },
+    {
+     "label": "Arrest chance",
+     "value": "(fib/100)^4 per update above 20"
+    },
+    {
+     "label": "CPR",
+     "value": "-2 arrest/s, +5 BP/s"
+    },
+    {
+     "label": "CPR conversion",
+     "value": "arrest <= 5 -> fibrillation 20"
+    },
+    {
+     "label": "Defib arrest success",
+     "value": "(medical/100)^4"
+    },
+    {
+     "label": "AED arrest success",
+     "value": "20-40%"
+    }
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:440-593; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1131-1210; SharedProject/SharedSource/MP+SP Serverside/Cpr.cs:1-73; SharedProject/SharedSource/NT Components/NTItemsData.cs:928-1037"
+  },
+  {
+   "id": "damage",
+   "title": "How damage becomes injuries",
+   "explanation": "Vanilla damage afflictions (gunshotwound, explosiondamage, bitewounds, lacerations, blunttrauma, internaldamage) are intercepted per hit, using strength after armor resistance. By body part: TORSO - rib fractures, pneumothorax, internal bleeding; gunshots can also hit lungs (30%), heart (strength/50: tamponade + heart damage) or liver/kidney (+infected cavity); blunt and internal damage spread random organ damage to all four organs; lacerations can cause tamponade. HEAD - concussion (>= 15), skull and neck fractures (>= 15, up to 70%), neurotrauma (gunshot/blunt), decapitation from explosions >= 75 (25%). LIMBS - fractures (~strength/60), dislocations (explosion 35%, internal 25%, blunt up to 50%), and traumatic amputation of an already-broken limb. Gunshots and explosions leave foreign bodies. Arterial cuts are not created directly by hits here; they come from foreign bodies, heavy bleeding with a foreign body, fall open fractures and amputations. All chances scale with config multipliers.",
+   "keyNumbers": [
+    {
+     "label": "Gunshot rib fracture",
+     "value": "2% x strength (max 30%)"
+    },
+    {
+     "label": "Gunshot lung hit",
+     "value": "30%"
+    },
+    {
+     "label": "Gunshot internal bleeding",
+     "value": "30-60% of strength (>= 5)"
+    },
+    {
+     "label": "Head fractures",
+     "value": "min((s-10)/60, 70%) at s >= 15"
+    },
+    {
+     "label": "Limb fracture",
+     "value": "~s/60"
+    },
+    {
+     "label": "Decapitation",
+     "value": "explosion >= 75, 25%"
+    }
+   ],
+   "source": "SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:143-695"
+  },
+  {
+   "id": "falldamage",
+   "title": "Fall damage",
+   "explanation": "Not applied in water, while being carried, during CPR or with stopcreatureabuse. Impact speed^1.3 is computed; per limb damage = share x max(0, (v-10)^1.5) x 0.5 (x config), capped at 60 x ceiling config, and limbs facing the impact take more (at high speed all limbs share). Armor reduces it, then it becomes blunt trauma. Torso: rib fracture (s-15)/100, with pneumothorax s/70. Head: concussion (s >= 15, min(s/100,70%)), skull fracture, neck fracture (s >= 55), neurotrauma (70%). Limbs: fracture (s-15)/100 with an open-fracture arterial cut (s-2)/60, and dislocation (s-15)/100.",
+   "keyNumbers": [
+    {
+     "label": "Per-limb cap",
+     "value": "60"
+    },
+    {
+     "label": "Fracture chance",
+     "value": "(s-15)/100"
+    },
+    {
+     "label": "Neck fracture",
+     "value": "s >= 55"
+    },
+    {
+     "label": "Open fracture arterial cut",
+     "value": "(s-2)/60"
+    }
+   ],
+   "source": "SharedProject/SharedSource/MP+SP Serverside/FallDamage.cs:99-313"
+  },
+  {
+   "id": "pain_surgery",
+   "title": "Pain, analgesia, safe surgery and traumatic shock",
+   "explanation": "Surgery is only possible with analgesia >= 1 or an unconscious patient. 'Sedated' = analgesia > 0, anesthesia > 10, drunk > 20 or stasis; sedated patients feel no fracture/dislocation pain. Each open surgical step on a conscious patient without safe surgery builds traumatic shock (incision +2/s without analgesia/anesthesia; retractors +2/s, drill/saw +1.5/s). Shock lowers BP (zero at 50), drives fibrillation and above 30/40 rolls respiratory (20%) and cardiac (10%) arrest. Safe surgery comes from an operating table (+70), hospital bed/bunks (+2) or anesthesia > 15 (+3). Shock decays 0.5/s, or 2/s when sedated on safe surgery or under anesthesia > 15. Propofol builds anesthesia to 15 (with random side effects).",
+   "keyNumbers": [
+    {
+     "label": "Surgery allowed",
+     "value": "analgesia >= 1 or unconscious"
+    },
+    {
+     "label": "Shock: respiratory arrest",
+     "value": "> 30, 20%/update"
+    },
+    {
+     "label": "Shock: cardiac arrest",
+     "value": "> 40, 10%/update"
+    },
+    {
+     "label": "Shock decay",
+     "value": "0.5/s (2/s safe)"
+    },
+    {
+     "label": "Anesthesia for safe surgery",
+     "value": "> 15"
+    }
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2138-2190; Assets/Content/XML/Afflictions/Surgical.xml; Assets/Content/XML/Afflictions/Functionality.xml; SharedProject/SharedSource/NT Components/NTStatsData.cs:52-59"
+  },
+  {
+   "id": "organs",
+   "title": "Organ damage and regeneration",
+   "explanation": "Heart, lungs, liver and kidneys each have their own damage (0-100). Every second each gains 'new organ damage' = sepsis/300 + hypoxemia/400 + max(radiation-25,0)/400, plus direct sources (torso trauma, drugs). They heal 0.01/s x healing rate x heal multiplier (thiamine makes it x5); kidneys heal 0.02/s below 50 and plateau at 50-51. Any organ at 99+ is locked at 100 and never heals - only a transplant fixes it. Effects: heart 99+ -> cardiac arrest; lungs 99+ -> respiratory arrest (100 = no oxygen); liver -> high BP, poor clotting, internal bleeding at 99+; kidneys -> high BP, acidosis (> 80), bone damage (> 70). Liver and kidney damage also slowly cause neurotrauma. Transplants restore the organ by the item's condition (surgery skill 40 or -40 condition).",
+   "keyNumbers": [
+    {
+     "label": "Natural heal",
+     "value": "0.01/s (kidney 0.02/s below 50)"
+    },
+    {
+     "label": "Thiamine",
+     "value": "x5 heal"
+    },
+    {
+     "label": "Point of no return",
+     "value": "99 -> locked at 100"
+    },
+    {
+     "label": "New damage from sepsis",
+     "value": "sepsis/300 per s"
+    },
+    {
+     "label": "New damage from hypoxemia",
+     "value": "hypoxemia/400 per s"
+    }
+   ],
+   "source": "SharedProject/SharedSource/Libraries/HelperFunctions.cs:2000-2038; SharedProject/SharedSource/NT Components/NTStatsData.cs:12-33; SharedProject/SharedSource/NT Components/NTItemsData.cs:486-688"
+  },
+  {
+   "id": "infection",
+   "title": "Infection -> sepsis chain",
+   "explanation": "Open wounds (lacerations, gunshots, explosions, bites, burns, foreign bodies) seed infected wounds every second and drain immunity. Immunity (5-100, regenerates 0.5-1.5/s) fights back at immunity/200 per second; bandages and ointment suppress infection, dirty bandages (> 10) feed it, ice packs multiply growth. Infected wounds above 10 cause inflammation. Sepsis is rolled only on limbs with a foreign body: chance = gangrene(>=15)/400 + infected wound(>=50)/1000 + artery-cut chance. Once present, sepsis grows 0.05/s forever, damages organs/brain/bones, spreads gangrene above 5, and only antibiotics (-1/s) reduce it. Separately, torso gunshots can cause an infected cavity that needs antibiotics early or surgical cleaning later.",
+   "keyNumbers": [
+    {
+     "label": "Immunity regen",
+     "value": "0.5-1.5/s"
+    },
+    {
+     "label": "Sepsis growth",
+     "value": "+0.05/s"
+    },
+    {
+     "label": "Antibiotics",
+     "value": "-1 sepsis/s"
+    },
+    {
+     "label": "Gangrene permanent",
+     "value": ">= 15"
+    },
+    {
+     "label": "Dirty bandage infects",
+     "value": "> 10"
+    }
+   ],
+   "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2849-2966; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3705-3797"
+  },
+  {
+   "id": "addiction",
+   "title": "Addiction and withdrawal",
+   "explanation": "Opioids (opium, morphine, fentanyl) add opiate addiction and overdose; meth/hyperzine add chem addiction; alcohol adds alcohol addiction. Addiction above 20 feeds withdrawal (XML). Withdrawal (max of the three) slows you: x0.9 above 20, x0.7 above 40, x0.5 above 80. Alcohol withdrawal adds a symptom ladder (craving 20, sweating 30, nausea 40, headache + seizures 50, vomiting 60, confusion 80, fever 90), raises BP and above 75 heart rate. Overdose: opiate overdose > 30 slows breathing, > 60 stops it (respiratory arrest) with seizures. Naloxone reverses opioids.",
+   "keyNumbers": [
+    {
+     "label": "Withdrawal slow",
+     "value": "20/40/80 -> x0.9/0.7/0.5"
+    },
+    {
+     "label": "Overdose hypoventilation",
+     "value": "> 30"
+    },
+    {
+     "label": "Overdose respiratory arrest",
+     "value": "> 60"
+    }
+   ],
+   "source": "Assets/Content/XML/Afflictions/Overrides.xml; Assets/Content/XML/Afflictions/Functionality.xml; SharedProject/SharedSource/NT Components/NTStatsData.cs:60-116; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1514-1608"
+  },
+  {
+   "id": "death",
+   "title": "How you die",
+   "explanation": "This C# code never kills directly; death happens through vanilla Barotrauma health. Paths seen in the data: vitality loss from afflictions (neurotrauma up to 2x max vitality at 200; blunt trauma, internal damage, burns and organ damage up to 2x at 200; gangrene up to 25; head amputation 1000x), vanilla suffocation via oxygenlow ('Suffocated') and blood loss ('Bled to death'). In practice the lethal NT chains are: cardiac/respiratory arrest -> hypoxemia -> neurotrauma, uncontrolled bleeding -> low BP -> hypoxemia, and sepsis/organ failure. Exact vanilla death thresholds are not in this repo (uncertain). A 'give in' option exists for stuck unconscious/paralysed players.",
+   "keyNumbers": [
+    {
+     "label": "Neurotrauma vitality loss",
+     "value": "0.9x at 180, 2x at 200"
+    },
+    {
+     "label": "Head amputation",
+     "value": "instant"
+    }
+   ],
+   "source": "Assets/Content/XML/Afflictions/Brain.xml; Assets/Content/XML/Afflictions/Overrides.xml; Assets/Content/XML/Afflictions/Extremities.xml"
+  }
+ ]
+}

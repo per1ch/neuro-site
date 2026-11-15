@@ -1,0 +1,358 @@
+[
+ {
+  "id": "timing",
+  "title": "Update timing",
+  "explanation": "Neurotrauma updates every human once per cycle of 120 game ticks (config 'NT_UpdateInterval_High', default 120 = ~2 s at 60 ticks/s). Every rate in this guide written as 'per second' is multiplied by that 2 s step; every 'chance per update' is rolled once per ~2 s cycle. Symptoms set for '2' last 2 cycles.",
+  "keyNumbers": [
+   {
+    "label": "Update interval",
+    "value": "120 ticks (~2 s)"
+   },
+   {
+    "label": "deltaTime per update",
+    "value": "2"
+   }
+  ],
+  "source": "SharedProject/SharedSource/MP+SP Serverside/HumanUpdate.cs:109-140; SharedProject/SharedSource/Config/ConfigData.cs:1339-1349"
+ },
+ {
+  "id": "bloodpressure",
+  "title": "Blood pressure model",
+  "explanation": "Blood pressure (default 100, range 5-200) moves 20% of the way toward a target each update (a third as fast when rising). Target = blood amount (100 - bloodloss) - tamponade/2 - pressure-lowering drugs (5/pt, max 45) - anesthesia (max 15) + adrenaline (10/pt, max 30) + saline (5/pt, max 30) + Ringer's (5/pt, max 30); then multiplied by liver and kidney damage (up to x1.5 each) and alcohol withdrawal (up to x1.5), and reduced by traumatic shock (zero at 50), fibrillation and cardiac arrest (zero). Hypotension symptoms start under 60; under 70 it starts causing hypoxemia; under ~81 it speeds fibrillation. Hypertension over 150 rolls heart attack and stroke each update; over 120 damages kidneys.",
+  "keyNumbers": [
+   {
+    "label": "Normal",
+    "value": "100"
+   },
+   {
+    "label": "Lightheaded/headache",
+    "value": "< 60"
+   },
+   {
+    "label": "Blurred vision",
+    "value": "< 55"
+   },
+   {
+    "label": "Pale skin",
+    "value": "< 50"
+   },
+   {
+    "label": "Confusion",
+    "value": "< 30"
+   },
+   {
+    "label": "Hypoxemia gain",
+    "value": "< 70: (70-BP)/7 per s"
+   },
+   {
+    "label": "Fibrillation pressure term",
+    "value": "< ~81"
+   },
+   {
+    "label": "Kidney damage",
+    "value": "> 120"
+   },
+   {
+    "label": "Heart attack / stroke",
+    "value": "> 150: (BP-150)/50 x 2% each per update"
+   },
+   {
+    "label": "Transfusion",
+    "value": "+30 BP"
+   }
+  ],
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3334-3431"
+ },
+ {
+  "id": "bloodtypes",
+  "title": "Blood types & transfusions",
+  "explanation": "Every human gets a random blood type on spawn weighted O- 7, O+ 37, A- 6, A+ 36, B- 2, B+ 8, AB- 1, AB+ 3 (out of 100; optionally deterministic by name). A pack is compatible when every antigen in the pack (A, B, Rh+) is also in the recipient: O- is the universal donor, AB+ the universal recipient. Compatible pack: -30 bloodloss, +30 BP. Incompatible: -20 bloodloss, +30 BP and hemotransfusion shock equal to recipient immunity - 6 (so lowering immunity with azathioprine first reduces the reaction; streptokinase cures it). Packs also nudge acidosis/alkalosis ~10% toward neutral and may carry sepsis or acid/alkali contamination (the blood analyzer shows this). Code quirk (uncertain): the recipient's A check is `bloodtype.Contains(\"a\")`, and the word 'negative' contains an 'a', so Rh-negative recipients (e.g. O-, B-) are treated as accepting A-antigen packs.",
+  "keyNumbers": [
+   {
+    "label": "O-",
+    "value": "7%"
+   },
+   {
+    "label": "O+",
+    "value": "37%"
+   },
+   {
+    "label": "A-",
+    "value": "6%"
+   },
+   {
+    "label": "A+",
+    "value": "36%"
+   },
+   {
+    "label": "B-",
+    "value": "2%"
+   },
+   {
+    "label": "B+",
+    "value": "8%"
+   },
+   {
+    "label": "AB-",
+    "value": "1%"
+   },
+   {
+    "label": "AB+",
+    "value": "3%"
+   },
+   {
+    "label": "Compatible pack",
+    "value": "-30 bloodloss, +30 BP"
+   },
+   {
+    "label": "Incompatible pack",
+    "value": "-20 bloodloss, +30 BP, shock = immunity - 6"
+   }
+  ],
+  "source": "SharedProject/SharedSource/NT Components/Blood.cs:8-75; SharedProject/SharedSource/NT Components/NTItemsData.cs:74-140"
+ },
+ {
+  "id": "oxygen",
+  "title": "Oxygen and hypoxemia chain",
+  "explanation": "Breathing oxygen (vanilla 0-100, lowered by 'oxygenlow') becomes 'available oxygen' after fibrillation (x(1-fib/100)), pneumothorax (capped at 100 - pneumo/2), and is zero in cardiac arrest, with lungs at 100 damage or removed. Hypoxemia changes by (50 - available oxygen)/8 per second, plus extra gain from low blood pressure (< 70) and low blood volume (< 60%). Respiratory arrest adds oxygenlow +15/s. Hypoxemia then damages the brain (neurotrauma hypoxemia/100 per s), organs (/400 per s each) and bones, and above 70/80 triggers respiratory and cardiac arrest - a feedback loop.",
+  "keyNumbers": [
+   {
+    "label": "Hyperventilation",
+    "value": "> 10"
+   },
+   {
+    "label": "Shortness of breath",
+    "value": "> 20"
+   },
+   {
+    "label": "Headache",
+    "value": "> 40"
+   },
+   {
+    "label": "Confusion",
+    "value": "> 50"
+   },
+   {
+    "label": "Respiratory arrest chance",
+    "value": "> 70: 5%/update"
+   },
+   {
+    "label": "Unconscious + cardiac arrest chance",
+    "value": "> 80: 1%/update"
+   },
+   {
+    "label": "Oxygenlow during resp. arrest",
+    "value": "+15/s"
+   }
+  ],
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3432-3533; SharedProject/SharedSource/NT Components/NTStatsData.cs:65-74; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:15-32"
+ },
+ {
+  "id": "cardiac",
+  "title": "Heart rhythm, cardiac arrest and CPR",
+  "explanation": "A 'fibrillation speed' is computed from aortic rupture, acidosis, low blood pressure, hypoxemia and traumatic shock (minus adrenaline). It fills increased heart rate (x5 per s); at 100 that becomes fibrillation 5, which keeps growing; above 20 each update rolls (fib/100)^4 for cardiac arrest. Cardiac arrest drops BP to zero, stops oxygen uptake, adds acidosis and may cause coma. It ends when none of its sustaining conditions hold (no stasis, organs present, heart damage <= 99, shock <= 40, coma <= 40, hypoxemia <= 80, fibrillation <= 20). CPR success gives cpr_buff (-2 arrest/s, -1 fibrillation/s, +5 BP/s); when arrest falls to 5 or below it becomes fibrillation 20, which must then be shocked. Failed CPR causes blunt trauma and a rib-fracture chance of 0.2/medical skill. Defibrillator: clears fibrillation with chance (skill/100)^2 and arrest with (skill/100)^4; AED: always clears fibrillation, arrest with 20-40% (skill/200). Adrenaline: -100 arrest but +20 fibrillation. AutoPulse acts like continuous CPR (-1.5/s).",
+  "keyNumbers": [
+   {
+    "label": "Tachy -> fibrillation",
+    "value": "increasedheartrate 100"
+   },
+   {
+    "label": "Arrest chance",
+    "value": "(fib/100)^4 per update above 20"
+   },
+   {
+    "label": "CPR",
+    "value": "-2 arrest/s, +5 BP/s"
+   },
+   {
+    "label": "CPR conversion",
+    "value": "arrest <= 5 -> fibrillation 20"
+   },
+   {
+    "label": "Defib arrest success",
+    "value": "(medical/100)^4"
+   },
+   {
+    "label": "AED arrest success",
+    "value": "20-40%"
+   }
+  ],
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:440-593; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1131-1210; SharedProject/SharedSource/MP+SP Serverside/Cpr.cs:1-73; SharedProject/SharedSource/NT Components/NTItemsData.cs:928-1037"
+ },
+ {
+  "id": "damage",
+  "title": "How damage becomes injuries",
+  "explanation": "Vanilla damage afflictions (gunshotwound, explosiondamage, bitewounds, lacerations, blunttrauma, internaldamage) are intercepted per hit, using strength after armor resistance. By body part: TORSO - rib fractures, pneumothorax, internal bleeding; gunshots can also hit lungs (30%), heart (strength/50: tamponade + heart damage) or liver/kidney (+infected cavity); blunt and internal damage spread random organ damage to all four organs; lacerations can cause tamponade. HEAD - concussion (>= 15), skull and neck fractures (>= 15, up to 70%), neurotrauma (gunshot/blunt), decapitation from explosions >= 75 (25%). LIMBS - fractures (~strength/60), dislocations (explosion 35%, internal 25%, blunt up to 50%), and traumatic amputation of an already-broken limb. Gunshots and explosions leave foreign bodies. Arterial cuts are not created directly by hits here; they come from foreign bodies, heavy bleeding with a foreign body, fall open fractures and amputations. All chances scale with config multipliers.",
+  "keyNumbers": [
+   {
+    "label": "Gunshot rib fracture",
+    "value": "2% x strength (max 30%)"
+   },
+   {
+    "label": "Gunshot lung hit",
+    "value": "30%"
+   },
+   {
+    "label": "Gunshot internal bleeding",
+    "value": "30-60% of strength (>= 5)"
+   },
+   {
+    "label": "Head fractures",
+    "value": "min((s-10)/60, 70%) at s >= 15"
+   },
+   {
+    "label": "Limb fracture",
+    "value": "~s/60"
+   },
+   {
+    "label": "Decapitation",
+    "value": "explosion >= 75, 25%"
+   }
+  ],
+  "source": "SharedProject/SharedSource/MP+SP Serverside/OnDamaged.cs:143-695"
+ },
+ {
+  "id": "falldamage",
+  "title": "Fall damage",
+  "explanation": "Not applied in water, while being carried, during CPR or with stopcreatureabuse. Impact speed^1.3 is computed; per limb damage = share x max(0, (v-10)^1.5) x 0.5 (x config), capped at 60 x ceiling config, and limbs facing the impact take more (at high speed all limbs share). Armor reduces it, then it becomes blunt trauma. Torso: rib fracture (s-15)/100, with pneumothorax s/70. Head: concussion (s >= 15, min(s/100,70%)), skull fracture, neck fracture (s >= 55), neurotrauma (70%). Limbs: fracture (s-15)/100 with an open-fracture arterial cut (s-2)/60, and dislocation (s-15)/100.",
+  "keyNumbers": [
+   {
+    "label": "Per-limb cap",
+    "value": "60"
+   },
+   {
+    "label": "Fracture chance",
+    "value": "(s-15)/100"
+   },
+   {
+    "label": "Neck fracture",
+    "value": "s >= 55"
+   },
+   {
+    "label": "Open fracture arterial cut",
+    "value": "(s-2)/60"
+   }
+  ],
+  "source": "SharedProject/SharedSource/MP+SP Serverside/FallDamage.cs:99-313"
+ },
+ {
+  "id": "pain_surgery",
+  "title": "Pain, analgesia, safe surgery and traumatic shock",
+  "explanation": "Surgery is only possible with analgesia >= 1 or an unconscious patient. 'Sedated' = analgesia > 0, anesthesia > 10, drunk > 20 or stasis; sedated patients feel no fracture/dislocation pain. Each open surgical step on a conscious patient without safe surgery builds traumatic shock (incision +2/s without analgesia/anesthesia; retractors +2/s, drill/saw +1.5/s). Shock lowers BP (zero at 50), drives fibrillation and above 30/40 rolls respiratory (20%) and cardiac (10%) arrest. Safe surgery comes from an operating table (+70), hospital bed/bunks (+2) or anesthesia > 15 (+3). Shock decays 0.5/s, or 2/s when sedated on safe surgery or under anesthesia > 15. Propofol builds anesthesia to 15 (with random side effects).",
+  "keyNumbers": [
+   {
+    "label": "Surgery allowed",
+    "value": "analgesia >= 1 or unconscious"
+   },
+   {
+    "label": "Shock: respiratory arrest",
+    "value": "> 30, 20%/update"
+   },
+   {
+    "label": "Shock: cardiac arrest",
+    "value": "> 40, 10%/update"
+   },
+   {
+    "label": "Shock decay",
+    "value": "0.5/s (2/s safe)"
+   },
+   {
+    "label": "Anesthesia for safe surgery",
+    "value": "> 15"
+   }
+  ],
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2138-2190; Assets/Content/XML/Afflictions/Surgical.xml; Assets/Content/XML/Afflictions/Functionality.xml; SharedProject/SharedSource/NT Components/NTStatsData.cs:52-59"
+ },
+ {
+  "id": "organs",
+  "title": "Organ damage and regeneration",
+  "explanation": "Heart, lungs, liver and kidneys each have their own damage (0-100). Every second each gains 'new organ damage' = sepsis/300 + hypoxemia/400 + max(radiation-25,0)/400, plus direct sources (torso trauma, drugs). They heal 0.01/s x healing rate x heal multiplier (thiamine makes it x5); kidneys heal 0.02/s below 50 and plateau at 50-51. Any organ at 99+ is locked at 100 and never heals - only a transplant fixes it. Effects: heart 99+ -> cardiac arrest; lungs 99+ -> respiratory arrest (100 = no oxygen); liver -> high BP, poor clotting, internal bleeding at 99+; kidneys -> high BP, acidosis (> 80), bone damage (> 70). Liver and kidney damage also slowly cause neurotrauma. Transplants restore the organ by the item's condition (surgery skill 40 or -40 condition).",
+  "keyNumbers": [
+   {
+    "label": "Natural heal",
+    "value": "0.01/s (kidney 0.02/s below 50)"
+   },
+   {
+    "label": "Thiamine",
+    "value": "x5 heal"
+   },
+   {
+    "label": "Point of no return",
+    "value": "99 -> locked at 100"
+   },
+   {
+    "label": "New damage from sepsis",
+    "value": "sepsis/300 per s"
+   },
+   {
+    "label": "New damage from hypoxemia",
+    "value": "hypoxemia/400 per s"
+   }
+  ],
+  "source": "SharedProject/SharedSource/Libraries/HelperFunctions.cs:2000-2038; SharedProject/SharedSource/NT Components/NTStatsData.cs:12-33; SharedProject/SharedSource/NT Components/NTItemsData.cs:486-688"
+ },
+ {
+  "id": "infection",
+  "title": "Infection -> sepsis chain",
+  "explanation": "Open wounds (lacerations, gunshots, explosions, bites, burns, foreign bodies) seed infected wounds every second and drain immunity. Immunity (5-100, regenerates 0.5-1.5/s) fights back at immunity/200 per second; bandages and ointment suppress infection, dirty bandages (> 10) feed it, ice packs multiply growth. Infected wounds above 10 cause inflammation. Sepsis is rolled only on limbs with a foreign body: chance = gangrene(>=15)/400 + infected wound(>=50)/1000 + artery-cut chance. Once present, sepsis grows 0.05/s forever, damages organs/brain/bones, spreads gangrene above 5, and only antibiotics (-1/s) reduce it. Separately, torso gunshots can cause an infected cavity that needs antibiotics early or surgical cleaning later.",
+  "keyNumbers": [
+   {
+    "label": "Immunity regen",
+    "value": "0.5-1.5/s"
+   },
+   {
+    "label": "Sepsis growth",
+    "value": "+0.05/s"
+   },
+   {
+    "label": "Antibiotics",
+    "value": "-1 sepsis/s"
+   },
+   {
+    "label": "Gangrene permanent",
+    "value": ">= 15"
+   },
+   {
+    "label": "Dirty bandage infects",
+    "value": "> 10"
+   }
+  ],
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:2849-2966; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:3705-3797"
+ },
+ {
+  "id": "addiction",
+  "title": "Addiction and withdrawal",
+  "explanation": "Opioids (opium, morphine, fentanyl) add opiate addiction and overdose; meth/hyperzine add chem addiction; alcohol adds alcohol addiction. Addiction above 20 feeds withdrawal (XML). Withdrawal (max of the three) slows you: x0.9 above 20, x0.7 above 40, x0.5 above 80. Alcohol withdrawal adds a symptom ladder (craving 20, sweating 30, nausea 40, headache + seizures 50, vomiting 60, confusion 80, fever 90), raises BP and above 75 heart rate. Overdose: opiate overdose > 30 slows breathing, > 60 stops it (respiratory arrest) with seizures. Naloxone reverses opioids.",
+  "keyNumbers": [
+   {
+    "label": "Withdrawal slow",
+    "value": "20/40/80 -> x0.9/0.7/0.5"
+   },
+   {
+    "label": "Overdose hypoventilation",
+    "value": "> 30"
+   },
+   {
+    "label": "Overdose respiratory arrest",
+    "value": "> 60"
+   }
+  ],
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml; Assets/Content/XML/Afflictions/Functionality.xml; SharedProject/SharedSource/NT Components/NTStatsData.cs:60-116; SharedProject/SharedSource/NT Components/NTAfflictionsData.cs:1514-1608"
+ },
+ {
+  "id": "death",
+  "title": "How you die",
+  "explanation": "This C# code never kills directly; death happens through vanilla Barotrauma health. Paths seen in the data: vitality loss from afflictions (neurotrauma up to 2x max vitality at 200; blunt trauma, internal damage, burns and organ damage up to 2x at 200; gangrene up to 25; head amputation 1000x), vanilla suffocation via oxygenlow ('Suffocated') and blood loss ('Bled to death'). In practice the lethal NT chains are: cardiac/respiratory arrest -> hypoxemia -> neurotrauma, uncontrolled bleeding -> low BP -> hypoxemia, and sepsis/organ failure. Exact vanilla death thresholds are not in this repo (uncertain). A 'give in' option exists for stuck unconscious/paralysed players.",
+  "keyNumbers": [
+   {
+    "label": "Neurotrauma vitality loss",
+    "value": "0.9x at 180, 2x at 200"
+   },
+   {
+    "label": "Head amputation",
+    "value": "instant"
+   }
+  ],
+  "source": "Assets/Content/XML/Afflictions/Brain.xml; Assets/Content/XML/Afflictions/Overrides.xml; Assets/Content/XML/Afflictions/Extremities.xml"
+ }
+]
