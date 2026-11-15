@@ -100,7 +100,7 @@ export function afflictionDetail(el, id) {
         ${a.symptoms?.length ? `<p style="margin-top:24px"><a class="btn" href="#/checker?s=${a.symptoms.map(encodeURIComponent).join(",")}&step=2">Check these symptoms →</a></p>` : ""}
       </div>
       <aside class="detail-side">
-        <div class="card" style="display:flex;gap:14px;align-items:center">${miniBody(parts.length ? parts : [])}
+        <div class="card" style="display:flex;gap:14px;align-items:center">${miniBody(parts.length ? parts : ["any"])}
           <div><div class="faint" style="font-size:.78rem">Where</div><div>${esc(partLabel)}</div></div></div>
         <div class="card"><dl class="kv">
           <dt>ID</dt><dd class="mono">${esc(a.id)}</dd>
@@ -159,7 +159,7 @@ function amount(d) {
   if (!d) return undefined;
   const bits = [];
   if (d.amount != null) bits.push(`${d.amount > 0 ? "+" : ""}${d.amount}`);
-  if (d.notes) bits.push(d.notes);
+  if (d.notes && !/^AI suitability/i.test(d.notes)) bits.push(d.notes);
   return bits.join(" · ") || undefined;
 }
 const guide = (title, text) => text ? `<div class="guide-block"><h3>${esc(title)}</h3>${paras(text)}</div>` : "";

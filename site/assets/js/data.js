@@ -89,14 +89,16 @@ function noteFor(d) {
   if (!d) return null;
   const parts = [];
   if (d.amount != null) parts.push(`${d.amount > 0 ? "−" : ""}${Math.abs(d.amount)} strength`);
-  if (d.notes) parts.push(d.notes);
+  if (d.notes && !/^AI suitability/i.test(d.notes)) parts.push(d.notes);
   return parts.join(" · ") || null;
 }
 
 async function loadLessons() {
   let base = "content/lessons/";
   let index = await getJSON(base + "index.json", null);
-  if (!index) { base = "data/sample/lessons/"; index = await getJSON(base + "index.json", []); }
+  // Only fall back to the sample lesson while the whole site runs on sample data.
+  if (!index && db.sample) { base = "data/sample/lessons/"; index = await getJSON(base + "index.json", []); }
+  index = index || [];
   if (!Array.isArray(index)) index = index.lessons || [];
   db.lessons = index.map((e, n) => {
     const file = typeof e === "string" ? e : e.file || e.path || `${e.slug}.md`;

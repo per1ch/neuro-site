@@ -391,3 +391,19 @@ mark { background: rgba(62, 230, 196, .22); color: var(--text); border-radius: 3
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* inline svg sizing inside controls */
+.btn svg, .search-trigger svg, .topbar svg { width: 18px; height: 18px; flex: none; }
+a.step:hover { text-decoration: none; border-color: var(--line-strong); }
+.list-row .title, .list-row .sub { display: block; }
+.bodymap-stage { aspect-ratio: auto; display: block; }
+.bodymap-svg { display: block; width: 100%; height: auto; max-height: 70vh; }
+/* keep long nowrap rows from widening grid tracks */
+.bodymap-layout { grid-template-columns: minmax(260px, 380px) minmax(0, 1fr); }
+.detail-grid { grid-template-columns: minmax(0, 1fr) 300px; }
+.bodymap-layout > *, .detail-grid > *, .grid > * { min-width: 0; }
+@media (max-width: 900px) {
+  .bodymap-layout, .detail-grid { grid-template-columns: minmax(0, 1fr); }
+}
+.bodymap-stage { position: relative; top: auto; }
+@media (min-width: 901px) { .bodymap-layout > div:first-child { position: sticky; top: 24px; } }
