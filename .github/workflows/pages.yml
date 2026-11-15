@@ -1,0 +1,36 @@
+# Publishes site/ to GitHub Pages. The site is static (no build step), so the
+# folder is uploaded as-is. Runs on every push to the repository's default
+# branch, whatever it is called, and on demand from the Actions tab.
+name: Deploy site to Pages
+
+on:
+  push:
+    paths: ["site/**", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the data files parse
+        run: for f in site/data/*.json site/content/lessons/index.json; do python3 -m json.tool "$f" > /dev/null || exit 1; done
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

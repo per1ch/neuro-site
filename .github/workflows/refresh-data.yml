@@ -1,0 +1,96 @@
+# Checks LukakoE00/Neurotrauma-CS for new commits, reruns the extraction and
+# opens (or updates) a pull request with the new data for a person to review.
+# Nothing is merged automatically.
+#
+# Optional secret ANTHROPIC_API_KEY: when set, guide entries whose cited code
+# changed are rewritten by Claude (only those entries) and flagged in the PR.
+# Without it the PR lists those entries for a manual check instead.
+name: Refresh data from Neurotrauma-CS
+
+on:
+  schedule:
+    - cron: "17 5 * * *" # daily, 05:17 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Run even if the mod has no new commits
+        type: boolean
+        default: false
+      ai_limit:
+        description: Most guide entries to rewrite with Claude in one run
+        default: "25"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check out Neurotrauma-CS
+        uses: actions/checkout@v4
+        with:
+          repository: LukakoE00/Neurotrauma-CS
+          path: _mod
+          fetch-depth: 0
+
+      - name: Compare with the commit the site was built from
+        id: cmp
+        run: |
+          old=$(python3 -c "import json;print(json.load(open('site/data/meta.json'))['modCommit'] or '')")
+          new=$(git -C _mod rev-parse HEAD)
+          echo "old=$old" >> "$GITHUB_OUTPUT"
+          echo "new=$new" >> "$GITHUB_OUTPUT"
+          echo "short=${new:0:7}" >> "$GITHUB_OUTPUT"
+          if [ "$old" = "$new" ] && [ "${{ inputs.force }}" != "true" ]; then
+            echo "Site data is already at $new."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.cmp.outputs.changed == 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Extract and find out-of-date guide entries
+        if: steps.cmp.outputs.changed == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OLD: ${{ steps.cmp.outputs.old }}
+          AI_LIMIT: ${{ inputs.ai_limit || '25' }}
+        run: |
+          set -euo pipefail
+          cp -r site/data "$RUNNER_TEMP/old-data"
+          base="${OLD:-$(git -C _mod rev-list --max-parents=0 HEAD | tail -1)}"
+          git -C _mod cat-file -e "$base^{commit}" 2>/dev/null || base=$(git -C _mod rev-list --max-parents=0 HEAD | tail -1)
+          python3 pipeline/extract.py _mod site/data
+          ai=""
+          if [ -n "${ANTHROPIC_API_KEY:-}" ]; then pip install --quiet anthropic; ai="--ai --ai-limit $AI_LIMIT"; fi
+          python3 pipeline/refresh.py _mod --old "$base" $ai \
+            --old-data "$RUNNER_TEMP/old-data" --report "$RUNNER_TEMP/report.md"
+          # if Claude rewrote any guide entries, extract again so site/data carries them
+          if ! git diff --quiet -- pipeline/mechanics; then python3 pipeline/extract.py _mod site/data; fi
+          cat "$RUNNER_TEMP/report.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Open or update the review pull request
+        if: steps.cmp.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: data-refresh/neurotrauma-cs
+          delete-branch: true
+          add-paths: |
+            site/data
+            pipeline/mechanics
+          commit-message: "data: refresh from Neurotrauma-CS ${{ steps.cmp.outputs.short }}"
+          title: "Refresh guide data from Neurotrauma-CS ${{ steps.cmp.outputs.short }}"
+          body-path: ${{ runner.temp }}/report.md
+          labels: data-refresh
