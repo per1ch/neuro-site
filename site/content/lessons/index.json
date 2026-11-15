@@ -1,0 +1,121 @@
+{
+  "lessons": [
+    {
+      "file": "01-welcome-to-neurotrauma.md",
+      "slug": "welcome-to-neurotrauma",
+      "order": 1,
+      "title": "Welcome to Neurotrauma",
+      "summary": "What Neurotrauma changes about health, and how this guide will get you ready for your first round as a medic.",
+      "section": "getting-started",
+      "level": "beginner"
+    },
+    {
+      "file": "02-reading-your-patient.md",
+      "slug": "reading-your-patient",
+      "order": 2,
+      "title": "Reading Your Patient",
+      "summary": "Use the Health Scanner and Hematology Analyzer to read symptoms, then check the patient in a fixed order.",
+      "section": "getting-started",
+      "level": "beginner"
+    },
+    {
+      "file": "03-the-medic-kit.md",
+      "slug": "the-medic-kit",
+      "order": 3,
+      "title": "The Medic Kit",
+      "summary": "The core items a medic should carry, what each one needs from your skill, and what it is for.",
+      "section": "getting-started",
+      "level": "beginner"
+    },
+    {
+      "file": "04-stopping-the-bleeding.md",
+      "slug": "stopping-the-bleeding",
+      "order": 4,
+      "title": "Stopping the Bleeding",
+      "summary": "How each kind of bleeding starts, how fast it drains a patient, and what stops it.",
+      "section": "mechanics",
+      "level": "beginner"
+    },
+    {
+      "file": "05-blood-loss-and-transfusions.md",
+      "slug": "blood-loss-and-transfusions",
+      "order": 5,
+      "title": "Blood Loss and Transfusions",
+      "summary": "Blood loss, blood pressure, fluids, blood types, and how to give or draw blood safely.",
+      "section": "mechanics",
+      "level": "beginner"
+    },
+    {
+      "file": "06-fractures-and-limbs.md",
+      "slug": "fractures-and-limbs",
+      "order": 6,
+      "title": "Fractures and Limbs",
+      "summary": "How arms, legs, ribs, skulls and necks break, what each break does to your patient, and how to treat them.",
+      "section": "mechanics",
+      "level": "beginner"
+    },
+    {
+      "file": "07-heart-lungs-and-brain.md",
+      "slug": "heart-lungs-and-brain",
+      "order": 7,
+      "title": "Heart, Lungs and Brain",
+      "summary": "How the oxygen chain breaks, and how to restart a heart or keep a patient breathing.",
+      "section": "mechanics",
+      "level": "intermediate"
+    },
+    {
+      "file": "08-pain-shock-and-drugs.md",
+      "slug": "pain-shock-and-drugs",
+      "order": 8,
+      "title": "Pain, Shock and Drugs",
+      "summary": "How pain, traumatic shock, anesthesia and opiates work in Neurotrauma, and what each medicine is for.",
+      "section": "mechanics",
+      "level": "intermediate"
+    },
+    {
+      "file": "09-surgery-basics.md",
+      "slug": "surgery-basics",
+      "order": 9,
+      "title": "Surgery Basics",
+      "summary": "Prepare the patient, open a limb with three tools, close it with suture, and use the Health menu surgery buttons.",
+      "section": "mechanics",
+      "level": "intermediate"
+    },
+    {
+      "file": "10-surgery-procedures.md",
+      "slug": "surgery-procedures",
+      "order": 10,
+      "title": "Surgery Procedures",
+      "summary": "Step-by-step recipes for every operation: bones, spine, shrapnel, amputation, reattachment, organs and the brain.",
+      "section": "mechanics",
+      "level": "advanced"
+    },
+    {
+      "file": "11-treatment-order.md",
+      "slug": "treatment-order",
+      "order": 11,
+      "title": "Treatment Order",
+      "summary": "The order to work in on a critical patient, and when to reach for the Stasis Bag and Liquid Oxygenite.",
+      "section": "emergencies",
+      "level": "intermediate"
+    },
+    {
+      "file": "12-emergency-walkthroughs.md",
+      "slug": "emergency-walkthroughs",
+      "order": 12,
+      "title": "Emergency Walkthroughs",
+      "summary": "Six step-by-step plans for the emergencies you will meet most, with the reason behind every step.",
+      "section": "emergencies",
+      "level": "intermediate"
+    },
+    {
+      "file": "13-mistakes-settings-and-tips.md",
+      "slug": "mistakes-settings-and-tips",
+      "order": 13,
+      "title": "Mistakes, Settings and Tips",
+      "summary": "The common beginner mistakes, the server settings that change difficulty, what bots do, and where the game text and real behaviour disagree.",
+      "section": "tips",
+      "level": "beginner"
+    }
+  ]
+}
