@@ -2,6 +2,7 @@
 // plus the Ctrl+K / "/" command palette.
 import db from "./data.js";
 import { esc, clean, icon, affHref, itemHref } from "./ui.js";
+import { procId } from "./views/learn.js";
 
 let index = null;
 
@@ -22,7 +23,7 @@ function build() {
     sub: l.description || l.summary || "", text: [l.description, l.summary, l.section, l._text].join(" "),
   });
   for (const s of db.surgery) index.push({
-    type: "Surgery", href: `#/surgery#${encodeURIComponent(s.id)}`, name: s.name || s.id, sub: s.goal || "", text: [s.notes, ...(s.steps || []).map((x) => x.action)].join(" "),
+    type: "Surgery", href: `#/surgery#${encodeURIComponent(procId(s))}`, name: s.name || procId(s), sub: s.goal || "", text: [s.notes, ...(s.steps || []).map((x) => x.action)].join(" "),
   });
   for (const s of db.systems) index.push({
     type: "How it works", href: `#/systems#${encodeURIComponent(s.id)}`, name: s.title || s.id, sub: "", text: s.explanation,

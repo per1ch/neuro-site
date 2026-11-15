@@ -77,13 +77,22 @@ export function surgery(el) {
     <div class="eyebrow">Procedures</div><h1>Surgery</h1>
     <p class="lead">Step-by-step procedures. Follow the order: the mod checks for each prior step.</p>
     ${db.surgery.length ? `<div class="grid" style="margin-top:20px">${db.surgery.map((s) => `
-      <section class="card" id="${esc(s.id)}">
-        <h2 style="margin-top:0">${esc(s.name || s.id)}</h2>
+      <section class="card" id="${esc(procId(s))}">
+        <h2 style="margin-top:0">${esc(s.name || procId(s))}</h2>
         ${s.goal ? `<p class="dim">${esc(s.goal)}</p>` : ""}
-        <ol class="treatment-steps">${(s.steps || []).map((st) => `<li>${esc(st.action || "")} ${st.item ? refChip(st.item, "item") : ""}${st.requires ? `<div class="faint" style="font-size:.85rem">Requires: ${esc(Array.isArray(st.requires) ? st.requires.join(", ") : st.requires)}</div>` : ""}</li>`).join("")}</ol>
+        <ol class="treatment-steps">${(s.steps || []).map((st) => `<li>${esc(st.action || "")} ${itemChips(st.item)}${st.requires ? `<div class="faint" style="font-size:.85rem">Requires: ${esc(Array.isArray(st.requires) ? st.requires.join(", ") : st.requires)}</div>` : ""}</li>`).join("")}</ol>
         ${s.notes ? `<div style="margin-top:12px" class="dim">${paras(s.notes)}</div>` : ""}
       </section>`).join("")}</div>` : `<div class="empty" style="margin-top:20px">Surgery procedures are still being generated.</div>`}`;
   scrollToFragment();
+}
+
+export const procId = (s) => s.id || String(s.name || "").toLowerCase().replace(/\(.*?\)/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+/** Step items may be "a / b" alternatives or free text; link the parts that are known items. */
+function itemChips(spec) {
+  if (!spec) return "";
+  const parts = Array.isArray(spec) ? spec : String(spec).split(/\s*(?:\/|,| or )\s*/);
+  return `<div class="chip-row" style="margin-top:6px">${parts.filter(Boolean).map((p) => db.item.has(p) || db.aff.has(p) ? refChip(p, db.item.has(p) ? "item" : undefined) : `<span class="tag">${esc(p)}</span>`).join("")}</div>`;
 }
 
 function scrollToFragment() {
