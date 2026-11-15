@@ -74,7 +74,8 @@ VANILLA_AFFLICTION_NAMES = {
     "stun": "Stun", "pain": "Pain", "organdamage": "Organ Damage", "paralysis": "Paralysis",
     "huskinfection": "Husk Infection", "nausea": "Nausea", "concussion": "Concussion",
     "alcoholaddiction": "Alcohol Addiction", "alcoholwithdrawal": "Alcohol Withdrawal",
-    "severepain": "Severe Pain", "combatstimulant": "Combat Stimulant",
+    "severepain": "Severe Pain", "combatstimulant": "Combat Stimulant", "cpr_buff": "CPR",
+    "cpr_buff_auto": "AutoPulse CPR",
 }
 
 # ---------------------------------------------------------------- C# comment headers
@@ -511,6 +512,56 @@ def merge_mechanics(afflictions, items):
     return extra
 
 
+# ---------------------------------------------------------------- player-facing polish
+def polish(afflictions, items):
+    """Make AI-written mechanics text read for players: ids -> names, drop code jargon."""
+    names = {}
+    for d in list(afflictions.values()) + list(items.values()):
+        if d["name"] and d["id"] != d["name"].lower():
+            names.setdefault(d["id"], d["name"])
+    token = re.compile(r"(?<![A-Za-z0-9_'])([a-z][a-z0-9_]*[a-z0-9])(?![A-Za-z0-9_'])")
+
+    def fix(text, affliction_text=False):
+        if not isinstance(text, str):
+            return text
+        # quoted ids: 'antidama1' -> Morphine
+        text = re.sub(r"'([a-z][a-z0-9_]*)'", lambda m: names.get(m.group(1), m.group(0)), text)
+        text = token.sub(lambda m: names.get(m.group(1), m.group(1)), text)
+        # "morphine (Morphine)" / "Broad-spectrum Broad-Spectrum Antibiotics" -> one name
+        text = re.sub(r"\b([\w'-]+(?: [\w'-]+)?) \((\1)\)", r"\1", text, flags=re.I)
+        text = re.sub(r"\b([\w-]+) (\1)\b", r"\2", text, flags=re.I)
+        text = re.sub(r"\s*\((?:XML|xml|per (?:the )?header comment|header comment|C#)\)", "", text)
+        text = re.sub(r"\b(?:via|in|from) XML\b", "", text)
+        text = re.sub(r"\bXML\b:?\s*", "", text)
+        text = re.sub(r"(?i)\bper (?:the )?header comment\b,?\s*", "", text)
+        text = re.sub(r"^\s*true\s*[:.]\s*", "Yes. ", text)
+        text = re.sub(r"^\s*false\s*[:.]\s*", "No. ", text)
+        text = re.sub(r"^\s*conditional\s*[:.]\s*", "Sometimes. ", text, flags=re.I)
+        text = {"true": "Yes.", "false": "No.", "conditional": "Sometimes."}.get(text.strip().lower(), text)
+        text = re.sub(r"\s{2,}", " ", text).strip()
+        text = re.sub(r"^(Yes|No|Sometimes)\. ([a-z])", lambda m: m.group(1) + ". " + m.group(2).upper(), text)
+        return text[:1].upper() + text[1:] if text else text
+
+    for a in afflictions.values():
+        g = a.get("guide")
+        if g:
+            for k in ("howYouGetIt", "whatItDoes", "treatment", "naturalRecovery", "progression"):
+                g[k] = fix(g.get(k), True)
+            for t in g.get("thresholds") or []:
+                t["meaning"] = fix(t.get("meaning"), True)
+        for t in a["treatments"]:
+            t["note"] = fix(t.get("note"))
+    for it in items.values():
+        for k in ("usage", "onFailure", "summary"):
+            it[k] = fix(it.get(k))
+        if it.get("skill") and isinstance(it["skill"], dict):
+            it["skill"]["notes"] = fix(it["skill"].get("notes"))
+        for d in it["treatsDetail"] + it["causesDetail"]:
+            for k in ("notes", "when", "amount"):
+                if isinstance(d.get(k), str):
+                    d[k] = fix(d[k])
+
+
 # ---------------------------------------------------------------- main
 def main():
     loc = load_localization()
@@ -519,6 +570,7 @@ def main():
     items = extract_items(loc)
     link(afflictions, items)
     extra = merge_mechanics(afflictions, items)
+    polish(afflictions, items)
 
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "images").mkdir(exist_ok=True)
