@@ -386,8 +386,8 @@ All symptom cards are non-lethal and cause no other afflictions. Treatment for e
 
 Only mismatches where both the Trello card and the mod value were seen are listed.
 
-- **pneumothorax**: Trello says visible on scanner. Mod data has detectedBy empty and showInScannerThreshold null (no scanner detection).
-- **lungdamage**: Trello says visible on scanner. Mod data has detectedBy empty.
+- **pneumothorax**: Trello says visible on scanner. Mod data has detectedBy empty and showInScannerThreshold null (no scanner detection). **Resolved:** the extractor fix (3030c5c) now gives scanner threshold 0.
+- **lungdamage**: Trello says visible on scanner. Mod data has detectedBy empty. **Resolved:** the extractor fix (3030c5c) now gives scanner threshold 20.
 - **oxygenlow**: Trello says lethal and visible on scanner. Mod data has detectedBy empty and showInScannerThreshold null.
 - **respiratoryarrest**: Trello says visible on scanner and health interface. Mod data has showInScannerThreshold 999 (never shown on scanner) and detectedBy empty. Trello says lethal; mod code type is "Non-Limb Specific, Interrim" with no lethal marker. (The mod's `danger` field is null for all entries, so the lethal label is only checkable against the code type.)
 - **hypoventilation**: Trello says normally harmless and can be ignored. Mod code description says it "gradually increases potentially lethal Acidosis".
