@@ -1,0 +1,20 @@
+[
+ {
+  "id": "arterysurgery",
+  "name": "Repair an artery",
+  "goal": "Permanently fix arterial bleeding (sample)",
+  "steps": [
+   {
+    "item": "scalpel",
+    "action": "Make an incision",
+    "requires": null
+   },
+   {
+    "item": "suture",
+    "action": "Stitch the artery",
+    "requires": null
+   }
+  ],
+  "notes": "Sample."
+ }
+]

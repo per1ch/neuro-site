@@ -1,0 +1,954 @@
+[
+ {
+  "id": "fracturedextremity",
+  "name": "Fractured Limb",
+  "description": "A broken bone in an arm or leg. (sample text)",
+  "category": "bones",
+  "kind": "condition",
+  "danger": "serious",
+  "bodyParts": [
+   "leftarm",
+   "rightarm",
+   "leftleg",
+   "rightleg"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 768,
+   "y": 256,
+   "w": 128,
+   "h": 128,
+   "color": "#e0b050"
+  },
+  "symptoms": [
+   "weakness",
+   "paleskin"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "event",
+    "text": "Falls and blunt impacts (sample)"
+   }
+  ],
+  "treatments": [
+   {
+    "item": "gypsum",
+    "note": "Apply a plaster cast after setting the bone (sample)"
+   },
+   {
+    "item": "antibleeding1",
+    "note": "Stabilises an arm fracture (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Heavy blunt trauma to a limb. (sample)",
+   "whatItDoes": "Slows movement and causes pain. (sample)",
+   "treatment": "Splint or cast the limb. (sample)",
+   "naturalRecovery": "Heals slowly once immobilised. (sample)",
+   "thresholds": [
+    {
+     "value": 10,
+     "meaning": "Hairline"
+    },
+    {
+     "value": 50,
+     "meaning": "Displaced"
+    },
+    {
+     "value": 90,
+     "meaning": "Compound"
+    }
+   ]
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "dislocation",
+  "name": "Dislocation",
+  "description": "A joint has popped out of place. (sample text)",
+  "category": "bones",
+  "kind": "condition",
+  "danger": "moderate",
+  "bodyParts": [
+   "leftarm",
+   "rightarm",
+   "leftleg",
+   "rightleg"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 384,
+   "w": 128,
+   "h": 128,
+   "color": "#e0b050"
+  },
+  "symptoms": [
+   "weakness"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [
+   {
+    "item": "antibleeding1",
+    "note": "Bandaging stabilises it (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Blunt trauma. (sample)",
+   "whatItDoes": "Reduces limb function. (sample)",
+   "treatment": "Pop it back in, then bandage. (sample)",
+   "naturalRecovery": "Does not recover alone. (sample)",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "arterialcut",
+  "name": "Arterial Bleeding",
+  "description": "Rapid, pulsing blood loss from a cut artery. (sample text)",
+  "category": "extremities",
+  "kind": "condition",
+  "danger": "lethal",
+  "bodyParts": [
+   "leftarm",
+   "rightarm",
+   "leftleg",
+   "rightleg"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 384,
+   "y": 384,
+   "w": 128,
+   "h": 128,
+   "color": "#d02020"
+  },
+  "symptoms": [
+   "paleskin",
+   "lightheadedness"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [
+   {
+    "item": "tourniquet",
+    "note": "Stops the bleed immediately (sample)"
+   },
+   {
+    "item": "suture",
+    "note": "Close it in surgery (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Deep lacerations and gunshots. (sample)",
+   "whatItDoes": "You bleed out within a minute. (sample)",
+   "treatment": "Tourniquet now, surgery later. (sample)",
+   "naturalRecovery": "Never stops on its own. (sample)",
+   "thresholds": [
+    {
+     "value": 1,
+     "meaning": "Any amount is an emergency"
+    }
+   ]
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "tourniqueted",
+  "name": "Tourniqueted",
+  "description": "A tourniquet is applied to this limb. (sample text)",
+  "category": "extremities",
+  "kind": "indicator",
+  "danger": "utility",
+  "bodyParts": [
+   "leftarm",
+   "rightarm",
+   "leftleg",
+   "rightleg"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 128,
+   "y": 512,
+   "w": 128,
+   "h": 128,
+   "color": "#7f7f7f"
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Applying a tourniquet. (sample)",
+   "whatItDoes": "Stops bleeding, but leaving it on causes gangrene. (sample)",
+   "treatment": "Remove it after surgery. (sample)",
+   "naturalRecovery": "-",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "fracturedskull",
+  "name": "Fractured Skull",
+  "description": "A cracked skull. (sample text)",
+  "category": "bones",
+  "kind": "condition",
+  "danger": "serious",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 384,
+   "w": 128,
+   "h": 128,
+   "color": "#e0b050"
+  },
+  "symptoms": [
+   "headache",
+   "confusion",
+   "blurredvision"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [
+   {
+    "item": "healthscanner",
+    "note": "Confirm with a scan (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Blows to the head. (sample)",
+   "whatItDoes": "Raises the risk of neurotrauma. (sample)",
+   "treatment": "Surgery on the head. (sample)",
+   "naturalRecovery": "Very slow. (sample)",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "pneumothorax",
+  "name": "Pneumothorax",
+  "description": "Air has leaked into the chest cavity, collapsing a lung. (sample text)",
+  "category": "lungs",
+  "kind": "condition",
+  "danger": "lethal",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 384,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#d06030"
+  },
+  "symptoms": [
+   "shortnessofbreath",
+   "cough",
+   "paleskin"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [
+   {
+    "item": "needle",
+    "note": "Decompress the chest (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Chest trauma or fractured ribs. (sample)",
+   "whatItDoes": "Oxygen drops fast. (sample)",
+   "treatment": "Needle decompression, then surgery. (sample)",
+   "naturalRecovery": "Rarely. (sample)",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "cardiacarrest",
+  "name": "Cardiac Arrest",
+  "description": "The heart has stopped. (sample text)",
+  "category": "heart",
+  "kind": "condition",
+  "danger": "lethal",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#d02020"
+  },
+  "symptoms": [
+   "unconsciousness",
+   "paleskin"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [
+   {
+    "item": "defibrillator",
+    "note": "Shock the heart back into rhythm (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Severe blood loss, hypoxemia, fibrillation. (sample)",
+   "whatItDoes": "Death within minutes. (sample)",
+   "treatment": "CPR and a defibrillator. (sample)",
+   "naturalRecovery": "Never. (sample)",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "fibrillation",
+  "name": "Irregular Heartbeat",
+  "description": "The heart beats chaotically. (sample text)",
+  "category": "heart",
+  "kind": "condition",
+  "danger": "serious",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 128,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#d06030"
+  },
+  "symptoms": [
+   "palpitations",
+   "lightheadedness"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [
+   {
+    "item": "defibrillator",
+    "note": "Shock to restore rhythm (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Shock, drugs, low oxygen. (sample)",
+   "whatItDoes": "Can turn into cardiac arrest. (sample)",
+   "treatment": "Defibrillate. (sample)",
+   "naturalRecovery": "Sometimes, if mild. (sample)",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "sepsis",
+  "name": "Sepsis",
+  "description": "A body-wide infection. (sample text)",
+  "category": "blood",
+  "kind": "condition",
+  "danger": "lethal",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 512,
+   "y": 512,
+   "w": 128,
+   "h": 128,
+   "color": "#60b040"
+  },
+  "symptoms": [
+   "fever",
+   "sweating",
+   "confusion"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [
+   {
+    "item": "antibiotics",
+    "note": "Fight the infection (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Untreated infected wounds. (sample)",
+   "whatItDoes": "Organ damage over time. (sample)",
+   "treatment": "Antibiotics early. (sample)",
+   "naturalRecovery": "No. (sample)",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "infectedwound",
+  "name": "Infected Wound",
+  "description": "A wound has become infected. (sample text)",
+  "category": "anybodypart",
+  "kind": "condition",
+  "danger": "moderate",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 384,
+   "y": 512,
+   "w": 128,
+   "h": 128,
+   "color": "#60b040"
+  },
+  "symptoms": [
+   "fever"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [
+   {
+    "item": "ointment",
+    "note": "Clean and protect it (sample)"
+   },
+   {
+    "item": "antibiotics",
+    "note": "For spreading infection (sample)"
+   }
+  ],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Dirty wounds and bandages. (sample)",
+   "whatItDoes": "Can turn into sepsis. (sample)",
+   "treatment": "Ointment, fresh bandage. (sample)",
+   "naturalRecovery": "Mild ones clear. (sample)",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "bandaged",
+  "name": "Bandaged",
+  "description": "Protects a limb from minor infection and stabilises dislocations. (sample text)",
+  "category": "anybodypart",
+  "kind": "indicator",
+  "danger": "beneficial",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 640,
+   "y": 384,
+   "w": 128,
+   "h": 128,
+   "color": "#7fafff"
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "guide": {
+   "howYouGetIt": "Applying a bandage.",
+   "whatItDoes": "Protection.",
+   "treatment": "-",
+   "naturalRecovery": "-",
+   "thresholds": []
+  },
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "weakness",
+  "name": "Weakness",
+  "description": "A visible symptom: weakness. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 640,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "fracturedextremity",
+   "dislocation"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "paleskin",
+  "name": "Pale Skin",
+  "description": "A visible symptom: pale skin. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "fracturedextremity",
+   "arterialcut",
+   "pneumothorax",
+   "cardiacarrest"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "lightheadedness",
+  "name": "Lightheadedness",
+  "description": "A visible symptom: lightheadedness. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "arterialcut",
+   "fibrillation"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "headache",
+  "name": "Headache",
+  "description": "A visible symptom: headache. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "fracturedskull"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "confusion",
+  "name": "Confusion",
+  "description": "A visible symptom: confusion. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 128,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "fracturedskull",
+   "sepsis"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "blurredvision",
+  "name": "Blurred Vision",
+  "description": "A visible symptom: blurred vision. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 384,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "fracturedskull"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "shortnessofbreath",
+  "name": "Shortness of Breath",
+  "description": "A visible symptom: shortness of breath. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 768,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "pneumothorax"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "cough",
+  "name": "Cough",
+  "description": "A visible symptom: cough. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 896,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "pneumothorax"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "unconsciousness",
+  "name": "Unconsciousness",
+  "description": "A visible symptom: unconsciousness. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "cardiacarrest"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "palpitations",
+  "name": "Palpitations",
+  "description": "A visible symptom: palpitations. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 128,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "fibrillation"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "fever",
+  "name": "Fever",
+  "description": "A visible symptom: fever. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 256,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "sepsis",
+   "infectedwound"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "sweating",
+  "name": "Sweating",
+  "description": "A visible symptom: sweating. (sample text)",
+  "category": "symptoms",
+  "kind": "symptom",
+  "danger": "minor",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 256,
+   "w": 128,
+   "h": 128,
+   "color": "#c8c8c8"
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "sepsis"
+  ],
+  "causes": [],
+  "treatments": [],
+  "detectedBy": [],
+  "guide": {},
+  "source": "sample",
+  "hidden": false
+ }
+]

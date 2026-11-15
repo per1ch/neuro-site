@@ -1,0 +1,339 @@
+[
+ {
+  "id": "antibleeding1",
+  "name": "Bandage",
+  "description": "Covers wounds and stabilises minor injuries. (sample text)",
+  "summary": "Covers wounds and stabilises minor injuries.",
+  "category": "consumable",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 384,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [
+   "dislocation",
+   "fracturedextremity"
+  ],
+  "causes": [
+   "bandaged"
+  ],
+  "treatsDetail": [
+   {
+    "id": "dislocation",
+    "amount": null
+   },
+   {
+    "id": "fracturedextremity",
+    "amount": null
+   }
+  ],
+  "causesDetail": [
+   {
+    "id": "bandaged",
+    "amount": null
+   }
+  ],
+  "skill": {
+   "skill": "medical",
+   "required": 10,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "tourniquet",
+  "name": "Tourniquet",
+  "description": "Stops limb bleeding instantly. (sample text)",
+  "summary": "Stops limb bleeding instantly.",
+  "category": "consumable",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 384,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [
+   "arterialcut"
+  ],
+  "causes": [
+   "tourniqueted"
+  ],
+  "treatsDetail": [
+   {
+    "id": "arterialcut",
+    "amount": null
+   }
+  ],
+  "causesDetail": [
+   {
+    "id": "tourniqueted",
+    "amount": null
+   }
+  ],
+  "skill": {
+   "skill": "medical",
+   "required": 15,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "gypsum",
+  "name": "Plaster",
+  "description": "Casts a fractured limb. (sample text)",
+  "summary": "Casts a fractured limb.",
+  "category": "consumable",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 64,
+   "y": 192,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [
+   "fracturedextremity"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "id": "fracturedextremity",
+    "amount": null
+   }
+  ],
+  "causesDetail": [],
+  "skill": {
+   "skill": "medical",
+   "required": 40,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "antibiotics",
+  "name": "Antibiotics",
+  "description": "Treats infections and sepsis. (sample text)",
+  "summary": "Treats infections and sepsis.",
+  "category": "consumable",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 192,
+   "y": 192,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [
+   "sepsis",
+   "infectedwound"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "id": "sepsis",
+    "amount": null
+   },
+   {
+    "id": "infectedwound",
+    "amount": null
+   }
+  ],
+  "causesDetail": [],
+  "skill": {
+   "skill": "medical",
+   "required": 20,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "ointment",
+  "name": "Antibiotic Ointment",
+  "description": "Keeps wounds clean. (sample text)",
+  "summary": "Keeps wounds clean.",
+  "category": "consumable",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 64,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [
+   "infectedwound"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "id": "infectedwound",
+    "amount": null
+   }
+  ],
+  "causesDetail": [],
+  "skill": {
+   "skill": "medical",
+   "required": 20,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "defibrillator",
+  "name": "Defibrillator",
+  "description": "Restarts a stopped or fibrillating heart. (sample text)",
+  "summary": "Restarts a stopped or fibrillating heart.",
+  "category": "equipment",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 64,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [
+   "cardiacarrest",
+   "fibrillation"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "id": "cardiacarrest",
+    "amount": null
+   },
+   {
+    "id": "fibrillation",
+    "amount": null
+   }
+  ],
+  "causesDetail": [],
+  "skill": {
+   "skill": "medical",
+   "required": 50,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "healthscanner",
+  "name": "Health Scanner",
+  "description": "Shows hidden afflictions. (sample text)",
+  "summary": "Shows hidden afflictions.",
+  "category": "equipment",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "skill": {
+   "skill": "medical",
+   "required": 0,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "needle",
+  "name": "Decompression Needle",
+  "description": "Releases air from the chest. (sample text)",
+  "summary": "Releases air from the chest.",
+  "category": "surgical",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [
+   "pneumothorax"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "id": "pneumothorax",
+    "amount": null
+   }
+  ],
+  "causesDetail": [],
+  "skill": {
+   "skill": "medical",
+   "required": 40,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ },
+ {
+  "id": "suture",
+  "name": "Surgical Suture",
+  "description": "Closes wounds and incisions. (sample text)",
+  "summary": "Closes wounds and incisions.",
+  "category": "surgical",
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 320,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "treats": [
+   "arterialcut"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "id": "arterialcut",
+    "amount": null
+   }
+  ],
+  "causesDetail": [],
+  "skill": {
+   "skill": "medical",
+   "required": 50,
+   "notes": null
+  },
+  "onFailure": "Less effective, may cause pain. (sample)",
+  "usage": null,
+  "source": "sample",
+  "hidden": false
+ }
+]
