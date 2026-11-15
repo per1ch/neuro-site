@@ -469,6 +469,7 @@ def merge_mechanics(afflictions, items):
                         it["causes"].append(aid)
             it["mechanicsSource"] = g.get("source")
         extra["surgery"] = data.get("surgeryProcedures", [])
+        extra["itemNotes"] = data.get("notes")
     return extra
 
 
