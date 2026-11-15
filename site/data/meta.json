@@ -1,10 +1,10 @@
 {
  "modRepo": "https://github.com/LukakoE00/Neurotrauma-CS",
  "modCommit": "722122a065a4a7e92e694cc8afb69bb33f76ae41",
- "generatedAt": "2026-11-15T17:34:07+00:00",
+ "generatedAt": "2026-11-15T17:36:40+00:00",
  "counts": {
-  "afflictions": 206,
-  "afflictionsVisible": 152,
+  "afflictions": 208,
+  "afflictionsVisible": 155,
   "items": 141,
   "itemsVisible": 112,
   "surgery": 14,

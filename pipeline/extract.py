@@ -198,12 +198,12 @@ def extract_afflictions(loc, headers):
     for path in sorted((CONTENT / "XML" / "Afflictions").glob("*.xml")):
         category = CATEGORY_BY_FILE.get(path.stem, path.stem.lower())
         root = parse_xml(path)
-        for el in root.iter():
-            if el.tag not in ("Affliction",) and not el.tag.startswith("Affliction"):
-                continue
+        # Only definitions: direct children of <Afflictions>. Nested <Affliction identifier=..>
+        # inside StatusEffects are references and must not shadow the real definition.
+        defs = [c for group in root.iter("Afflictions") for c in group]
+        for el in defs:
             aid = (attr(el, "identifier") or "").lower()
-            if not aid or el.tag not in ("Affliction", "AfflictionBleeding", "AfflictionHusk",
-                                         "AfflictionPsychosis", "AfflictionSpaceHerpes"):
+            if not aid or not isinstance(el.tag, str):
                 continue
             if aid in out:
                 continue
