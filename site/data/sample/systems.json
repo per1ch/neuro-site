@@ -1,0 +1,17 @@
+[
+ {
+  "id": "bloodpressure",
+  "title": "Blood pressure",
+  "explanation": "Blood pressure falls as you lose blood. (sample)",
+  "keyNumbers": [
+   {
+    "label": "Normal",
+    "value": "100%"
+   },
+   {
+    "label": "Critical",
+    "value": "< 40%"
+   }
+  ]
+ }
+]
