@@ -2891,7 +2891,7 @@
    "mediumitem"
   ],
   "icon": {
-   "sheet": "%ModDir%\\Images\\Suits\\blackbag.png",
+   "sheet": "blackbag.png",
    "x": 0,
    "y": 0,
    "w": 67,
@@ -8670,7 +8670,7 @@
    "diving"
   ],
   "icon": {
-   "sheet": "%ModDir%\\Images\\Suits\\bag.png",
+   "sheet": "bag.png",
    "x": 0,
    "y": 0,
    "w": 67,
