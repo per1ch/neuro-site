@@ -1,0 +1,21 @@
+{
+ "_comment": "Hand-written fills for afflictions the code analysis skipped. Each says what it is based on.",
+ "afflictions": {
+  "a_negative": {"danger": "utility", "copyGuideFrom": null, "guide": {"whatItDoes": "Blood type marker. Decides which blood packs this person can receive; see the blood types system.", "source": "XML/Afflictions/BloodTypes.xml"}},
+  "a_positive": {"danger": "utility", "guide": {"whatItDoes": "Blood type marker. Decides which blood packs this person can receive; see the blood types system.", "source": "XML/Afflictions/BloodTypes.xml"}},
+  "ab_negative": {"danger": "utility", "guide": {"whatItDoes": "Blood type marker. Decides which blood packs this person can receive; see the blood types system.", "source": "XML/Afflictions/BloodTypes.xml"}},
+  "ab_positive": {"danger": "utility", "guide": {"whatItDoes": "Blood type marker. Decides which blood packs this person can receive; see the blood types system.", "source": "XML/Afflictions/BloodTypes.xml"}},
+  "b_negative": {"danger": "utility", "guide": {"whatItDoes": "Blood type marker. Decides which blood packs this person can receive; see the blood types system.", "source": "XML/Afflictions/BloodTypes.xml"}},
+  "b_positive": {"danger": "utility", "guide": {"whatItDoes": "Blood type marker. Decides which blood packs this person can receive; see the blood types system.", "source": "XML/Afflictions/BloodTypes.xml"}},
+  "o_negative": {"danger": "utility", "guide": {"whatItDoes": "Blood type marker. O- is the universal donor: its packs (Blood Pack O-) can be given to anyone.", "source": "Localization English.xml (antibloodloss2)"}},
+  "o_positive": {"danger": "utility", "guide": {"whatItDoes": "Blood type marker. Decides which blood packs this person can receive; see the blood types system.", "source": "XML/Afflictions/BloodTypes.xml"}},
+  "nausea": {"copyGuideFrom": "nausea_nt"},
+  "bleedingnonstop": {"danger": "serious"},
+  "burning": {"danger": "serious", "guide": {"whatItDoes": "The character is burning. Prolonged burning turns into the 'On fire!' affliction and keeps adding burns.", "treatment": "Fire extinguisher, getting into water, or a sealed diving suit (per the extinguisher and diving suit descriptions).", "source": "XML/Afflictions/Overrides.xml; Localization English.xml"}},
+  "chemaddiction": {"danger": "moderate"},
+  "opiateaddiction": {"danger": "moderate"},
+  "cyanidepoisoning": {"danger": "lethal", "guide": {"treatment": "Toxin Filter on a Surgery Table treats all vanilla poisons (slower than antidotes).", "source": "Localization English.xml (toxfilter)"}},
+  "sufforinpoisoning": {"danger": "lethal", "guide": {"treatment": "Toxin Filter on a Surgery Table treats all vanilla poisons (slower than antidotes).", "source": "Localization English.xml (toxfilter)"}},
+  "morbusinepoisoning": {"danger": "lethal", "guide": {"treatment": "Toxin Filter on a Surgery Table treats all vanilla poisons (slower than antidotes).", "source": "Localization English.xml (toxfilter)"}}
+ }
+}

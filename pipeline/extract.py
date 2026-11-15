@@ -443,6 +443,19 @@ def merge_mechanics(afflictions, items):
                 if lid in afflictions and lid not in a["leadsTo"] and lid != a["id"]:
                     a["leadsTo"].append(lid)
         extra["systems"] = data.get("systems", [])
+    man = mech / "manual.json"
+    if man.exists():
+        for aid, fill in json.loads(man.read_text())["afflictions"].items():
+            a = afflictions.get(aid)
+            if not a:
+                continue
+            src = afflictions.get(fill.get("copyGuideFrom") or "")
+            if src and src["guide"]:
+                a["guide"], a["danger"] = src["guide"], a["danger"] or src["danger"]
+            if fill.get("danger") and not a["danger"]:
+                a["danger"] = fill["danger"]
+            if fill.get("guide"):
+                a["guide"] = {**(a["guide"] or {}), **fill["guide"]}
     im = mech / "items_mechanics.json"
     if im.exists():
         data = json.loads(im.read_text())
@@ -472,6 +485,29 @@ def merge_mechanics(afflictions, items):
         for proc in extra["surgery"]:
             proc.setdefault("id", re.sub(r"[^a-z0-9]+", "-", proc["name"].lower()).strip("-"))
         extra["itemNotes"] = data.get("notes")
+    # Trello guide labels (index made by the research thread from the public board)
+    tr = mech / "trello-card-index.md"
+    if tr.exists():
+        byname = {}
+        for a in afflictions.values():
+            if a["name"] and not a["hidden"]:
+                byname.setdefault(a["name"].lower(), a)
+        alias = {"spasms": "spasm", "increased heartrate": "increased heartrate"}
+        for line in tr.read_text(encoding="utf-8").splitlines():
+            cells = [c.strip() for c in line.strip().strip("|").split("|")]
+            if len(cells) < 5 or cells[0] in ("List", "---") or "Affliction" not in cells[2]:
+                continue
+            card, labels = cells[1], [l.strip() for l in cells[2].split(",")]
+            a = byname.get(alias.get(card.lower(), card.lower()))
+            if not a:
+                continue
+            leth = ("lethal" if "Lethal" in labels else "non-lethal" if "Non-Lethal" in labels
+                    else "depends" if "Lethality Depends" in labels else None)
+            vis = [v for v, l in (("healthinterface", "Visible on Health Interface"),
+                                  ("scanner", "Visible on Scanner"),
+                                  ("hidden", "Not Visible Ingame")) if l in labels]
+            a["trello"] = {"card": card, "list": cells[0], "lethality": leth, "visibleOn": vis,
+                           "updated": cells[4] if len(cells) > 4 else None}
     return extra
 
 

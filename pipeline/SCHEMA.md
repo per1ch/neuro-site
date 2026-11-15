@@ -26,6 +26,7 @@ Entries with `hidden: true` are internal (overlays, triggers, sound items): don'
 | guide | object\|null | {howYouGetIt, whatItDoes, treatment, naturalRecovery, progression, thresholds:[{value,meaning}], source} plain-language, from code |
 | code | object\|null | raw comment header from NTAfflictionsData.cs: {title,type,causedBy,effects,notes} |
 | causeOfDeath | string\|null | |
+| trello | {card, list, lethality:"lethal"\|"non-lethal"\|"depends", visibleOn:["healthinterface","scanner","hidden"], updated}\|absent | labels from the community Trello guide (78 matched). Can disagree with `danger` (code-derived); show both |
 | source | string | file in the mod repo |
 
 ## items.json — array
