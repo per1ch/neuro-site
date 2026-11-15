@@ -76,7 +76,7 @@ export function afflictionDetail(el, id) {
     <a href="#/afflictions" class="faint" style="font-size:.85rem">← Afflictions</a>
     <div class="detail-head" style="margin-top:10px">${icon(a, 88, "icon-lg")}
       <div><div class="eyebrow">${esc(KIND_LABELS[a.kind] || a.kind || "Affliction")}</div><h1>${esc(a.name || a.id)}</h1>
-      <div class="detail-meta">${dangerBadge(a)}${a.limbSpecific ? `<span class="tag">Limb specific</span>` : ""}${a.isBuff ? `<span class="tag">Buff</span>` : ""}${a.causeOfDeath ? `<span class="badge d-lethal">Can kill</span>` : ""}</div></div>
+      <div class="detail-meta">${dangerBadge(a)}${a.limbSpecific ? `<span class="tag">Limb specific</span>` : ""}${a.isBuff ? `<span class="tag">Buff</span>` : ""}${a.causeOfDeath ? `<span class="badge d-lethal">Can kill</span>` : ""}${trelloBadge(a)}</div></div>
     </div>
     <div class="detail-grid">
       <div>
@@ -85,6 +85,8 @@ export function afflictionDetail(el, id) {
         ${guide("What it does", g.whatItDoes || a.code?.effects)}
         ${guide("How to treat it", g.treatment)}
         ${guide("Natural recovery", g.naturalRecovery)}
+        ${guide("How it progresses", g.progression)}
+        ${trelloNote(a)}
         ${thresholds.length ? `<h2>Severity</h2>
           <div class="thresholds" role="img" aria-label="Severity thresholds">${thresholds.map((t) => `<div class="threshold" style="left:${Math.min(100, (t.value / max) * 100)}%"><span>${esc(t.value)}</span></div>`).join("")}</div>
           <ul class="threshold-list">${thresholds.map((t) => `<li><b>${esc(t.value)}+</b>${esc(t.meaning)}</li>`).join("")}</ul>` : ""}
@@ -105,6 +107,7 @@ export function afflictionDetail(el, id) {
         <div class="card"><dl class="kv">
           <dt>ID</dt><dd class="mono">${esc(a.id)}</dd>
           ${a.category ? `<dt>Category</dt><dd>${esc(a.category)}</dd>` : ""}
+          ${a.trello?.visibleOn?.length ? `<dt>Visible on</dt><dd>${a.trello.visibleOn.map((v) => esc(VISIBLE[v] || v)).join(", ")}</dd>` : ""}
           <dt>Max strength</dt><dd>${esc(a.maxStrength ?? "–")}</dd>
           ${a.detectedBy?.length ? `<dt>Detected by</dt><dd>${a.detectedBy.map((d) => db.item.has(d) ? `<a href="${itemHref(d)}">${esc(db.item.get(d).name)}</a>` : esc(d)).join(", ")}</dd>` : ""}
           ${a.showInScannerThreshold != null && a.showInScannerThreshold < 999 ? `<dt>Scanner shows at</dt><dd>${esc(a.showInScannerThreshold)}</dd>` : ""}
@@ -153,6 +156,21 @@ export function itemDetail(el, id) {
         ${it.source ? `<div class="faint" style="font-size:.8rem">Source: ${sourceLink(it.source) || esc(it.source)}</div>` : ""}
       </aside>
     </div>`;
+}
+
+// Community Trello guide labels, shown next to (never instead of) the code-derived danger.
+const VISIBLE = { healthinterface: "Health interface", scanner: "Health scanner", hidden: "Not visible", hematology: "Hematology analyzer", mental: "Mental symptom" };
+const TRELLO_LETHAL = { lethal: ["Lethal", "d-lethal"], "non-lethal": ["Non-lethal", "d-beneficial"], depends: ["Lethality depends", "d-moderate"] };
+function trelloBadge(a) {
+  const l = TRELLO_LETHAL[a.trello?.lethality];
+  return l ? `<span class="badge plain ${l[1]}" style="opacity:.8" title="Label from the community Trello guide">Community: ${l[0]}</span>` : "";
+}
+function trelloNote(a) {
+  const t = a.trello;
+  if (!t?.lethality || !a.danger) return "";
+  const codeLethal = a.danger === "lethal", trelloLethal = t.lethality === "lethal";
+  if (t.lethality === "depends" || codeLethal === trelloLethal) return "";
+  return `<div class="callout callout-note"><div class="callout-title">Sources disagree</div><p>The mod's code rates this <b>${esc(a.danger)}</b>; the community Trello guide (“${esc(t.card)}”, ${esc(t.list)}${t.updated ? `, updated ${esc(t.updated)}` : ""}) labels it <b>${esc(t.lethality)}</b>.</p></div>`;
 }
 
 function amount(d) {
