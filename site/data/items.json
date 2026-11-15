@@ -1,0 +1,6519 @@
+[
+ {
+  "id": "a_negativecard",
+  "name": "Donor Card A-",
+  "description": "Can take blood from: O-, A-\nCan give blood to: A-, A+, AB-, AB+",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "donorCard"
+  ],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "a_positivecard",
+  "name": "Donor Card A+",
+  "description": "Can take blood from: O-, O+, A-, A+\nCan give blood to: A+, AB+",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "donorCard"
+  ],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "ab_negativecard",
+  "name": "Donor Card AB-",
+  "description": "Can take blood from: O-, A-, B-, AB-\nCan give blood to: AB-, AB+",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "donorCard"
+  ],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "ab_positivecard",
+  "name": "Donor Card AB+",
+  "description": "Can take blood from: all of them\nCan give blood to: AB+",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "donorCard"
+  ],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "adrenaline",
+  "name": "Adrenaline",
+  "description": "A naturally occurring hormone. For a short amount of time, it will raise the patient's Blood Pressure, increase Melee Damage, halve Fibrillation Rate, prevent Pain, and prevent the limb locking and slowdowns from Fractures and Dislocations. Upon use, it will also cure Cardiac Arrest, remove Stun, and briefly reduce incoming Stuns.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical,Material",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 60,
+  "fabricate": null,
+  "suitableTreatments": [
+   {
+    "affliction": "cardiacarrest",
+    "suitability": 100
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "cardiacarrest"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "cardiacarrest",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "advhemostat",
+  "name": "Hemostat",
+  "description": "A tool used to Clamp Blood Vessels during surgery. The second step in most surgical operations, done after Surgical Incisions.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 192,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 35,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "advretractors",
+  "name": "Skin Retractors",
+  "description": "A tool used to Retract Skin during surgery. Retracting the skin is the third step in most surgical operations, but will cause Traumatic Shock if the patient is conscious and not laying on a bed or close to a Surgery Table or hospital bed. Used after Hemostat Clamping. On failure, causes Internal Damage.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 256,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 35,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "advscalpel",
+  "name": "Scalpel",
+  "description": "A tool used to make Surgical Incisions during surgery. Incisions are the first step in all surgical operations, but will cause Blood Loss unless the Hemostat is used afterwards. Additionally, incisions can only be performed if the patient does not feel pain, and patients who become pain-aware during surgery will gain Traumatic Shock. On failure, causes Bleeding and Lacerations.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 0,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 35,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "aed",
+  "name": "Automated External Defibrillator",
+  "description": "The AED uses battery power for a small chance to cure Cardiac Arrest and is guaranteed to reset Fibrillation. For curing Cardiac Arrest, use the Manual Defibrillator instead if medical skill is above 80.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 64,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 400,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 40,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "electrical",
+     "level": 50
+    },
+    {
+     "skill": "medical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "fpgacircuit",
+     "amount": 1
+    },
+    {
+     "item": "fulgurium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "tachycardia",
+    "suitability": 60
+   },
+   {
+    "affliction": "fibrillation",
+    "suitability": 60
+   },
+   {
+    "affliction": "cardiacarrest",
+    "suitability": 15
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "fibrillation",
+   "cardiacarrest"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "fibrillation",
+    "amount": null,
+    "notes": "AI suitability 60",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "cardiacarrest",
+    "amount": null,
+    "notes": "AI suitability 15",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "alienblood",
+  "name": "Alien Blood",
+  "description": "Blood extracted from a Europan lifeform. It is incompatible with human blood.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical"
+  ],
+  "icon": null,
+  "price": 100,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 55
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "analgesictank",
+  "name": "Analgesic Tank",
+  "description": "A tank of analgesics which can be installed on a Surgery Table to provide the patient-laying-down enough Analgesia to perform surgery. It can also be used in an Ambubag, but causes extra Addiction.",
+  "category": "equipment",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "analgesictank"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 261,
+   "y": 912,
+   "w": 46,
+   "h": 112,
+   "color": null
+  },
+  "price": 270,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 9,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    },
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "aluminium",
+     "amount": 2
+    },
+    {
+     "item": "antidama1",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "antibiotics",
+  "name": "Broad-Spectrum Antibiotics",
+  "description": "An antibiotic that acts against a wide range bacteria, making it an effective treatment for Sepsis and to a lesser extent, Husk Infection. However, its broad nature causes Organ Damage. Used as an ingredient in multiple medical compounds. On failure, it is less effective.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 60,
+  "fabricate": {
+   "fabricator": "vendingmachine",
+   "time": 1,
+   "amount": 1,
+   "skills": [],
+   "ingredients": []
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "damage",
+    "suitability": -33
+   },
+   {
+    "affliction": "huskinfection",
+    "suitability": 30
+   },
+   {
+    "affliction": "sepsis",
+    "suitability": 50
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 25
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "sepsis"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "sepsis",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antibleeding1",
+  "name": "Bandage",
+  "description": "Basic bandages, useful in the treatment of Bleeding, and increases the natural healing of minor Burns and wounds. Additionally, being bandaged stabilizes Fractures and Dislocations. Effects which increase the speed of natural healing do not work if the injury is beyond its natural healing threshold. On failure, it is less effective. Stabilization prevents: \n- Arm fractures from reaching 100% \n- Neck fractures from causing spinal injury and internal damage \n- Rib fractures from causing pneumothorax \n- Dislocations from causing internal damage \n- Arm dislocations from locking \n- And restores the function of dislocated legs",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": null,
+  "price": 30,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 15,
+   "amount": 3,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 5
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "organicfiber",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 10
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antibleeding2",
+  "name": "Plastiseal",
+  "description": "A synthetic skin with hemostatic properties able to effectively seal bleeds, and is a good treatment against minor Burns while increasing the natural healing of Wounds. Additionally, stabilizes Fractures and Dislocations. Finally, they can be used to treat Third-degree Burns when used after Skin Retraction. On failure, it is less effective.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": null,
+  "price": 50,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 25,
+   "amount": 3,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 16
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "antibleeding1",
+     "amount": 3
+    },
+    {
+     "item": "elastin",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "infectedwound",
+    "suitability": 6
+   },
+   {
+    "affliction": "bandageddirty",
+    "suitability": 100
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 22
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "infectedwound",
+   "bandageddirty"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "infectedwound",
+    "amount": null,
+    "notes": "AI suitability 6",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "bandageddirty",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antibleeding3",
+  "name": "Antibiotic Glue",
+  "description": "An antibiotic glue with hemostatic properties. Seals Bleeding wounds almost immediately and prevents them from getting Infected. Also effective against Burns. On failure, it may cause mobile clots in the bloodstream.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": null,
+  "price": 80,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 25,
+   "amount": 4,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 48
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "stabilozine",
+     "amount": 1
+    },
+    {
+     "item": "antibiotics",
+     "amount": 2
+    },
+    {
+     "item": "elastin",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 55
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antibloodloss1",
+  "name": "Saline",
+  "description": "A sodium chloride infusion used to increase Blood Pressure, and additionally causes Acidosis. On failure, it has less duration.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "petfood1",
+   "petfood2",
+   "petfood3"
+  ],
+  "icon": null,
+  "price": 50,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 15,
+   "amount": 2,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 5
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "sodium",
+     "amount": 1
+    },
+    {
+     "item": "chlorine",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 10
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antibloodloss2",
+  "name": "Blood Pack O-",
+  "description": "A blood pack that can be used on any patient.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "petfood1",
+   "bloodbag"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 326,
+   "y": 327,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 240,
+  "fabricate": null,
+  "suitableTreatments": [
+   {
+    "affliction": "bloodloss",
+    "suitability": 100
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "bloodloss"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "bloodloss",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antidama1",
+  "name": "Morphine",
+  "description": "A powerful Opioid Analgesic, but overuse will cause Addiction and Overdose. On failure, it is less effective and there is a greater risk of Addiction and Overdose.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 100,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 30,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 18
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "opium",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "opiatewithdrawal",
+    "suitability": 5
+   },
+   {
+    "affliction": "opiateoverdose",
+    "suitability": -20
+   },
+   {
+    "affliction": "opiateaddiction",
+    "suitability": -20
+   },
+   {
+    "affliction": "pain",
+    "suitability": 40
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 50
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "opiatewithdrawal",
+   "pain"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "opiatewithdrawal",
+    "amount": null,
+    "notes": "AI suitability 5",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "pain",
+    "amount": null,
+    "notes": "AI suitability 40",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antidama2",
+  "name": "Fentanyl",
+  "description": "A very potent Opioid Analgesic, but overuse will cause Addiction and Overdose. Analgesia will not only prevent pain, but will also reduce damage taken and increase stun resistance. On failure, it is less effective and there is a greater risk of addiction and overdose.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 190,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 45,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 50
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "opium",
+     "amount": 1
+    },
+    {
+     "item": "adrenaline",
+     "amount": 1
+    },
+    {
+     "item": "ethanol",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "opiatewithdrawal",
+    "suitability": 100
+   },
+   {
+    "affliction": "opiateoverdose",
+    "suitability": -50
+   },
+   {
+    "affliction": "opiateaddiction",
+    "suitability": -20
+   },
+   {
+    "affliction": "pain",
+    "suitability": 50
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 72
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "opiatewithdrawal",
+   "pain"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "opiatewithdrawal",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "pain",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antinarc",
+  "name": "Naloxone",
+  "description": "An opioid antagonist for the treatment of opiate Withdrawal and Overdose. Additionally, it will reduce Analgesia. On failure, it is less effective and may cause a short Coma.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 100,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 30,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 23
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "opium",
+     "amount": 1
+    },
+    {
+     "item": "stabilozine",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "opiateaddiction",
+    "suitability": 60
+   },
+   {
+    "affliction": "opiatewithdrawal",
+    "suitability": 60
+   },
+   {
+    "affliction": "opiateoverdose",
+    "suitability": 60
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 39
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "opiateaddiction",
+   "opiatewithdrawal",
+   "opiateoverdose"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "opiateaddiction",
+    "amount": null,
+    "notes": "AI suitability 60",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "opiatewithdrawal",
+    "amount": null,
+    "notes": "AI suitability 60",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "opiateoverdose",
+    "amount": null,
+    "notes": "AI suitability 60",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antiparalysis",
+  "name": "Anaparalyzant",
+  "description": "A cure for Paralysis and prematurely ends Anesthesia. Excessive use may cause Psychosis. On failure, it is less effective and causes more Psychosis.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 200,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 30,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 24
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "paralyzant",
+     "amount": 1
+    },
+    {
+     "item": "stabilozine",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "paralysis",
+    "suitability": 100
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 64
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antipsychosis",
+  "name": "Haloperidol",
+  "description": "A strong antipsychotic drug, effective against treatment of Alcohol Withdrawal. On failure, it is less effective.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 130,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 30,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 21
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "lithium",
+     "amount": 1
+    },
+    {
+     "item": "carbon",
+     "amount": 2
+    },
+    {
+     "item": "chlorine",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "psychosis",
+    "suitability": 100
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 37
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "psychosis"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "psychosis",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "antiseptic",
+  "name": "Antiseptic",
+  "description": "Used by the Antiseptic Sprayer, it is effective against treating Infected Wounds.",
+  "category": "equipment",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 192,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 15,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "chlorine",
+     "amount": 1
+    },
+    {
+     "item": "ethanol",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "antisepticspray",
+  "name": "Antiseptic Sprayer",
+  "description": "Applies Antiseptic to combat Infected Wounds.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "tool",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 128,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 75,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "infectedwound",
+    "suitability": 45
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "infectedwound"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "infectedwound",
+    "amount": null,
+    "notes": "AI suitability 45",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "armlock",
+  "name": "Non-working Arm",
+  "description": "This arm has become unusable! \nThis could be because of a Dislocation, a Fracture or an Amputation.",
+  "category": "bodyparts",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "autocpr",
+  "name": "AutoPulse",
+  "description": "A machine that occupies a patient's Outerwear slot. Over time, cures Cardiac Arrest and Fibrillation. Wearing the AutoPulse will additionally increase Blood Pressure, which may be useful in an emergency. Remember to take it off when no longer needed! It can also be equipped through the Health UI and unequipped by using a Wrench on the torso.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "clothing",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 320,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 300,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 30,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "fpgacircuit",
+     "amount": 1
+    },
+    {
+     "item": "steel",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "respiratoryarrest",
+    "suitability": 0.0009
+   },
+   {
+    "affliction": "cardiacarrest",
+    "suitability": 0.0009
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "respiratoryarrest",
+   "cardiacarrest"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "respiratoryarrest",
+    "amount": null,
+    "notes": "AI suitability 0.0009",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "cardiacarrest",
+    "amount": null,
+    "notes": "AI suitability 0.0009",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "b_negativecard",
+  "name": "Donor Card B-",
+  "description": "Can take blood from: O-, B-\nCan give blood to: B-, B+, AB-, AB+",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "donorCard"
+  ],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "b_positivecard",
+  "name": "Donor Card B+",
+  "description": "Can take blood from: O-, O+, B-, B+\nCan give blood to: B+, AB+",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "donorCard"
+  ],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "blahaj",
+  "name": "Blue Shark",
+  "description": "A cute plushie that will slightly reduce Psychosis each time a patient is hit with it.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "mountableweapon"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 768,
+   "y": 835,
+   "w": 256,
+   "h": 189,
+   "color": null
+  },
+  "price": null,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 5,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 10
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "bloodanalyzer",
+  "name": "Hematology Analyzer",
+  "description": "A tool that displays a patient's blood type and immunity. Additionally shows if a patient has Blood Loss, Sepsis, Acidosis, Alkalosis or drugs in the bloodstream. If a blank donor card is inserted, it will print the patient's bloodtype onto their ID card. If a blood pack is inserted, any existing Sepsis, Acidosis or Alkalosis will be shown. The analyzer requires a bit of blood to print donor cards.",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 0,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 250,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 50
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "silicon",
+     "amount": 1
+    },
+    {
+     "item": "fpgacircuit",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bloodcollector",
+  "name": "Blank Donor Card",
+  "description": "An empty donor card used by the hematology analyzer to imprint a patient's blood type.",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "Material",
+   "vial",
+   "medical",
+   "bloodscannercard"
+  ],
+  "icon": null,
+  "price": 5,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 5,
+   "amount": 4,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 30
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bloodpacka_negative",
+  "name": "Blood Pack A-",
+  "description": "Administerable to: A-, A+, AB-, AB+",
+  "category": "blood",
+  "gameCategory": null,
+  "tags": [],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 396,
+   "y": 328,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 200,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bloodpacka_positive",
+  "name": "Blood Pack A+",
+  "description": "Administerable to: A+, AB+",
+  "category": "blood",
+  "gameCategory": null,
+  "tags": [],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 260,
+   "y": 260,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 150,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bloodpackab_negative",
+  "name": "Blood Pack AB-",
+  "description": "Administerable to: AB-, AB+",
+  "category": "blood",
+  "gameCategory": null,
+  "tags": [],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 396,
+   "y": 263,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 150,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bloodpackab_positive",
+  "name": "Blood Pack AB+",
+  "description": "Administerable to: AB+",
+  "category": "blood",
+  "gameCategory": null,
+  "tags": [],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 193,
+   "y": 260,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bloodpackb_negative",
+  "name": "Blood Pack B-",
+  "description": "Administerable to: B-, B+, AB-, AB+",
+  "category": "blood",
+  "gameCategory": null,
+  "tags": [],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 331,
+   "y": 261,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 200,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bloodpackb_positive",
+  "name": "Blood Pack B+",
+  "description": "Administerable to: B+, AB+",
+  "category": "blood",
+  "gameCategory": null,
+  "tags": [],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 260,
+   "y": 326,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 150,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bloodpacko_positive",
+  "name": "Blood Pack O+",
+  "description": "Administerable to: O+, A+, B+, AB+",
+  "category": "blood",
+  "gameCategory": null,
+  "tags": [],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 194,
+   "y": 325,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 200,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "bodybag",
+  "name": "Body Bag",
+  "description": "A bag that occupies a patient or corpse's Outerwear slot. Allows them to be dragged at full speed, but a living person cannot breathe through the bag, causing Oxygen Low.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "provocative",
+   "mediumitem"
+  ],
+  "icon": {
+   "sheet": "%ModDir%\\Images\\Suits\\blackbag.png",
+   "x": 0,
+   "y": 0,
+   "w": 67,
+   "h": 45,
+   "color": null
+  },
+  "price": 60,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 15,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 5
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "braintransplant",
+  "name": "Brain Transplant",
+  "description": "A human brain. To transplant an organ, the old one must be removed and the new one placed in. The brain will decay even if refrigrated and is extremely fragile, and it is also tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "brain",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood",
+   "braintransplant"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 272,
+   "y": 480,
+   "w": 78,
+   "h": 60,
+   "color": null
+  },
+  "price": 0,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 100
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "bunk",
+  "name": null,
+  "description": null,
+  "category": "vanilla-override",
+  "gameCategory": "Decorative",
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "bunkwrecked",
+  "name": null,
+  "description": null,
+  "category": "vanilla-override",
+  "gameCategory": "Wrecked",
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "bvm",
+  "name": "Ambu Bag",
+  "description": "The Ambu Bag will treat Oxygen Low when provided with an oxygen tank and additionally treats Respiratory Arrest if provided with an oxygenite tank.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 256,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 30
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "oxygenlow",
+    "suitability": 50
+   },
+   {
+    "affliction": "respiratoryarrest",
+    "suitability": 0.0008
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "oxygenlow",
+   "respiratoryarrest"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "oxygenlow",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "respiratoryarrest",
+    "amount": null,
+    "notes": "AI suitability 0.0008",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "captainspipe",
+  "name": "Captain's Pipe",
+  "description": "For calming the nerves when the sea is stormy. It is hard on the lungs, though.",
+  "category": "vanilla-override",
+  "gameCategory": "Misc",
+  "tags": [
+   "smallitem"
+  ],
+  "icon": null,
+  "price": 50,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "cigar",
+  "name": "Cigar",
+  "description": "A submariner's life is mentally taxing, but perhaps this exquisitely crafted cigar can help you soothe your nerves a bit. It is hard on the lungs, though.",
+  "category": "vanilla-override",
+  "gameCategory": "Misc",
+  "tags": [
+   "smallitem"
+  ],
+  "icon": null,
+  "price": 130,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 5,
+   "amount": 1,
+   "skills": [],
+   "ingredients": [
+    {
+     "item": "pipetobacco",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "defibrillator",
+  "name": "Manual Defibrillator",
+  "description": "A tool that uses battery power to cure Cardiac Arrest or reset Fibrillation. For curing Cardiac Arrest, use the AED instead if medical skill is below 80. For curing Fibrillation, use the AED instead if medical skill is below 100. On failure, causes Cardiac Arrest.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 128,
+   "y": 196,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "electrical",
+     "level": 40
+    },
+    {
+     "skill": "medical",
+     "level": 30
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "fpgacircuit",
+     "amount": 1
+    },
+    {
+     "item": "aluminium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "tachycardia",
+    "suitability": 50
+   },
+   {
+    "affliction": "fibrillation",
+    "suitability": 50
+   },
+   {
+    "affliction": "cardiacarrest",
+    "suitability": 10
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "fibrillation",
+   "cardiacarrest"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "fibrillation",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "cardiacarrest",
+    "amount": null,
+    "notes": "AI suitability 10",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "deusizine",
+  "name": "Deusizine",
+  "description": "A stimulant that increases muscular endurance and can be used in the treatment of Internal Damage, Oxygen Deprivation, and Blood Loss. On failure, it is less effective.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 500,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 60,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 70
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "antibleeding3",
+     "amount": 1
+    },
+    {
+     "item": "antidama2",
+     "amount": 1
+    },
+    {
+     "item": "liquidoxygenite",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "hypoxemia",
+    "suitability": 45
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 72
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "hypoxemia"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "hypoxemia",
+    "amount": null,
+    "notes": "AI suitability 45",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "dialyzer",
+  "name": "Dialysis Filter",
+  "description": "A filter which can be installed on a Surgery Table to reduce Alkalosis and Acidosis for the patient laying-down. Reducing the afflictions provides a minor risk of contracting Sepsis.",
+  "category": "equipment",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "dialyzer"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 447,
+   "y": 924,
+   "w": 76,
+   "h": 95,
+   "color": null
+  },
+  "price": 420,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 60
+    },
+    {
+     "skill": "mechanical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "aluminium",
+     "amount": 2
+    },
+    {
+     "item": "fpgacircuit",
+     "amount": 2
+    },
+    {
+     "item": "organicfiber",
+     "amount": 2
+    },
+    {
+     "item": "sodium",
+     "amount": 2
+    },
+    {
+     "item": "calcium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "divingknife",
+  "name": "Diving Knife",
+  "description": "Stabs, pokes, cuts and slashes. Also can be used to remove old Bandages. On failure, causes Lacerations and Bleeding.",
+  "category": "vanilla-override",
+  "gameCategory": "Weapon",
+  "tags": [
+   "smallitem",
+   "weapon",
+   "gunsmith",
+   "mountableweapon",
+   "sharptool"
+  ],
+  "icon": null,
+  "price": 29,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "weapons",
+     "level": 30
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "iron",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "bandageddirty",
+    "suitability": 50
+   },
+   {
+    "affliction": "bandaged",
+    "suitability": 50
+   },
+   {
+    "affliction": "triagetag_green",
+    "suitability": 100
+   },
+   {
+    "affliction": "triagetag_yellow",
+    "suitability": 100
+   },
+   {
+    "affliction": "triagetag_red",
+    "suitability": 100
+   },
+   {
+    "affliction": "triagetag_black",
+    "suitability": 100
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "bandageddirty",
+   "bandaged"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "bandageddirty",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "bandaged",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "drainage",
+  "name": "Drainage",
+  "description": "Treats Pneumothorax and Cardiac Tamponade by draining air and fluid respectively. Can be used after Skin Retraction.",
+  "category": "surgical",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 320,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 70,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": null,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 25
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "emptybloodpack",
+  "name": "Empty Blood Pack",
+  "description": "An empty blood pack for the drawing of blood. The drawn blood will retain a small amount of the donor's Acidosis, Alkalosis or Sepsis - if they had any. It is safe to draw a single pack of blood from a patient, provided that they are healthy. On failure, it will draw a potentially-lethal amount of blood.",
+  "category": "blood",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "BloodPacksAtlas.png",
+   "x": 192,
+   "y": 0,
+   "w": 64,
+   "h": 85,
+   "color": null
+  },
+  "price": 25,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 10,
+   "amount": 4,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 10
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "endovascballoon",
+  "name": "Endovascular Balloon",
+  "description": "A balloon inserted into a ruptured aorta. This will prevent Blood Loss caused by the rupture, but the clog will cause Gangrene over time. It can be installed after a Scalpel Incision.",
+  "category": "equipment",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 192,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 80,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": null,
+   "amount": 2,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 25
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "organicfiber",
+     "amount": 1
+    },
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "rubber",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "gelipack",
+  "name": "Gel Coolant Pack",
+  "description": "A package of cold gel that will greatly increase the natural healing of Blunt Force Trauma and treats Internal Bleeding over time. It is ineffective against other types of injuries and will worsen Infections. Effects which increase natural healing speed will not work if the injury is beyond its natural healing threshold. Can be used up to thrice, and will lose effectiveness if not refrigerated. When refrigerated, its condition will regenerate over time. On failure, its chilling duration is decreased.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "canexpire"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 64,
+   "y": 256,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 15,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "antibloodloss1",
+     "amount": 1
+    },
+    {
+     "item": "sodium",
+     "amount": 2
+    },
+    {
+     "item": "carbon",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "blunttrauma",
+    "suitability": 40
+   },
+   {
+    "affliction": "infectedwound",
+    "suitability": -100
+   },
+   {
+    "affliction": "inflammation",
+    "suitability": -100
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "blunttrauma"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "blunttrauma",
+    "amount": null,
+    "notes": "AI suitability 40",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "gypsum",
+  "name": "Gypsum",
+  "description": "A powder that can be formed into a Plaster Cast. It is used to encase Limb Fractures, allowing them to heal. Used after Bandaging the limb. On failure, it is consumed without forming a cast.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 64,
+   "y": 192,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 15,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 15
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "calcium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "handcuffs",
+  "name": null,
+  "description": null,
+  "category": "vanilla-override",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "handlocker"
+  ],
+  "icon": null,
+  "price": 30,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "weapons",
+     "level": 20
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "steel",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "headsa",
+  "name": "Amputated Head",
+  "description": "An amputated head in a bag which will slowly decay unless refrigerated. The bones are rich in Calcium and are a tasty treat for pets. No, you can't transplant it, don't think about it.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood",
+   "head"
+  ],
+  "icon": {
+   "sheet": "limbs.png",
+   "x": 195,
+   "y": 18,
+   "w": 58,
+   "h": 66,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "headta",
+  "name": "Head Remains",
+  "description": "The remains of a human head that was blown off. The face is mangled and unrecognizable, and it will slowly decay unless refrigerated. The bones are rich in Calcium and are a tasty treat for pets. No, you can't transplant it, don't think about it.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood",
+   "head"
+  ],
+  "icon": {
+   "sheet": "limbs.png",
+   "x": 129,
+   "y": 31,
+   "w": 58,
+   "h": 51,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "healthscanner",
+  "name": "Health Scanner",
+  "description": "A tool that uses battery power to display afflictions. It can be aimed at a person for a full-body scan, or administered in the Health UI to show afflictions on a specific body part. Using the scanner causes a minor amount of Radiation Sickness. Will not display Blood Type, Sepsis, Immunity, Acidosis, Alkalosis, or Drugs; these afflictions require a Hematology Analyzer.",
+  "category": "vanilla-override",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "tool",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 150,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "fpgacircuit",
+     "amount": 1
+    },
+    {
+     "item": "aluminium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "hearttransplant",
+  "name": "Heart Transplant",
+  "description": "A human heart. To transplant an organ, the old one must be removed and the new one placed in. Organs decay quickly if not refrigerated or in a human, and are a tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "heart",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 238,
+   "y": 479,
+   "w": 28,
+   "h": 54,
+   "color": null
+  },
+  "price": 4000,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "hyperzine",
+  "name": "Hyperzine",
+  "description": "An extremely potent muscle stimulant for those moments when you gotta go fast. Boosts muscular strength, endurance, and speed, and reduces stun susceptibility. It is addictive and causes a small amount of Neurotrauma. On failure, it is more addictive and causes more brain damage.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 450,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 60,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "meth",
+     "amount": 1
+    },
+    {
+     "item": "steroids",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 50
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "idcard",
+  "name": null,
+  "description": null,
+  "category": "vanilla-override",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "identitycard"
+  ],
+  "icon": null,
+  "price": 10,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "immunosuppressant",
+  "name": "Azathioprine",
+  "description": "An immunosuppressant that will reduce a patient's Immunity. This is useful to prevent Organ Rejection or to administer incompatible blood types without triggering an immune response. However, a lower immunity will make the patient more susceptible to Sepsis. If a patient is given an organ transplant but it immediately fails, it has been rejected by the immune system. On failure, causes Sepsis.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 196,
+   "y": 196,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 20,
+   "amount": 2,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 50
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "ethanol",
+     "amount": 1
+    },
+    {
+     "item": "phosphorus",
+     "amount": 1
+    },
+    {
+     "item": "sulphuricacid",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 10
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "kidneytransplant",
+  "name": "Kidney Transplant",
+  "description": "A human kidney. To transplant an organ, the old one must be removed and the new one placed in. Organs decay quickly if not refrigerated or in a human, and are a tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "kidney",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 193,
+   "y": 481,
+   "w": 32,
+   "h": 47,
+   "color": null
+  },
+  "price": 400,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "larm",
+  "name": "Left Arm",
+  "description": "A severed left arm. Can be surgically reattached after Sawing Bones. Severed limbs will slowly decay unless refrigerated, though the condition of a limb does not matter for transplanting purposes. The bones are rich in Calcium and are a tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood",
+   "arm"
+  ],
+  "icon": {
+   "sheet": "limbs.png",
+   "x": 0,
+   "y": 0,
+   "w": 46,
+   "h": 90,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "larmp",
+  "name": "Left Arm Bionic Prosthesis",
+  "description": "A bionic left arm. Can be used to treat amputation, transforming into a biological arm. Can be attached after Sawing Bones.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery"
+  ],
+  "icon": null,
+  "price": 500,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "liquidoxygenite",
+  "name": "Liquid Oxygenite",
+  "description": "A volatile syringe of oxygenite that can be injected, forcefully oxygenating the blood for a short period of time. However, its toxicity causes slight Organ Damage. On failure, oxygenation is momentary and organs are further harmed. Hypoxemia damages the brain and organs, and is the main cause of death resulting from combat injuries.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 80,
+  "fabricate": null,
+  "suitableTreatments": [
+   {
+    "affliction": "hypoxemia",
+    "suitability": 100
+   },
+   {
+    "affliction": "organdamage",
+    "suitability": -15
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 50
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "hypoxemia"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "hypoxemia",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "livertransplant",
+  "name": "Liver Transplant",
+  "description": "A human liver. To transplant an organ, the old one must be removed and the new one placed in. Organs decay quickly if not refrigerated or in a human, and are a tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "liver",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 5,
+   "y": 479,
+   "w": 79,
+   "h": 52,
+   "color": null
+  },
+  "price": 1000,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "lleg",
+  "name": "Left Leg",
+  "description": "A severed left leg. Can be surgically reattached after Sawing Bones. Severed limbs will slowly decay unless refrigerated, though the condition of a limb does not matter for transplanting purposes. The bones are rich in Calcium and are a tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood",
+   "leg"
+  ],
+  "icon": {
+   "sheet": "limbs.png",
+   "x": 57,
+   "y": 0,
+   "w": 60,
+   "h": 90,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "llegp",
+  "name": "Left Leg Bionic Prosthesis",
+  "description": "A bionic left leg. Can be used to treat amputation, transforming into a biological arm. Can be attached after Sawing Bones.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery"
+  ],
+  "icon": null,
+  "price": 500,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "lungtransplant",
+  "name": "Lung Transplant",
+  "description": "A set of human lungs. To transplant an organ, the old one must be removed and the new one placed in. Organs decay quickly if not refrigerated or in a human, and are a tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "lung",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 91,
+   "y": 480,
+   "w": 84,
+   "h": 84,
+   "color": null
+  },
+  "price": 2000,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "mannitol",
+  "name": "Mannitol",
+  "description": "A sugar alcohol used to treat a significant amount of Neurotrauma and halve its rate of increase. However, it will not work unless the patient has over 70% Blood Pressure and oxygenated blood. Additionally, it will cause Heart- and Kidney Damage. On failure, it is less effective and will cause more Heart- and Kidney Damage.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 128,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 300,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 40,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 80
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "adrenaline",
+     "amount": 1
+    },
+    {
+     "item": "ethanol",
+     "amount": 1
+    },
+    {
+     "item": "liquidoxygenite",
+     "amount": 1
+    },
+    {
+     "item": "stabilozine",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "neurotrauma",
+    "suitability": 15
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 60
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "neurotrauma"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "neurotrauma",
+    "amount": null,
+    "notes": "AI suitability 15",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "medstartercrate",
+  "name": "Medical Starter Crate",
+  "description": "Once obtained, this crate will spawn first-aid and surgical necessities.",
+  "category": "equipment",
+  "gameCategory": null,
+  "tags": [
+   "crate"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 158,
+   "y": 578,
+   "w": 146,
+   "h": 82,
+   "color": null
+  },
+  "price": 700,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": []
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "medstent",
+  "name": "Medical Stent",
+  "description": "A stent that can be inserted into the aorta to repair a rupture. It must be used after the Endovascular Balloon.",
+  "category": "equipment",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 384,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 80,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": null,
+   "amount": 2,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 25
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "organicfiber",
+     "amount": 1
+    },
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "rubber",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "aorticrupture",
+    "suitability": 50
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "aorticrupture"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "aorticrupture",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "medtoolbox",
+  "name": "Medical Container",
+  "description": "Can store medicine and medical instruments",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "mediumitem",
+   "mobilecontainer",
+   "tool",
+   "toolbox"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 1,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": 25,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": []
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "meth",
+  "name": "Methamphetamine",
+  "description": "A potent nervous system stimulant, temporarily boosting the user's muscular speed. However, it is addictive, slightly damages Organs, and will cause some Neurotrauma. On failure, it is less effective, more addicting, and will cause increased damage.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": null,
+  "price": 50,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 30,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 30
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "phosphorus",
+     "amount": 1
+    },
+    {
+     "item": "chlorine",
+     "amount": 2
+    },
+    {
+     "item": "carbon",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 35
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "multiscalpel",
+  "name": "Multipurpose Scalpel",
+  "description": "Novelty scalpel. Disabled and needs activation. In the practitioner's hands, a button pad can be utilised to activate the scalpel and switch between between operations: making incisions, extracting organs, removing bandages, or doing malpractice.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 0,
+   "y": 256,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 210,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": null,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 60
+    },
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "steel",
+     "amount": 1
+    },
+    {
+     "item": "fpgacircuit",
+     "amount": 1
+    },
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "zinc",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "needle",
+  "name": "Needle",
+  "description": "A specialized needle used to depressurize air and fluid buildup, as a first aid option for Pneumothorax and Cardiac Tamponade. If the patient does not already have Pneumothorax, it will cause one instead. On failure, causes Organ Damage and Bleeding.",
+  "category": "surgical",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "syringe",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 256,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 60,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 40,
+   "amount": 2,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 20
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "aluminium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 20
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "nitroglycerin",
+  "name": "Nitroglycerin",
+  "description": "A highly unstable liquid that may explode when subjected to heat or physical shock. When administered to a patient, it will cause vasodilation and decrease Blood Pressure.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical,Material,Weapon",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical"
+  ],
+  "icon": null,
+  "price": 150,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 35
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "nt_wheelchair",
+  "name": "Wheelchair",
+  "description": "A tool that occupies a patient's Outerwear slot. Allows utilizing arms for movement, allowing you to move better with damaged legs.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "provocative",
+   "mediumitem"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 0,
+   "y": 768,
+   "w": 256,
+   "h": 256,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 20
+    },
+    {
+     "skill": "mechanical",
+     "level": 30
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "steel",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "ntsfx_bandage",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_breakbone",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_defib1",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_defib2",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_drill",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_manualdefib",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_ointment",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_pills",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_scissors",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_selfscan",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_slash",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_smack",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_spray",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_squeak",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_squelch",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_syringe",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_velcro",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntsfx_zipper",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/SFX.xml"
+ },
+ {
+  "id": "ntvfx_explosion",
+  "name": ".",
+  "description": ".",
+  "category": "internal",
+  "gameCategory": null,
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/VFX.xml"
+ },
+ {
+  "id": "o_negativecard",
+  "name": "Donor Card O-",
+  "description": "Can take blood from: O-\nCan give blood to: all of them",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "donorCard"
+  ],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "o_positivecard",
+  "name": "Donor Card O+",
+  "description": "Can take blood from: O-, O+\nCan give blood to: O+, A+, B+, AB+",
+  "category": "blood",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "donorCard"
+  ],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Blood.xml"
+ },
+ {
+  "id": "ointment",
+  "name": "Antibiotic Ointment",
+  "description": "An antiseptic gel that will aid against fighting Infected Wounds and relieve minor Burns. On failure, it is less effective.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 64,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 40,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 15,
+   "amount": 4,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 10
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "stabilozine",
+     "amount": 1
+    },
+    {
+     "item": "antibiotics",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "infectedwound",
+    "suitability": 100
+   },
+   {
+    "affliction": "burn_deg1",
+    "suitability": 50
+   },
+   {
+    "affliction": "burn_deg2",
+    "suitability": 50
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 10
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "infectedwound"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "infectedwound",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "opdeco_bunkbeds",
+  "name": null,
+  "description": null,
+  "category": "vanilla-override",
+  "gameCategory": "Decorative",
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "opdeco_bunks1",
+  "name": null,
+  "description": null,
+  "category": "vanilla-override",
+  "gameCategory": "Decorative",
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "opdeco_hospitalbed",
+  "name": null,
+  "description": null,
+  "category": "vanilla-override",
+  "gameCategory": "Decorative",
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "opdeco_prisonbed",
+  "name": null,
+  "description": null,
+  "category": "vanilla-override",
+  "gameCategory": "Decorative",
+  "tags": [],
+  "icon": null,
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "operatingtable",
+  "name": "Surgery Table",
+  "description": "A portable version of the hospital bed, intended to be installed on submarines. Like the hospital bed, it comes with Artificial Ventilation. Additionally, it has electrical pins installed that can output a person's vitals. Built-in are slots for placing an Analgesic Tank, one of the Filters and a Refrigerated Crate. To use the Analgesic Tank and Filters on an unconscious patient, they will have to be forced on the table.",
+  "category": "equipment",
+  "gameCategory": "medical",
+  "tags": [
+   "operatingtable"
+  ],
+  "icon": {
+   "sheet": "MedBayAssets.png",
+   "x": 100,
+   "y": 311,
+   "w": 407,
+   "h": 184,
+   "color": null
+  },
+  "price": 200,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 30,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 50
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "fpgacircuit",
+     "amount": 1
+    },
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "steel",
+     "amount": 1
+    },
+    {
+     "item": "aluminium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "opium",
+  "name": "Opium",
+  "description": "A relatively mild Opioid Analgesic obtained from aquatic poppy. Most commonly used to manufacture Morphine and Fentanyl. On failure, it is less effective and there is a greater risk of Addiction and Overdose.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical"
+  ],
+  "icon": null,
+  "price": 40,
+  "fabricate": {
+   "fabricator": "vendingmachine",
+   "time": 1,
+   "amount": 1,
+   "skills": [],
+   "ingredients": []
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "opiateaddiction",
+    "suitability": -25
+   },
+   {
+    "affliction": "opiateoverdose",
+    "suitability": -25
+   },
+   {
+    "affliction": "opiatewithdrawal",
+    "suitability": 2
+   },
+   {
+    "affliction": "pain",
+    "suitability": 20
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "opiatewithdrawal",
+   "pain"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "opiatewithdrawal",
+    "amount": null,
+    "notes": "AI suitability 2",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "pain",
+    "amount": null,
+    "notes": "AI suitability 20",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "organcrate",
+  "name": "Refrigerated Crate",
+  "description": "A crate to store precious transplant-ready organs and limbs. Organs will decay quickly when left outside, while limbs will decay slower. Organs and limbs will regenerate when refrigerated - but only if the organ is above 90% condition or if the limb is above 95% condition.",
+  "category": "equipment",
+  "gameCategory": null,
+  "tags": [
+   "crate",
+   "refrigerated"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 10,
+   "y": 578,
+   "w": 146,
+   "h": 82,
+   "color": null
+  },
+  "price": 150,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": []
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "organscalpel_brain",
+  "name": "OOrgan Procurement Scalpel: Brain",
+  "description": "A specialized scalpel for the removal of the brain.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 200,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "surgery",
+   "level": 100
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "organscalpel_heart",
+  "name": "Organ Procurement Scalpel: Heart",
+  "description": "A specialized scalpel for the removal of the heart.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 35,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "surgery",
+   "level": 60
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "organscalpel_kidneys",
+  "name": "Organ Procurement Scalpel: Kidneys",
+  "description": "A specialized scalpel for the removal of kidneys.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 35,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "surgery",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "organscalpel_liver",
+  "name": "Organ Procurement Scalpel: Liver",
+  "description": "A specialized scalpel for the removal of livers.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 35,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "surgery",
+   "level": 40
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "organscalpel_lungs",
+  "name": "Organ Procurement Scalpel: Lungs",
+  "description": "A specialized scalpel for the removal of the lungs.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 128,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 35,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "surgery",
+   "level": 50
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "organtoolbox",
+  "name": "Refrigerated Container",
+  "description": "A container to store precious transplant-ready organs and limbs. Organs will decay quickly when left outside, while limbs will decay slower. Organs and limbs will regenerate when refrigerated - but only if the organ is above 90% condition or if the limb is above 95% condition.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "mediumitem",
+   "mobilecontainer",
+   "tool",
+   "refrigerated",
+   "toolbox"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 173,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": []
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "osteosynthesisimplants",
+  "name": "Osteosynthesis Implants",
+  "description": "Titanium implants used to repair Fractures. They can be installed after Drilling Bones. In the event of total Bone Death, Osteosynthesis Surgery must be performed on all body parts. On failure, causes Bleeding and Internal Damage.",
+  "category": "surgical",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 87,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": 350,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": null,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 35
+    },
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "titaniumaluminiumalloy",
+     "amount": 1
+    },
+    {
+     "item": "liquidoxygenite",
+     "amount": 1
+    },
+    {
+     "item": "calcium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 45
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "pressuremeds",
+  "name": "Sodium Nitroprusside",
+  "description": "A medication used to lower Blood Pressure. On failure, it is less effective.",
+  "category": "equipment",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 812,
+   "y": 512,
+   "w": 50,
+   "h": 126,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 20,
+   "amount": 3,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 30
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "sodium",
+     "amount": 1
+    },
+    {
+     "item": "nitroglycerin",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 10
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Toggleable.xml"
+ },
+ {
+  "id": "propofol",
+  "name": "Propofol",
+  "description": "A general Anesthetic. Its effects take place after some time, and will not last very long. Anesthesized patients are Unconscious and do not gain Traumatic Shock from surgical operations. Usage may come with a variety of non-lethal Side Effects.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 384,
+   "y": 192,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 200,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "rarm",
+  "name": "Right Arm",
+  "description": "A severed right arm. Can be surgically reattached after Sawing Bones. Severed limbs will slowly decay unless refrigerated, though the condition of a limb does not matter for transplanting purposes. The bones are rich in Calcium and are a tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood",
+   "arm"
+  ],
+  "icon": {
+   "sheet": "limbs.png",
+   "x": 0,
+   "y": 0,
+   "w": 46,
+   "h": 90,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "rarmp",
+  "name": "Right Arm Bionic Prosthesis",
+  "description": "A bionic right arm. Can be used to treat amputation, transforming into a biological arm. Can be attached after Sawing Bones.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery"
+  ],
+  "icon": null,
+  "price": 500,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "repairpack",
+  "name": "Repair Pack",
+  "description": "A makeshift multi-tool, capable of quickly correcting both mechanical and electrical problems. Like the Wrench, they can be used to fix Dislocations. On failure, results in a Fracture.",
+  "category": "vanilla-override",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "tool",
+   "electricalrepairtool",
+   "mechanicalrepairtool",
+   "wrench",
+   "wrenchitem",
+   "screwdriver",
+   "multitool"
+  ],
+  "icon": null,
+  "price": 43,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "copper",
+     "amount": 1
+    },
+    {
+     "item": "silicon",
+     "amount": 1
+    },
+    {
+     "item": "tin",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "dislocation",
+    "suitability": 50
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "dislocation"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "dislocation",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "ringerssolution",
+  "name": "Ringer's Solution",
+  "description": "An isotonic solution used to increase Blood Pressure, and additionally causes Alkalosis. On failure, it has less duration.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "petfood1",
+   "petfood2",
+   "petfood3"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 192,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 15,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 25
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "antibloodloss1",
+     "amount": 1
+    },
+    {
+     "item": "potassium",
+     "amount": 1
+    },
+    {
+     "item": "carbon",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 20
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "rleg",
+  "name": "Right Leg",
+  "description": "A severed right leg. Can be surgically reattached after Sawing Bones. Severed limbs will slowly decay unless refrigerated, though the condition of a limb does not matter for transplanting purposes. The bones are rich in Calcium and are a tasty treat for pets.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "organ",
+   "petfood1",
+   "petfood2",
+   "petfood3",
+   "monsterfood",
+   "leg"
+  ],
+  "icon": {
+   "sheet": "limbs.png",
+   "x": 57,
+   "y": 0,
+   "w": 60,
+   "h": 90,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "rlegp",
+  "name": "Right Leg Bionic Prosthesis",
+  "description": "A bionic right leg. Can be used to treat amputation, transforming into a biological arm. Can be attached after Sawing Bones.",
+  "category": "bodyparts",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery"
+  ],
+  "icon": null,
+  "price": 500,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/BodyParts.xml"
+ },
+ {
+  "id": "spinalimplant",
+  "name": "Spinal Cord Implants",
+  "description": "Titanium implants used to repair spinal cord injuries. They can be installed after Skin Retraction. However, the spinal cord will be injured again if the Neck Fracture is not repaired with Osteosynthesis Surgery. On failure, causes Bleeding and Internal Damage.",
+  "category": "surgical",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 344,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": 350,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": null,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 70
+    },
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "titaniumaluminiumalloy",
+     "amount": 1
+    },
+    {
+     "item": "liquidoxygenite",
+     "amount": 1
+    },
+    {
+     "item": "calcium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 45
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "stasisbag",
+  "name": "Stasis Bag",
+  "description": "A bag that occupies a patient's Outerwear slot, protecting against pressure down to 7,000 meters. This will cause Cardiac Arrest, Respiratory Arrest, Unconsciousness, and prevent surgical operations, but will pause the progression of negative afflictions while worn. When worn, the bag deteriorates by 1% every four seconds.",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "provocative",
+   "mediumitem",
+   "diving"
+  ],
+  "icon": {
+   "sheet": "%ModDir%\\Images\\Suits\\bag.png",
+   "x": 0,
+   "y": 0,
+   "w": 67,
+   "h": 46,
+   "color": null
+  },
+  "price": 700,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 50,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 50
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "plastic",
+     "amount": 1
+    },
+    {
+     "item": "stabilozine",
+     "amount": 1
+    },
+    {
+     "item": "mannitol",
+     "amount": 1
+    },
+    {
+     "item": "potassium",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "streptokinase",
+  "name": "Streptokinase",
+  "description": "An enzyme that breaks down blood clots, useful in the treatment of Heart Attacks. However, it will increase the chance of getting Strokes if the user has more than 150% Blood Pressure. Additionally, it is used to treat Hemotransfusion Shock.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical",
+   "syringe"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 256,
+   "y": 195,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 120,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 30,
+   "amount": 2,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "slimebacteria",
+     "amount": 1
+    },
+    {
+     "item": "stabilozine",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "heartattack",
+    "suitability": 15
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [
+   "heartattack"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "heartattack",
+    "amount": null,
+    "notes": "AI suitability 15",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "surgerykit",
+  "name": "Surgery Kit",
+  "description": "A kit that contains all the basic surgical equipment a medic could need, with some extra space leftover for other items. \n\nEnables usage of all basic Neurotrauma tools in the Health Menu.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "nt_huibutton_enabler"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 259,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": 80,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 20
+    },
+    {
+     "skill": "medical",
+     "level": 20
+    }
+   ],
+   "ingredients": []
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "surgerysaw",
+  "name": "Surgical Saw",
+  "description": "A tool used to Saw Bones. After Skin Retraction, bones can be sawed to remove existing limbs or add new ones. Replacing limbs is required if Gangrene exceeds 15%. On failure, causes Bleeding, Internal Damage, and Lacerations.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 0,
+   "y": 64,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 100,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 50
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "surgerytoolbox",
+  "name": "Surgery Toolbox",
+  "description": "Can store many small items that are used during surgery",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "mobilecontainer",
+   "tool",
+   "toolbox"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 259,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": 80,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": []
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "surgerytoolboxset",
+  "name": "Surgery Toolbox",
+  "description": "Can store many small items that are used during surgery",
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "mobilecontainer",
+   "tool",
+   "toolbox"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 259,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": 200,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 30
+    }
+   ],
+   "ingredients": []
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "surgerytoolboxsetscalpel",
+  "name": null,
+  "description": null,
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "mobilecontainer",
+   "tool",
+   "toolbox"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 259,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": null,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 30
+    }
+   ],
+   "ingredients": []
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "surgerytoolboxsetstarter",
+  "name": null,
+  "description": null,
+  "category": "equipment",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "mobilecontainer",
+   "tool",
+   "toolbox"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 259,
+   "y": 403,
+   "w": 84,
+   "h": 67,
+   "color": null
+  },
+  "price": null,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "surgicaldrill",
+  "name": "Surgical Drill",
+  "description": "A tool used to Drill Bones during surgery. After Skin Retraction, bones can be drilled to perform Osteosynthesis Surgery which can fix Fractures. On failure, causes Bleeding and Internal Damage.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 128,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 80,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 45
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "suture",
+  "name": "Suture",
+  "description": "Biodegradeable sutures used to complete surgery. On use, ends surgical operations at any step. Additionally, they can be used to Suture Open Wounds closed, and reduce a significant amount of external Bleeding. On failure, causes Internal Damage.",
+  "category": "surgical",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 320,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 9,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 10,
+   "amount": 16,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 25
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "aluminium",
+     "amount": 1
+    },
+    {
+     "item": "organicfiber",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "lacerations",
+    "suitability": 20
+   },
+   {
+    "affliction": "bitewounds",
+    "suitability": 20
+   },
+   {
+    "affliction": "explosiondamage",
+    "suitability": 20
+   },
+   {
+    "affliction": "gunshotwound",
+    "suitability": 20
+   },
+   {
+    "affliction": "surgeryincision",
+    "suitability": 100
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "lacerations",
+   "bitewounds",
+   "explosiondamage",
+   "gunshotwound",
+   "surgeryincision"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "lacerations",
+    "amount": null,
+    "notes": "AI suitability 20",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "bitewounds",
+    "amount": null,
+    "notes": "AI suitability 20",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "explosiondamage",
+    "amount": null,
+    "notes": "AI suitability 20",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "gunshotwound",
+    "amount": null,
+    "notes": "AI suitability 20",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "surgeryincision",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "thiamine",
+  "name": "Thiamine",
+  "description": "Otherwise known as Vitamin B1. These pills will provide a slight boost to Organ Regeneration. On failure, it is less effective.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 320,
+   "y": 192,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 70,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 25,
+   "amount": 3,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "carbon",
+     "amount": 2
+    },
+    {
+     "item": "sulphuricacid",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 10
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "tonicliquid",
+  "name": "Tonic Liquid",
+  "description": "A medical solution that's mildly effective as a treatment for Internal Damage, but is more commonly used to increase the duration of bloodstream and performance-enhancing drugs.",
+  "category": "vanilla-override",
+  "gameCategory": "Medical,Material",
+  "tags": [
+   "smallitem",
+   "chem",
+   "medical"
+  ],
+  "icon": null,
+  "price": 75,
+  "fabricate": {
+   "fabricator": "vendingmachine",
+   "time": 1,
+   "amount": 1,
+   "skills": [],
+   "ingredients": []
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "opiateoverdose",
+    "suitability": -10
+   },
+   {
+    "affliction": "oxygenlow",
+    "suitability": -10
+   },
+   {
+    "affliction": "opiatewithdrawal",
+    "suitability": -10
+   }
+  ],
+  "skillHint": null,
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ },
+ {
+  "id": "tourniquet",
+  "name": "Tourniquet",
+  "description": "An item that prevents Blood Loss from Arterial Bleeding. It cannot be used for the Carotid Artery. A Tourniqueted limb will experience Gangrene over time, and it is removed during surgery. On failure, causes Blunt Force Trauma.",
+  "category": "consumable",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "medical"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 384,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": null,
+   "amount": 2,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 15
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "organicfiber",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "arterialcut",
+    "suitability": 50
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "arterialcut"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "arterialcut",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Consumables.xml"
+ },
+ {
+  "id": "toxfilter",
+  "name": "Toxin Filter",
+  "description": "A filter which can be installed on a Surgery Table to treat Poisons for the patient laying-down. While it is slower than antidotes, it can treat all vanilla poisons. Treating poisons provides a minor risk of contracting Sepsis.",
+  "category": "equipment",
+  "gameCategory": "Medical",
+  "tags": [
+   "smallitem",
+   "toxfilter"
+  ],
+  "icon": {
+   "sheet": "InGameItemIconAtlas.png",
+   "x": 366,
+   "y": 924,
+   "w": 78,
+   "h": 95,
+   "color": null
+  },
+  "price": 485,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 20,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 40
+    },
+    {
+     "skill": "mechanical",
+     "level": 40
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "aluminium",
+     "amount": 2
+    },
+    {
+     "item": "fpgacircuit",
+     "amount": 2
+    },
+    {
+     "item": "organicfiber",
+     "amount": 2
+    },
+    {
+     "item": "sodium",
+     "amount": 2
+    },
+    {
+     "item": "stabilozine",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [],
+  "skillHint": null,
+  "useInHealthInterface": false,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/OtherEquipment.xml"
+ },
+ {
+  "id": "traumashears",
+  "name": "Trauma Shears",
+  "description": "A tool used to remove Bandages or Plaster Casts. On failure, causes Bleeding and Lacerations.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 0,
+   "y": 192,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 50,
+  "fabricate": {
+   "fabricator": "medicalfabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "medical",
+     "level": 25
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "steel",
+     "amount": 1
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "bandageddirty",
+    "suitability": 100
+   },
+   {
+    "affliction": "bandaged",
+    "suitability": 100
+   },
+   {
+    "affliction": "gypsumcast",
+    "suitability": 100
+   },
+   {
+    "affliction": "arteriesclamp",
+    "suitability": 100
+   },
+   {
+    "affliction": "triagetag_green",
+    "suitability": 100
+   },
+   {
+    "affliction": "triagetag_yellow",
+    "suitability": 100
+   },
+   {
+    "affliction": "triagetag_red",
+    "suitability": 100
+   },
+   {
+    "affliction": "triagetag_black",
+    "suitability": 100
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 10
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "bandageddirty",
+   "bandaged"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "bandageddirty",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   },
+   {
+    "affliction": "bandaged",
+    "amount": null,
+    "notes": "AI suitability 100",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "tweezers",
+  "name": "Tweezers",
+  "description": "A small tool that allows for removing unwanted tissue. After Skin Retraction, Tweezers can be used to remove some Foreign Bodies or convert Blunt Force Trauma and Internal Damage into Suturable Lacerations. Foreign Bodies can also be removed through open Gunshot Wounds or Deep Tissue Injuries, but this will cause minor Traumatic Shock. On failure, causes Internal Damage.",
+  "category": "surgical",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "medical",
+   "surgery",
+   "surgerytool"
+  ],
+  "icon": {
+   "sheet": "InventoryItemIconAtlas.png",
+   "x": 448,
+   "y": 0,
+   "w": 64,
+   "h": 64,
+   "color": null
+  },
+  "price": 35,
+  "fabricate": null,
+  "suitableTreatments": [],
+  "skillHint": {
+   "skill": "medical",
+   "level": 30
+  },
+  "useInHealthInterface": true,
+  "treats": [],
+  "causes": [],
+  "treatsDetail": [],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/SurgicalEquipment.xml"
+ },
+ {
+  "id": "wrench",
+  "name": "Wrench",
+  "description": "Makes mechanical repairs possible. It is also used to fix Dislocations, which only requires half the skill to do if the patient does not feel pain. Failing to fix a Dislocation will result in a Fracture, however.",
+  "category": "vanilla-override",
+  "gameCategory": "Equipment",
+  "tags": [
+   "smallitem",
+   "tool",
+   "simpletool",
+   "mechanicalrepairtool",
+   "wrenchitem",
+   "mountableweapon"
+  ],
+  "icon": null,
+  "price": 20,
+  "fabricate": {
+   "fabricator": "fabricator",
+   "time": 10,
+   "amount": 1,
+   "skills": [
+    {
+     "skill": "mechanical",
+     "level": 20
+    }
+   ],
+   "ingredients": [
+    {
+     "item": "iron",
+     "amount": 2
+    }
+   ]
+  },
+  "suitableTreatments": [
+   {
+    "affliction": "dislocation",
+    "suitability": 50
+   }
+  ],
+  "skillHint": {
+   "skill": "medical",
+   "level": 60
+  },
+  "useInHealthInterface": true,
+  "treats": [
+   "dislocation"
+  ],
+  "causes": [],
+  "treatsDetail": [
+   {
+    "affliction": "dislocation",
+    "amount": null,
+    "notes": "AI suitability 50",
+    "source": "SuitableTreatment"
+   }
+  ],
+  "causesDetail": [],
+  "usage": null,
+  "skill": null,
+  "onFailure": null,
+  "summary": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Items/Override.xml"
+ }
+]

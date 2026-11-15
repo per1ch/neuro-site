@@ -1,0 +1,8706 @@
+[
+ {
+  "id": "a_negative",
+  "name": "A-",
+  "description": null,
+  "category": "bloodtypes",
+  "kind": "bloodtype",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/BloodTypes.xml"
+ },
+ {
+  "id": "a_positive",
+  "name": "A+",
+  "description": null,
+  "category": "bloodtypes",
+  "kind": "bloodtype",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/BloodTypes.xml"
+ },
+ {
+  "id": "ab_negative",
+  "name": "AB-",
+  "description": null,
+  "category": "bloodtypes",
+  "kind": "bloodtype",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/BloodTypes.xml"
+ },
+ {
+  "id": "ab_positive",
+  "name": "AB+",
+  "description": null,
+  "category": "bloodtypes",
+  "kind": "bloodtype",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/BloodTypes.xml"
+ },
+ {
+  "id": "abdominaldiscomfort",
+  "name": "Abdominal Discomfort",
+  "description": "The patient is experiencing abdominal discomfort. Usually caused by Liver Damage.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Abdominal Discomfort",
+   "type": "Symptom, Mental",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions. Removed when Unconscious."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "liverdamage"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "abdominalpain",
+  "name": "Abdominal Pain",
+  "description": "The patient is expressing persistent pain in their abdomen. Usually caused by Hemotransfusion Shock.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Abdominal Pain",
+   "type": "Symptom, Mental, Pain",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "aorticrupture",
+   "hemotransfusionshock",
+   "infectedcavity",
+   "internalbleeding"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "acidburn",
+  "name": "Acid Burn",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "acidosis",
+  "name": "Acidosis",
+  "description": null,
+  "category": "blood",
+  "kind": "vital",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#00ff00"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Acidosis",
+   "type": "Blood",
+   "causedBy": "Hypoventilation, Respiratory Arrest, Cardiac Arrest, Kidney Damage, Saline, Blood Pack items.",
+   "effects": "Seizures, Coma, Increased Heartrate, Fibrillation, Headache, Confusion, Weakness.",
+   "notes": []
+  },
+  "symptoms": [
+   "confusion",
+   "headache",
+   "weakness",
+   "spasm"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "respiratoryarrest",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoventilation",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "cardiacarrest",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "kidneydamage",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "afsaline",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Hypoventilation, Respiratory Arrest, Cardiac Arrest, Kidney Damage, Saline, Blood Pack items."
+   }
+  ],
+  "leadsTo": [
+   "increasedheartrate",
+   "fibrillation",
+   "confusion",
+   "headache",
+   "weakness",
+   "coma"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "adrenalinerush",
+  "name": null,
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 8,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "afadrenaline",
+  "name": "Adrenaline",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Adrenaline in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Adrenaline item.",
+   "effects": "Melee Damage increased (XML), Analgesia (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Adrenaline item."
+   }
+  ],
+  "leadsTo": [
+   "analgesia"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "afanaesthetic",
+  "name": "Anaesthetics",
+  "description": null,
+  "category": "functionality",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Anaesthetic in Blood",
+   "type": "Functionality",
+   "causedBy": "Propofol",
+   "effects": "Hypoventilation.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Propofol"
+   }
+  ],
+  "leadsTo": [
+   "hypoventilation"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "afantibiotics",
+  "name": "Antibiotics",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Antibiotics in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Broad-Spectrum Antibiotics Item.",
+   "effects": "Decreases Sepsis, extra Organ Damage, decreased Husk Infection.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Broad-Spectrum Antibiotics Item."
+   }
+  ],
+  "leadsTo": [
+   "organdamage",
+   "infectedwound",
+   "sepsis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "afimmunosuppressant",
+  "name": "Immunosuppressants",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Immunosuppressants in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Azathioprine Item.",
+   "effects": "Reduce Immunity.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Azathioprine Item."
+   }
+  ],
+  "leadsTo": [
+   "immunity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "afmannitol",
+  "name": "Mannitol",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Mannitol in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Mannitol Item.",
+   "effects": "Reduce Neurotrauma.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Mannitol Item."
+   }
+  ],
+  "leadsTo": [
+   "neurotrauma"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "afopioid",
+  "name": "Opioids",
+  "description": null,
+  "category": "functionality",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 200,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Opioids in Blood",
+   "type": "Functionality",
+   "causedBy": "Opioids",
+   "effects": "Hypoventilation.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Opioids"
+   }
+  ],
+  "leadsTo": [
+   "hypoventilation"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "afpressuredrug",
+  "name": "Blood Pressure Reducers",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Pressure-increasing drugs in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Nitroglycerin, Sodium Nitroprusside Items.",
+   "effects": "Increase target Blood Pressure.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Nitroglycerin, Sodium Nitroprusside Items."
+   }
+  ],
+  "leadsTo": [
+   "bloodpressure"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "afringerssolution",
+  "name": "Ringer's Solution",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Ringers Solution in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Ringer's Solution item.",
+   "effects": "Increased Alkalosis, Blood Pressure.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Ringer's Solution item."
+   }
+  ],
+  "leadsTo": [
+   "bloodpressure",
+   "alkalosis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "afsaline",
+  "name": "Saline",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Saline in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Saline item.",
+   "effects": "Increased Acidosis, Blood Pressure.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Saline item."
+   }
+  ],
+  "leadsTo": [
+   "bloodpressure",
+   "acidosis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "afstreptokinase",
+  "name": "Anti-clot",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Streptokinase in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Streptokinase Item.",
+   "effects": "Increase stroke chance, cure Heart Attack / Hemotransfusion shock.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Streptokinase Item."
+   }
+  ],
+  "leadsTo": [
+   "hemotransfusionshock",
+   "heartattack",
+   "stroke"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "afthiamine",
+  "name": "Thiamine",
+  "description": null,
+  "category": "drugs",
+  "kind": "drug-in-blood",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Thiamine in Blood",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Thiamine Item.",
+   "effects": "Increase specific organ damage healing.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Thiamine Item."
+   }
+  ],
+  "leadsTo": [
+   "organdamage"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "alcoholaddiction",
+  "name": "Alcohol Addiction",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Alcohol Addiction",
+   "type": "Functionality",
+   "causedBy": "Consuming alcohol.",
+   "effects": "Alcohol Withdrawal if not eternally drinking (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Consuming alcohol."
+   }
+  ],
+  "leadsTo": [
+   "opiatewithdrawal"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "alcoholwithdrawal",
+  "name": "Alcohol Withdrawal",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Alcohol Withdrawal",
+   "type": "Functionality",
+   "causedBy": "Not consuming Alcohol with an addiction (applies via XML).",
+   "effects": "Craving, Sweating, Nausea, Fever, Vomiting, Headache, Confusion, Increased Heartrate, Seizure, Hypertension.",
+   "notes": []
+  },
+  "symptoms": [
+   "confusion",
+   "headache",
+   "vomiting",
+   "sweating",
+   "craving",
+   "fever"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Not consuming Alcohol with an addiction (applies via XML)."
+   }
+  ],
+  "leadsTo": [
+   "increasedheartrate",
+   "bloodpressure",
+   "confusion",
+   "headache",
+   "vomiting",
+   "sweating",
+   "seizure",
+   "craving",
+   "nausea",
+   "fever"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "alkalosis",
+  "name": "Alkalosis",
+  "description": null,
+  "category": "blood",
+  "kind": "vital",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#00ff00"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Alkalosis",
+   "type": "Blood",
+   "causedBy": "Hyperventilation, Vomiting, Blood Pack items.",
+   "effects": "Seizures, Palpitations.",
+   "notes": []
+  },
+  "symptoms": [
+   "palpitations",
+   "spasm"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "hyperventilation",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "vomiting",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Hyperventilation, Vomiting, Blood Pack items."
+   }
+  ],
+  "leadsTo": [
+   "palpitations"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "analgesia",
+  "name": "Analgesia",
+  "description": "Painlessness suppresses certain symptoms and makes surgery possible. At high levels, increases Damage- and Stun Resistance while also stabilizing your aim.",
+  "category": "functionality",
+  "kind": "surgical",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 200,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Analgesia",
+   "type": "Functionality, Surgery, Buff",
+   "causedBy": "Painkillers.",
+   "effects": "Damage resistance (XML), allows surgery, reduces Pain (XML), applies screen changes (XML). Removes self via XML.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Painkillers."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "anesthesia",
+  "name": "Anesthesia",
+  "description": "Controlled Unconsciousness, likely from a drug. It is safe to perform surgery on this person.",
+  "category": "functionality",
+  "kind": "surgical",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Anesthesia",
+   "type": "Functionality, Surgery",
+   "causedBy": "Propofol.",
+   "effects": "Applies Analgesia (XML) and has side effects. Increases and removes self via XML.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Propofol."
+   }
+  ],
+  "leadsTo": [
+   "analgesia"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "aorticrupture",
+  "name": "Aortic Rupture",
+  "description": null,
+  "category": "torso",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Aortic Rupture",
+   "type": "Non-Limb Specific",
+   "causedBy": "Damage.",
+   "effects": "Blood Loss (XML), Internal Bleeding (XML), Chest Pain, Abdominal Pain, Unconsciousness.",
+   "notes": []
+  },
+  "symptoms": [
+   "unconsciousness",
+   "abdominalpain",
+   "chestpain"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage."
+   }
+  ],
+  "leadsTo": [
+   "internalbleeding",
+   "unconsciousness",
+   "abdominalpain",
+   "bloodloss",
+   "chestpain"
+  ],
+  "treatments": [
+   {
+    "item": "medstent",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Torso.xml"
+ },
+ {
+  "id": "arterialcut",
+  "name": "Arterial Bleeding",
+  "description": "An artery has been damaged and is causing severe Blood Loss, apply a Tourniquet as soon as possible!",
+  "category": "limbs",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Arterial Cut on Extremity",
+   "type": "Limb Specific",
+   "causedBy": "Damage.",
+   "effects": "Blood Loss (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage."
+   }
+  ],
+  "leadsTo": [
+   "bloodloss"
+  ],
+  "treatments": [
+   {
+    "item": "tourniquet",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "artificialventilation",
+  "name": "Artificial Ventilation",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Artificial Ventilation (via Surgery Table)",
+   "type": "Functionality",
+   "causedBy": "Surgery Table / Hospital Bed",
+   "effects": "Reduces Oxygen Low",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Surgery Table / Hospital Bed"
+   }
+  ],
+  "leadsTo": [
+   "oxygenlow"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "b_negative",
+  "name": "B-",
+  "description": null,
+  "category": "bloodtypes",
+  "kind": "bloodtype",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/BloodTypes.xml"
+ },
+ {
+  "id": "b_positive",
+  "name": "B+",
+  "description": null,
+  "category": "bloodtypes",
+  "kind": "bloodtype",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/BloodTypes.xml"
+ },
+ {
+  "id": "balloonedaorta",
+  "name": "Ballooned Aorta",
+  "description": "The aorta has stopped bleeding, but bloodflow to your extremities and organs is gone.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Ballooned Aorta",
+   "type": "Non-Limb Specific",
+   "causedBy": "Endovascular Balloon item.",
+   "effects": "Gangrene in extremities (XML), Organ Damage, Specific Organ Damage, Reduced Bleeding in extremities (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Endovascular Balloon item."
+   }
+  ],
+  "leadsTo": [
+   "organdamage",
+   "gangrene",
+   "bleeding"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "bandaged",
+  "name": "Bandaged",
+  "description": "Protects a Limb from minor Infection, stabilizes Dislocations as well as Arm Fractures and increases regeneration of minor Open Wounds. It does however reduce movement speed slightly.",
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Bandage applied to Limb",
+   "type": "Limb Specific",
+   "causedBy": "Bandage items.",
+   "effects": "Reduces bleeding, heals wounds, reduces infection.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Bandage items."
+   }
+  ],
+  "leadsTo": [
+   "infectedwound",
+   "bleeding"
+  ],
+  "treatments": [
+   {
+    "item": "divingknife",
+    "note": null
+   },
+   {
+    "item": "traumashears",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "bandageddirty",
+  "name": "Dirty Bandage",
+  "description": "A Bandage that has become too dirty and should be removed or replaced; otherwise it will promote Infections. It is still capable of stabilizing Dislocations and Arm Fractures.",
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Dirty Bandage around Limb",
+   "type": "Limb Specific",
+   "causedBy": "Dirtyfication.",
+   "effects": "Reduces bleeding, heals wounds, causes infection.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Dirtyfication."
+   }
+  ],
+  "leadsTo": [
+   "infectedwound",
+   "bleeding"
+  ],
+  "treatments": [
+   {
+    "item": "antibleeding2",
+    "note": null
+   },
+   {
+    "item": "divingknife",
+    "note": null
+   },
+   {
+    "item": "traumashears",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "bitewounds",
+  "name": "Bite Wounds",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Bite Wounds",
+   "type": "Limb Specific",
+   "causedBy": "Being chomped.",
+   "effects": "Damage, infection.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Being chomped."
+   }
+  ],
+  "leadsTo": [
+   "infectedwound"
+  ],
+  "treatments": [
+   {
+    "item": "suture",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "bleeding",
+  "name": "Bleeding",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Bleeding",
+   "type": "Limb Specific, Basegame Override",
+   "causedBy": "Damage, failed skill checks.",
+   "effects": "Blood Loss (Hardcoded?)",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage, failed skill checks."
+   }
+  ],
+  "leadsTo": [
+   "bloodloss"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "bloating",
+  "name": "Bloating",
+  "description": "The patients abdomen is bloated. Usually caused by Liver Damage.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Bloating",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "liverdamage"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "bloodloss",
+  "name": "Blood Loss",
+  "description": null,
+  "category": "blood",
+  "kind": "vital",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Blood Loss",
+   "type": "Non-Limb Specific",
+   "causedBy": "Bleeding, Damage.",
+   "effects": "Changes Blood Pressure.",
+   "notes": []
+  },
+  "symptoms": [
+   "paleskin",
+   "weakness"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "bleeding",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Bleeding, Damage."
+   }
+  ],
+  "leadsTo": [
+   "bloodpressure"
+  ],
+  "treatments": [
+   {
+    "item": "antibloodloss2",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "bloodpressure",
+  "name": "Blood Pressure",
+  "description": null,
+  "category": "blood",
+  "kind": "vital",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 200,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 128,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#449dc6"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Blood Pressure",
+   "type": "Vital Mechanic",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Handles the entire blood pressure system and application of effects."
+   ]
+  },
+  "symptoms": [
+   "lightheadedness",
+   "blurredvision"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "blunttrauma",
+  "name": "Blunt Force Trauma",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Blunt Force Trauma",
+   "type": "Limb Specific",
+   "causedBy": "Fall damage or weapons.",
+   "effects": "Damage.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Fall damage or weapons."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [
+   {
+    "item": "gelipack",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "blurredvision",
+  "name": "Blurred Vision",
+  "description": "The patient is experiencing blurred vision. Usually caused by Hypotension or a Concussion.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Blurred Vision",
+   "type": "Symptom, Mental",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions. Removed when Unconscious."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "bloodpressure",
+   "concussion"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "bodybagoverlay",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "BodyBag Overlay",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Overlays the body bag sprite.",
+   "notes": [
+    "Applied via Body Bag item."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "bonedamage",
+  "name": "Bone Damage",
+  "description": null,
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 20,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Bone Damage",
+   "type": "Non-Limb Specific",
+   "causedBy": "Kidney Damage, Radiation Sickness, Sepsis, Hypoxemia.",
+   "effects": "Bone Death, Fractures.",
+   "notes": [
+    "Fractures"
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "radiationsickness",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "kidneydamage",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Kidney Damage, Radiation Sickness, Sepsis, Hypoxemia."
+   }
+  ],
+  "leadsTo": [
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "brainremoved",
+  "name": "Brain Removed",
+  "description": "The brain has been surgically removed.",
+  "category": "brain",
+  "kind": "surgical",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 50,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": "Died due to missing a brain",
+  "code": {
+   "title": "Brain Removed",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 2x.",
+   "effects": "Cardiac Arrest, Respiratory Arrest, Unconsciousness, eventual Death.",
+   "notes": []
+  },
+  "symptoms": [
+   "unconsciousness"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 2x."
+   }
+  ],
+  "leadsTo": [
+   "respiratoryarrest",
+   "unconsciousness",
+   "cardiacarrest"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Brain.xml"
+ },
+ {
+  "id": "brainswap",
+  "name": "Replacing Brain",
+  "description": "Old brain has been surgically prepared for a new transplant.",
+  "category": "brain",
+  "kind": "surgical",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": "Died due to missing a brain",
+  "code": {
+   "title": "Brain Swap",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 1x.",
+   "effects": "None.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 1x."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Brain.xml"
+ },
+ {
+  "id": "burn",
+  "name": "Burn",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Burn",
+   "type": "Limb Specific",
+   "causedBy": "Fire, items, damage.",
+   "effects": "Specific Burns, infection.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Fire, items, damage."
+   }
+  ],
+  "leadsTo": [
+   "infectedwound"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "cardiacarrest",
+  "name": "Cardiac Arrest",
+  "description": "The patient's heart is not beating. Prevents Blood Pressure from normalizing and causes Coma if left untreated. The ultimate result of Fibrillation, as well being caused by Hypoxemia. The heart must be restarted using a Defibrillator, Adrenaline or an AutoPulse.",
+  "category": "heart",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Cardiac Arrest",
+   "type": "Non-Limb Specific, Lethal",
+   "causedBy": "Heart Removed, Brain Removed, Heart Damage, Traumatic Shock, Coma, Hypoxemia, Fibrillation, Stasis.",
+   "effects": "Coma, Acidosis, Hypotension, Hypoxemia.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "traumaticshock",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "brainremoved",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "heartremoved",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "heartdamage",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "fibrillation",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "coma",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Heart Removed, Brain Removed, Heart Damage, Traumatic Shock, Coma, Hypoxemia, Fibrillation, Stasis."
+   }
+  ],
+  "leadsTo": [
+   "bloodpressure",
+   "hypoxemia",
+   "acidosis",
+   "coma"
+  ],
+  "treatments": [
+   {
+    "item": "defibrillator",
+    "note": null
+   },
+   {
+    "item": "aed",
+    "note": null
+   },
+   {
+    "item": "autocpr",
+    "note": null
+   },
+   {
+    "item": "adrenaline",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Heart.xml"
+ },
+ {
+  "id": "carotidarterialcut",
+  "name": "Carotid Artery Bleeding",
+  "description": "An artery has been damaged and is causing severe Blood Loss. You cannot tourniquet the carotid, so it must be surgically fixed!",
+  "category": "head",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Carotid Arterial Cut",
+   "type": "Non-Limb Specific",
+   "causedBy": "Damage.",
+   "effects": "Blood Loss (XML), Internal Bleeding (XML). Increases self via XML.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage."
+   }
+  ],
+  "leadsTo": [
+   "internalbleeding",
+   "bloodloss"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Head.xml"
+ },
+ {
+  "id": "caviclean",
+  "name": "Cleaning cavity",
+  "description": "Stomach cavity is being washed with pressurized saline, cleaning it from infection.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Cavity Cleaning",
+   "type": "Surgery, Non-Limb Specific",
+   "causedBy": "Antiseptic Sprayer + Saline",
+   "effects": "Cures Infected Cavity",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "afsaline",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Antiseptic Sprayer + Saline"
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "chemaddiction",
+  "name": "Chem Addiction",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 700,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "chemwithdrawal",
+  "name": "Chem Withdrawal",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "chestpain",
+  "name": "Chest Pain",
+  "description": "The patient is expressing sharp, piercing pain in their chest. Usually caused by Hemotransfusion Shock or Fractured Ribs.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Chest Pain",
+   "type": "Symptom, Mental",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "aorticrupture",
+   "fracturedribs",
+   "hemotransfusionshock",
+   "internalbleeding"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "clampedbleeding",
+  "name": "Clamped Bleeding",
+  "description": "Bleeding caused by the incision has been stopped using a Hemostat.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Clamped Bleeding",
+   "type": "Limb Specific, Surgical",
+   "causedBy": "Hemostat.",
+   "effects": "Prevents Surgery Incision Blood Loss (Scalpel XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Hemostat."
+   }
+  ],
+  "leadsTo": [
+   "surgeryincision",
+   "bloodloss"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "coma",
+  "name": "Coma",
+  "description": null,
+  "category": "brain",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 10,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Coma",
+   "type": "Non-Limb Specific",
+   "causedBy": "Stroke, Cardiac Arrest, High Acidosis, Morbusine Poisoning, Naloxone fail.",
+   "effects": "Cardiac Arrest, Unconsciousness.",
+   "notes": []
+  },
+  "symptoms": [
+   "unconsciousness"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "morbusinepoisoning",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "cardiacarrest",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "acidosis",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "stroke",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Stroke, Cardiac Arrest, High Acidosis, Morbusine Poisoning, Naloxone fail."
+   }
+  ],
+  "leadsTo": [
+   "unconsciousness",
+   "cardiacarrest"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Brain.xml"
+ },
+ {
+  "id": "combatstimulant",
+  "name": "Combat Stimulant",
+  "description": null,
+  "category": "vanilla",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Stun",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Used to stun the character.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "concussion",
+  "name": "Concussion",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 10,
+  "showInScannerThreshold": 0.1,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Concussion",
+   "type": "Non-Limb Specific",
+   "causedBy": "Head trauma.",
+   "effects": "Nausea, Blurred Vision, Headache, Confusion (random).",
+   "notes": []
+  },
+  "symptoms": [
+   "blurredvision",
+   "confusion",
+   "headache"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Head trauma."
+   }
+  ],
+  "leadsTo": [
+   "blurredvision",
+   "confusion",
+   "headache",
+   "nausea"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "confusion",
+  "name": "Confusion",
+  "description": "The patient seems disoriented and confused. Usually caused by Hypoxemia, Acidosis or a Concussion.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Confusion",
+   "type": "Symptom, Mental",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions. Removed when Unconscious."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "acidosis",
+   "alcoholwithdrawal",
+   "concussion",
+   "hypoxemia",
+   "sepsis"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "cough",
+  "name": "Cough",
+  "description": "The patient is coughing periodically. Usually caused by Cardiac Tamponade, Lung- or Heart Damage.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Cough",
+   "type": "Symptom, Mental",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions. Removed when Unconscious."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "heartdamage",
+   "lungdamage",
+   "tamponade"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "cpr_buff",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "CPR Buff",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Decreases Cardiac Arrest and Fibrillation while increasing Blood Pressure.",
+   "notes": [
+    "Originally done in XML."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "bloodpressure",
+   "cardiacarrest",
+   "fibrillation"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "cpr_buff_auto",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "CPR Buff AutoPulse",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Decreases Cardiac Arrest and Fibrillation while increasing Blood Pressure.",
+   "notes": [
+    "Originally done in XML."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "bloodpressure",
+   "cardiacarrest",
+   "fibrillation"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "cpr_fracturebuff",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "CPR Fracture Buff",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Prevents Fractures from fall damage during CPR.",
+   "notes": [
+    "Originally done in XML."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "craving",
+  "name": "Craving",
+  "description": "A craving for drugs, caused by Withdrawal.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Craving",
+   "type": "Symptom, Mental",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions. Removed when Unconscious."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "alcoholwithdrawal",
+   "opiatewithdrawal"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "cyanidepoisoning",
+  "name": "Cyanide poisoning",
+  "description": "Rapid death",
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 30,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "dislocation",
+  "name": "Dislocation",
+  "description": "A bone has been displaced in this limb, causing Pain and making movement difficult. A Bandage will restore use of this limb, and a Wrench must be used to relocate the bone.",
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Arm + Leg Dislocation",
+   "type": "Limb Specific",
+   "causedBy": "Damage, failed skill checks.",
+   "effects": "Pain (XML), lost ability of limb, Internal Damage.",
+   "notes": []
+  },
+  "symptoms": [
+   "intensepain"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage, failed skill checks."
+   }
+  ],
+  "leadsTo": [
+   "internaldamage"
+  ],
+  "treatments": [
+   {
+    "item": "wrench",
+    "note": null
+   },
+   {
+    "item": "repairpack",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "drilledbones",
+  "name": "Drilled Bones",
+  "description": "The bones have been prepared for orthopedic procedures using a Surgical Drill.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Drilled Bones",
+   "type": "Limb Specific, Surgical",
+   "causedBy": "Surgical Drill.",
+   "effects": "Applies Traumatic Shock (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Surgical Drill."
+   }
+  ],
+  "leadsTo": [
+   "traumaticshock"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "drunk",
+  "name": "Drunk",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 160,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Drunk",
+   "type": "Non-Limb Specific, Vanilla Override",
+   "causedBy": "ROOOTT BEEERRRRRR.",
+   "effects": "idk.",
+   "notes": []
+  },
+  "symptoms": [
+   "vomiting"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "ROOOTT BEEERRRRRR."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "drunknodebuffs",
+  "name": null,
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "explosiondamage",
+  "name": "Explosion Damage",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Explosion Damage",
+   "type": "Limb Specific",
+   "causedBy": "Being near explosions.",
+   "effects": "Damage, infection.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Being near explosions."
+   }
+  ],
+  "leadsTo": [
+   "infectedwound"
+  ],
+  "treatments": [
+   {
+    "item": "suture",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "fever",
+  "name": "Fever",
+  "description": "The patients body temperature is elevated. Usually caused by Sepsis or an Infected Stomach Cavity.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Fever",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "alcoholwithdrawal",
+   "infectedcavity",
+   "inflammation",
+   "sepsis"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "fibrillation",
+  "name": "Irregular Heartbeat",
+  "description": "The patient's heart is beating abnormally; this could be a sign that potentially lethal Fibrillation is occurring; usually due to Hypotension or Hypoxemia.",
+  "category": "heart",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Fibrillation",
+   "type": "Non-Limb Specific, Mechanic",
+   "causedBy": null,
+   "effects": "Cardiac Arrest.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "cardiacarrest"
+  ],
+  "treatments": [
+   {
+    "item": "defibrillator",
+    "note": null
+   },
+   {
+    "item": "aed",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Heart.xml"
+ },
+ {
+  "id": "firstdegreeburn",
+  "name": "First-degree Burn",
+  "description": "The area is red and painful to the touch, and an Infection may occur at high severity. Bandages, Antibiotic Glue or Antibiotic Ointment can be used to treat the burn if necessary.",
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "First-degree Burns",
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "forceprone",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Force Prone",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Changes the animations of a character to be unable to walk.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "foreignbody",
+  "name": "Foreign Body",
+  "description": null,
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Foreign Body",
+   "type": "Limb Specific",
+   "causedBy": "Damage, fractures.",
+   "effects": "Inflammation, Sepsis.",
+   "notes": []
+  },
+  "symptoms": [
+   "inflammation"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "fracturedextremity",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage, fractures."
+   }
+  ],
+  "leadsTo": [
+   "inflammation",
+   "sepsis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "fracturedextremity",
+  "name": "Fractured Limb",
+  "description": "This limb is broken, and will cause Pain until a Plaster Cast is put on the limb or it is surgically repaired.",
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Arm + Leg Fractures",
+   "type": "Limb Specific",
+   "causedBy": "Damage, failed skill checks.",
+   "effects": "Pain, lost ability of limb, Internal Damage.",
+   "notes": []
+  },
+  "symptoms": [
+   "intensepain"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage, failed skill checks."
+   }
+  ],
+  "leadsTo": [
+   "internaldamage"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "fracturedneck",
+  "name": "Fractured Neck",
+  "description": "The neck has been broken and unless Bandaged the structural instability will cause a Spinal Cord Injury. The neck must be repaired via Osteosynthesis Surgery.",
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Neck Fracture",
+   "type": "Non-Limb Specific",
+   "causedBy": "Internal Wounds (DMG), Open Wounds (DMG), Bone Death.",
+   "effects": "Spinal Cord Injury if not Bandaged (XML), Internal Damage if not Bandaged (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Internal Wounds (DMG), Open Wounds (DMG), Bone Death."
+   }
+  ],
+  "leadsTo": [
+   "spinalcordinjury",
+   "internaldamage",
+   "bandaged"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "fracturedribs",
+  "name": "Fractured Ribs",
+  "description": "One or more ribs have been broken and unless the torso gets Bandaged the structural instability may cause Pneumothorax. The ribs must be repaired via Osteosynthesis Surgery.",
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Rib Fractures",
+   "type": "Non-Limb Specific",
+   "causedBy": "Internal Wounds (DMG), Open Wounds (DMG), Bone Death.",
+   "effects": "Pneumothorax if not Bandaged (XML), Chest Pain.",
+   "notes": []
+  },
+  "symptoms": [
+   "chestpain"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Internal Wounds (DMG), Open Wounds (DMG), Bone Death."
+   }
+  ],
+  "leadsTo": [
+   "pneumothorax",
+   "chestpain",
+   "bandaged"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "fracturedskull",
+  "name": "Fractured Skull",
+  "description": "The skull has been broken and the structural instability will prevent Neurotrauma from naturally decreasing. The skull must be repaired via Osteosynthesis Surgery.",
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Skull Fracture",
+   "type": "Non-Limb Specific",
+   "causedBy": "Internal Wounds (DMG), Open Wounds (DMG), Bone Death.",
+   "effects": "Headache, prevents Neurotrauma Regeneration.",
+   "notes": []
+  },
+  "symptoms": [
+   "headache"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Internal Wounds (DMG), Open Wounds (DMG), Bone Death."
+   }
+  ],
+  "leadsTo": [
+   "neurotrauma",
+   "headache"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "gangrene",
+  "name": "Gangrene",
+  "description": "The extremity has shrunk and turned black. Above 15% this limb cannot be saved anymore and must be Amputated.",
+  "category": "limbs",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Gangrene",
+   "type": "Limb Specific",
+   "causedBy": "Tourniquets, Sepsis, Aortic Balloon (XML).",
+   "effects": "Blood Loss (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Tourniquets, Sepsis, Aortic Balloon (XML)."
+   }
+  ],
+  "leadsTo": [
+   "bloodloss"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "gate_ta_h",
+  "name": "Traumatically amputating head",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Head + Item",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Kills you ontop of spawning a severed head.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_h_2",
+  "name": "Traumatically amputating head",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Head",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Kills you.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_la",
+  "name": "Traumatically amputating left arm",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Left Arm + Item",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Spawns the respective limb while applying the Traumatic Amputation affliction for that limb; also applies arterial bleeding, pain and a fracture.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "tra_amputation",
+   "arterialcut",
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_la_2",
+  "name": "Traumatically amputating left arm",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Left Arm",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Traumatically amputates a limb, causes a fracture, pain and an arterial bleed without spawning an item.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_ll",
+  "name": "Traumatically amputating left leg",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Left Leg + Item",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Spawns the respective limb while applying the Traumatic Amputation affliction for that limb; also applies arterial bleeding, pain and a fracture.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "tra_amputation",
+   "arterialcut",
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_ll_2",
+  "name": "Traumatically amputating left leg",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Left Leg",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Traumatically amputates a limb, causes a fracture, pain and an arterial bleed without spawning an item.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_ra",
+  "name": "Traumatically amputating right arm",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Right Arm + Item",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Spawns the respective limb while applying the Traumatic Amputation affliction for that limb; also applies arterial bleeding, pain and a fracture.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "tra_amputation",
+   "arterialcut",
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_ra_2",
+  "name": "Traumatically amputating left arm",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Right Arm",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Traumatically amputates a limb, causes a fracture, pain and an arterial bleed without spawning an item.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_rl",
+  "name": "Traumatically amputating right leg",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Right Leg + Item",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Spawns the respective limb while applying the Traumatic Amputation affliction for that limb; also applies arterial bleeding, pain and a fracture.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "tra_amputation",
+   "arterialcut",
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gate_ta_rl_2",
+  "name": "Traumatically amputating right leg",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TraumaticAmputating Right Leg",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Traumatically amputates a limb, causes a fracture, pain and an arterial bleed without spawning an item.",
+   "notes": [
+    "Uses XML to cause TraumaAmputations."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "givein",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "GiveIn",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Enables give-in button.",
+   "notes": [
+    "Allows you to die while stuck in certain afflictions like Spinal Cord Injury, which are not lethal yet prevent character use."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "gunshotwound",
+  "name": "Gunshot Wound",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Gunshot Wound",
+   "type": "Limb Specific",
+   "causedBy": "Getting shot.",
+   "effects": "Damage, infection.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Getting shot."
+   }
+  ],
+  "leadsTo": [
+   "infectedwound"
+  ],
+  "treatments": [
+   {
+    "item": "suture",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "headache",
+  "name": "Headache",
+  "description": "The patient is experiencing a headache. Usually caused by Hypoxemia, a Skull Fracture, Acidosis, a Concussion or a Stroke.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Headache",
+   "type": "Symptom, Mental, Pain",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions. Removed when Unconscious. Removed if under Painkillers."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "acidosis",
+   "alcoholwithdrawal",
+   "concussion",
+   "fracturedskull",
+   "hypoxemia",
+   "stroke"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "heartattack",
+  "name": "Heart Attack",
+  "description": null,
+  "category": "heart",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Heart Attack",
+   "type": "Non-Limb Specific, Lethal",
+   "causedBy": "Hypertension, Antibiotic Glue (XML).",
+   "effects": "Sweating, Shortness of Breath, Heart Damage.",
+   "notes": []
+  },
+  "symptoms": [
+   "sweating",
+   "shortnessofbreath"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "bloodpressure",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Hypertension, Antibiotic Glue (XML)."
+   }
+  ],
+  "leadsTo": [
+   "shortnessofbreath",
+   "heartdamage",
+   "sweating"
+  ],
+  "treatments": [
+   {
+    "item": "streptokinase",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Heart.xml"
+ },
+ {
+  "id": "heartdamage",
+  "name": "Heart Damage",
+  "description": null,
+  "category": "blood",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Heart Damage",
+   "type": "Non-Limb Specific, Organ Damage",
+   "causedBy": "Heart Attack, ABX, LiOxy, HemoTransShock, Mannitol, RadSickness, Sepsis, Hypoxemia, BFT (DMG), GSW (DMG), Sufforin Poisoning (XML).",
+   "effects": "Cough, Leg Swelling, Shortness of Breath, Cardiac Arrest.",
+   "notes": []
+  },
+  "symptoms": [
+   "cough",
+   "legswelling",
+   "shortnessofbreath"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "sufforinpoisoning",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "heartattack",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "afmannitol",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Heart Attack, ABX, LiOxy, HemoTransShock, Mannitol, RadSickness, Sepsis, Hypoxemia, BFT (DMG), GSW (DMG), Sufforin Poisoning (XML)."
+   }
+  ],
+  "leadsTo": [
+   "shortnessofbreath",
+   "cardiacarrest",
+   "legswelling",
+   "cough"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "heartremoved",
+  "name": "Heart Removed",
+  "description": "The heart has been surgically removed.",
+  "category": "heart",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": "Died due to missing a heart",
+  "code": {
+   "title": "Heart Removed",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 2x.",
+   "effects": "Cardiac Arrest.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 2x."
+   }
+  ],
+  "leadsTo": [
+   "cardiacarrest"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Heart.xml"
+ },
+ {
+  "id": "heartswap",
+  "name": "Replacing Heart",
+  "description": "Old heart has been surgically prepared for a new transplant.",
+  "category": "heart",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 1,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": "Died due to missing a heart",
+  "code": {
+   "title": "Heart Swap",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 1x.",
+   "effects": "None.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 1x."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Heart.xml"
+ },
+ {
+  "id": "hemotransfusionshock",
+  "name": "Hemotransfusion Shock",
+  "description": null,
+  "category": "blood",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 10,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#449dc6"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Hemotransfusion Shock",
+   "type": "Blood",
+   "causedBy": "Wrong Blood Type, Bozo.",
+   "effects": "Vomiting, Chest Pain, Blood Loss (XML), Vanilla Organ Damage (XML), Liver Damage (XML), Heart Damage (XML), Kidney Damage (XML), Lung Damage (XML), Shortness of Breath, Abdominal Pain, Wheezing.",
+   "notes": []
+  },
+  "symptoms": [
+   "wheezing",
+   "vomiting",
+   "chestpain",
+   "abdominalpain",
+   "shortnessofbreath"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Wrong Blood Type, Bozo."
+   }
+  ],
+  "leadsTo": [
+   "shortnessofbreath",
+   "abdominalpain",
+   "kidneydamage",
+   "organdamage",
+   "liverdamage",
+   "heartdamage",
+   "lungdamage",
+   "bloodloss",
+   "chestpain",
+   "wheezing",
+   "vomiting"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "hyperventilation",
+  "name": "Hyperventilation",
+  "description": "The patient is breathing at an alarmingly rapid rate. Gradually increases non-lethal Alkalosis, and is usually caused by Hypotension, Hypoxemia or a Pneumothorax.",
+  "category": "lungs",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Hyperventilation",
+   "type": "Non-Limb Specific",
+   "causedBy": "Hypotension, Hypoxemia, Pneumothorax, Sepsis, Adrenaline",
+   "effects": "Alkalosis.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "pneumothorax",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "bloodpressure",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "afadrenaline",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Hypotension, Hypoxemia, Pneumothorax, Sepsis, Adrenaline"
+   }
+  ],
+  "leadsTo": [
+   "alkalosis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Lungs.xml"
+ },
+ {
+  "id": "hypoventilation",
+  "name": "Hypoventilation",
+  "description": "The patient is breathing at an alarmingly slow rate. Gradually increases potentially lethal Acidosis, which can be prevented by Artificial Ventilation from a Surgery Table. It is usually caused by Analgesia. Severe Acidosis will cause Fibrillation.",
+  "category": "lungs",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Hypoventilation",
+   "type": "Non-Limb Specific",
+   "causedBy": "Opiate Overdose, Opiods, Anesthesia",
+   "effects": "Acidosis.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "opiateoverdose",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "anesthesia",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Opiate Overdose, Opiods, Anesthesia"
+   }
+  ],
+  "leadsTo": [
+   "acidosis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Lungs.xml"
+ },
+ {
+  "id": "hypoxemia",
+  "name": "Hypoxemia",
+  "description": null,
+  "category": "blood",
+  "kind": "vital",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 5,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 128,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#449dc6"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Hypoxemia",
+   "type": "Blood Affliction",
+   "causedBy": "Oxygen Low, Blood Loss.",
+   "effects": "Changes Blood Pressure, Specific Organ Damage (requires them to be Constant).",
+   "notes": []
+  },
+  "symptoms": [
+   "shortnessofbreath",
+   "paleskin",
+   "confusion",
+   "headache",
+   "unconsciousness"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "bloodloss",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "oxygenlow",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Oxygen Low, Blood Loss."
+   }
+  ],
+  "leadsTo": [
+   "bloodpressure",
+   "organdamage"
+  ],
+  "treatments": [
+   {
+    "item": "liquidoxygenite",
+    "note": null
+   },
+   {
+    "item": "deusizine",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "iced",
+  "name": "Chilled",
+  "description": "Application of a Gel Coolant Pack on this Limb has greatly increased the natural healing speed of Blunt Force Trauma and is treating Internal Bleeding over time. It does however reduce movement speed slightly and worsens Infections.",
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Gel Coolant Pack applied to Limb",
+   "type": "Limb Specific",
+   "causedBy": "Gel Coolant Pack.",
+   "effects": "Amplifies healing, slows character.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Gel Coolant Pack."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "immunity",
+  "name": "Immunity",
+  "description": null,
+  "category": "blood",
+  "kind": "vital",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Immunity",
+   "type": "Blood, Mechanic",
+   "causedBy": "Existing.",
+   "effects": "Increased regeneration for Burns and Wounds.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Existing."
+   }
+  ],
+  "leadsTo": [
+   "burn"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "increasedheartrate",
+  "name": "Increased Heartrate",
+  "description": "The patient's heartrate is abnormally high. If this affliction is increasing in strength, potentially lethal Fibrillation is occurring; usually due to Hypotension or Hypoxemia.",
+  "category": "heart",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Increased Heartrate (previously Tachycardia)",
+   "type": "Non-Limb Specific",
+   "causedBy": "Harmless Causes: Sepsis, Blood Loss, Acidosis, Pneumothorax, Adrenaline, Alcohol Withdrawal.; Harmful Causes: Aortic Rupture, Acidosis, Hypotension, Hypoxemia, Traumatic Shock.",
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "traumaticshock",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "aorticrupture",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "pneumothorax",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "bloodpressure",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "bloodloss",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "afadrenaline",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "opiatewithdrawal",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "acidosis",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Harmless Causes: Sepsis, Blood Loss, Acidosis, Pneumothorax, Adrenaline, Alcohol Withdrawal.; Harmful Causes: Aortic Rupture, Acidosis, Hypotension, Hypoxemia, Traumatic Shock."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Heart.xml"
+ },
+ {
+  "id": "infectedcavity",
+  "name": "Infected Stomach Cavity",
+  "description": null,
+  "category": "torso",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 1,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Infected Cavity",
+   "type": "Non-Limb Specific, Lethal",
+   "causedBy": "Damage.",
+   "effects": "Sepsis, Nausea, Fever, Abdominal Pain.",
+   "notes": []
+  },
+  "symptoms": [
+   "fever",
+   "abdominalpain"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage."
+   }
+  ],
+  "leadsTo": [
+   "abdominalpain",
+   "sepsis",
+   "nausea",
+   "fever"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Torso.xml"
+ },
+ {
+  "id": "infectedwound",
+  "name": "Infected Wound",
+  "description": null,
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 20,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 640,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#8b3c2a"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Infected Wound",
+   "type": "Limb Specific",
+   "causedBy": "Burns, Foreign Bodies, Lacerations, Explosive Damage, Gunshot Wounds.",
+   "effects": "Inflammation.",
+   "notes": []
+  },
+  "symptoms": [
+   "inflammation"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "foreignbody",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "gunshotwound",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "lacerations",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "burn",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Burns, Foreign Bodies, Lacerations, Explosive Damage, Gunshot Wounds."
+   }
+  ],
+  "leadsTo": [
+   "inflammation"
+  ],
+  "treatments": [
+   {
+    "item": "ointment",
+    "note": null
+   },
+   {
+    "item": "antibleeding2",
+    "note": null
+   },
+   {
+    "item": "antisepticspray",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "infection",
+  "name": null,
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 200,
+  "showInScannerThreshold": 1000,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "inflammation",
+  "name": "Inflammation",
+  "description": "The area is red, swollen and warm. Usually caused by an Infection or Foreign Bodies.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Inflammation",
+   "type": "Limb-specific",
+   "causedBy": "Foreign Bodies, Infected Wounds",
+   "effects": "Fever",
+   "notes": []
+  },
+  "symptoms": [
+   "fever"
+  ],
+  "symptomOf": [
+   "foreignbody",
+   "infectedwound"
+  ],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "infectedwound",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "foreignbody",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Foreign Bodies, Infected Wounds"
+   }
+  ],
+  "leadsTo": [
+   "fever"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "intensepain",
+  "name": "Intense Pain",
+  "description": "The patient is expressing intense pain in the affected area. Usually caused by Dislocations or Fractures.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Intense Pain",
+   "type": "Symptom, Mental, Pain",
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "dislocation",
+   "fracturedextremity"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "internalbleeding",
+  "name": "Internal Bleeding",
+  "description": null,
+  "category": "head",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Internal Bleeding",
+   "type": "Non-Limb Specific",
+   "causedBy": "Damage.",
+   "effects": "Blood Loss (XML), Internal Bleeding (XML), Chest Pain, Abdominal Pain, Unconsciousness.",
+   "notes": []
+  },
+  "symptoms": [
+   "vomitingblood",
+   "unconsciousness",
+   "abdominalpain",
+   "chestpain"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage."
+   }
+  ],
+  "leadsTo": [
+   "unconsciousness",
+   "abdominalpain",
+   "bloodloss",
+   "chestpain"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Head.xml"
+ },
+ {
+  "id": "internaldamage",
+  "name": "Internal Damage",
+  "description": null,
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Internal Damage",
+   "type": "Limb Specific",
+   "causedBy": "Dislocations, Fractures, Neck Fractures, sustaining damage.",
+   "effects": "Damage.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "dislocation",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "fracturedextremity",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Dislocations, Fractures, Neck Fractures, sustaining damage."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "invertcontrols",
+  "name": null,
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "jaundice",
+  "name": "Jaundice",
+  "description": "The patients skin has turned a sickly shade of yellow. Usually caused by severe Liver Damage.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Jaundice",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "liverdamage"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "kidneydamage",
+  "name": "Kidney Damage",
+  "description": null,
+  "category": "blood",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Kidney Damage",
+   "type": "Non-Limb Specific, Organ Damage",
+   "causedBy": "ABX, LiOxy, HemoTransShock, Mannitol, RadSickness, Hypertension, Sepsis, Hypoxemia, BFT (DMG), GSW (DMG), Sufforin Poisoning (XML).",
+   "effects": "Acidosis, Leg Swelling, Hypertension, Bone Damage, Vomiting, Neurotrauma, Nausea.",
+   "notes": []
+  },
+  "symptoms": [
+   "vomiting",
+   "legswelling"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "sufforinpoisoning",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "bloodpressure",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "afmannitol",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "ABX, LiOxy, HemoTransShock, Mannitol, RadSickness, Hypertension, Sepsis, Hypoxemia, BFT (DMG), GSW (DMG), Sufforin Poisoning (XML)."
+   }
+  ],
+  "leadsTo": [
+   "legswelling",
+   "bloodpressure",
+   "bonedamage",
+   "neurotrauma",
+   "acidosis",
+   "vomiting",
+   "nausea"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "kidneyremoved",
+  "name": "Kidneys Removed",
+  "description": "The kidneys have been surgically removed.",
+  "category": "kidneys",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Kidney Removed",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 2x.",
+   "effects": "None; Kidney Damage 100% via Removal Surgery causes effects.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 2x."
+   }
+  ],
+  "leadsTo": [
+   "kidneydamage"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Kidneys.xml"
+ },
+ {
+  "id": "kidneyswap",
+  "name": "Replacing Kidneys",
+  "description": "Old kidneys have been surgically prepared for a new transplant.",
+  "category": "kidneys",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Kidney Swap",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 1x.",
+   "effects": "None.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 1x."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Kidneys.xml"
+ },
+ {
+  "id": "la_cyber",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "lacerations",
+  "name": "Lacerations",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Lacerations",
+   "type": "Limb Specific",
+   "causedBy": "Damage, failed skill checks.",
+   "effects": "Damage, infection.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage, failed skill checks."
+   }
+  ],
+  "leadsTo": [
+   "infectedwound"
+  ],
+  "treatments": [
+   {
+    "item": "suture",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "legswelling",
+  "name": "Leg Swelling",
+  "description": "The patients legs are swollen. Usually caused by Liver-, Kidney- or severe Heart Damage.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "rightleg"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Leg Swelling",
+   "type": "Symptom, Organic",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions. Not present on Cybernetics."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "heartdamage",
+   "kidneydamage",
+   "liverdamage"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "lightheadedness",
+  "name": "Lightheadedness",
+  "description": "The patient is experiencing lightheadedness. Usually caused by Hypotension.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Lightheadedness",
+   "type": "Symptom, Mental",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions. Removed when Unconscious."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "bloodpressure"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "liverdamage",
+  "name": "Liver Damage",
+  "description": null,
+  "category": "blood",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Liver Damage",
+   "type": "Non-Limb Specific, Organ Damage",
+   "causedBy": "ABX, LiOxy, HemoTransShock, RadSickness, Sepsis, Hypoxemia, Drunk, BFT (DMG), GSW (DMG), Sufforin Poisoning (XML).",
+   "effects": "Leg Swelling, Internal Bleeding, Vomiting Blood, Hypertension, Neurotrauma, AbdomDiscomfort, Jaundice, Bloating.",
+   "notes": []
+  },
+  "symptoms": [
+   "legswelling",
+   "vomitingblood",
+   "abdominaldiscomfort",
+   "bloating",
+   "jaundice"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "sufforinpoisoning",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "drunk",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "ABX, LiOxy, HemoTransShock, RadSickness, Sepsis, Hypoxemia, Drunk, BFT (DMG), GSW (DMG), Sufforin Poisoning (XML)."
+   }
+  ],
+  "leadsTo": [
+   "internalbleeding",
+   "vomitingblood",
+   "legswelling",
+   "bloodpressure",
+   "neurotrauma",
+   "bloating",
+   "jaundice"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "liverremoved",
+  "name": "Liver Removed",
+  "description": "The liver has been surgically removed.",
+  "category": "liver",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Liver Removed",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 2x.",
+   "effects": "None; Liver Damage 100% via Removal Surgery causes effects.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 2x."
+   }
+  ],
+  "leadsTo": [
+   "liverdamage"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Liver.xml"
+ },
+ {
+  "id": "liverswap",
+  "name": "Replacing Liver",
+  "description": "Old liver has been surgically prepared for a new transplant.",
+  "category": "liver",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Liver Swap",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 1x.",
+   "effects": "None.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 1x."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Liver.xml"
+ },
+ {
+  "id": "ll_cyber",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "lockedhands",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 256,
+   "w": 128,
+   "h": 128,
+   "color": "#8b3c2a"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Locked Hands",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Prevent usage of the left/right arms when triggered.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "lockleftarm",
+  "name": null,
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TODO: make non real afflictions a thing",
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "SymptomsToAdd[\"lockleftarm\"] = new(\"lockleftarm\", 0, 100, 0, AfflictionPriority.HIGH);",
+    "SymptomsToAdd[\"lockleftarm\"].Real = false;",
+    "SymptomsToAdd[\"lockrightarm\"] = new(\"lockrightarm\", 0, 100, 0, AfflictionPriority.HIGH);",
+    "SymptomsToAdd[\"lockrightarm\"].Real = false;",
+    "SymptomsToAdd[\"lockleftleg\"] = new(\"lockleftleg\", 0, 100, 0, AfflictionPriority.HIGH);",
+    "SymptomsToAdd[\"lockleftleg\"].Real = false;",
+    "SymptomsToAdd[\"lockrightleg\"] = new(\"lockrightleg\", 0, 100, 0, AfflictionPriority.HIGH);",
+    "SymptomsToAdd[\"lockrightleg\"].Real = false;"
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "lockleftleg",
+  "name": null,
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "lockrightarm",
+  "name": null,
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "lockrightleg",
+  "name": null,
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "luabotomy",
+  "name": "Lualess",
+  "description": "Lua isn't running. That means neurotrauma and any other mods that use it won't work. Please read the workshop pages of mods you plan to use.",
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 15,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Luabotomy",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Used to determine whether or not someone should be updated."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "luabotomypurger",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Luabotomy Purger",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Removes Luabotomy, then itself.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "lungdamage",
+  "name": "Lung Damage",
+  "description": null,
+  "category": "blood",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Lung Damage",
+   "type": "Non-Limb Specific, Organ Damage",
+   "causedBy": "ABX, LiOxy, Ambubag, HemoTransShock, RadSickness, Sepsis, Hypoxemia, BFT (DMG), GSW (DMG).",
+   "effects": "Cough, Shortness of Breath, Respiratory Arrest",
+   "notes": []
+  },
+  "symptoms": [
+   "cough",
+   "shortnessofbreath"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "ABX, LiOxy, Ambubag, HemoTransShock, RadSickness, Sepsis, Hypoxemia, BFT (DMG), GSW (DMG)."
+   }
+  ],
+  "leadsTo": [
+   "shortnessofbreath",
+   "respiratoryarrest",
+   "cough"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "lungremoved",
+  "name": "Lungs Removed",
+  "description": "The lungs have been surgically removed.",
+  "category": "lungs",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Lung Removed",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 2x.",
+   "effects": "Respiratory Arrest, Unconsciousness, eventual Death.",
+   "notes": []
+  },
+  "symptoms": [
+   "unconsciousness"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 2x."
+   }
+  ],
+  "leadsTo": [
+   "respiratoryarrest",
+   "unconsciousness"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Lungs.xml"
+ },
+ {
+  "id": "lungswap",
+  "name": "Replacing Lungs",
+  "description": "Old lungs have been surgically prepared for a new transplant.",
+  "category": "lungs",
+  "kind": "surgical",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": "Died due to missing lungs",
+  "code": {
+   "title": "Lung Swap",
+   "type": "Surgical Action",
+   "causedBy": "Organ Removal Scalpel action 1x.",
+   "effects": "None.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Organ Removal Scalpel action 1x."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Lungs.xml"
+ },
+ {
+  "id": "morbusinepoisoning",
+  "name": "Morbusine poisoning",
+  "description": "Gradually progressing, movement hindering and relatively quick poisoning.",
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 30,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "nausea",
+  "name": "Nausea",
+  "description": "The skin is clammy and the patient is nauseous. Usually caused by Kidney Damage, a Concussion, Drug Withdrawal, or Hemotransfusion Shock. Vomiting will cause Alkalosis.",
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "nausea_nt",
+  "name": null,
+  "description": null,
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Nausea",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": "Alkalosis",
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "alkalosis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "needlec",
+  "name": "Needle",
+  "description": "A needle with an air valve in the chest is preventing Pneumothorax from worsening. Applying a Needle to a healthy patient will cause Pneumothorax however; requiring the use of a Drainage during Open / Close Surgery to cure it.",
+  "category": "drugs",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Needle in Chest",
+   "type": "Non-Limb Specific, Item Derived",
+   "causedBy": "Needle item.",
+   "effects": "Reduced Pneumothorax / Cardiac Tamponade.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Needle item."
+   }
+  ],
+  "leadsTo": [
+   "tamponade",
+   "pneumothorax"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/ItemDerived.xml"
+ },
+ {
+  "id": "neurotrauma",
+  "name": "Neurotrauma",
+  "description": null,
+  "category": "brain",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 200,
+  "showInScannerThreshold": 10,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": "Death by Neurotrauma",
+  "code": {
+   "title": "Neurotrauma",
+   "type": "Non-Limb Specific, Organ Damage, Lethal",
+   "causedBy": "Stroke, Liver Damage, Kidney Damage, Sepsis, Hypoxemia, Items, Traumatic Shock, Cyanide Poisoning, GSW (DMG).",
+   "effects": "Unconsciousness, Respiratory Arrest",
+   "notes": []
+  },
+  "symptoms": [
+   "unconsciousness"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "cyanidepoisoning",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "traumaticshock",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "kidneydamage",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "liverdamage",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "sepsis",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "stroke",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Stroke, Liver Damage, Kidney Damage, Sepsis, Hypoxemia, Items, Traumatic Shock, Cyanide Poisoning, GSW (DMG)."
+   }
+  ],
+  "leadsTo": [
+   "respiratoryarrest",
+   "unconsciousness"
+  ],
+  "treatments": [
+   {
+    "item": "mannitol",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Brain.xml"
+ },
+ {
+  "id": "o_negative",
+  "name": "O-",
+  "description": null,
+  "category": "bloodtypes",
+  "kind": "bloodtype",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/BloodTypes.xml"
+ },
+ {
+  "id": "o_positive",
+  "name": "O+",
+  "description": null,
+  "category": "bloodtypes",
+  "kind": "bloodtype",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/BloodTypes.xml"
+ },
+ {
+  "id": "ointmented",
+  "name": "Antibiotic Ointment",
+  "description": "A layer of antibiotic gel protects and cleans the wound from any germs. It is very difficult for an Infection to develop here.",
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Antibiotic Ointment applied to Limb",
+   "type": "Limb Specific",
+   "causedBy": "Antibiotic Ointment.",
+   "effects": "Amplifies healing.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Antibiotic Ointment."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "onfire",
+  "name": "On fire!",
+  "description": "The patient is burning alive! Grab an extinguisher!",
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "On Fire!",
+   "type": "Functionality",
+   "causedBy": "Being on fire too long.",
+   "effects": "Visibly on fire (XML), burns (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Being on fire too long."
+   }
+  ],
+  "leadsTo": [
+   "burn"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "onwheelchair",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "On Wheelchair",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Changes the animations of a character to one in a wheelchair.",
+   "notes": [
+    "Applied via Stats."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "opiateaddiction",
+  "name": "Opiate Addiction",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 700,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [
+   {
+    "item": "antinarc",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "opiateoverdose",
+  "name": "Opiate Overdose",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 10,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Opiate Overdose",
+   "type": "Non-Limb Specific, Drug, Vanilla Override",
+   "causedBy": "Application of Opiates.",
+   "effects": "Respiratory Arrest, Unconsciousness, Seizures, Death.",
+   "notes": []
+  },
+  "symptoms": [
+   "unconsciousness",
+   "spasm"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Application of Opiates."
+   }
+  ],
+  "leadsTo": [
+   "respiratoryarrest",
+   "unconsciousness"
+  ],
+  "treatments": [
+   {
+    "item": "antinarc",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "opiatewithdrawal",
+  "name": "Opiate Withdrawal",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [
+   "sweating",
+   "craving"
+  ],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [
+   {
+    "item": "opium",
+    "note": null
+   },
+   {
+    "item": "antidama1",
+    "note": null
+   },
+   {
+    "item": "antidama2",
+    "note": null
+   },
+   {
+    "item": "antinarc",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "organdamage",
+  "name": "Organ Damage",
+  "description": null,
+  "category": "blood",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Organ Damage",
+   "type": "Non-Limb Specific, Organ Damage",
+   "causedBy": "Many things.",
+   "effects": "Many things.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Many things."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "oxygenlow",
+  "name": "Oxygen Low",
+  "description": null,
+  "category": "vanilla",
+  "kind": "vital",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Oxygen Low",
+   "type": "Non-Limb Specific, Vanilla Override",
+   "causedBy": "Lack of Oxygen, Respiratory Arrest",
+   "effects": "Hypoxemia",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "respiratoryarrest",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Lack of Oxygen, Respiratory Arrest"
+   }
+  ],
+  "leadsTo": [
+   "hypoxemia"
+  ],
+  "treatments": [
+   {
+    "item": "bvm",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "pain",
+  "name": "Pain",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#449dc6"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Pain",
+   "type": "Functionality",
+   "causedBy": "Damage.",
+   "effects": "Damage Sounds (XML), Slowdown (XML). Removes self via XML.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [
+   {
+    "item": "opium",
+    "note": null
+   },
+   {
+    "item": "antidama1",
+    "note": null
+   },
+   {
+    "item": "antidama2",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "paleskin",
+  "name": "Pale Skin",
+  "description": "The patients skin is pale. Usually caused by Hypoxemia or Blood Loss.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Pale Skin",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "bloodloss",
+   "hypoxemia"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "palpitations",
+  "name": "Palpitations",
+  "description": "The patient is experiencing palpitations. Usually caused by Alkalosis.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Palpitations",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "alkalosis"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "plastercast",
+  "name": "Plaster Cast",
+  "description": "Slowly heals Fractures on the extremities, though reduces movement speed while present. They can be removed using Trauma Shears.",
+  "category": "limbs",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Plaster Cast",
+   "type": "Limb Specific",
+   "causedBy": "Gypsum item.",
+   "effects": "Heals fractures, slows character.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Gypsum item."
+   }
+  ],
+  "leadsTo": [
+   "fracturedextremity"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "pneumothorax",
+  "name": "Pneumothorax",
+  "description": null,
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Pneumothorax",
+   "type": "Non-Limb Specific",
+   "causedBy": "Rib Fracture, Trauma to the Torso, Needle application.",
+   "effects": "Shortness of Breath, Hyperventilation, Increased Heartrate",
+   "notes": [
+    "Additional interaction with: Needle."
+   ]
+  },
+  "symptoms": [
+   "shortnessofbreath"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "fracturedribs",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "needlec",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Rib Fracture, Trauma to the Torso, Needle application."
+   }
+  ],
+  "leadsTo": [
+   "increasedheartrate",
+   "shortnessofbreath",
+   "hyperventilation"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "psychosis",
+  "name": "Psychosis",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Psychosis",
+   "type": "Non-Limb Specific, Vanilla Override",
+   "causedBy": "no root beer.",
+   "effects": "Psychosis.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "no root beer."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [
+   {
+    "item": "antipsychosis",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "SharedProject/SharedSource/NT Components/NTAfflictionsData.cs"
+ },
+ {
+  "id": "ra_cyber",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "radiationsickness",
+  "name": "Radiation Sickness",
+  "description": null,
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 200,
+  "showInScannerThreshold": 25,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Radiation Sickness",
+   "type": "Damage, Vanilla Override",
+   "causedBy": "Health Scanner, Radiotoxin, Radiation, Certain Damage.",
+   "effects": "Burns (XML), Screen Grain (XML), Specific Organ Damage, Bone Damage.",
+   "notes": []
+  },
+  "symptoms": [
+   "spasm"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Health Scanner, Radiotoxin, Radiation, Certain Damage."
+   }
+  ],
+  "leadsTo": [
+   "organdamage",
+   "bonedamage",
+   "burn"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "respiratoryarrest",
+  "name": "Respiratory Arrest",
+  "description": "The patient is not breathing. A lethal status that will prevent oxygenation of blood. Typically caused by Hypoxemia, Neurotrauma, or an Opiate Overdose. Artificial Ventilation from a Surgery Table will counteract the downsides of this affliction.",
+  "category": "lungs",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Respiratory Arrest",
+   "type": "Non-Limb Specific, Interrim",
+   "causedBy": "Lung Damage, TraumaShock, Neurotrauma, Hypoxemia, Opiate Overdose, Stasis, Morbusine Poisoning.",
+   "effects": "Oxygen Low, Acidosis.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "morbusinepoisoning",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "opiateoverdose",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "lungdamage",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "neurotrauma",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "hypoxemia",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Lung Damage, TraumaShock, Neurotrauma, Hypoxemia, Opiate Overdose, Stasis, Morbusine Poisoning."
+   }
+  ],
+  "leadsTo": [
+   "oxygenlow",
+   "acidosis"
+  ],
+  "treatments": [
+   {
+    "item": "bvm",
+    "note": null
+   },
+   {
+    "item": "autocpr",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Lungs.xml"
+ },
+ {
+  "id": "retractedskin",
+  "name": "Retracted Skin",
+  "description": "The skin is being held open by a set of Skin Retractors.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Retracted Skin",
+   "type": "Limb Specific, Surgical",
+   "causedBy": "Skin Retractors.",
+   "effects": "Applies Traumatic Shock (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Skin Retractors."
+   }
+  ],
+  "leadsTo": [
+   "traumaticshock"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "rl_cyber",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "safesurgery",
+  "name": "Safe Surgery",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Safe Surgery (via Surgery Table)",
+   "type": "Functionality",
+   "causedBy": "Surgery Table / Hospital Bed",
+   "effects": "Reduces / Prevents Traumatic Shock.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Surgery Table / Hospital Bed"
+   }
+  ],
+  "leadsTo": [
+   "traumaticshock"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "sawedbones",
+  "name": "Bones Sawed",
+  "description": "The bone has been severed using a Surgical Saw.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Sawed Bones",
+   "type": "Limb Specific, Surgical",
+   "causedBy": "Surgical Saw.",
+   "effects": "Applies Traumatic Shock (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Surgical Saw."
+   }
+  ],
+  "leadsTo": [
+   "traumaticshock"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "screaming",
+  "name": "Screaming",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#449dc6"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Screaming",
+   "type": "Functionality",
+   "causedBy": "Fractures, Amputations, Dislocations.",
+   "effects": "Character screams (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "dislocation",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "fracturedextremity",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Fractures, Amputations, Dislocations."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "seconddegreeburn",
+  "name": "Second-degree Burn",
+  "description": "There are very painful blisters littering the affected area. There is a high rate of Infection which could lead to life-threatening Sepsis. Bandages, Antibiotic Glue or Antibiotic Ointment can be used to treat the burn.",
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Second-degree Burns",
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "seizure",
+  "name": "Seizure",
+  "description": "Patient is experiencing a full-body seizure. Usually caused by severe Acidosis, Alkalosis, a Stroke, an Opiate Overdose or Radiation Sickness.",
+  "category": "brain",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Seizure",
+   "type": "Non-Limb Specific",
+   "causedBy": "Stroke, Acidosis, Alkalosis, Withdrawal, Opiate Overdose, Anesthesia, Radiation Sickness",
+   "effects": "Unconsciousness, Spasms",
+   "notes": []
+  },
+  "symptoms": [
+   "unconsciousness"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "radiationsickness",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "opiateoverdose",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "anesthesia",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "opiatewithdrawal",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "alkalosis",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "acidosis",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "stroke",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Stroke, Acidosis, Alkalosis, Withdrawal, Opiate Overdose, Anesthesia, Radiation Sickness"
+   }
+  ],
+  "leadsTo": [
+   "unconsciousness"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Brain.xml"
+ },
+ {
+  "id": "sepsis",
+  "name": "Sepsis",
+  "description": null,
+  "category": "blood",
+  "kind": "vital",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 768,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#8b3c2a"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Sepsis",
+   "type": "Blood",
+   "causedBy": "Blood Pack Items, Gangrene, Foreign Bodies, Infected Wounds, Azathioprine failed skillcheck.",
+   "effects": "Organ Damage (via Stats), Gangrene, Fever, Hyperventilation, Increased Heartrate (Constant), Neurotrauma, Confusion, Bone Damage.",
+   "notes": []
+  },
+  "symptoms": [
+   "fever",
+   "confusion"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "infectedwound",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "foreignbody",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "gangrene",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Blood Pack Items, Gangrene, Foreign Bodies, Infected Wounds, Azathioprine failed skillcheck."
+   }
+  ],
+  "leadsTo": [
+   "increasedheartrate",
+   "hyperventilation",
+   "organdamage",
+   "bonedamage",
+   "neurotrauma",
+   "confusion",
+   "gangrene",
+   "fever"
+  ],
+  "treatments": [
+   {
+    "item": "antibiotics",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Blood.xml"
+ },
+ {
+  "id": "severepain",
+  "name": "Severe Pain",
+  "description": null,
+  "category": "bones",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Severe Pain",
+   "type": "Functionality",
+   "causedBy": "Fractures, Amputations, Dislocations.",
+   "effects": "Character screams (XML), gets momentarily stunned (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "dislocation",
+    "text": null
+   },
+   {
+    "type": "affliction",
+    "id": "fracturedextremity",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Fractures, Amputations, Dislocations."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "severepainlite",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "sh_amputation",
+  "name": "Amputation",
+  "description": "The head was surgically amputated.",
+  "category": "limbs",
+  "kind": "surgical",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Surgical Head Amputation",
+   "type": "Indicator, Surgery",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Result of Surgical Amputation. Does nothing. Act of removing the head kills instantly."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "shockpain",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 256,
+   "y": 0,
+   "w": 128,
+   "h": 128,
+   "color": "#449dc6"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Shock Pain",
+   "type": "Functionality",
+   "causedBy": "Traumatic Shock.",
+   "effects": "Damage Sounds (XML), Slowdown (XML). Removes self via XML.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "traumaticshock",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Traumatic Shock."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "shortnessofbreath",
+  "name": "Shortness of Breath",
+  "description": "The patients breathing is labored and shallow, usually caused by Cardiac Tamponade, Pneumothorax, or Hypoxemia.",
+  "category": "lungs",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Shortness of Breath",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "heartattack",
+   "heartdamage",
+   "hemotransfusionshock",
+   "hypoxemia",
+   "lungdamage",
+   "pneumothorax",
+   "tamponade"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Lungs.xml"
+ },
+ {
+  "id": "sla_amputation",
+  "name": "Amputation",
+  "description": "The left arm was surgically amputated.",
+  "category": "limbs",
+  "kind": "surgical",
+  "bodyParts": [
+   "leftarm"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Surgical Left Arm Amputation",
+   "type": "Indicator, Surgery",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Result of Surgical Amputation. Does nothing."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "sll_amputation",
+  "name": "Amputation",
+  "description": "The left leg was surgically amputated.",
+  "category": "limbs",
+  "kind": "surgical",
+  "bodyParts": [
+   "leftleg"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Surgical Left Leg Amputation",
+   "type": "Indicator, Surgery",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Result of Surgical Amputation. Does nothing."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "slowdown",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Slowdown",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Decreases character by a percentage proportional to the affliction strength.",
+   "notes": [
+    "TODO: move it to post update"
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "spasm",
+  "name": "Spasm",
+  "description": "The patient can't control the erratic behaviour of the limb. Usually caused by severe Acidosis, Alkalosis, a Stroke, an Opiate Overdose or Radiation Sickness.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Spasms",
+   "type": "Symptom",
+   "causedBy": "Seizure",
+   "effects": "Makes character twitch on the ground via XML.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "acidosis",
+   "alkalosis",
+   "opiateoverdose",
+   "radiationsickness",
+   "stroke"
+  ],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "seizure",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Seizure"
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "spinalcordinjury",
+  "name": "Spinal Cord Injury",
+  "description": "The spine has been injured due to a Neck Fracture, causing full-body Paralysis and Analgesia - though it does not cause Unconsciousness. It must be surgically repaired using Spinal Cord Implants.",
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": "Died of paralysis",
+  "code": {
+   "title": "Spinal Cord Injury",
+   "type": "Non-Limb Specific",
+   "causedBy": "Unstable Neck Fractures.",
+   "effects": "Paralysis (XML), Analgesia (XML).",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "fracturedextremity",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Unstable Neck Fractures."
+   }
+  ],
+  "leadsTo": [
+   "analgesia"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "sra_amputation",
+  "name": "Amputation",
+  "description": "The right arm was surgically amputated.",
+  "category": "limbs",
+  "kind": "surgical",
+  "bodyParts": [
+   "rightarm"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Surgical Right Arm Amputation",
+   "type": "Indicator, Surgery",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Result of Surgical Amputation. Does nothing."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "srl_amputation",
+  "name": "Amputation",
+  "description": "The right leg was surgically amputated.",
+  "category": "limbs",
+  "kind": "surgical",
+  "bodyParts": [
+   "rightleg"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Surgical Right Leg Amputation",
+   "type": "Indicator, Surgery",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Result of Surgical Amputation. Does nothing."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "stasis",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 3,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Stasis",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Enables Stasis stattype.",
+   "notes": [
+    "Applied via Stasis Bag item."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "stasisbagoverlay",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Stasis Bag Overlay",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Overlays the stasis bag sprite.",
+   "notes": [
+    "Applied via Stasis Bag item."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "stimulatedbonegrowth",
+  "name": "Stimulated Bone Growth",
+  "description": "Bone regrowth has been stimulated. To cure Bone Death, this affliction needs to be on every bodypart.",
+  "category": "bones",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Stimulated Bone Growth",
+   "type": "Limb Specific",
+   "causedBy": "Damage, failed skill checks.",
+   "effects": "Decreases bone damage.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Damage, failed skill checks."
+   }
+  ],
+  "leadsTo": [
+   "bonedamage"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Bones.xml"
+ },
+ {
+  "id": "stopcreatureabuse",
+  "name": null,
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 2,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "StopCreatureAbuse",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Used to decrease additional fall damage for certain creatures."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "stroke",
+  "name": "Stroke",
+  "description": null,
+  "category": "brain",
+  "kind": "condition",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": {
+   "sheet": "AfflictionIcons.png",
+   "x": 0,
+   "y": 128,
+   "w": 128,
+   "h": 128,
+   "color": "#00ff00"
+  },
+  "causeOfDeath": null,
+  "code": {
+   "title": "Stroke",
+   "type": "Non-Limb Specific",
+   "causedBy": "Hypertension.",
+   "effects": "Headache, Coma, Seizure, Neurotrauma.",
+   "notes": []
+  },
+  "symptoms": [
+   "headache",
+   "spasm"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "affliction",
+    "id": "bloodpressure",
+    "text": null
+   },
+   {
+    "type": "text",
+    "id": null,
+    "text": "Hypertension."
+   }
+  ],
+  "leadsTo": [
+   "neurotrauma",
+   "headache",
+   "seizure",
+   "coma"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Brain.xml"
+ },
+ {
+  "id": "stun",
+  "name": "Stun",
+  "description": null,
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Stun",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Used to stun the character.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "sufforinpoisoning",
+  "name": "Sufforin Poisoning",
+  "description": "Sneaky, slowly progressing poisoning that eventually leads to death.",
+  "category": "vanilla",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 70,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": null,
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Overrides.xml"
+ },
+ {
+  "id": "surgeryincision",
+  "name": "Surgery Incision",
+  "description": "An incision has been made by a Scalpel.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Surgical Incision",
+   "type": "Limb Specific, Surgical",
+   "causedBy": "Scalpel.",
+   "effects": "Blood Loss, Traumatic Shock, increases self in XML.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Scalpel."
+   }
+  ],
+  "leadsTo": [
+   "traumaticshock",
+   "bloodloss"
+  ],
+  "treatments": [
+   {
+    "item": "suture",
+    "note": null
+   }
+  ],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "suturedi",
+  "name": "Stitched Incision",
+  "description": "An incision has been closed using Sutures.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": true,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Sutured Incision",
+   "type": "Limb Specific, Surgical",
+   "causedBy": "Stitching a Surgical Incision.",
+   "effects": "None.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Stitching a Surgical Incision."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "suturedw",
+  "name": "Stitched Wound",
+  "description": "Wounds have been closed using Sutures.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Sutured Wound",
+   "type": "Limb Specific, Surgical",
+   "causedBy": "Stitching an Open Wound.",
+   "effects": "Vitality damage proportional to affliction strength.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Stitching an Open Wound."
+   }
+  ],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "sweating",
+  "name": "Sweating",
+  "description": "The patient is sweating excessively. Usually caused by a Heart Attack or Drug Withdrawal.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Sweating",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "alcoholwithdrawal",
+   "heartattack",
+   "opiatewithdrawal"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "tamponade",
+  "name": "Cardiac Tamponade",
+  "description": null,
+  "category": "heart",
+  "kind": "condition",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 10,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Cardiac Tamponade",
+   "type": "Non-Limb Specific",
+   "causedBy": "Open Wounds (DMG) to Torso.",
+   "effects": "Decreases Blood Pressure, Weakness, Cough, Shortness of Breath.",
+   "notes": [
+    "Additional interaction with: Needle."
+   ]
+  },
+  "symptoms": [
+   "shortnessofbreath",
+   "cough",
+   "weakness"
+  ],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Open Wounds (DMG) to Torso."
+   }
+  ],
+  "leadsTo": [
+   "shortnessofbreath",
+   "bloodpressure",
+   "weakness",
+   "cough"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Heart.xml"
+ },
+ {
+  "id": "th_amputation",
+  "name": "Traumatic Amputation",
+  "description": "The head has been violently removed from the body, causing instant death.",
+  "category": "limbs",
+  "kind": "indicator",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Traumatic Head Amputation",
+   "type": "Indicator",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Applied via Damage Sustained. Does nothing. Act of removing the head kills instantly."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "thirddegreeburn",
+  "name": "Third-degree Burn",
+  "description": "The affected area is leathery, stiff and has lost all feeling. Infection is almost immediate and thus the onset of Sepsis is rapid. Antibiotic glue is the most rapid treatment, though Plastiseal can be used during Open / Close Surgery to replace the skin entirely.",
+  "category": "wounds",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Third-degree Burns",
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/AnyBodypart.xml"
+ },
+ {
+  "id": "tla_amputation",
+  "name": "Traumatic Amputation",
+  "description": "Most of the tissue of the left arm was torn off. This limb can be replaced after Sawing Bones.",
+  "category": "limbs",
+  "kind": "indicator",
+  "bodyParts": [
+   "leftarm"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Traumatic Left Arm Amputation",
+   "type": "Indicator",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Applied via Damage Sustained. Does nothing."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "tll_amputation",
+  "name": "Traumatic Amputation",
+  "description": "Most of the tissue of the left leg was torn off. This limb can be replaced after Sawing Bones.",
+  "category": "limbs",
+  "kind": "indicator",
+  "bodyParts": [
+   "leftleg"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Traumatic Left Leg Amputation",
+   "type": "Indicator",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Applied via Damage Sustained. Does nothing."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "tourniqueted",
+  "name": "Tourniqueted",
+  "description": "Bleeding from the artery has been stopped, but blood flow to the extremity is severely reduced - Gangrene will occur if not removed in time.",
+  "category": "limbs",
+  "kind": "condition",
+  "bodyParts": [
+   "any"
+  ],
+  "limbSpecific": true,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Tourniquet around Extremity",
+   "type": "Limb Specific",
+   "causedBy": "Tourniquet item.",
+   "effects": "Reduces Bleeding (XML), Gangrene.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Tourniquet item."
+   }
+  ],
+  "leadsTo": [
+   "gangrene",
+   "bleeding"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "tra_amputation",
+  "name": "Traumatic Amputation",
+  "description": "Most of the tissue of the right arm was torn off. This limb can be replaced after Sawing Bones.",
+  "category": "limbs",
+  "kind": "indicator",
+  "bodyParts": [
+   "rightarm"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Traumatic Right Arm Amputation",
+   "type": "Indicator",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Applied via Damage Sustained. Does nothing."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "traumaticshock",
+  "name": "Traumatic Shock",
+  "description": "Usually occurring during unsafe surgery conditions, causing potentially lethal Hypotension. To perform safe surgery a patient must be under the effects of Analgesia and near any Bed, or be Unconscious.",
+  "category": "surgical",
+  "kind": "surgical",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": null,
+  "showInScannerThreshold": null,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Traumatic Shock",
+   "type": "Non-Limb Specific, Lethal",
+   "causedBy": "Unsafe Surgery",
+   "effects": "Hypotension, Cardiac Arrest, Respiratory Arrest, Neurotrauma, Psychosis, Pain.",
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [
+   {
+    "type": "text",
+    "id": null,
+    "text": "Unsafe Surgery"
+   }
+  ],
+  "leadsTo": [
+   "respiratoryarrest",
+   "cardiacarrest",
+   "neurotrauma",
+   "bloodpressure",
+   "psychosis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Surgical.xml"
+ },
+ {
+  "id": "triggersym_cardiacarrest",
+  "name": null,
+  "description": null,
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "triggersym_coma",
+  "name": null,
+  "description": null,
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "triggersym_respiratoryarrest",
+  "name": null,
+  "description": null,
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Trigger Symptoms",
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "triggersym_seizure",
+  "name": null,
+  "description": null,
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "triggersym_stroke",
+  "name": null,
+  "description": null,
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": null,
+   "type": null,
+   "causedBy": null,
+   "effects": null,
+   "notes": []
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": true,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "trl_amputation",
+  "name": "Traumatic Amputation",
+  "description": "Most of the tissue of the right leg was torn off. This limb can be replaced after Sawing Bones.",
+  "category": "limbs",
+  "kind": "indicator",
+  "bodyParts": [
+   "rightleg"
+  ],
+  "limbSpecific": false,
+  "isBuff": true,
+  "maxStrength": 1,
+  "showInScannerThreshold": 0,
+  "detectedBy": [
+   "healthscanner"
+  ],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Traumatic Right Leg Amputation",
+   "type": "Indicator",
+   "causedBy": null,
+   "effects": "None.",
+   "notes": [
+    "Applied via Damage Sustained. Does nothing."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Extremities.xml"
+ },
+ {
+  "id": "tshocktimeout",
+  "name": "Traumatic Shock Immunity",
+  "description": "The patient was left unattended, for some time they won't be aware about having themselves opened.",
+  "category": "functionality",
+  "kind": "utility",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 300,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "TShockTimeout",
+   "type": "Functionality",
+   "causedBy": null,
+   "effects": "Removes Traumatic Shock.",
+   "notes": [
+    "Applied during level change to prevent Traumatic Shock from taking place."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [],
+  "causes": [],
+  "leadsTo": [
+   "traumaticshock"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Functionality.xml"
+ },
+ {
+  "id": "unconsciousness",
+  "name": "Unconsciousness",
+  "description": "The patient is unconscious. Usually caused by severe physical trauma, Hypoxemia, Neurotrauma, an Aortic Rupture or an Opiate Overdose.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "head"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Unconsciousness",
+   "type": "Symptom, Talent Interaction",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "aorticrupture",
+   "brainremoved",
+   "coma",
+   "hypoxemia",
+   "internalbleeding",
+   "lungremoved",
+   "neurotrauma",
+   "opiateoverdose",
+   "seizure"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "vomiting",
+  "name": "Vomiting",
+  "description": "The patient is vomiting periodically. Usually caused by Kidney Damage, Alcohol consumption or Hemotransfusion Shock. Vomiting will cause Alkalosis.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": "Choked on vomit",
+  "code": {
+   "title": "Vomiting",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": "Alkalosis",
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "alcoholwithdrawal",
+   "drunk",
+   "hemotransfusionshock",
+   "kidneydamage"
+  ],
+  "causes": [],
+  "leadsTo": [
+   "alkalosis"
+  ],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "vomitingblood",
+  "name": "Vomiting Blood",
+  "description": "The patient is vomiting blood periodically. Usually caused by severe Internal Bleeding or Liver Damage.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Vomiting Blood",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "internalbleeding",
+   "liverdamage"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "weakness",
+  "name": "Weakness",
+  "description": "The patient is experiencing weakness in the extremities. Usually caused by Cardiac Tamponade, Blood Loss or Acidosis.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "rightarm"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Weakness",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "acidosis",
+   "bloodloss",
+   "tamponade"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ },
+ {
+  "id": "wheezing",
+  "name": "Wheezing",
+  "description": "The patients breathing is producing a high-pitched noise. Usually caused by Hemotransfusion Shock.",
+  "category": "symptom",
+  "kind": "symptom",
+  "bodyParts": [
+   "torso"
+  ],
+  "limbSpecific": false,
+  "isBuff": false,
+  "maxStrength": 100,
+  "showInScannerThreshold": 999,
+  "detectedBy": [],
+  "icon": null,
+  "causeOfDeath": null,
+  "code": {
+   "title": "Wheezing",
+   "type": "Symptom",
+   "causedBy": null,
+   "effects": null,
+   "notes": [
+    "Removes itself when conditions are NOT met. Applied by other afflictions."
+   ]
+  },
+  "symptoms": [],
+  "symptomOf": [
+   "hemotransfusionshock"
+  ],
+  "causes": [],
+  "leadsTo": [],
+  "treatments": [],
+  "danger": null,
+  "guide": null,
+  "hidden": false,
+  "source": "Assets/Content/XML/Afflictions/Symptoms.xml"
+ }
+]
