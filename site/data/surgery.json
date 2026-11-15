@@ -1,0 +1,359 @@
+[
+ {
+  "name": "Opening a limb (base surgical access)",
+  "goal": "Get retractedskin on a limb so internal procedures are possible",
+  "steps": [
+   {
+    "item": "antidama1 / propofol",
+    "action": "Numb or anaesthetise the patient",
+    "requires": "Patient needs analgesia >=1 or unconsciousness >=0.1 (HF.CanPerformSurgeryOn); patient must not be in stasis"
+   },
+   {
+    "item": "advscalpel",
+    "action": "Incision -> surgeryincision",
+    "requires": "no existing incision on the limb; surgery skill 30"
+   },
+   {
+    "item": "advhemostat",
+    "action": "Clamp -> clampedbleeding",
+    "requires": "surgeryincision >= 99 (grows over time; strength starts at 1+skill/2)"
+   },
+   {
+    "item": "advretractors",
+    "action": "Retract -> retractedskin",
+    "requires": "clampedbleeding >= 99; surgery skill 30"
+   },
+   {
+    "item": "suture",
+    "action": "Close: clears surgeryincision, clampedbleeding, retractedskin, caviclean + fixes conditions on that limb",
+    "requires": "surgery skill 30"
+   }
+  ],
+  "notes": "Each tool's affliction grows from 1+skill/2; the next step waits until it reaches 99 (95 for suture conditions). Higher skill = faster.",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1854-1911, 1518-1613; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1911-1914"
+ },
+ {
+  "name": "Fracture repair (osteosynthesis)",
+  "goal": "Fix fracturedextremity/skull/ribs/neck instantly",
+  "steps": [
+   {
+    "item": "advscalpel, advhemostat, advretractors",
+    "action": "Open the limb",
+    "requires": "see base procedure"
+   },
+   {
+    "item": "surgicaldrill",
+    "action": "drilledbones",
+    "requires": "retractedskin >= 99; surgery 45"
+   },
+   {
+    "item": "osteosynthesisimplants",
+    "action": "Removes fractures + drilledbones, adds stimulatedbonegrowth",
+    "requires": "drilledbones >= 99; surgery 45"
+   },
+   {
+    "item": "suture",
+    "action": "Close",
+    "requires": "drilledbones (if still present) cleared when surgeryincision >= 95"
+   }
+  ],
+  "notes": "Non-surgical alternative for arms/legs: antibleeding1 (bandage) then gypsum (plaster cast).",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805, 1914-1941"
+ },
+ {
+  "name": "Surgical amputation",
+  "goal": "Cleanly remove a limb (e.g. gangrene) and get a limb item",
+  "steps": [
+   {
+    "item": "advscalpel, advhemostat, advretractors",
+    "action": "Open the arm/leg (or head)",
+    "requires": "see base"
+   },
+   {
+    "item": "surgerysaw",
+    "action": "sawedbones",
+    "requires": "retractedskin >= 99; surgery 50; not torso"
+   },
+   {
+    "item": "suture",
+    "action": "Amputates the limb surgically, gives limb item (rarm/larm/rleg/lleg/headsa) unless already amputated or gangrene >= 15",
+    "requires": "surgery 30"
+   }
+  ],
+  "notes": "",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1944-1976, 1551-1563; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1854-1890"
+ },
+ {
+  "name": "Limb reattachment",
+  "goal": "Replace an amputated arm/leg with a limb or bionic limb",
+  "steps": [
+   {
+    "item": "advscalpel, advhemostat, advretractors",
+    "action": "Open the stump",
+    "requires": "see base"
+   },
+   {
+    "item": "surgerysaw",
+    "action": "sawedbones on the stump",
+    "requires": "retractedskin >= 99; surgery 50"
+   },
+   {
+    "item": "rarm/larm/rleg/lleg or rarmp/larmp/rlegp/llegp",
+    "action": "Clears sawedbones and the surgical amputation",
+    "requires": "limb item matches limb; sawedbones >= 99"
+   },
+   {
+    "item": "suture",
+    "action": "Close remaining incision",
+    "requires": ""
+   }
+  ],
+  "notes": "Do not suture before attaching - suturing with sawedbones amputates.",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222"
+ },
+ {
+  "name": "Organ transplant / swap (liver, heart, lungs, kidneys)",
+  "goal": "Replace a damaged organ",
+  "steps": [
+   {
+    "item": "advscalpel, advhemostat, advretractors",
+    "action": "Open the Torso",
+    "requires": "see base"
+   },
+   {
+    "item": "organscalpel_<organ>",
+    "action": "Free the organ: <organ>swap = 100 (or <organ>removed if organ is 100% dead)",
+    "requires": "Torso retractedskin; surgery 40"
+   },
+   {
+    "item": "<organ>transplant",
+    "action": "Insert new organ; returns the old organ item if it was < 90% damaged (kidneys < 45%)",
+    "requires": "retractedskin >= 99; <organ>removed or <organ>swap; surgery 40 else -40 quality"
+   },
+   {
+    "item": "suture",
+    "action": "Close; also clears leftover <organ>swap",
+    "requires": "surgeryincision >= 95"
+   }
+  ],
+  "notes": "Heart swap sets cardiacarrest 100 (restart with AED/defibrillator); lung swap sets respiratoryarrest 100 (ventilate/BVM). Immunity drives rejection (config NT_organRejection) - give immunosuppressant. Using the organ scalpel a second time while in swap state extracts the organ instead.",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:488-687, 2080-2289"
+ },
+ {
+  "name": "Organ harvesting",
+  "goal": "Remove an organ to obtain an organ item",
+  "steps": [
+   {
+    "item": "open torso (or head for brain)",
+    "action": "",
+    "requires": "see base"
+   },
+   {
+    "item": "organscalpel_<organ>",
+    "action": "First cut: <organ>swap",
+    "requires": "surgery 40"
+   },
+   {
+    "item": "organscalpel_<organ>",
+    "action": "Second cut: organ removed, damage set 100, organ item given (condition 100 - damage) if damage < 90",
+    "requires": "liver: extra surgery 50 check"
+   }
+  ],
+  "notes": "Kills/cripples the donor: heart -> cardiacarrest, lungs -> respiratoryarrest, brain -> neurotrauma +100. Organs are placed into a container held in hand if it has room.",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2377"
+ },
+ {
+  "name": "Brain transplant",
+  "goal": "Move a brain into a new body",
+  "steps": [
+   {
+    "item": "organscalpel_brain (x2 on donor head)",
+    "action": "Extract brain item (player detached into item on server)",
+    "requires": "Head retractedskin; donor neurotrauma < 90 for usable brain"
+   },
+   {
+    "item": "organscalpel_brain on recipient",
+    "action": "Leads to brainremoved if recipient neurotrauma >= 100, otherwise extract",
+    "requires": "Head retractedskin"
+   },
+   {
+    "item": "braintransplant",
+    "action": "neurotrauma -condition, brainremoved 0, player takes control",
+    "requires": "Head retractedskin; brainremoved; surgery 100 for full quality"
+   }
+  ],
+  "notes": "",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:690-709, 2292-2377"
+ },
+ {
+  "name": "Aortic rupture repair (endovascular)",
+  "goal": "Fix aorticrupture",
+  "steps": [
+   {
+    "item": "advscalpel",
+    "action": "Incision on Torso",
+    "requires": "analgesia/unconscious"
+   },
+   {
+    "item": "endovascballoon",
+    "action": "balloonedaorta 100, internalbleeding 0",
+    "requires": "Torso surgeryincision >= 1 and aorticrupture"
+   },
+   {
+    "item": "medstent",
+    "action": "Removes aorticrupture and balloonedaorta",
+    "requires": "balloonedaorta present (else wasted)"
+   },
+   {
+    "item": "suture",
+    "action": "Close incision",
+    "requires": ""
+   }
+  ],
+  "notes": "With config NT_HardmodeAorticRupture, sutures on a retracted torso can also clear aorticrupture.",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2494-2544, 1469-1474"
+ },
+ {
+  "name": "Pneumothorax / tamponade",
+  "goal": "Relieve and cure collapsed lung or cardiac tamponade",
+  "steps": [
+   {
+    "item": "needle",
+    "action": "Field decompression: needlec 100",
+    "requires": "Torso NOT retracted; medical 20"
+   },
+   {
+    "item": "open torso (scalpel, hemostat, retractors)",
+    "action": "",
+    "requires": "see base"
+   },
+   {
+    "item": "drainage",
+    "action": "Sets pneumothorax, needlec and tamponade to 0",
+    "requires": "Torso retractedskin >= 95"
+   },
+   {
+    "item": "suture",
+    "action": "Close (also clears tamponade if config NT_OpenCloseTamponade is off)",
+    "requires": ""
+   }
+  ],
+  "notes": "",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1696, 1478-1483"
+ },
+ {
+  "name": "Arterial cut / internal bleeding / stroke repair",
+  "goal": "Repair vessels",
+  "steps": [
+   {
+    "item": "tourniquet",
+    "action": "Stop arm/leg arterial bleeding in the field",
+    "requires": "medical 30"
+   },
+   {
+    "item": "advscalpel, advhemostat, advretractors",
+    "action": "Open the limb",
+    "requires": "see base"
+   },
+   {
+    "item": "suture",
+    "action": "Clears arterialcut, carotidarterialcut, internalbleeding, stroke, tourniqueted on that limb",
+    "requires": "retractedskin >= 95; surgery 30"
+   }
+  ],
+  "notes": "",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1459-1497, 765-788"
+ },
+ {
+  "name": "Foreign body removal",
+  "goal": "Remove shrapnel/bullets (foreignbody)",
+  "steps": [
+   {
+    "item": "open limb (scalpel, hemostat, retractors)",
+    "action": "",
+    "requires": "analgesia/unconscious"
+   },
+   {
+    "item": "tweezers",
+    "action": "foreignbody, internaldamage and blunttrauma -3..10 per use",
+    "requires": "surgery 30"
+   },
+   {
+    "item": "suture",
+    "action": "Close",
+    "requires": ""
+   }
+  ],
+  "notes": "Field alternative: tweezers through a gunshot/explosion wound remove foreignbody only and cause traumaticshock +5.",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077"
+ },
+ {
+  "name": "Infected cavity cleaning",
+  "goal": "Treat infectedcavity",
+  "steps": [
+   {
+    "item": "open torso",
+    "action": "",
+    "requires": "see base"
+   },
+   {
+    "item": "antisepticspray (loaded with antibloodloss1)",
+    "action": "caviclean += max(skill/2,10); saline consumed",
+    "requires": "Torso, infectedcavity, retractedskin"
+   },
+   {
+    "item": "suture",
+    "action": "Close (clears caviclean)",
+    "requires": ""
+   }
+  ],
+  "notes": "",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2479"
+ },
+ {
+  "name": "Spinal cord repair",
+  "goal": "Cure spinalcordinjury",
+  "steps": [
+   {
+    "item": "open limb (scalpel, hemostat, retractors)",
+    "action": "",
+    "requires": "see base"
+   },
+   {
+    "item": "spinalimplant",
+    "action": "spinalcordinjury 0",
+    "requires": "retractedskin >= 99; surgery 45"
+   },
+   {
+    "item": "suture",
+    "action": "Close",
+    "requires": ""
+   }
+  ],
+  "notes": "Code does not restrict the limb type.",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1808-1851"
+ },
+ {
+  "name": "Severe burn treatment (skin graft)",
+  "goal": "Heal large burns",
+  "steps": [
+   {
+    "item": "open limb (scalpel, hemostat, retractors)",
+    "action": "",
+    "requires": "see base"
+   },
+   {
+    "item": "antibleeding2",
+    "action": "burn reduced by up to 200 on the retracted limb",
+    "requires": "retractedskin on limb"
+   },
+   {
+    "item": "suture",
+    "action": "Close",
+    "requires": ""
+   }
+  ],
+  "notes": "",
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1346-1362"
+ }
+]

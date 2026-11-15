@@ -282,7 +282,48 @@
    "weakness",
    "coma"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "antibloodloss2",
+    "note": "multiplied toward 0 by up to 10% depending on bloodloss/30"
+   },
+   {
+    "item": "bloodpacko_positive",
+    "note": "multiplied toward 0 by up to 10% depending on bloodloss/30"
+   },
+   {
+    "item": "bloodpacka_positive",
+    "note": "multiplied toward 0 by up to 10% depending on bloodloss/30"
+   },
+   {
+    "item": "bloodpacka_negative",
+    "note": "multiplied toward 0 by up to 10% depending on bloodloss/30"
+   },
+   {
+    "item": "bloodpackb_positive",
+    "note": "multiplied toward 0 by up to 10% depending on bloodloss/30"
+   },
+   {
+    "item": "bloodpackb_negative",
+    "note": "multiplied toward 0 by up to 10% depending on bloodloss/30"
+   },
+   {
+    "item": "bloodpackab_positive",
+    "note": "multiplied toward 0 by up to 10% depending on bloodloss/30"
+   },
+   {
+    "item": "bloodpackab_negative",
+    "note": "multiplied toward 0 by up to 10% depending on bloodloss/30"
+   },
+   {
+    "item": "emptybloodpack",
+    "note": ""
+   },
+   {
+    "item": "operatingtable",
+    "note": "dialyzer"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -385,7 +426,12 @@
   "leadsTo": [
    "hypoventilation"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "antiparalysis",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -545,7 +591,12 @@
   "leadsTo": [
    "hypoventilation"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "antinarc",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -789,7 +840,32 @@
   "leadsTo": [
    "opiatewithdrawal"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": true,
@@ -844,7 +920,36 @@
    "nausea",
    "fever"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "antipsychosis",
+    "note": ""
+   },
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": true,
@@ -905,7 +1010,48 @@
   "leadsTo": [
    "palpitations"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "antibloodloss2",
+    "note": ""
+   },
+   {
+    "item": "bloodpacko_positive",
+    "note": ""
+   },
+   {
+    "item": "bloodpacka_positive",
+    "note": ""
+   },
+   {
+    "item": "bloodpacka_negative",
+    "note": ""
+   },
+   {
+    "item": "bloodpackb_positive",
+    "note": ""
+   },
+   {
+    "item": "bloodpackb_negative",
+    "note": ""
+   },
+   {
+    "item": "bloodpackab_positive",
+    "note": ""
+   },
+   {
+    "item": "bloodpackab_negative",
+    "note": ""
+   },
+   {
+    "item": "emptybloodpack",
+    "note": ""
+   },
+   {
+    "item": "operatingtable",
+    "note": "dialyzer"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -942,7 +1088,12 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "antinarc",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -981,7 +1132,12 @@
   "leadsTo": [
    "analgesia"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "antiparalysis",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -1036,6 +1192,10 @@
    {
     "item": "medstent",
     "note": null
+   },
+   {
+    "item": "suture",
+    "note": "only if config NT_HardmodeAorticRupture and retractedskin >= 95"
    }
   ],
   "danger": null,
@@ -1124,7 +1284,12 @@
   "leadsTo": [
    "oxygenlow"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "operatingtable",
+    "note": "+100 to nearby characters when not contained; welding fuel tank removes it"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": true,
@@ -1219,7 +1384,12 @@
    "gangrene",
    "bleeding"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "medstent",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -1269,6 +1439,10 @@
    {
     "item": "traumashears",
     "note": null
+   },
+   {
+    "item": "gypsum",
+    "note": "replaced by cast"
    }
   ],
   "danger": null,
@@ -1324,6 +1498,10 @@
    {
     "item": "traumashears",
     "note": null
+   },
+   {
+    "item": "antibleeding1",
+    "note": ""
    }
   ],
   "danger": null,
@@ -1408,7 +1586,32 @@
   "leadsTo": [
    "bloodloss"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "tourniquet",
+    "note": "tourniqueted stops bleeding on that limb (effect in affliction code)"
+   },
+   {
+    "item": "antibleeding1",
+    "note": ""
+   },
+   {
+    "item": "antibleeding2",
+    "note": ""
+   },
+   {
+    "item": "deusizine",
+    "note": ""
+   },
+   {
+    "item": "antibleeding3",
+    "note": ""
+   },
+   {
+    "item": "suture",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -1496,6 +1699,38 @@
    {
     "item": "antibloodloss2",
     "note": null
+   },
+   {
+    "item": "bloodpacko_positive",
+    "note": ""
+   },
+   {
+    "item": "bloodpacka_positive",
+    "note": ""
+   },
+   {
+    "item": "bloodpacka_negative",
+    "note": ""
+   },
+   {
+    "item": "bloodpackb_positive",
+    "note": ""
+   },
+   {
+    "item": "bloodpackb_negative",
+    "note": ""
+   },
+   {
+    "item": "bloodpackab_positive",
+    "note": ""
+   },
+   {
+    "item": "bloodpackab_negative",
+    "note": ""
+   },
+   {
+    "item": "deusizine",
+    "note": ""
    }
   ],
   "danger": null,
@@ -1585,6 +1820,10 @@
    {
     "item": "gelipack",
     "note": null
+   },
+   {
+    "item": "tweezers",
+    "note": "surgery mode only"
    }
   ],
   "danger": null,
@@ -1771,7 +2010,12 @@
    "unconsciousness",
    "cardiacarrest"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "braintransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -1851,7 +2095,20 @@
   "leadsTo": [
    "infectedwound"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "ointment",
+    "note": "only if burn on limb < 50"
+   },
+   {
+    "item": "antibleeding2",
+    "note": ""
+   },
+   {
+    "item": "antibleeding3",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": true,
@@ -2066,7 +2323,32 @@
   "symptomOf": [],
   "causes": [],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -2097,7 +2379,40 @@
   "symptomOf": [],
   "causes": [],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "meth",
+    "note": ""
+   },
+   {
+    "item": "hyperzine",
+    "note": ""
+   },
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -2324,7 +2639,36 @@
    "headache",
    "nausea"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "operatingtable",
+    "note": "resting"
+   },
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -2586,7 +2930,12 @@
   "symptomOf": [],
   "causes": [],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "operatingtable",
+    "note": "toxfilter"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -2681,7 +3030,12 @@
   "leadsTo": [
    "traumaticshock"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "osteosynthesisimplants",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -2724,7 +3078,32 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -2996,7 +3375,12 @@
    "inflammation",
    "sepsis"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "tweezers",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -3041,7 +3425,16 @@
   "leadsTo": [
    "internaldamage"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "gypsum",
+    "note": ""
+   },
+   {
+    "item": "osteosynthesisimplants",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -3086,7 +3479,12 @@
    "internaldamage",
    "bandaged"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "osteosynthesisimplants",
+    "note": "if indicator limb matches"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -3133,7 +3531,12 @@
    "chestpain",
    "bandaged"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "osteosynthesisimplants",
+    "note": "torso"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -3179,7 +3582,12 @@
    "neurotrauma",
    "headache"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "osteosynthesisimplants",
+    "note": "head"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -3777,6 +4185,14 @@
    {
     "item": "streptokinase",
     "note": null
+   },
+   {
+    "item": "hearttransplant",
+    "note": "on swap"
+   },
+   {
+    "item": "organscalpel_heart",
+    "note": "on extraction"
    }
   ],
   "danger": null,
@@ -3849,7 +4265,12 @@
    "legswelling",
    "cough"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "hearttransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -3892,7 +4313,12 @@
   "leadsTo": [
    "cardiacarrest"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "hearttransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -3933,7 +4359,12 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "hearttransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -3999,7 +4430,12 @@
    "wheezing",
    "vomiting"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "streptokinase",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -4272,7 +4708,12 @@
   "leadsTo": [
    "burn"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "immunosuppressant",
+    "note": "applies afimmunosuppressant which lowers immunity (effect defined in affliction code, not here)"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -4361,7 +4802,16 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "defibrillator",
+    "note": "chance (medical/100)^2"
+   },
+   {
+    "item": "aed",
+    "note": "always"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -4410,7 +4860,12 @@
    "nausea",
    "fever"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "antisepticspray",
+    "note": "saline mode applies caviclean which cleans the cavity (affliction code)"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -4494,6 +4949,14 @@
    {
     "item": "antisepticspray",
     "note": null
+   },
+   {
+    "item": "antibleeding3",
+    "note": ""
+   },
+   {
+    "item": "antiseptic",
+    "note": "via antisepticspray"
    }
   ],
   "danger": null,
@@ -4661,7 +5124,12 @@
    "bloodloss",
    "chestpain"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "endovascballoon",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -4708,7 +5176,20 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "deusizine",
+    "note": ""
+   },
+   {
+    "item": "hyperzine",
+    "note": ""
+   },
+   {
+    "item": "tweezers",
+    "note": "surgery mode only"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -4843,7 +5324,12 @@
    "vomiting",
    "nausea"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "kidneytransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -4886,7 +5372,12 @@
   "leadsTo": [
    "kidneydamage"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "kidneytransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -4927,7 +5418,12 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "kidneytransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5143,7 +5639,12 @@
    "bloating",
    "jaundice"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "livertransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5186,7 +5687,12 @@
   "leadsTo": [
    "liverdamage"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "livertransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5227,7 +5733,12 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "livertransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5545,7 +6056,12 @@
    "respiratoryarrest",
    "cough"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "lungtransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5591,7 +6107,12 @@
    "respiratoryarrest",
    "unconsciousness"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "lungtransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5632,7 +6153,12 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "lungtransplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5661,7 +6187,12 @@
   "symptomOf": [],
   "causes": [],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "operatingtable",
+    "note": "toxfilter"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5686,7 +6217,32 @@
   "symptomOf": [],
   "causes": [],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5765,7 +6321,20 @@
    "tamponade",
    "pneumothorax"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "lungtransplant",
+    "note": "on swap"
+   },
+   {
+    "item": "drainage",
+    "note": "requires Torso retractedskin >= 95"
+   },
+   {
+    "item": "organscalpel_lungs",
+    "note": "on extraction"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -5850,6 +6419,10 @@
    {
     "item": "mannitol",
     "note": null
+   },
+   {
+    "item": "braintransplant",
+    "note": ""
    }
   ],
   "danger": null,
@@ -6049,6 +6622,30 @@
    {
     "item": "antinarc",
     "note": null
+   },
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
    }
   ],
   "danger": null,
@@ -6152,6 +6749,34 @@
    {
     "item": "antinarc",
     "note": null
+   },
+   {
+    "item": "bvm",
+    "note": "analgesic tank"
+   },
+   {
+    "item": "opdeco_hospitalbed",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunkbeds",
+    "note": ""
+   },
+   {
+    "item": "opdeco_bunks1",
+    "note": ""
+   },
+   {
+    "item": "opdeco_prisonbed",
+    "note": ""
+   },
+   {
+    "item": "bunk",
+    "note": ""
+   },
+   {
+    "item": "bunkwrecked",
+    "note": ""
    }
   ],
   "danger": null,
@@ -6190,7 +6815,12 @@
    }
   ],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "deusizine",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -6412,7 +7042,12 @@
   "leadsTo": [
    "fracturedextremity"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "traumashears",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -6467,7 +7102,24 @@
    "shortnessofbreath",
    "hyperventilation"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "lungtransplant",
+    "note": "on swap"
+   },
+   {
+    "item": "drainage",
+    "note": "requires Torso retractedskin >= 95"
+   },
+   {
+    "item": "needle",
+    "note": "sets needlec 100 (temporary decompression)"
+   },
+   {
+    "item": "organscalpel_lungs",
+    "note": "on extraction"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -6508,6 +7160,18 @@
    {
     "item": "antipsychosis",
     "note": null
+   },
+   {
+    "item": "blahaj",
+    "note": ""
+   },
+   {
+    "item": "captainspipe",
+    "note": ""
+   },
+   {
+    "item": "cigar",
+    "note": ""
    }
   ],
   "danger": null,
@@ -6803,7 +7467,40 @@
   "leadsTo": [
    "traumaticshock"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "rarm",
+    "note": ""
+   },
+   {
+    "item": "larm",
+    "note": ""
+   },
+   {
+    "item": "rleg",
+    "note": ""
+   },
+   {
+    "item": "lleg",
+    "note": ""
+   },
+   {
+    "item": "rarmp",
+    "note": ""
+   },
+   {
+    "item": "larmp",
+    "note": ""
+   },
+   {
+    "item": "rlegp",
+    "note": ""
+   },
+   {
+    "item": "llegp",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -7452,7 +8149,12 @@
   "leadsTo": [
    "analgesia"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "spinalimplant",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -7760,7 +8462,20 @@
   "symptomOf": [],
   "causes": [],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "deusizine",
+    "note": ""
+   },
+   {
+    "item": "meth",
+    "note": ""
+   },
+   {
+    "item": "hyperzine",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": true,
@@ -7789,7 +8504,12 @@
   "symptomOf": [],
   "causes": [],
   "leadsTo": [],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "operatingtable",
+    "note": "toxfilter"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -8005,7 +8725,24 @@
    "weakness",
    "cough"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "hearttransplant",
+    "note": "on swap"
+   },
+   {
+    "item": "suture",
+    "note": "retractedskin >= 95 unless config NT_OpenCloseTamponade"
+   },
+   {
+    "item": "drainage",
+    "note": "requires Torso retractedskin >= 95; disabled by config NT_OpenCloseTamponade"
+   },
+   {
+    "item": "organscalpel_heart",
+    "note": "on extraction"
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -8191,7 +8928,16 @@
    "gangrene",
    "bleeding"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "divingknife",
+    "note": ""
+   },
+   {
+    "item": "traumashears",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
@@ -8500,7 +9246,12 @@
   "leadsTo": [
    "traumaticshock"
   ],
-  "treatments": [],
+  "treatments": [
+   {
+    "item": "suture",
+    "note": ""
+   }
+  ],
   "danger": null,
   "guide": null,
   "hidden": false,
