@@ -142,7 +142,7 @@
    {
     "affliction": "cardiacarrest",
     "amount": "-100",
-    "notes": "conditional: patient in cardiac arrest",
+    "notes": "Sometimes. Patient in cardiac arrest",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1373-1386; Override.xml:913-950"
    }
   ],
@@ -150,19 +150,19 @@
    {
     "affliction": "afadrenaline",
     "amount": "+55",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1373-1386; Override.xml:913-950"
    },
    {
     "affliction": "adrenalinerush",
     "amount": "+8",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1373-1386; Override.xml:913-950"
    },
    {
     "affliction": "fibrillation",
     "amount": "+20",
-    "when": "conditional: was in cardiac arrest",
+    "when": "Sometimes. Was in cardiac arrest",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1373-1386; Override.xml:913-950"
    }
   ],
@@ -172,8 +172,8 @@
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "n/a",
-  "summary": "Adrenaline: restarts a stopped heart (leaves fibrillation that then needs a defibrillator/AED) and gives an adrenaline boost. Also halves the skill needed to reset dislocations.",
+  "onFailure": "N/a",
+  "summary": "Adrenaline: restarts a stopped heart (leaves Irregular Heartbeat that then needs a Manual Defibrillator/AED) and gives an adrenaline boost. Also halves the skill needed to reset dislocations.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1373-1386; Override.xml:913-950"
@@ -212,17 +212,17 @@
    {
     "affliction": "clampedbleeding",
     "amount": "+1 + surgery skill/2 (limb)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1881-1891; SurgicalEquipment.xml:225-244"
    }
   ],
-  "usage": "Use on a limb with surgeryincision >=99 and no clampedbleeding; analgesia or unconscious; not in stasis. Not consumed.",
+  "usage": "Use on a limb with Surgery Incision >=99 and no Clamped Bleeding; analgesia or unconscious; not in stasis. Not consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check; strength scales with skill."
   },
-  "onFailure": "n/a (but the incision must have reached 99 - low skill incisions grow over time).",
+  "onFailure": "N/a (but the incision must have reached 99 - low skill incisions grow over time).",
   "summary": "Hemostat: second surgery step - clamps bleeding vessels after the incision.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/SurgicalEquipment.xml",
@@ -266,24 +266,24 @@
    {
     "affliction": "retractedskin",
     "amount": "+1 + surgery skill/2 (limb)",
-    "when": "on success",
+    "when": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1894-1911; SurgicalEquipment.xml:245-265"
    },
    {
     "affliction": "internaldamage",
     "amount": "+10 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1894-1911; SurgicalEquipment.xml:245-265"
    }
   ],
-  "usage": "Use on a limb with clampedbleeding >=99 and no retractedskin; analgesia or unconscious; not in stasis. Not consumed.",
+  "usage": "Use on a limb with Clamped Bleeding >=99 and no Retracted Skin; analgesia or unconscious; not in stasis. Not consumed.",
   "skill": {
    "skill": "surgery",
    "required": 30,
    "notes": "Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Internal damage.",
-  "summary": "Skin retractors: third surgery step - opens the wound. Most internal procedures (organs, drills, saws, sutures for arteries) need retractedskin.",
+  "summary": "Skin retractors: third surgery step - opens the wound. Most internal procedures (organs, drills, saws, sutures for arteries) need Retracted Skin.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/SurgicalEquipment.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1894-1911; SurgicalEquipment.xml:245-265"
@@ -327,23 +327,23 @@
    {
     "affliction": "surgeryincision",
     "amount": "+1 + surgery skill/2 (limb)",
-    "when": "on success",
+    "when": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1854-1878; SurgicalEquipment.xml:369-390"
    },
    {
     "affliction": "bleeding",
     "amount": "+15 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1854-1878; SurgicalEquipment.xml:369-390"
    },
    {
     "affliction": "lacerations",
     "amount": "+10 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1854-1878; SurgicalEquipment.xml:369-390"
    }
   ],
-  "usage": "Use on a limb with no existing surgeryincision; patient must have analgesia (>=1) or be unconscious; not in stasis. Not consumed.",
+  "usage": "Use on a limb with no existing Surgery Incision; patient must have analgesia (>=1) or be unconscious; not in stasis. Not consumed.",
   "skill": {
    "skill": "surgery",
    "required": 30,
@@ -430,19 +430,19 @@
   "treatsDetail": [
    {
     "affliction": "fibrillation",
-    "amount": "set 0",
-    "notes": "always when shock delivered",
+    "amount": "Set 0",
+    "notes": "Always when shock delivered",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:980-1035; OtherEquipment.xml:665-704"
    },
    {
     "affliction": "increasedheartrate",
-    "amount": "set 0",
-    "notes": "always",
+    "amount": "Set 0",
+    "notes": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:980-1035; OtherEquipment.xml:665-704"
    },
    {
     "affliction": "cardiacarrest",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "20-40% chance",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:980-1035; OtherEquipment.xml:665-704"
    }
@@ -451,18 +451,18 @@
    {
     "affliction": "stun",
     "amount": "+2",
-    "when": "when shock delivered",
+    "when": "When shock delivered",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:980-1035; OtherEquipment.xml:665-704"
    }
   ],
-  "usage": "Use on patient; requires a charged battery. 5 s cooldown. Only shocks if patient has increasedheartrate >=5, fibrillation >=1 or cardiacarrest; otherwise plays a 'no shock' sound. Drains battery 20 (10 fulgurium). Effect after 3.2 s.",
+  "usage": "Use on patient; requires a charged battery. 5 s cooldown. Only shocks if patient has Increased Heartrate >=5, Irregular Heartbeat >=1 or Cardiac Arrest; otherwise plays a 'no shock' sound. Drains battery 20 (10 fulgurium). Effect after 3.2 s.",
   "skill": {
    "skill": "medical",
    "required": null,
    "notes": "Cardiac-arrest fix chance = clamp(medical/200, 20%, 40%)."
   },
-  "onFailure": "n/a (chance based).",
-  "summary": "Automatic defibrillator: reliably fixes fibrillation/tachycardia regardless of skill and has a 20-40% chance per shock to restart a stopped heart. Safe to use - it won't shock a normal rhythm.",
+  "onFailure": "N/a (chance based).",
+  "summary": "Automatic Manual Defibrillator: reliably fixes Irregular Heartbeat/tachycardia regardless of skill and has a 20-40% chance per shock to restart a stopped heart. Safe to use - it won't shock a normal rhythm.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:980-1035; OtherEquipment.xml:665-704"
@@ -499,25 +499,25 @@
    {
     "affliction": "bloodloss",
     "amount": "+20 (success) / +15 (failure)",
-    "when": "always (adds bloodloss!)",
+    "when": "Always (adds Blood Loss!)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1282-1302; Override.xml:152-177"
    },
    {
     "affliction": "hemotransfusionshock",
     "amount": "+100",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1282-1302; Override.xml:152-177"
    },
    {
     "affliction": "psychosis",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1282-1302; Override.xml:152-177"
    },
    {
     "affliction": "bloodpressure",
     "amount": "+20 / +15",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1282-1302; Override.xml:152-177"
    }
   ],
@@ -528,7 +528,7 @@
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Slightly smaller amounts.",
-  "summary": "Alien blood is harmful in Neurotrauma: it causes massive hemotransfusion shock, psychosis and actually adds bloodloss. Do not use as a transfusion.",
+  "summary": "Alien blood is harmful in Neurotrauma: it causes massive hemotransfusion shock, psychosis and actually adds Blood Loss. Do not use as a transfusion.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1282-1302; Override.xml:152-177"
@@ -651,19 +651,19 @@
    {
     "affliction": "afantibiotics",
     "amount": "+5/s for 10 s (success) / +3/s (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:845-912"
    },
    {
     "affliction": "bloodpressure",
     "amount": "+2/s for 10 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:845-912"
    },
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "syringe gun impact",
+    "when": "Syringe gun impact",
     "source": "Override.xml:845-912"
    }
   ],
@@ -671,10 +671,10 @@
   "skill": {
    "skill": "medical",
    "required": 25,
-   "notes": "XML RequiredSkill."
+   "notes": "RequiredSkill."
   },
   "onFailure": "Weaker antibiotic effect.",
-  "summary": "Antibiotics: apply afantibiotics, which fights sepsis and infections (per affliction code), and give husk infection resistance.",
+  "summary": "Antibiotics: apply Antibiotics, which fights sepsis and infections (per affliction code), and give husk infection resistance.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
   "mechanicsSource": "Override.xml:845-912"
@@ -739,7 +739,7 @@
    {
     "affliction": "bandaged",
     "amount": "+36 / +48 / +60 (limb)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1319-1334; Override.xml:245-281"
    }
   ],
@@ -833,7 +833,7 @@
    },
    {
     "affliction": "burn",
-    "amount": "up to -200 if limb has retractedskin; else -12/-24 if burn > 50",
+    "amount": "Up to -200 if limb has Retracted Skin; else -12/-24 if burn > 50",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1337-1370; Override.xml:282-319"
    }
@@ -842,11 +842,11 @@
    {
     "affliction": "bandaged",
     "amount": "+50 / +100 (limb)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1337-1370; Override.xml:282-319"
    }
   ],
-  "usage": "Use on any limb. Consumed. On a surgically opened limb (retractedskin) it heals burns.",
+  "usage": "Use on any limb. Consumed. On a surgically opened limb (Retracted Skin) it heals burns.",
   "skill": {
    "skill": "medical",
    "required": 22,
@@ -933,7 +933,7 @@
    {
     "affliction": "heartattack",
     "amount": "+100",
-    "when": "on failure, if the limb is bleeding > 0.1",
+    "when": "On failure, if the limb is bleeding > 0.1",
     "source": "Override.xml:1189-1247"
    }
   ],
@@ -941,7 +941,7 @@
   "skill": {
    "skill": "medical",
    "required": 55,
-   "notes": "XML RequiredSkill."
+   "notes": "RequiredSkill."
   },
   "onFailure": "Weaker healing; if the limb is bleeding it can trigger a heart attack.",
   "summary": "Antibiotic glue: strong bleeding/burn/infection treatment for a limb, but a failed application on a bleeding wound causes a heart attack.",
@@ -1001,7 +1001,7 @@
    {
     "affliction": "afsaline",
     "amount": "+50 over 10 s / +30 on failure",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1305-1316; Override.xml:178-210"
    }
   ],
@@ -1012,7 +1012,7 @@
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Smaller dose.",
-  "summary": "Saline IV: applies afsaline (volume expander raising blood volume/pressure per affliction code). Cheap first response for blood loss; not a blood replacement.",
+  "summary": "Saline IV: applies Saline (volume expander raising blood volume/pressure per affliction code). Cheap first response for blood loss; not a blood replacement.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1305-1316; Override.xml:178-210"
@@ -1069,13 +1069,13 @@
    },
    {
     "affliction": "acidosis",
-    "amount": "x0.9 scaled by usefulness",
-    "notes": "multiplied toward 0 by up to 10% depending on bloodloss/30",
+    "amount": "X0.9 scaled by usefulness",
+    "notes": "Multiplied toward 0 by up to 10% depending on Blood Loss/30",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Override.xml:211-244"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9 scaled by usefulness",
+    "amount": "X0.9 scaled by usefulness",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Override.xml:211-244"
    }
@@ -1084,42 +1084,42 @@
    {
     "affliction": "bloodpressure",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Override.xml:211-244"
    },
    {
     "affliction": "hemotransfusionshock",
-    "amount": "max(immunity - 6, 0)",
-    "when": "on incompatible blood type",
+    "amount": "Max(immunity - 6, 0)",
+    "when": "On incompatible blood type",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Override.xml:211-244"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "conditional: pack was drawn from a septic donor (tag 'sepsis')",
+    "when": "Sometimes. Pack was drawn from a septic donor (tag 'sepsis')",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Override.xml:211-244"
    },
    {
     "affliction": "acidosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged acid:N (donor was acidotic)",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged acid:N (donor was acidotic)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Override.xml:211-244"
    },
    {
     "affliction": "alkalosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged alkal:N",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged alkal:N",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Override.xml:211-244"
    }
   ],
-  "usage": "Use on patient (any limb). Consumed; gives the user an emptybloodpack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; antibloodloss2 is O-negative = universal donor).",
+  "usage": "Use on patient (any limb). Consumed; gives the user an Empty Blood Pack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; Blood Pack O- is O-negative = universal donor).",
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "No skill check for the transfusion itself; medical XP only if patient bloodloss > 100."
+   "notes": "No skill check for the transfusion itself; medical XP only if patient Blood Loss > 100."
   },
-  "onFailure": "Incompatible blood still restores 20 bloodloss but causes hemotransfusionshock scaled by the patient's immunity.",
-  "summary": "O-negative blood pack: universal donor, safe for anyone. Restores blood volume (-30 bloodloss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
+  "onFailure": "Incompatible blood still restores 20 Blood Loss but causes Hemotransfusion Shock scaled by the patient's immunity.",
+  "summary": "O-negative blood pack: universal donor, safe for anyone. Restores blood volume (-30 Blood Loss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Override.xml:211-244"
@@ -1207,31 +1207,31 @@
    {
     "affliction": "analgesia",
     "amount": "+2.8/s for 20 s (success) / +1.8/s (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:601-687"
    },
    {
     "affliction": "afopioid",
     "amount": "+2.8/s / +1.8/s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:601-687"
    },
    {
     "affliction": "opiateaddiction",
     "amount": "+1/s / +2/s 20 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:601-687"
    },
    {
     "affliction": "opiateoverdose",
     "amount": "+1/s / +1.5/s 20 s",
-    "when": "always; extra if drunk > 30",
+    "when": "Always; extra if drunk > 30",
     "source": "Override.xml:601-687"
    },
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "syringe gun impact",
+    "when": "Syringe gun impact",
     "source": "Override.xml:601-687"
    }
   ],
@@ -1239,7 +1239,7 @@
   "skill": {
    "skill": "medical",
    "required": 50,
-   "notes": "XML RequiredSkill for use (fabrication needs 18)."
+   "notes": "RequiredSkill for use (fabrication needs 18)."
   },
   "onFailure": "Less pain relief, more addiction/overdose.",
   "summary": "Morphine: the standard painkiller. Gives analgesia, which is needed for (or makes easier) surgery and joint resetting. Watch overdose and addiction with repeated doses.",
@@ -1338,31 +1338,31 @@
    {
     "affliction": "analgesia",
     "amount": "+15/s for 5 s (success) / +10/s (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:688-775"
    },
    {
     "affliction": "afopioid",
     "amount": "+15/s / +10/s 5 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:688-775"
    },
    {
     "affliction": "opiateoverdose",
     "amount": "+5/s / +8/s for 5 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:688-775"
    },
    {
     "affliction": "opiateaddiction",
     "amount": "+1/s for 25 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:688-775"
    },
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "syringe gun impact",
+    "when": "Syringe gun impact",
     "source": "Override.xml:688-775"
    }
   ],
@@ -1370,7 +1370,7 @@
   "skill": {
    "skill": "medical",
    "required": 72,
-   "notes": "XML RequiredSkill for use."
+   "notes": "RequiredSkill for use."
   },
   "onFailure": "Much more overdose (40 total vs 25).",
   "summary": "Fentanyl: very strong, fast painkiller. High overdose risk - have naloxone ready. Needs 72 medical to use safely.",
@@ -1479,13 +1479,13 @@
    {
     "affliction": "coma",
     "amount": "+0.5/s for 30 s",
-    "when": "on failure",
+    "when": "On failure",
     "source": "Override.xml:776-844"
    },
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "syringe gun impact",
+    "when": "Syringe gun impact",
     "source": "Override.xml:776-844"
    }
   ],
@@ -1493,7 +1493,7 @@
   "skill": {
    "skill": "medical",
    "required": 39,
-   "notes": "XML RequiredSkill for use."
+   "notes": "RequiredSkill for use."
   },
   "onFailure": "Half strength and causes coma build-up.",
   "summary": "Naloxone: reverses opioid overdose (and removes opioid pain relief). Use on someone overdosing on morphine/fentanyl.",
@@ -1573,13 +1573,13 @@
    {
     "affliction": "psychosis",
     "amount": "+5 / +45 over 60 s",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1390-1409; Override.xml:1540-1584"
    },
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "syringe gun impact",
+    "when": "Syringe gun impact",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1390-1409; Override.xml:1540-1584"
    }
   ],
@@ -1670,7 +1670,7 @@
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "syringe gun impact",
+    "when": "Syringe gun impact",
     "source": "Override.xml:1470-1539"
    }
   ],
@@ -1678,7 +1678,7 @@
   "skill": {
    "skill": "medical",
    "required": 37,
-   "notes": "XML RequiredSkill."
+   "notes": "RequiredSkill."
   },
   "onFailure": "Only a quarter of the effect.",
   "summary": "Haloperidol: clears psychosis, hallucinations and alcohol withdrawal.",
@@ -1738,7 +1738,7 @@
    {
     "affliction": "infectedwound",
     "amount": "-100 per spray",
-    "notes": "via antisepticspray",
+    "notes": "Via Antiseptic Sprayer",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2481-2489; Toggleable.xml:56-85"
    }
   ],
@@ -1749,7 +1749,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Antiseptic refill for the antiseptic sprayer; each spray uses 10% of it.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Toggleable.xml",
@@ -1810,13 +1810,13 @@
    {
     "affliction": "infectedwound",
     "amount": "-100 (limb)",
-    "notes": "antiseptic loaded",
+    "notes": "Antiseptic loaded",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2490; SurgicalEquipment.xml:442-478"
    },
    {
     "affliction": "infectedcavity",
-    "amount": "indirect",
-    "notes": "saline mode applies caviclean which cleans the cavity (affliction code)",
+    "amount": "Indirect",
+    "notes": "Saline mode applies Cleaning cavity which cleans the cavity (affliction code)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2490; SurgicalEquipment.xml:442-478"
    }
   ],
@@ -1824,23 +1824,23 @@
    {
     "affliction": "caviclean",
     "amount": "+max(skill/2, 10) (torso)",
-    "when": "saline mode",
+    "when": "Saline mode",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2490; SurgicalEquipment.xml:442-478"
    },
    {
     "affliction": "ointmented",
     "amount": "+20 (limb)",
-    "when": "antiseptic mode",
+    "when": "Antiseptic mode",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2490; SurgicalEquipment.xml:442-478"
    }
   ],
-  "usage": "Use on a limb; 2 s cooldown; needs a loaded antiseptic or saline (antibloodloss1). Not in stasis. Saline mode: Torso with infectedcavity and retractedskin - consumes the saline. Antiseptic mode: any limb, uses 10 antiseptic condition.",
+  "usage": "Use on a limb; 2 s cooldown; needs a loaded antiseptic or saline. Not in stasis. Saline mode: Torso with Infected Stomach Cavity and Retracted Skin - consumes the saline. Antiseptic mode: any limb, uses 10 antiseptic condition.",
   "skill": {
    "skill": "surgery",
    "required": null,
-   "notes": "No pass/fail; caviclean strength = max(surgery skill/2, 10). XML lists medical 40."
+   "notes": "No pass/fail; Cleaning cavity strength = max(surgery skill/2, 10). lists medical 40."
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Antiseptic sprayer: with antiseptic it disinfects wounds; loaded with saline it irrigates an infected abdominal cavity during open torso surgery.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/SurgicalEquipment.xml",
@@ -1952,7 +1952,7 @@
    {
     "affliction": "cpr_buff_auto",
     "amount": "+10 while worn",
-    "when": "conditional: patient not dead (XML OnWearing)",
+    "when": "Sometimes. Patient not dead (OnWearing)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1038-1082; OtherEquipment.xml:815-875"
    }
   ],
@@ -1962,8 +1962,8 @@
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "n/a",
-  "summary": "AutoPulse: strap it onto a patient's outerwear slot to give automatic CPR (cpr_buff_auto) while they are alive. Can't be applied underwater.",
+  "onFailure": "N/a",
+  "summary": "AutoPulse: strap it onto a patient's outerwear slot to give automatic CPR (AutoPulse CPR) while they are alive. Can't be applied underwater.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1038-1082; OtherEquipment.xml:815-875"
@@ -2081,7 +2081,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Blue shark plushie: hug it to reduce psychosis slightly. Unlimited uses.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
@@ -2146,18 +2146,18 @@
    {
     "affliction": "bloodloss",
     "amount": "+1 (success) / +3 (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:256-414; Blood.xml:7-52"
    }
   ],
-  "usage": "Use on a patient (any limb) with item condition >= 50. Not consumed. If a Blank Donor Card (bloodcollector) or a donor card is loaded, it is consumed and a blood-type card is placed in the patient's ID card slot (or in the analyzer).",
+  "usage": "Use on a patient (any limb) with item condition >= 50. Not consumed. If a Blank Donor Card (Blank Donor Card) or a donor card is loaded, it is consumed and a blood-type card is placed in the patient's ID card slot (or in the analyzer).",
   "skill": {
    "skill": "medical",
    "required": 30,
    "notes": "Only affects how much blood is drawn. Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
-  "onFailure": "Draws more blood (+3 bloodloss instead of +1).",
-  "summary": "Hematology Analyzer: prints the patient's blood type and blood-related readings (sepsis, immunity, acidosis/alkalosis, bloodloss, bloodpressure and drug levels like afsaline, afadrenaline, afantibiotics, afopioid...). Load a blank donor card to produce a blood-type card. Each scan takes a little blood.",
+  "onFailure": "Draws more blood (+3 Blood Loss instead of +1).",
+  "summary": "Hematology Analyzer: prints the patient's blood type and blood-related readings (sepsis, immunity, acidosis/alkalosis, Blood Loss, Blood Pressure and drug levels like Saline, Adrenaline, Antibiotics, Opioids...). Load a blank donor card to produce a blood-type card. Each scan takes a little blood.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:256-414; Blood.xml:7-52"
@@ -2249,13 +2249,13 @@
    },
    {
     "affliction": "acidosis",
-    "amount": "x0.9 scaled by usefulness",
-    "notes": "multiplied toward 0 by up to 10% depending on bloodloss/30",
+    "amount": "X0.9 scaled by usefulness",
+    "notes": "Multiplied toward 0 by up to 10% depending on Blood Loss/30",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9 scaled by usefulness",
+    "amount": "X0.9 scaled by usefulness",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
@@ -2264,42 +2264,42 @@
    {
     "affliction": "bloodpressure",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "hemotransfusionshock",
-    "amount": "max(immunity - 6, 0)",
-    "when": "on incompatible blood type",
+    "amount": "Max(immunity - 6, 0)",
+    "when": "On incompatible blood type",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "conditional: pack was drawn from a septic donor (tag 'sepsis')",
+    "when": "Sometimes. Pack was drawn from a septic donor (tag 'sepsis')",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "acidosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged acid:N (donor was acidotic)",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged acid:N (donor was acidotic)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged alkal:N",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged alkal:N",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
   ],
-  "usage": "Use on patient (any limb). Consumed; gives the user an emptybloodpack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; antibloodloss2 is O-negative = universal donor).",
+  "usage": "Use on patient (any limb). Consumed; gives the user an Empty Blood Pack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; Blood Pack O- is O-negative = universal donor).",
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "No skill check for the transfusion itself; medical XP only if patient bloodloss > 100."
+   "notes": "No skill check for the transfusion itself; medical XP only if patient Blood Loss > 100."
   },
-  "onFailure": "Incompatible blood still restores 20 bloodloss but causes hemotransfusionshock scaled by the patient's immunity.",
-  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 bloodloss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
+  "onFailure": "Incompatible blood still restores 20 Blood Loss but causes Hemotransfusion Shock scaled by the patient's immunity.",
+  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 Blood Loss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
@@ -2345,13 +2345,13 @@
    },
    {
     "affliction": "acidosis",
-    "amount": "x0.9 scaled by usefulness",
-    "notes": "multiplied toward 0 by up to 10% depending on bloodloss/30",
+    "amount": "X0.9 scaled by usefulness",
+    "notes": "Multiplied toward 0 by up to 10% depending on Blood Loss/30",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9 scaled by usefulness",
+    "amount": "X0.9 scaled by usefulness",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
@@ -2360,42 +2360,42 @@
    {
     "affliction": "bloodpressure",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "hemotransfusionshock",
-    "amount": "max(immunity - 6, 0)",
-    "when": "on incompatible blood type",
+    "amount": "Max(immunity - 6, 0)",
+    "when": "On incompatible blood type",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "conditional: pack was drawn from a septic donor (tag 'sepsis')",
+    "when": "Sometimes. Pack was drawn from a septic donor (tag 'sepsis')",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "acidosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged acid:N (donor was acidotic)",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged acid:N (donor was acidotic)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged alkal:N",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged alkal:N",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
   ],
-  "usage": "Use on patient (any limb). Consumed; gives the user an emptybloodpack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; antibloodloss2 is O-negative = universal donor).",
+  "usage": "Use on patient (any limb). Consumed; gives the user an Empty Blood Pack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; Blood Pack O- is O-negative = universal donor).",
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "No skill check for the transfusion itself; medical XP only if patient bloodloss > 100."
+   "notes": "No skill check for the transfusion itself; medical XP only if patient Blood Loss > 100."
   },
-  "onFailure": "Incompatible blood still restores 20 bloodloss but causes hemotransfusionshock scaled by the patient's immunity.",
-  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 bloodloss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
+  "onFailure": "Incompatible blood still restores 20 Blood Loss but causes Hemotransfusion Shock scaled by the patient's immunity.",
+  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 Blood Loss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
@@ -2441,13 +2441,13 @@
    },
    {
     "affliction": "acidosis",
-    "amount": "x0.9 scaled by usefulness",
-    "notes": "multiplied toward 0 by up to 10% depending on bloodloss/30",
+    "amount": "X0.9 scaled by usefulness",
+    "notes": "Multiplied toward 0 by up to 10% depending on Blood Loss/30",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9 scaled by usefulness",
+    "amount": "X0.9 scaled by usefulness",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
@@ -2456,42 +2456,42 @@
    {
     "affliction": "bloodpressure",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "hemotransfusionshock",
-    "amount": "max(immunity - 6, 0)",
-    "when": "on incompatible blood type",
+    "amount": "Max(immunity - 6, 0)",
+    "when": "On incompatible blood type",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "conditional: pack was drawn from a septic donor (tag 'sepsis')",
+    "when": "Sometimes. Pack was drawn from a septic donor (tag 'sepsis')",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "acidosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged acid:N (donor was acidotic)",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged acid:N (donor was acidotic)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged alkal:N",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged alkal:N",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
   ],
-  "usage": "Use on patient (any limb). Consumed; gives the user an emptybloodpack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; antibloodloss2 is O-negative = universal donor).",
+  "usage": "Use on patient (any limb). Consumed; gives the user an Empty Blood Pack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; Blood Pack O- is O-negative = universal donor).",
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "No skill check for the transfusion itself; medical XP only if patient bloodloss > 100."
+   "notes": "No skill check for the transfusion itself; medical XP only if patient Blood Loss > 100."
   },
-  "onFailure": "Incompatible blood still restores 20 bloodloss but causes hemotransfusionshock scaled by the patient's immunity.",
-  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 bloodloss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
+  "onFailure": "Incompatible blood still restores 20 Blood Loss but causes Hemotransfusion Shock scaled by the patient's immunity.",
+  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 Blood Loss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
@@ -2537,13 +2537,13 @@
    },
    {
     "affliction": "acidosis",
-    "amount": "x0.9 scaled by usefulness",
-    "notes": "multiplied toward 0 by up to 10% depending on bloodloss/30",
+    "amount": "X0.9 scaled by usefulness",
+    "notes": "Multiplied toward 0 by up to 10% depending on Blood Loss/30",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9 scaled by usefulness",
+    "amount": "X0.9 scaled by usefulness",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
@@ -2552,42 +2552,42 @@
    {
     "affliction": "bloodpressure",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "hemotransfusionshock",
-    "amount": "max(immunity - 6, 0)",
-    "when": "on incompatible blood type",
+    "amount": "Max(immunity - 6, 0)",
+    "when": "On incompatible blood type",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "conditional: pack was drawn from a septic donor (tag 'sepsis')",
+    "when": "Sometimes. Pack was drawn from a septic donor (tag 'sepsis')",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "acidosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged acid:N (donor was acidotic)",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged acid:N (donor was acidotic)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged alkal:N",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged alkal:N",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
   ],
-  "usage": "Use on patient (any limb). Consumed; gives the user an emptybloodpack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; antibloodloss2 is O-negative = universal donor).",
+  "usage": "Use on patient (any limb). Consumed; gives the user an Empty Blood Pack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; Blood Pack O- is O-negative = universal donor).",
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "No skill check for the transfusion itself; medical XP only if patient bloodloss > 100."
+   "notes": "No skill check for the transfusion itself; medical XP only if patient Blood Loss > 100."
   },
-  "onFailure": "Incompatible blood still restores 20 bloodloss but causes hemotransfusionshock scaled by the patient's immunity.",
-  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 bloodloss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
+  "onFailure": "Incompatible blood still restores 20 Blood Loss but causes Hemotransfusion Shock scaled by the patient's immunity.",
+  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 Blood Loss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
@@ -2633,13 +2633,13 @@
    },
    {
     "affliction": "acidosis",
-    "amount": "x0.9 scaled by usefulness",
-    "notes": "multiplied toward 0 by up to 10% depending on bloodloss/30",
+    "amount": "X0.9 scaled by usefulness",
+    "notes": "Multiplied toward 0 by up to 10% depending on Blood Loss/30",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9 scaled by usefulness",
+    "amount": "X0.9 scaled by usefulness",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
@@ -2648,42 +2648,42 @@
    {
     "affliction": "bloodpressure",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "hemotransfusionshock",
-    "amount": "max(immunity - 6, 0)",
-    "when": "on incompatible blood type",
+    "amount": "Max(immunity - 6, 0)",
+    "when": "On incompatible blood type",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "conditional: pack was drawn from a septic donor (tag 'sepsis')",
+    "when": "Sometimes. Pack was drawn from a septic donor (tag 'sepsis')",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "acidosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged acid:N (donor was acidotic)",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged acid:N (donor was acidotic)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged alkal:N",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged alkal:N",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
   ],
-  "usage": "Use on patient (any limb). Consumed; gives the user an emptybloodpack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; antibloodloss2 is O-negative = universal donor).",
+  "usage": "Use on patient (any limb). Consumed; gives the user an Empty Blood Pack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; Blood Pack O- is O-negative = universal donor).",
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "No skill check for the transfusion itself; medical XP only if patient bloodloss > 100."
+   "notes": "No skill check for the transfusion itself; medical XP only if patient Blood Loss > 100."
   },
-  "onFailure": "Incompatible blood still restores 20 bloodloss but causes hemotransfusionshock scaled by the patient's immunity.",
-  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 bloodloss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
+  "onFailure": "Incompatible blood still restores 20 Blood Loss but causes Hemotransfusion Shock scaled by the patient's immunity.",
+  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 Blood Loss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
@@ -2729,13 +2729,13 @@
    },
    {
     "affliction": "acidosis",
-    "amount": "x0.9 scaled by usefulness",
-    "notes": "multiplied toward 0 by up to 10% depending on bloodloss/30",
+    "amount": "X0.9 scaled by usefulness",
+    "notes": "Multiplied toward 0 by up to 10% depending on Blood Loss/30",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9 scaled by usefulness",
+    "amount": "X0.9 scaled by usefulness",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
@@ -2744,42 +2744,42 @@
    {
     "affliction": "bloodpressure",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "hemotransfusionshock",
-    "amount": "max(immunity - 6, 0)",
-    "when": "on incompatible blood type",
+    "amount": "Max(immunity - 6, 0)",
+    "when": "On incompatible blood type",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "conditional: pack was drawn from a septic donor (tag 'sepsis')",
+    "when": "Sometimes. Pack was drawn from a septic donor (tag 'sepsis')",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "acidosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged acid:N (donor was acidotic)",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged acid:N (donor was acidotic)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged alkal:N",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged alkal:N",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
   ],
-  "usage": "Use on patient (any limb). Consumed; gives the user an emptybloodpack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; antibloodloss2 is O-negative = universal donor).",
+  "usage": "Use on patient (any limb). Consumed; gives the user an Empty Blood Pack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; Blood Pack O- is O-negative = universal donor).",
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "No skill check for the transfusion itself; medical XP only if patient bloodloss > 100."
+   "notes": "No skill check for the transfusion itself; medical XP only if patient Blood Loss > 100."
   },
-  "onFailure": "Incompatible blood still restores 20 bloodloss but causes hemotransfusionshock scaled by the patient's immunity.",
-  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 bloodloss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
+  "onFailure": "Incompatible blood still restores 20 Blood Loss but causes Hemotransfusion Shock scaled by the patient's immunity.",
+  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 Blood Loss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
@@ -2825,13 +2825,13 @@
    },
    {
     "affliction": "acidosis",
-    "amount": "x0.9 scaled by usefulness",
-    "notes": "multiplied toward 0 by up to 10% depending on bloodloss/30",
+    "amount": "X0.9 scaled by usefulness",
+    "notes": "Multiplied toward 0 by up to 10% depending on Blood Loss/30",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9 scaled by usefulness",
+    "amount": "X0.9 scaled by usefulness",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
@@ -2840,42 +2840,42 @@
    {
     "affliction": "bloodpressure",
     "amount": "+30",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "hemotransfusionshock",
-    "amount": "max(immunity - 6, 0)",
-    "when": "on incompatible blood type",
+    "amount": "Max(immunity - 6, 0)",
+    "when": "On incompatible blood type",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "conditional: pack was drawn from a septic donor (tag 'sepsis')",
+    "when": "Sometimes. Pack was drawn from a septic donor (tag 'sepsis')",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "acidosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged acid:N (donor was acidotic)",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged acid:N (donor was acidotic)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    },
    {
     "affliction": "alkalosis",
-    "amount": "tag value/10 * usefulness",
-    "when": "conditional: pack tagged alkal:N",
+    "amount": "Tag value/10 * usefulness",
+    "when": "Sometimes. Pack tagged alkal:N",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
    }
   ],
-  "usage": "Use on patient (any limb). Consumed; gives the user an emptybloodpack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; antibloodloss2 is O-negative = universal donor).",
+  "usage": "Use on patient (any limb). Consumed; gives the user an Empty Blood Pack. Compatibility is checked against the patient's blood type (antigens A, B, Rh; Blood Pack O- is O-negative = universal donor).",
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "No skill check for the transfusion itself; medical XP only if patient bloodloss > 100."
+   "notes": "No skill check for the transfusion itself; medical XP only if patient Blood Loss > 100."
   },
-  "onFailure": "Incompatible blood still restores 20 bloodloss but causes hemotransfusionshock scaled by the patient's immunity.",
-  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 bloodloss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
+  "onFailure": "Incompatible blood still restores 20 Blood Loss but causes Hemotransfusion Shock scaled by the patient's immunity.",
+  "summary": "Blood pack of a specific type; only safe for compatible recipients. Restores blood volume (-30 Blood Loss) and raises blood pressure. Giving the wrong type triggers hemotransfusion shock unless the patient's immunity is low (e.g. immunosuppressed).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:74-145, 418-433; Blood.xml:80-161"
@@ -2928,7 +2928,7 @@
    {
     "affliction": "bodybagoverlay",
     "amount": "+3",
-    "when": "always",
+    "when": "Always",
     "source": "OtherEquipment.xml:361-426"
    }
   ],
@@ -2938,7 +2938,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Body bag for corpses; wrench can remove it.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
@@ -2992,7 +2992,7 @@
    },
    {
     "affliction": "brainremoved",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:690-709; BodyParts.xml:192-237"
    }
@@ -3001,11 +3001,11 @@
    {
     "affliction": "nausea",
     "amount": "+0.2/s to nearby characters",
-    "when": "conditional: while lying out of a container (XML)",
+    "when": "Sometimes. While lying out of a container",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:690-709; BodyParts.xml:192-237"
    }
   ],
-  "usage": "Use on the Head with retractedskin and brainremoved. Consumed. On a server, the player whose brain it is (name stored in item description) takes control of the new body.",
+  "usage": "Use on the Head with Retracted Skin and Brain Removed. Consumed. On a server, the player whose brain it is (name stored in item description) takes control of the new body.",
   "skill": {
    "skill": "surgery",
    "required": 100,
@@ -3105,7 +3105,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Resting in a bed slowly cures nausea, addictions/withdrawal, drunkenness and concussion.",
   "hidden": true,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -3199,7 +3199,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Resting in a bed slowly cures nausea, addictions/withdrawal, drunkenness and concussion.",
   "hidden": true,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -3278,13 +3278,13 @@
    {
     "affliction": "respiratoryarrest",
     "amount": "-100",
-    "notes": "oxygenite tank only",
+    "notes": "Oxygenite tank only",
     "source": "OtherEquipment.xml:705-814"
    },
    {
     "affliction": "opiatewithdrawal",
     "amount": "-7.5/s for 10 s",
-    "notes": "analgesic tank",
+    "notes": "Analgesic tank",
     "source": "OtherEquipment.xml:705-814"
    }
   ],
@@ -3292,49 +3292,49 @@
    {
     "affliction": "analgesia",
     "amount": "+5.6/s for 10 s",
-    "when": "analgesic tank",
+    "when": "Analgesic tank",
     "source": "OtherEquipment.xml:705-814"
    },
    {
     "affliction": "afopioid",
     "amount": "+5.6/s 10 s",
-    "when": "analgesic tank",
+    "when": "Analgesic tank",
     "source": "OtherEquipment.xml:705-814"
    },
    {
     "affliction": "opiateaddiction",
     "amount": "+4/s 10 s",
-    "when": "analgesic tank",
+    "when": "Analgesic tank",
     "source": "OtherEquipment.xml:705-814"
    },
    {
     "affliction": "opiateoverdose",
     "amount": "+3/s 10 s",
-    "when": "analgesic tank",
+    "when": "Analgesic tank",
     "source": "OtherEquipment.xml:705-814"
    },
    {
     "affliction": "oxygenlow",
     "amount": "+110 / +100 / +50",
-    "when": "welding fuel / incendium / paint tank",
+    "when": "Welding fuel / incendium / paint tank",
     "source": "OtherEquipment.xml:705-814"
    },
    {
     "affliction": "lungdamage",
     "amount": "+10 / +20 / +3",
-    "when": "welding / incendium / paint",
+    "when": "Welding / incendium / paint",
     "source": "OtherEquipment.xml:705-814"
    },
    {
     "affliction": "burn",
     "amount": "+10",
-    "when": "incendium tank",
+    "when": "Incendium tank",
     "source": "OtherEquipment.xml:705-814"
    },
    {
     "affliction": "chemaddiction",
     "amount": "+5",
-    "when": "paint",
+    "when": "Paint",
     "source": "OtherEquipment.xml:705-814"
    }
   ],
@@ -3342,9 +3342,9 @@
   "skill": {
    "skill": "medical",
    "required": null,
-   "notes": "XML only; no skill check."
+   "notes": "Only; no skill check."
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Bag valve mask: manually ventilates a patient who isn't breathing. Load an oxygen tank for strong effect (oxygenite also cures respiratory arrest); an analgesic tank gives opioid pain relief. Don't load fuel or paint.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
@@ -3383,7 +3383,7 @@
    {
     "affliction": "lungdamage",
     "amount": "+0.4",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:951-996"
    }
   ],
@@ -3393,7 +3393,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Captain's pipe: smoking calms psychosis slightly at the cost of a tiny bit of lung damage.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -3443,7 +3443,7 @@
    {
     "affliction": "lungdamage",
     "amount": "+0.6",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:997-1033"
    }
   ],
@@ -3453,7 +3453,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Cigar: like the pipe, reduces psychosis/hallucinations with slight lung damage.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -3534,20 +3534,20 @@
   "treatsDetail": [
    {
     "affliction": "fibrillation",
-    "amount": "set 0",
-    "notes": "chance (medical/100)^2",
+    "amount": "Set 0",
+    "notes": "Chance (medical/100)^2",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:928-977; OtherEquipment.xml:624-664"
    },
    {
     "affliction": "increasedheartrate",
-    "amount": "set 0",
-    "notes": "chance (medical/100)^2",
+    "amount": "Set 0",
+    "notes": "Chance (medical/100)^2",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:928-977; OtherEquipment.xml:624-664"
    },
    {
     "affliction": "cardiacarrest",
-    "amount": "set 0",
-    "notes": "chance (medical/100)^4",
+    "amount": "Set 0",
+    "notes": "Chance (medical/100)^4",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:928-977; OtherEquipment.xml:624-664"
    }
   ],
@@ -3555,7 +3555,7 @@
    {
     "affliction": "stun",
     "amount": "+2",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:928-977; OtherEquipment.xml:624-664"
    }
   ],
@@ -3566,7 +3566,7 @@
    "notes": "Chance-based on raw medical skill: rhythm fix chance (skill/100)^2, cardiac arrest fix chance (skill/100)^4."
   },
   "onFailure": "Shock does nothing beyond stun (an arrestFailChance is computed but unused).",
-  "summary": "Manual defibrillator: shocks fibrillation/tachycardia back to normal; very skill-dependent (at 50 medical only 25% for rhythm and ~6% for cardiac arrest). Shocks even when not needed.",
+  "summary": "Manual Defibrillator: shocks Irregular Heartbeat/tachycardia back to normal; very skill-dependent (at 50 medical only 25% for rhythm and ~6% for cardiac arrest). Shocks even when not needed.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:928-977; OtherEquipment.xml:624-664"
@@ -3675,13 +3675,13 @@
    {
     "affliction": "burn",
     "amount": "+0.2/s / +1/s for 20 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1107-1188"
    },
    {
     "affliction": "bloodpressure",
     "amount": "+2/s / +1/s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1107-1188"
    }
   ],
@@ -3689,7 +3689,7 @@
   "skill": {
    "skill": "medical",
    "required": 72,
-   "notes": "XML RequiredSkill."
+   "notes": "RequiredSkill."
   },
   "onFailure": "Half healing and 5x the burn.",
   "summary": "Deusizine: powerful all-round healing over 20 s (organs, internal damage, blood loss, oxygen). Expensive.",
@@ -3842,19 +3842,19 @@
   "treatsDetail": [
    {
     "affliction": "bandaged",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2409-2428; Override.xml:1406-1469"
    },
    {
     "affliction": "bandageddirty",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2409-2428; Override.xml:1406-1469"
    },
    {
     "affliction": "tourniqueted",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2409-2428; Override.xml:1406-1469"
    }
@@ -3863,13 +3863,13 @@
    {
     "affliction": "bleeding",
     "amount": "+15 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2409-2428; Override.xml:1406-1469"
    },
    {
     "affliction": "lacerations",
     "amount": "+10 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2409-2428; Override.xml:1406-1469"
    }
   ],
@@ -3935,32 +3935,32 @@
   "treatsDetail": [
    {
     "affliction": "pneumothorax",
-    "amount": "set 0",
-    "notes": "requires Torso retractedskin >= 95",
+    "amount": "Set 0",
+    "notes": "Requires Torso Retracted Skin >= 95",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1657; SurgicalEquipment.xml:52-82"
    },
    {
     "affliction": "needlec",
-    "amount": "set 0",
-    "notes": "requires Torso retractedskin >= 95",
+    "amount": "Set 0",
+    "notes": "Requires Torso Retracted Skin >= 95",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1657; SurgicalEquipment.xml:52-82"
    },
    {
     "affliction": "tamponade",
-    "amount": "set 0",
-    "notes": "requires Torso retractedskin >= 95; disabled by config NT_OpenCloseTamponade",
+    "amount": "Set 0",
+    "notes": "Requires Torso Retracted Skin >= 95; disabled by config NT_OpenCloseTamponade",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1657; SurgicalEquipment.xml:52-82"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on patient (Torso open). Consumed only if it treated something. Blocked by stasis. XML lists medical 30 but C# does no skill check.",
+  "usage": "Use on patient (Torso open). Consumed only if it treated something. Blocked by stasis. lists medical 30 but C# does no skill check.",
   "skill": {
    "skill": "surgery",
    "required": null,
-   "notes": "No skill check in C#; XML RequiredSkill medical 30 (hint)."
+   "notes": "No skill check in C#; RequiredSkill medical 30 (hint)."
   },
-  "onFailure": "n/a",
-  "summary": "Chest drain: the definitive fix for pneumothorax and cardiac tamponade (and removes the decompression needle) during open-chest surgery.",
+  "onFailure": "N/a",
+  "summary": "Chest drain: the definitive fix for pneumothorax and Cardiac Tamponade (and removes the decompression needle) during open-chest surgery.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/SurgicalEquipment.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1657; SurgicalEquipment.xml:52-82"
@@ -4018,13 +4018,13 @@
   "treatsDetail": [
    {
     "affliction": "acidosis",
-    "amount": "x0.9",
+    "amount": "X0.9",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:436-482; Blood.xml:162-186"
    },
    {
     "affliction": "alkalosis",
-    "amount": "x0.9",
+    "amount": "X0.9",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:436-482; Blood.xml:162-186"
    }
@@ -4033,18 +4033,18 @@
    {
     "affliction": "bloodloss",
     "amount": "+30 (success) / +40 (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:436-482; Blood.xml:162-186"
    }
   ],
-  "usage": "Use on a human patient (any limb) whose bloodloss is below 31. Consumed; user receives a filled blood pack of the donor's blood type (antibloodloss2 for O-negative) that carries the donor's acidosis/alkalosis/sepsis as tags.",
+  "usage": "Use on a human patient (any limb) whose Blood Loss is below 31. Consumed; user receives a filled blood pack of the donor's blood type (Blood Pack O- for O-negative) that carries the donor's acidosis/alkalosis/sepsis as tags.",
   "skill": {
    "skill": "medical",
    "required": 30,
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
-  "onFailure": "Draws 40 bloodloss instead of 30 from the donor.",
-  "summary": "Draws blood from a healthy donor to make a blood pack. Will not work if the donor already has 31+ bloodloss. Blood from a septic or acidotic donor passes those problems on.",
+  "onFailure": "Draws 40 Blood Loss instead of 30 from the donor.",
+  "summary": "Draws blood from a healthy donor to make a blood pack. Will not work if the donor already has 31+ Blood Loss. Blood from a septic or acidotic donor passes those problems on.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Blood.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:436-482; Blood.xml:162-186"
@@ -4107,7 +4107,7 @@
   "treatsDetail": [
    {
     "affliction": "internalbleeding",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2494-2517; Toggleable.xml:6-28"
    }
@@ -4116,17 +4116,17 @@
    {
     "affliction": "balloonedaorta",
     "amount": "+100",
-    "when": "on use",
+    "when": "On use",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2494-2517; Toggleable.xml:6-28"
    }
   ],
-  "usage": "Use on the Torso with surgeryincision (>=1) when the patient has aorticrupture; not in stasis. Consumed on success.",
+  "usage": "Use on the Torso with Surgery Incision (>=1) when the patient has Aortic Rupture; not in stasis. Consumed on success.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Endovascular balloon: temporarily seals a ruptured aorta via an incision (only needs the scalpel step), stopping internal bleeding. Follow with a medical stent.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Toggleable.xml",
@@ -4215,7 +4215,7 @@
    {
     "affliction": "iced",
     "amount": "+100 (success) / +75 (failure) (limb)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:791-800; Consumables.xml:90-138"
    }
   ],
@@ -4226,7 +4226,7 @@
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Slightly weaker cooling (75 instead of 100).",
-  "summary": "Gel ice pack: applies 'iced' to a limb (cooling, used for swelling/burn/pain management per affliction code). Reusable; recharge it in a refrigerated container.",
+  "summary": "Gel ice pack: applies Chilled to a limb (cooling, used for swelling/burn/pain management per affliction code). Reusable; recharge it in a refrigerated container.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Consumables.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:791-800; Consumables.xml:90-138"
@@ -4289,20 +4289,20 @@
    },
    {
     "affliction": "bandaged",
-    "amount": "set 0",
-    "notes": "replaced by cast",
+    "amount": "Set 0",
+    "notes": "Replaced by cast",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:803-829; Consumables.xml:139-165"
    }
   ],
   "causesDetail": [
    {
     "affliction": "plastercast",
-    "amount": "set 100 (limb)",
-    "when": "on success",
+    "amount": "Set 100 (limb)",
+    "when": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:803-829; Consumables.xml:139-165"
    }
   ],
-  "usage": "Use on a bandaged arm/leg that is not already in a cast, has no surgeryincision, and patient not in stasis. Consumed even if the skill check fails.",
+  "usage": "Use on a bandaged arm/leg that is not already in a cast, has no Surgery Incision, and patient not in stasis. Consumed even if the skill check fails.",
   "skill": {
    "skill": "medical",
    "required": 40,
@@ -4354,8 +4354,8 @@
   "causesDetail": [
    {
     "affliction": "lockedhands",
-    "amount": "set 100 while worn",
-    "when": "always",
+    "amount": "Set 100 while worn",
+    "when": "Always",
     "source": "Override.xml:1585-1618"
    }
   ],
@@ -4365,7 +4365,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Handcuffs lock the wearer's hands (lockedhands).",
   "hidden": true,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -4501,8 +4501,8 @@
   "causesDetail": [
    {
     "affliction": "radiationsickness",
-    "amount": "+1 target, +0.6 user (C#), plus XML +0.5 nearby",
-    "when": "always",
+    "amount": "+1 target, +0.6 user, plus +0.5 nearby",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1108-1278; Override.xml:60-127"
    }
   ],
@@ -4512,7 +4512,7 @@
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Health scanner: lists every affliction on the scanned limb with strengths, color-coded. Each scan gives a little radiation sickness to you and the patient.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -4570,26 +4570,26 @@
    },
    {
     "affliction": "heartremoved",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:536-581; BodyParts.xml:146-191"
    },
    {
     "affliction": "heartswap",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:536-581; BodyParts.xml:146-191"
    },
    {
     "affliction": "tamponade",
-    "amount": "set 0",
-    "notes": "on swap",
+    "amount": "Set 0",
+    "notes": "On swap",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:536-581; BodyParts.xml:146-191"
    },
    {
     "affliction": "heartattack",
-    "amount": "set 0",
-    "notes": "on swap",
+    "amount": "Set 0",
+    "notes": "On swap",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:536-581; BodyParts.xml:146-191"
    }
   ],
@@ -4597,30 +4597,30 @@
    {
     "affliction": "organdamage",
     "amount": "-(condition/5) on removed organ, or +((100-old damage)-condition)/5 on swap",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:536-581; BodyParts.xml:146-191"
    },
    {
     "affliction": "cardiacarrest",
-    "amount": "set 100",
-    "when": "on swap (heart must be restarted, e.g. defibrillator)",
+    "amount": "Set 100",
+    "when": "On swap (heart must be restarted, e.g. Manual Defibrillator)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:536-581; BodyParts.xml:146-191"
    },
    {
     "affliction": "heartdamage",
-    "amount": "set 100",
-    "when": "conditional: organ rejection roll (chance (immunity-10)/150 x talent multiplier) when config NT_organRejection is on",
+    "amount": "Set 100",
+    "when": "Sometimes. Organ rejection roll (chance (immunity-10)/150 x talent multiplier) when config NT_organRejection is on",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:536-581; BodyParts.xml:146-191"
    }
   ],
-  "usage": "Use on the Torso with retractedskin (>=99) after the old heart was cut out (heartremoved) or freed with the organ scalpel (heartswap). Consumed when it replaces a removed organ; on a swap the patient's old organ is returned as an item if it was <90% damaged.",
+  "usage": "Use on the Torso with Retracted Skin (>=99) after the old heart was cut out (Heart Removed) or freed with the organ scalpel (Replacing Heart). Consumed when it replaces a removed organ; on a swap the patient's old organ is returned as an item if it was <90% damaged.",
   "skill": {
    "skill": "surgery",
    "required": 40,
    "notes": "Failing reduces effective organ quality by 40 (workcondition = item condition - 40). Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Low skill makes the new organ work as if 40% more damaged.",
-  "summary": "Transplants a new heart. Open the torso, use the heart organ scalpel, then apply. Keep immunity low (immunosuppressant) to avoid rejection; organ quality is the item condition, which rots outside refrigeration.",
+  "summary": "Transplants a new heart. Open the torso, use the heart organ scalpel, then apply. Keep immunity low (Azathioprine) to avoid rejection; organ quality is the item condition, which rots outside refrigeration.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:536-581; BodyParts.xml:146-191"
@@ -4701,25 +4701,25 @@
    {
     "affliction": "chemaddiction",
     "amount": "+0.3/s / +0.6/s 60 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1326-1405"
    },
    {
     "affliction": "neurotrauma",
     "amount": "+0.3/s / +0.6/s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1326-1405"
    },
    {
     "affliction": "psychosis",
     "amount": "+0.5/s / +1/s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1326-1405"
    },
    {
     "affliction": "burn",
     "amount": "+0.125/s",
-    "when": "on failure",
+    "when": "On failure",
     "source": "Override.xml:1326-1405"
    }
   ],
@@ -4727,7 +4727,7 @@
   "skill": {
    "skill": "medical",
    "required": 50,
-   "notes": "XML RequiredSkill."
+   "notes": "RequiredSkill."
   },
   "onFailure": "Double side effects plus burns.",
   "summary": "Hyperzine: long speed and strength boost with mild healing; slowly damages the brain and causes psychosis.",
@@ -4824,8 +4824,8 @@
   "treatsDetail": [
    {
     "affliction": "immunity",
-    "amount": "indirect",
-    "notes": "applies afimmunosuppressant which lowers immunity (effect defined in affliction code, not here)",
+    "amount": "Indirect",
+    "notes": "Applies Immunosuppressants which lowers immunity (effect defined in affliction code, not here)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:743-762; Consumables.xml:37-63"
    }
   ],
@@ -4833,13 +4833,13 @@
    {
     "affliction": "afimmunosuppressant",
     "amount": "+50 over 10 s (success) / +30 (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:743-762; Consumables.xml:37-63"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "on failure, 50% chance",
+    "when": "On failure, 50% chance",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:743-762; Consumables.xml:37-63"
    }
   ],
@@ -4903,13 +4903,13 @@
    },
    {
     "affliction": "kidneyremoved",
-    "amount": "set 0 (after 3 s if damage >50)",
+    "amount": "Set 0 (after 3 s if damage >50)",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:636-687; BodyParts.xml:100-145"
    },
    {
     "affliction": "kidneyswap",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:636-687; BodyParts.xml:100-145"
    }
@@ -4918,18 +4918,18 @@
    {
     "affliction": "organdamage",
     "amount": "-(condition/5) or +((100-damage)-condition)/2/5",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:636-687; BodyParts.xml:100-145"
    }
   ],
-  "usage": "Use on the Torso with retractedskin (>=99) and kidneyremoved or kidneyswap. Always consumed (also when rejected).",
+  "usage": "Use on the Torso with Retracted Skin (>=99) and Kidneys Removed or Replacing Kidneys. Always consumed (also when rejected).",
   "skill": {
    "skill": "surgery",
    "required": 40,
    "notes": "Fail reduces effective quality by 40. Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Low skill = -40 effective quality.",
-  "summary": "Replaces a kidney (kidneys count as two halves of kidneydamage). If the patient's kidneys were under 45% damaged, a kidney item is returned. Rejection (config) destroys the transplant before it does anything.",
+  "summary": "Replaces a kidney (kidneys count as two halves of Kidney Damage). If the patient's kidneys were under 45% damaged, a kidney item is returned. Rejection (config) destroys the transplant before it does anything.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:636-687; BodyParts.xml:100-145"
@@ -4969,20 +4969,20 @@
   "treatsDetail": [
    {
     "affliction": "sawedbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the matching left arm stump that has sawedbones (>=99) from a surgical saw. Consumed.",
+  "usage": "Use on the matching left arm stump that has Bones Sawed (>=99) from a surgical saw. Consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "No failure state; does nothing if limb type mismatches or sawedbones missing.",
-  "summary": "Reattaches a left arm. Saw the stump first (sawedbones) so the limb can be attached, then apply the limb.",
+  "onFailure": "No failure state; does nothing if limb type mismatches or Bones Sawed missing.",
+  "summary": "Reattaches a left arm. Saw the stump first (Bones Sawed) so the limb can be attached, then apply the limb.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
@@ -5011,20 +5011,20 @@
   "treatsDetail": [
    {
     "affliction": "sawedbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the matching left arm stump that has sawedbones (>=99) from a surgical saw. Consumed.",
+  "usage": "Use on the matching left arm stump that has Bones Sawed (>=99) from a surgical saw. Consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "No failure state; does nothing if limb type mismatches or sawedbones missing.",
-  "summary": "Reattaches a left arm (bionic). Saw the stump first (sawedbones) so the limb can be attached, then apply the limb.",
+  "onFailure": "No failure state; does nothing if limb type mismatches or Bones Sawed missing.",
+  "summary": "Reattaches a left arm (bionic). Saw the stump first (Bones Sawed) so the limb can be attached, then apply the limb.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
@@ -5082,37 +5082,37 @@
    {
     "affliction": "organdamage",
     "amount": "+0.2/s 30 s / +0.5/s 20 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1034-1106"
    },
    {
     "affliction": "kidneydamage",
-    "amount": "same",
-    "when": "always",
+    "amount": "Same",
+    "when": "Always",
     "source": "Override.xml:1034-1106"
    },
    {
     "affliction": "heartdamage",
-    "amount": "same",
-    "when": "always",
+    "amount": "Same",
+    "when": "Always",
     "source": "Override.xml:1034-1106"
    },
    {
     "affliction": "lungdamage",
-    "amount": "same",
-    "when": "always",
+    "amount": "Same",
+    "when": "Always",
     "source": "Override.xml:1034-1106"
    },
    {
     "affliction": "liverdamage",
-    "amount": "same",
-    "when": "always",
+    "amount": "Same",
+    "when": "Always",
     "source": "Override.xml:1034-1106"
    },
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "syringe gun impact",
+    "when": "Syringe gun impact",
     "source": "Override.xml:1034-1106"
    }
   ],
@@ -5120,7 +5120,7 @@
   "skill": {
    "skill": "medical",
    "required": 50,
-   "notes": "XML RequiredSkill."
+   "notes": "RequiredSkill."
   },
   "onFailure": "Far less oxygenation and more organ damage.",
   "summary": "Liquid oxygenite: rapidly fixes low blood oxygen (hypoxemia) at the cost of small damage to all organs.",
@@ -5177,13 +5177,13 @@
    },
    {
     "affliction": "liverremoved",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:488-533; BodyParts.xml:7-53"
    },
    {
     "affliction": "liverswap",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:488-533; BodyParts.xml:7-53"
    }
@@ -5192,24 +5192,24 @@
    {
     "affliction": "organdamage",
     "amount": "-(condition/5) on removed organ, or +((100-old damage)-condition)/5 on swap",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:488-533; BodyParts.xml:7-53"
    },
    {
     "affliction": "liverdamage",
-    "amount": "set 100",
-    "when": "conditional: organ rejection roll (chance (immunity-10)/150 x talent multiplier) when config NT_organRejection is on",
+    "amount": "Set 100",
+    "when": "Sometimes. Organ rejection roll (chance (immunity-10)/150 x talent multiplier) when config NT_organRejection is on",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:488-533; BodyParts.xml:7-53"
    }
   ],
-  "usage": "Use on the Torso with retractedskin (>=99) after the old liver was cut out (liverremoved) or freed with the organ scalpel (liverswap). Consumed when it replaces a removed organ; on a swap the patient's old organ is returned as an item if it was <90% damaged. NOTE: liver code applies -workcondition twice when the liver was removed (damage 100), and on a swap with old damage >=90 the transplant item is not removed (looks like a bug; unverified in game).",
+  "usage": "Use on the Torso with Retracted Skin (>=99) after the old liver was cut out (Liver Removed) or freed with the organ scalpel (Replacing Liver). Consumed when it replaces a removed organ; on a swap the patient's old organ is returned as an item if it was <90% damaged. NOTE: liver code applies -workcondition twice when the liver was removed (damage 100), and on a swap with old damage >=90 the transplant item is not removed (looks like a bug; unverified in game).",
   "skill": {
    "skill": "surgery",
    "required": 40,
    "notes": "Failing reduces effective organ quality by 40 (workcondition = item condition - 40). Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Low skill makes the new organ work as if 40% more damaged.",
-  "summary": "Transplants a new liver. Open the torso, use the liver organ scalpel, then apply. Keep immunity low (immunosuppressant) to avoid rejection; organ quality is the item condition, which rots outside refrigeration.",
+  "summary": "Transplants a new liver. Open the torso, use the liver organ scalpel, then apply. Keep immunity low (Azathioprine) to avoid rejection; organ quality is the item condition, which rots outside refrigeration.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:488-533; BodyParts.xml:7-53"
@@ -5249,20 +5249,20 @@
   "treatsDetail": [
    {
     "affliction": "sawedbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the matching left leg stump that has sawedbones (>=99) from a surgical saw. Consumed.",
+  "usage": "Use on the matching left leg stump that has Bones Sawed (>=99) from a surgical saw. Consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "No failure state; does nothing if limb type mismatches or sawedbones missing.",
-  "summary": "Reattaches a left leg. Saw the stump first (sawedbones) so the limb can be attached, then apply the limb.",
+  "onFailure": "No failure state; does nothing if limb type mismatches or Bones Sawed missing.",
+  "summary": "Reattaches a left leg. Saw the stump first (Bones Sawed) so the limb can be attached, then apply the limb.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
@@ -5291,20 +5291,20 @@
   "treatsDetail": [
    {
     "affliction": "sawedbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the matching left leg stump that has sawedbones (>=99) from a surgical saw. Consumed.",
+  "usage": "Use on the matching left leg stump that has Bones Sawed (>=99) from a surgical saw. Consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "No failure state; does nothing if limb type mismatches or sawedbones missing.",
-  "summary": "Reattaches a left leg (bionic). Saw the stump first (sawedbones) so the limb can be attached, then apply the limb.",
+  "onFailure": "No failure state; does nothing if limb type mismatches or Bones Sawed missing.",
+  "summary": "Reattaches a left leg (bionic). Saw the stump first (Bones Sawed) so the limb can be attached, then apply the limb.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
@@ -5361,26 +5361,26 @@
    },
    {
     "affliction": "lungremoved",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:584-633; BodyParts.xml:54-99"
    },
    {
     "affliction": "lungswap",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:584-633; BodyParts.xml:54-99"
    },
    {
     "affliction": "pneumothorax",
-    "amount": "set 0",
-    "notes": "on swap",
+    "amount": "Set 0",
+    "notes": "On swap",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:584-633; BodyParts.xml:54-99"
    },
    {
     "affliction": "needlec",
-    "amount": "set 0",
-    "notes": "on swap",
+    "amount": "Set 0",
+    "notes": "On swap",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:584-633; BodyParts.xml:54-99"
    }
   ],
@@ -5388,30 +5388,30 @@
    {
     "affliction": "organdamage",
     "amount": "-(condition/5) on removed organ, or +((100-old damage)-condition)/5 on swap",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:584-633; BodyParts.xml:54-99"
    },
    {
     "affliction": "respiratoryarrest",
-    "amount": "set 100",
-    "when": "on swap",
+    "amount": "Set 100",
+    "when": "On swap",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:584-633; BodyParts.xml:54-99"
    },
    {
     "affliction": "lungdamage",
-    "amount": "set 100",
-    "when": "conditional: organ rejection roll (chance (immunity-10)/150 x talent multiplier) when config NT_organRejection is on",
+    "amount": "Set 100",
+    "when": "Sometimes. Organ rejection roll (chance (immunity-10)/150 x talent multiplier) when config NT_organRejection is on",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:584-633; BodyParts.xml:54-99"
    }
   ],
-  "usage": "Use on the Torso with retractedskin (>=99) after the old lung was cut out (lungremoved) or freed with the organ scalpel (lungswap). Consumed when it replaces a removed organ; on a swap the patient's old organ is returned as an item if it was <90% damaged.",
+  "usage": "Use on the Torso with Retracted Skin (>=99) after the old lung was cut out (Lungs Removed) or freed with the organ scalpel (Replacing Lungs). Consumed when it replaces a removed organ; on a swap the patient's old organ is returned as an item if it was <90% damaged.",
   "skill": {
    "skill": "surgery",
    "required": 40,
    "notes": "Failing reduces effective organ quality by 40 (workcondition = item condition - 40). Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Low skill makes the new organ work as if 40% more damaged.",
-  "summary": "Transplants a new lung. Open the torso, use the lung organ scalpel, then apply. Keep immunity low (immunosuppressant) to avoid rejection; organ quality is the item condition, which rots outside refrigeration.",
+  "summary": "Transplants a new lung. Open the torso, use the lung organ scalpel, then apply. Keep immunity low (Azathioprine) to avoid rejection; organ quality is the item condition, which rots outside refrigeration.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:584-633; BodyParts.xml:54-99"
@@ -5499,31 +5499,31 @@
    {
     "affliction": "afmannitol",
     "amount": "+50 over 10 s / +30 on failure",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:846-869; Consumables.xml:200-237"
    },
    {
     "affliction": "organdamage",
     "amount": "+5 over 10 s / +10 on failure",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:846-869; Consumables.xml:200-237"
    },
    {
     "affliction": "heartdamage",
     "amount": "+10 / +20 on failure",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:846-869; Consumables.xml:200-237"
    },
    {
     "affliction": "kidneydamage",
     "amount": "+10 / +20 on failure",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:846-869; Consumables.xml:200-237"
    },
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "when fired from a syringe gun (OnImpact)",
+    "when": "When fired from a syringe gun (OnImpact)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:846-869; Consumables.xml:200-237"
    }
   ],
@@ -5533,8 +5533,8 @@
    "required": 60,
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
-  "onFailure": "Weaker afmannitol and double organ/heart/kidney damage.",
-  "summary": "Osmotic diuretic: applies afmannitol (used against brain swelling/neurotrauma in affliction code) but always costs some heart, kidney and organ damage. Needs high medical skill.",
+  "onFailure": "Weaker Mannitol and double organ/heart/kidney damage.",
+  "summary": "Osmotic diuretic: applies Mannitol (used against brain swelling/neurotrauma in affliction code) but always costs some heart, kidney and organ damage. Needs high medical skill.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Consumables.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:846-869; Consumables.xml:200-237"
@@ -5645,25 +5645,25 @@
   "treatsDetail": [
    {
     "affliction": "aorticrupture",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2520-2544; Toggleable.xml:29-55"
    },
    {
     "affliction": "balloonedaorta",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2520-2544; Toggleable.xml:29-55"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the Torso; works only when balloonedaorta present; not in stasis. ALWAYS consumed, even if nothing happens.",
+  "usage": "Use on the Torso; works only when Ballooned Aorta present; not in stasis. ALWAYS consumed, even if nothing happens.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "n/a (wasted if no balloon in place).",
+  "onFailure": "N/a (wasted if no balloon in place).",
   "summary": "Medical stent: permanently repairs the aortic rupture after the endovascular balloon. Don't use it without the balloon - it's wasted.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Toggleable.xml",
@@ -5789,25 +5789,25 @@
    {
     "affliction": "organdamage",
     "amount": "+0.5/s / +1/s 30 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1248-1325"
    },
    {
     "affliction": "neurotrauma",
     "amount": "+0.5/s / +1/s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1248-1325"
    },
    {
     "affliction": "psychosis",
     "amount": "+1/s / +1.5/s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1248-1325"
    },
    {
     "affliction": "chemaddiction",
     "amount": "+0.5/s / +1/s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:1248-1325"
    }
   ],
@@ -5815,7 +5815,7 @@
   "skill": {
    "skill": "medical",
    "required": 35,
-   "notes": "XML RequiredSkill."
+   "notes": "RequiredSkill."
   },
   "onFailure": "Double organ/brain damage and addiction.",
   "summary": "Methamphetamine: speed boost and stun removal, but damages brain and organs and causes psychosis/addiction.",
@@ -5884,7 +5884,7 @@
   "causes": [],
   "treatsDetail": [],
   "causesDetail": [],
-  "usage": "Mode chosen via item hooks: 'incision' = acts as advscalpel; 'bandage' = acts as trauma shears if anything cuttable is on the limb, otherwise malpractice damage; 'speedflex' = acts as an organ scalpel chosen by the limb clicked (head=brain, left arm=kidneys, torso=liver, right arm=heart, left leg=lungs) applied to the torso. Not consumed.",
+  "usage": "Mode chosen via item hooks: 'incision' = acts as Scalpel; 'bandage' = acts as trauma shears if anything cuttable is on the limb, otherwise malpractice damage; 'speedflex' = acts as an organ scalpel chosen by the limb clicked (head=brain, left arm=kidneys, torso=liver, right arm=heart, left leg=lungs) applied to the torso. Not consumed.",
   "skill": {
    "skill": "surgery",
    "required": 30,
@@ -5956,45 +5956,45 @@
   "treatsDetail": [
    {
     "affliction": "pneumothorax",
-    "amount": "relieved via needlec",
-    "notes": "sets needlec 100 (temporary decompression)",
+    "amount": "Relieved via Needle",
+    "notes": "Sets Needle 100 (temporary decompression)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1660-1696; SurgicalEquipment.xml:83-128"
    }
   ],
   "causesDetail": [
    {
     "affliction": "needlec",
-    "amount": "set 100",
-    "when": "on success",
+    "amount": "Set 100",
+    "when": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1660-1696; SurgicalEquipment.xml:83-128"
    },
    {
     "affliction": "pneumothorax",
     "amount": "+1",
-    "when": "on success if the patient had neither pneumothorax nor tamponade",
+    "when": "On success if the patient had neither pneumothorax nor Cardiac Tamponade",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1660-1696; SurgicalEquipment.xml:83-128"
    },
    {
     "affliction": "organdamage",
     "amount": "+10",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1660-1696; SurgicalEquipment.xml:83-128"
    },
    {
     "affliction": "bleeding",
     "amount": "+10 (torso)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1660-1696; SurgicalEquipment.xml:83-128"
    }
   ],
-  "usage": "Use on the Torso while the chest is NOT open (no retractedskin). Blocked by stasis. Consumed on success.",
+  "usage": "Use on the Torso while the chest is NOT open (no Retracted Skin). Blocked by stasis. Consumed on success.",
   "skill": {
    "skill": "medical",
    "required": 20,
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Organ damage and bleeding; needle not used up.",
-  "summary": "Decompression needle: emergency field treatment for pneumothorax/tamponade (needlec relieves it until drained in surgery). Using it on a healthy chest causes a pneumothorax.",
+  "summary": "Decompression needle: emergency field treatment for pneumothorax/Cardiac Tamponade (Needle relieves it until drained in surgery). Using it on a healthy chest causes a pneumothorax.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/SurgicalEquipment.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1660-1696; SurgicalEquipment.xml:83-128"
@@ -6028,18 +6028,18 @@
    {
     "affliction": "afpressuredrug",
     "amount": "+100 (success) / +50 (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1412-1425; Override.xml:1674-1715"
    }
   ],
-  "usage": "Use on patient. Consumed. Also a throwable explosive (XML) if broken.",
+  "usage": "Use on patient. Consumed. Also a throwable explosive if broken.",
   "skill": {
    "skill": "medical",
    "required": 35,
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Half dose.",
-  "summary": "Nitroglycerin acts as a blood pressure lowering drug (afpressuredrug). Careful: it is still an explosive when thrown/damaged.",
+  "summary": "Nitroglycerin acts as a blood pressure lowering drug (Blood Pressure Reducers). Careful: it is still an explosive when thrown/damaged.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1412-1425; Override.xml:1674-1715"
@@ -6096,7 +6096,7 @@
    {
     "affliction": "onwheelchair",
     "amount": "+2 while worn",
-    "when": "always",
+    "when": "Always",
     "source": "OtherEquipment.xml:876-917"
    }
   ],
@@ -6106,7 +6106,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Wheelchair: lets a patient with leg problems get around (onwheelchair affliction; movement handled elsewhere).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
@@ -6698,7 +6698,7 @@
    {
     "affliction": "burn",
     "amount": "-12 / -7.2",
-    "notes": "only if burn on limb < 50",
+    "notes": "Only if burn on limb < 50",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:725-740; Consumables.xml:5-36"
    }
   ],
@@ -6706,7 +6706,7 @@
    {
     "affliction": "ointmented",
     "amount": "+120 / +60 (limb)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:725-740; Consumables.xml:5-36"
    }
   ],
@@ -6717,7 +6717,7 @@
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Half-strength effect.",
-  "summary": "Antibiotic ointment: clears wound infection on a limb and soothes minor burns (under 50). Leaves the limb 'ointmented' (protective).",
+  "summary": "Antibiotic Ointment: clears wound infection on a limb and soothes minor burns (under 50). Leaves the limb Antibiotic Ointment (protective).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Consumables.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:725-740; Consumables.xml:5-36"
@@ -6810,7 +6810,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Resting in a bed slowly cures nausea, addictions/withdrawal, drunkenness and concussion.",
   "hidden": true,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -6904,7 +6904,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Resting in a bed slowly cures nausea, addictions/withdrawal, drunkenness and concussion.",
   "hidden": true,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -6998,13 +6998,13 @@
    {
     "affliction": "safesurgery",
     "amount": "+2 (nearby)",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:320-379"
    },
    {
     "affliction": "artificialventilation",
     "amount": "+100 (nearby)",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:320-379"
    }
   ],
@@ -7014,7 +7014,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Resting in a bed slowly cures nausea, addictions/withdrawal, drunkenness and concussion. The hospital bed also counts as a (minimal) safe surgery spot with ventilation.",
   "hidden": true,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -7108,7 +7108,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Resting in a bed slowly cures nausea, addictions/withdrawal, drunkenness and concussion.",
   "hidden": true,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -7182,44 +7182,44 @@
   "treatsDetail": [
    {
     "affliction": "artificialventilation",
-    "amount": "provided",
+    "amount": "Provided",
     "notes": "+100 to nearby characters when not contained; welding fuel tank removes it",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "alkalosis",
     "amount": "-0.8 per tick",
-    "notes": "dialyzer",
+    "notes": "Dialysis Filter",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "acidosis",
     "amount": "-0.8 per tick",
-    "notes": "dialyzer",
+    "notes": "Dialysis Filter",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "sufforinpoisoning",
     "amount": "-1.0 to -1.8",
-    "notes": "toxfilter",
+    "notes": "Toxin Filter",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "cyanidepoisoning",
     "amount": "-2.8 to -5.5",
-    "notes": "toxfilter",
+    "notes": "Toxin Filter",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "morbusinepoisoning",
     "amount": "-1.8 to -2.3",
-    "notes": "toxfilter",
+    "notes": "Toxin Filter",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "concussion",
     "amount": "-0.02",
-    "notes": "resting",
+    "notes": "Resting",
     "source": "OtherEquipment.xml:946-1165"
    }
   ],
@@ -7227,25 +7227,25 @@
    {
     "affliction": "analgesia",
     "amount": "+3 (up to ~11)",
-    "when": "analgesic tank contained",
+    "when": "Analgesic tank contained",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "afopioid",
     "amount": "+3",
-    "when": "analgesic tank",
+    "when": "Analgesic tank",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "sepsis",
     "amount": "+1",
-    "when": "while dialyzer/toxfilter is working",
+    "when": "While Dialysis Filter/Toxin Filter is working",
     "source": "OtherEquipment.xml:946-1165"
    },
    {
     "affliction": "safesurgery",
     "amount": "+70",
-    "when": "always (nearby)",
+    "when": "Always (nearby)",
     "source": "OtherEquipment.xml:946-1165"
    }
   ],
@@ -7255,8 +7255,8 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
-  "summary": "Operating table: provides artificial ventilation and safe-surgery conditions; can hold an analgesic tank (keeps patient numbed), a dialyzer (fixes acidosis/alkalosis) or a toxin filter (removes poisons), but filters add some sepsis.",
+  "onFailure": "N/a",
+  "summary": "Operating table: provides artificial ventilation and safe-surgery conditions; can hold an analgesic tank (keeps patient numbed), a Dialysis Filter (fixes acidosis/alkalosis) or a toxin filter (removes poisons), but filters add some sepsis.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
   "mechanicsSource": "OtherEquipment.xml:946-1165"
@@ -7332,25 +7332,25 @@
    {
     "affliction": "analgesia",
     "amount": "+1.1/s 25 s (success) / +0.7/s (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:536-600"
    },
    {
     "affliction": "afopioid",
     "amount": "+1.1/s / +0.7/s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:536-600"
    },
    {
     "affliction": "opiateaddiction",
     "amount": "+1/s / +1.75/s for 25 s",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:536-600"
    },
    {
     "affliction": "opiateoverdose",
     "amount": "+1/s / +1.5/s 25 s (+ extra if drunk>30)",
-    "when": "always",
+    "when": "Always",
     "source": "Override.xml:536-600"
    }
   ],
@@ -7358,7 +7358,7 @@
   "skill": {
    "skill": "medical",
    "required": 40,
-   "notes": "XML OnSuccess/OnFailure (vanilla skill roll)."
+   "notes": "OnSuccess/OnFailure (vanilla skill roll)."
   },
   "onFailure": "Less analgesia, more addiction and overdose.",
   "summary": "Opium: weak, slow painkiller with relatively high addiction. Mixing with alcohol (drunk > 30) adds extra overdose.",
@@ -7450,36 +7450,36 @@
   "causesDetail": [
    {
     "affliction": "brainswap",
-    "amount": "set 100",
-    "when": "first use",
+    "amount": "Set 100",
+    "when": "First use",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2292-2377; Toggleable.xml:191-204"
    },
    {
     "affliction": "brainremoved",
-    "amount": "set 100",
-    "when": "extraction or neurotrauma>=100",
+    "amount": "Set 100",
+    "when": "Extraction or neurotrauma>=100",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2292-2377; Toggleable.xml:191-204"
    },
    {
     "affliction": "neurotrauma",
     "amount": "+100",
-    "when": "extraction",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2292-2377; Toggleable.xml:191-204"
    },
    {
     "affliction": "bleeding",
     "amount": "+15 (head)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2292-2377; Toggleable.xml:191-204"
    },
    {
     "affliction": "neurotrauma",
     "amount": "+50",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2292-2377; Toggleable.xml:191-204"
    }
   ],
-  "usage": "Use on the Head with retractedskin; not in stasis. Not consumed. 1st use: frees the organ (brainswap = 100, or brainremoved = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged.",
+  "usage": "Use on the Head with Retracted Skin; not in stasis. Not consumed. 1st use: frees the organ (Replacing Brain = 100, or Brain Removed = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged.",
   "skill": {
    "skill": "surgery",
    "required": 40,
@@ -7534,68 +7534,68 @@
   "treatsDetail": [
    {
     "affliction": "tamponade",
-    "amount": "set 0",
-    "notes": "on extraction",
+    "amount": "Set 0",
+    "notes": "On extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    },
    {
     "affliction": "heartattack",
-    "amount": "set 0",
-    "notes": "on extraction",
+    "amount": "Set 0",
+    "notes": "On extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    }
   ],
   "causesDetail": [
    {
     "affliction": "heartswap",
-    "amount": "set 100",
-    "when": "first use",
+    "amount": "Set 100",
+    "when": "First use",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    },
    {
     "affliction": "heartremoved",
-    "amount": "set 100",
-    "when": "extraction",
+    "amount": "Set 100",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    },
    {
     "affliction": "heartdamage",
-    "amount": "set 100",
-    "when": "extraction",
+    "amount": "Set 100",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    },
    {
     "affliction": "cardiacarrest",
-    "amount": "set 100",
-    "when": "extraction",
+    "amount": "Set 100",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    },
    {
     "affliction": "organdamage",
     "amount": "+(100-damage)/5",
-    "when": "extraction",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    },
    {
     "affliction": "bleeding",
     "amount": "+15",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    },
    {
     "affliction": "heartdamage",
     "amount": "+20",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2183-2233; Toggleable.xml:176-190"
    }
   ],
-  "usage": "Use on the Torso with retractedskin; not in stasis. Not consumed. 1st use: frees the organ (heartswap = 100, or heartremoved = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged.",
+  "usage": "Use on the Torso with Retracted Skin; not in stasis. Not consumed. 1st use: frees the organ (Replacing Heart = 100, or Heart Removed = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged.",
   "skill": {
    "skill": "surgery",
    "required": 40,
    "notes": "Only the first (freeing) use rolls; Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
-  "onFailure": "Bleeding +15, organdamage +5, heartdamage +20.",
+  "onFailure": "Bleeding +15, Organ Damage +5, Heart Damage +20.",
   "summary": "Heart organ scalpel: frees, then extracts the heart. Extraction causes cardiac arrest.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Toggleable.xml",
@@ -7641,48 +7641,48 @@
   "causesDetail": [
    {
     "affliction": "kidneyswap",
-    "amount": "set 100",
-    "when": "first use",
+    "amount": "Set 100",
+    "when": "First use",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2236-2289; Toggleable.xml:148-160"
    },
    {
     "affliction": "kidneydamage",
-    "amount": "set 50 (first kidney) / 100 (second)",
-    "when": "extraction",
+    "amount": "Set 50 (first kidney) / 100 (second)",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2236-2289; Toggleable.xml:148-160"
    },
    {
     "affliction": "kidneyremoved",
-    "amount": "set 100",
-    "when": "second kidney extraction",
+    "amount": "Set 100",
+    "when": "Second kidney extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2236-2289; Toggleable.xml:148-160"
    },
    {
     "affliction": "organdamage",
     "amount": "+(100-damage)/5",
-    "when": "extraction",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2236-2289; Toggleable.xml:148-160"
    },
    {
     "affliction": "bleeding",
     "amount": "+15",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2236-2289; Toggleable.xml:148-160"
    },
    {
     "affliction": "kidneydamage",
     "amount": "+10",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2236-2289; Toggleable.xml:148-160"
    }
   ],
-  "usage": "Use on the Torso with retractedskin; not in stasis. Not consumed. 1st use: frees the organ (kidneyswap = 100, or kidneyremoved = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged.",
+  "usage": "Use on the Torso with Retracted Skin; not in stasis. Not consumed. 1st use: frees the organ (Replacing Kidneys = 100, or Kidneys Removed = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged.",
   "skill": {
    "skill": "surgery",
    "required": 40,
    "notes": "Only the first (freeing) use rolls; Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
-  "onFailure": "Bleeding +15, organdamage +5, kidneydamage +10.",
+  "onFailure": "Bleeding +15, Organ Damage +5, Kidney Damage +10.",
   "summary": "Kidney organ scalpel: frees the kidneys; each further cut removes one kidney (first at <50% damage, second at <95%).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Toggleable.xml",
@@ -7728,54 +7728,54 @@
   "causesDetail": [
    {
     "affliction": "liverswap",
-    "amount": "set 100",
-    "when": "first use, success",
+    "amount": "Set 100",
+    "when": "First use, success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2126; Toggleable.xml:133-147"
    },
    {
     "affliction": "liverremoved",
-    "amount": "set 100",
-    "when": "second use or organ dead",
+    "amount": "Set 100",
+    "when": "Second use or organ dead",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2126; Toggleable.xml:133-147"
    },
    {
     "affliction": "liverdamage",
-    "amount": "set 100",
-    "when": "on extraction",
+    "amount": "Set 100",
+    "when": "On extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2126; Toggleable.xml:133-147"
    },
    {
     "affliction": "organdamage",
     "amount": "+(100-damage)/5",
-    "when": "on extraction",
+    "when": "On extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2126; Toggleable.xml:133-147"
    },
    {
     "affliction": "bleeding",
     "amount": "+15 (torso)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2126; Toggleable.xml:133-147"
    },
    {
     "affliction": "organdamage",
     "amount": "+5",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2126; Toggleable.xml:133-147"
    },
    {
     "affliction": "liverdamage",
     "amount": "+20",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2126; Toggleable.xml:133-147"
    }
   ],
-  "usage": "Use on the Torso with retractedskin; not in stasis. Not consumed. 1st use: frees the organ (liverswap = 100, or liverremoved = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged (extraction additionally requires a surgery skill check of 50, silently doing nothing on failure).",
+  "usage": "Use on the Torso with Retracted Skin; not in stasis. Not consumed. 1st use: frees the organ (Replacing Liver = 100, or Liver Removed = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged (extraction additionally requires a surgery skill check of 50, silently doing nothing on failure).",
   "skill": {
    "skill": "surgery",
    "required": 40,
    "notes": "Only the first (freeing) use rolls; Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
-  "onFailure": "Bleeding +15, organdamage +5, liverdamage +20.",
+  "onFailure": "Bleeding +15, Organ Damage +5, Liver Damage +20.",
   "summary": "Liver organ scalpel: harvest or prepare the liver for replacement. Cut once to free it, then either apply a new liver transplant (swap) or cut again to extract it.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Toggleable.xml",
@@ -7824,68 +7824,68 @@
   "treatsDetail": [
    {
     "affliction": "pneumothorax",
-    "amount": "set 0",
-    "notes": "on extraction",
+    "amount": "Set 0",
+    "notes": "On extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    },
    {
     "affliction": "needlec",
-    "amount": "set 0",
-    "notes": "on extraction",
+    "amount": "Set 0",
+    "notes": "On extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    }
   ],
   "causesDetail": [
    {
     "affliction": "lungswap",
-    "amount": "set 100",
-    "when": "first use",
+    "amount": "Set 100",
+    "when": "First use",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    },
    {
     "affliction": "lungremoved",
-    "amount": "set 100",
-    "when": "extraction",
+    "amount": "Set 100",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    },
    {
     "affliction": "lungdamage",
-    "amount": "set 100",
-    "when": "extraction",
+    "amount": "Set 100",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    },
    {
     "affliction": "respiratoryarrest",
-    "amount": "set 100",
-    "when": "extraction",
+    "amount": "Set 100",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    },
    {
     "affliction": "organdamage",
     "amount": "+(100-damage)/5",
-    "when": "extraction",
+    "when": "Extraction",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    },
    {
     "affliction": "bleeding",
     "amount": "+15",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    },
    {
     "affliction": "lungdamage",
     "amount": "+20",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2129-2180; Toggleable.xml:161-175"
    }
   ],
-  "usage": "Use on the Torso with retractedskin; not in stasis. Not consumed. 1st use: frees the organ (lungswap = 100, or lungremoved = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged.",
+  "usage": "Use on the Torso with Retracted Skin; not in stasis. Not consumed. 1st use: frees the organ (Replacing Lungs = 100, or Lungs Removed = 100 if the organ is already 100% dead). 2nd use (swap state): removes the organ and gives it to you (placed in a held container if possible) when it was < 90% damaged.",
   "skill": {
    "skill": "surgery",
    "required": 40,
    "notes": "Only the first (freeing) use rolls; Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
-  "onFailure": "Bleeding +15, organdamage +5, lungdamage +20.",
+  "onFailure": "Bleeding +15, Organ Damage +5, Lung Damage +20.",
   "summary": "Lung organ scalpel: frees, then extracts the lungs. Extraction puts the patient in respiratory arrest.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Toggleable.xml",
@@ -8010,31 +8010,31 @@
   "treatsDetail": [
    {
     "affliction": "fracturedextremity",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805; SurgicalEquipment.xml:129-155"
    },
    {
     "affliction": "fracturedskull",
-    "amount": "set 0",
-    "notes": "head",
+    "amount": "Set 0",
+    "notes": "Head",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805; SurgicalEquipment.xml:129-155"
    },
    {
     "affliction": "fracturedneck",
-    "amount": "set 0",
-    "notes": "if indicator limb matches",
+    "amount": "Set 0",
+    "notes": "If indicator limb matches",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805; SurgicalEquipment.xml:129-155"
    },
    {
     "affliction": "fracturedribs",
-    "amount": "set 0",
-    "notes": "torso",
+    "amount": "Set 0",
+    "notes": "Torso",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805; SurgicalEquipment.xml:129-155"
    },
    {
     "affliction": "drilledbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805; SurgicalEquipment.xml:129-155"
    }
@@ -8042,24 +8042,24 @@
   "causesDetail": [
    {
     "affliction": "stimulatedbonegrowth",
-    "amount": "set 100 (limb)",
-    "when": "on success",
+    "amount": "Set 100 (limb)",
+    "when": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805; SurgicalEquipment.xml:129-155"
    },
    {
     "affliction": "bleeding",
     "amount": "+5 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805; SurgicalEquipment.xml:129-155"
    },
    {
     "affliction": "internaldamage",
     "amount": "+5 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805; SurgicalEquipment.xml:129-155"
    }
   ],
-  "usage": "Use on a limb with drilledbones (>=99); patient must have analgesia or be unconscious. Loses 1/NT_OsteoImplants_uses (default 4 uses) condition per success.",
+  "usage": "Use on a limb with Drilled Bones (>=99); patient must have analgesia or be unconscious. Loses 1/NT_OsteoImplants_uses (default 4 uses) condition per success.",
   "skill": {
    "skill": "surgery",
    "required": 45,
@@ -8126,8 +8126,8 @@
   "causesDetail": [
    {
     "affliction": "afpressuredrug",
-    "amount": "+50 over 10 s (success) / +30 (failure) from C#; XML also applies +5/s or +3/s for 10 s",
-    "when": "always",
+    "amount": "+50 over 10 s (success) / +30 (failure) from C#; also applies +5/s or +3/s for 10 s",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2547-2558; Toggleable.xml:86-132"
    }
   ],
@@ -8138,7 +8138,7 @@
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Smaller dose.",
-  "summary": "Sodium nitroprusside: lowers blood pressure (afpressuredrug). Possibly applied twice (C# and XML both define it) - unverified.",
+  "summary": "Sodium nitroprusside: lowers blood pressure (Blood Pressure Reducers). Possibly applied twice (C# and both define it) - unverified.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Toggleable.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2547-2558; Toggleable.xml:86-132"
@@ -8178,13 +8178,13 @@
    {
     "affliction": "anesthesia",
     "amount": "+1 (or +15 with talent), topped up to 15 if already >= 15",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:903-924; Consumables.xml:309-352"
    },
    {
     "affliction": "afanaesthetic",
     "amount": "+100",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:903-924; Consumables.xml:309-352"
    }
   ],
@@ -8194,8 +8194,8 @@
    "required": null,
    "notes": "No skill check; talent ntsp_propofol raises gain to 15."
   },
-  "onFailure": "n/a",
-  "summary": "General anaesthetic: puts the patient under (anesthesia) so surgery can be performed without them being awake. Reverse with Anaparalyzant (antiparalysis).",
+  "onFailure": "N/a",
+  "summary": "General anaesthetic: puts the patient under (anesthesia) so surgery can be performed without them being awake. Reverse with Anaparalyzant.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Consumables.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:903-924; Consumables.xml:309-352"
@@ -8235,20 +8235,20 @@
   "treatsDetail": [
    {
     "affliction": "sawedbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the matching right arm stump that has sawedbones (>=99) from a surgical saw. Consumed.",
+  "usage": "Use on the matching right arm stump that has Bones Sawed (>=99) from a surgical saw. Consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "No failure state; does nothing if limb type mismatches or sawedbones missing.",
-  "summary": "Reattaches a right arm. Saw the stump first (sawedbones) so the limb can be attached, then apply the limb.",
+  "onFailure": "No failure state; does nothing if limb type mismatches or Bones Sawed missing.",
+  "summary": "Reattaches a right arm. Saw the stump first (Bones Sawed) so the limb can be attached, then apply the limb.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
@@ -8277,20 +8277,20 @@
   "treatsDetail": [
    {
     "affliction": "sawedbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the matching right arm stump that has sawedbones (>=99) from a surgical saw. Consumed.",
+  "usage": "Use on the matching right arm stump that has Bones Sawed (>=99) from a surgical saw. Consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "No failure state; does nothing if limb type mismatches or sawedbones missing.",
-  "summary": "Reattaches a right arm (bionic). Saw the stump first (sawedbones) so the limb can be attached, then apply the limb.",
+  "onFailure": "No failure state; does nothing if limb type mismatches or Bones Sawed missing.",
+  "summary": "Reattaches a right arm (bionic). Saw the stump first (Bones Sawed) so the limb can be attached, then apply the limb.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
@@ -8357,21 +8357,21 @@
    {
     "affliction": "dislocation",
     "amount": "-1000 (removed)",
-    "notes": "on success",
+    "notes": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:25-68, 1093-1105; Override.xml:5-59"
    }
   ],
   "causesDetail": [
    {
     "affliction": "fracturedextremity",
-    "amount": "+1 (or fracturedskull/fracturedribs by limb)",
-    "when": "on failure",
+    "amount": "+1 (or Fractured Skull/Fractured Ribs by limb)",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:25-68, 1093-1105; Override.xml:5-59"
    },
    {
     "affliction": "severepain",
     "amount": "+5",
-    "when": "conditional: patient has no analgesia",
+    "when": "Sometimes. Patient has no analgesia",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:25-68, 1093-1105; Override.xml:5-59"
    }
   ],
@@ -8379,7 +8379,7 @@
   "skill": {
    "skill": "medical",
    "required": 60,
-   "notes": "Lowered to 30 if patient has analgesia >=0.5 or afadrenaline >=0.5. Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
+   "notes": "Lowered to 30 if patient has analgesia >=0.5 or Adrenaline >=0.5. Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Breaks the bone (fracture) instead of resetting it.",
   "summary": "Wrenches reset dislocated joints. Give painkillers or adrenaline first to halve the skill needed and avoid severe pain; failure fractures the limb.",
@@ -8450,7 +8450,7 @@
    {
     "affliction": "afringerssolution",
     "amount": "+50 over 10 s (success) / +30 (failure)",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:832-843; Consumables.xml:166-199"
    }
   ],
@@ -8461,7 +8461,7 @@
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Smaller dose (30).",
-  "summary": "Ringer's solution IV: applies the afringerssolution drug effect (fluid/electrolyte replacement; exact effects are in affliction code).",
+  "summary": "Ringer's solution IV: applies the Ringer's Solution drug effect (fluid/electrolyte replacement; exact effects are in affliction code).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Consumables.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:832-843; Consumables.xml:166-199"
@@ -8501,20 +8501,20 @@
   "treatsDetail": [
    {
     "affliction": "sawedbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the matching right leg stump that has sawedbones (>=99) from a surgical saw. Consumed.",
+  "usage": "Use on the matching right leg stump that has Bones Sawed (>=99) from a surgical saw. Consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "No failure state; does nothing if limb type mismatches or sawedbones missing.",
-  "summary": "Reattaches a right leg. Saw the stump first (sawedbones) so the limb can be attached, then apply the limb.",
+  "onFailure": "No failure state; does nothing if limb type mismatches or Bones Sawed missing.",
+  "summary": "Reattaches a right leg. Saw the stump first (Bones Sawed) so the limb can be attached, then apply the limb.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
@@ -8543,20 +8543,20 @@
   "treatsDetail": [
    {
     "affliction": "sawedbones",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
    }
   ],
   "causesDetail": [],
-  "usage": "Use on the matching right leg stump that has sawedbones (>=99) from a surgical saw. Consumed.",
+  "usage": "Use on the matching right leg stump that has Bones Sawed (>=99) from a surgical saw. Consumed.",
   "skill": {
    "skill": "surgery",
    "required": null,
    "notes": "No skill check."
   },
-  "onFailure": "No failure state; does nothing if limb type mismatches or sawedbones missing.",
-  "summary": "Reattaches a right leg (bionic). Saw the stump first (sawedbones) so the limb can be attached, then apply the limb.",
+  "onFailure": "No failure state; does nothing if limb type mismatches or Bones Sawed missing.",
+  "summary": "Reattaches a right leg (bionic). Saw the stump first (Bones Sawed) so the limb can be attached, then apply the limb.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/BodyParts.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222, 712-721; BodyParts.xml"
@@ -8627,7 +8627,7 @@
   "treatsDetail": [
    {
     "affliction": "spinalcordinjury",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1808-1851; SurgicalEquipment.xml:156-185"
    }
@@ -8636,17 +8636,17 @@
    {
     "affliction": "bleeding",
     "amount": "+5 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1808-1851; SurgicalEquipment.xml:156-185"
    },
    {
     "affliction": "internaldamage",
     "amount": "+5 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1808-1851; SurgicalEquipment.xml:156-185"
    }
   ],
-  "usage": "Use on a limb with retractedskin (>=99) when the patient has spinalcordinjury; patient must have analgesia or be unconscious. Default 1 use (NT_SpinalImplants_uses).",
+  "usage": "Use on a limb with Retracted Skin (>=99) when the patient has Spinal Cord Injury; patient must have analgesia or be unconscious. Default 1 use (NT_SpinalImplants_uses).",
   "skill": {
    "skill": "surgery",
    "required": 45,
@@ -8720,13 +8720,13 @@
    {
     "affliction": "stasis",
     "amount": "+3 per s while worn",
-    "when": "always",
+    "when": "Always",
     "source": "OtherEquipment.xml:427-513"
    },
    {
     "affliction": "stasisbagoverlay",
     "amount": "+3",
-    "when": "always",
+    "when": "Always",
     "source": "OtherEquipment.xml:427-513"
    }
   ],
@@ -8736,7 +8736,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Stasis bag: freezes the patient's condition (stasis) so they don't deteriorate; many surgical tools refuse to work on a patient in stasis. Provides oxygen. A wrench pulls it off.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/OtherEquipment.xml",
@@ -8819,19 +8819,19 @@
    {
     "affliction": "afstreptokinase",
     "amount": "+50",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:886-900; Consumables.xml:264-308"
    },
    {
     "affliction": "stroke",
     "amount": "+5",
-    "when": "conditional: patient has stroke",
+    "when": "Sometimes. Patient has stroke",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:886-900; Consumables.xml:264-308"
    },
    {
     "affliction": "neurotrauma",
     "amount": "+10",
-    "when": "conditional: patient has stroke",
+    "when": "Sometimes. Patient has stroke",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:886-900; Consumables.xml:264-308"
    }
   ],
@@ -8841,7 +8841,7 @@
    "required": null,
    "notes": "No skill check in code."
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Clot-buster: cures heart attack and hemotransfusion shock instantly. Do NOT give it to a stroke patient (worsens stroke and adds neurotrauma).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Consumables.xml",
@@ -8936,29 +8936,29 @@
    {
     "affliction": "sawedbones",
     "amount": "+1 + surgery skill/2 (limb)",
-    "when": "on success, non-torso",
+    "when": "On success, non-torso",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1944-1976; SurgicalEquipment.xml:293-310"
    },
    {
     "affliction": "bleeding",
     "amount": "+15 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1944-1976; SurgicalEquipment.xml:293-310"
    },
    {
     "affliction": "internaldamage",
     "amount": "+6",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1944-1976; SurgicalEquipment.xml:293-310"
    },
    {
     "affliction": "lacerations",
     "amount": "+4",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1944-1976; SurgicalEquipment.xml:293-310"
    }
   ],
-  "usage": "Use on a non-torso limb with retractedskin >=99 and no sawedbones; analgesia or unconscious; not in stasis. Not consumed. On the torso success does nothing.",
+  "usage": "Use on a non-torso limb with Retracted Skin >=99 and no Bones Sawed; analgesia or unconscious; not in stasis. Not consumed. On the torso success does nothing.",
   "skill": {
    "skill": "surgery",
    "required": 50,
@@ -9186,23 +9186,23 @@
    {
     "affliction": "drilledbones",
     "amount": "+1 + surgery skill/2 (limb)",
-    "when": "on success",
+    "when": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1914-1941; SurgicalEquipment.xml:266-292"
    },
    {
     "affliction": "burn",
     "amount": "+12 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1914-1941; SurgicalEquipment.xml:266-292"
    },
    {
     "affliction": "internaldamage",
     "amount": "+10 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1914-1941; SurgicalEquipment.xml:266-292"
    }
   ],
-  "usage": "Use on a limb with retractedskin >=99 and no drilledbones; analgesia or unconscious; not in stasis. Not consumed.",
+  "usage": "Use on a limb with Retracted Skin >=99 and no Drilled Bones; analgesia or unconscious; not in stasis. Not consumed.",
   "skill": {
    "skill": "surgery",
    "required": 45,
@@ -9343,14 +9343,14 @@
    },
    {
     "affliction": "aorticrupture",
-    "amount": "set 0",
-    "notes": "only if config NT_HardmodeAorticRupture and retractedskin >= 95",
+    "amount": "Set 0",
+    "notes": "Only if config NT_HardmodeAorticRupture and Retracted Skin >= 95",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1613; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1854-1890; SurgicalEquipment.xml:7-50"
    },
    {
     "affliction": "tamponade",
-    "amount": "set 0",
-    "notes": "retractedskin >= 95 unless config NT_OpenCloseTamponade",
+    "amount": "Set 0",
+    "notes": "Retracted Skin >= 95 unless config NT_OpenCloseTamponade",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1613; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1854-1890; SurgicalEquipment.xml:7-50"
    },
    {
@@ -9364,17 +9364,17 @@
    {
     "affliction": "suturedw",
     "amount": "+healed wound amount (limb)",
-    "when": "always on success",
+    "when": "Always on success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1430-1613; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1854-1890; SurgicalEquipment.xml:7-50"
    }
   ],
-  "usage": "Use on any limb. Consumed every use (XML condition -100), including on failure. Not blocked by stasis.",
+  "usage": "Use on any limb. Consumed every use (condition -100), including on failure. Not blocked by stasis.",
   "skill": {
    "skill": "surgery",
    "required": 30,
    "notes": "Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
-  "onFailure": "Adds 6 internaldamage to the limb; nothing is closed.",
+  "onFailure": "Adds 6 Internal Damage to the limb; nothing is closed.",
   "summary": "Sutures close wounds and finish every surgery: they heal cuts/gunshot wounds, close the incision, and - while the limb is retracted - repair arterial cuts, internal bleeding, strokes etc. Suturing a sawed limb amputates it.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/SurgicalEquipment.xml",
@@ -9436,7 +9436,7 @@
    {
     "affliction": "afthiamine",
     "amount": "+50 over 10 s / +30 on failure",
-    "when": "always",
+    "when": "Always",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:872-883; Consumables.xml:238-263"
    }
   ],
@@ -9447,7 +9447,7 @@
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Smaller dose.",
-  "summary": "Thiamine (vitamin B1): applies afthiamine (protects the brain, e.g. against alcohol-related damage, per affliction code).",
+  "summary": "Thiamine (vitamin B1): applies Thiamine (protects the brain, e.g. against alcohol-related damage, per affliction code).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Consumables.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:872-883; Consumables.xml:238-263"
@@ -9498,7 +9498,7 @@
    "required": null,
    "notes": ""
   },
-  "onFailure": "n/a",
+  "onFailure": "N/a",
   "summary": "Tonic liquid: extends the duration of medical status effects (durationincrease).",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Override.xml",
@@ -9570,34 +9570,34 @@
    },
    {
     "affliction": "bleeding",
-    "amount": "indirect",
-    "notes": "tourniqueted stops bleeding on that limb (effect in affliction code)",
+    "amount": "Indirect",
+    "notes": "Tourniqueted stops bleeding on that limb (effect in affliction code)",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:765-788; Consumables.xml:64-89"
    }
   ],
   "causesDetail": [
    {
     "affliction": "tourniqueted",
-    "amount": "set 100 (limb)",
-    "when": "success on arm/leg",
+    "amount": "Set 100 (limb)",
+    "when": "Success on arm/leg",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:765-788; Consumables.xml:64-89"
    },
    {
     "affliction": "oxygenlow",
-    "amount": "set 200",
-    "when": "success on Head",
+    "amount": "Set 200",
+    "when": "Success on Head",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:765-788; Consumables.xml:64-89"
    },
    {
     "affliction": "neurotrauma",
     "amount": "+15",
-    "when": "success on Head",
+    "when": "Success on Head",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:765-788; Consumables.xml:64-89"
    },
    {
     "affliction": "blunttrauma",
     "amount": "+6 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:765-788; Consumables.xml:64-89"
    }
   ],
@@ -9608,7 +9608,7 @@
    "notes": "Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Adds 6 blunt trauma to the limb and the tourniquet is not used up.",
-  "summary": "Stops severe arm/leg bleeding (e.g. arterialcut) fast. Remove it later with trauma shears/diving knife or close properly in surgery; long tourniquet use harms the limb. Never put it on the head.",
+  "summary": "Stops severe arm/leg bleeding (e.g. Arterial Bleeding) fast. Remove it later with trauma shears/diving knife or close properly in surgery; long tourniquet use harms the limb. Never put it on the head.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/Consumables.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:765-788; Consumables.xml:64-89"
@@ -9772,25 +9772,25 @@
   "treatsDetail": [
    {
     "affliction": "bandaged",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2380-2406; SurgicalEquipment.xml:332-368"
    },
    {
     "affliction": "bandageddirty",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2380-2406; SurgicalEquipment.xml:332-368"
    },
    {
     "affliction": "tourniqueted",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2380-2406; SurgicalEquipment.xml:332-368"
    },
    {
     "affliction": "plastercast",
-    "amount": "set 0",
+    "amount": "Set 0",
     "notes": "",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2380-2406; SurgicalEquipment.xml:332-368"
    }
@@ -9799,13 +9799,13 @@
    {
     "affliction": "bleeding",
     "amount": "+15 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2380-2406; SurgicalEquipment.xml:332-368"
    },
    {
     "affliction": "lacerations",
     "amount": "+10 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2380-2406; SurgicalEquipment.xml:332-368"
    }
   ],
@@ -9872,13 +9872,13 @@
    {
     "affliction": "internaldamage",
     "amount": "-3 to -10",
-    "notes": "surgery mode only",
+    "notes": "Surgery mode only",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    },
    {
     "affliction": "blunttrauma",
     "amount": "-3 to -10",
-    "notes": "surgery mode only",
+    "notes": "Surgery mode only",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    }
   ],
@@ -9886,54 +9886,54 @@
    {
     "affliction": "lacerations",
     "amount": "+5 (limb)",
-    "when": "on success",
+    "when": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    },
    {
     "affliction": "traumaticshock",
     "amount": "+5",
-    "when": "field mode success",
+    "when": "Field mode success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    },
    {
     "affliction": "internaldamage",
     "amount": "+6 (limb)",
-    "when": "on failure",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    },
    {
     "affliction": "bleeding",
     "amount": "+1 (+3 on head)",
-    "when": "no valid use case",
+    "when": "No valid use case",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    },
    {
     "affliction": "lacerations",
     "amount": "+0.5 (+2 head)",
-    "when": "no valid use case",
+    "when": "No valid use case",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    },
    {
     "affliction": "intensepain",
     "amount": "+5 (+5 head)",
-    "when": "no valid use case and patient awake",
+    "when": "No valid use case and patient awake",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    },
    {
     "affliction": "stun",
     "amount": "+0.1",
-    "when": "no valid use case and awake",
+    "when": "No valid use case and awake",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
    }
   ],
-  "usage": "Use on a limb. Mode 'surgery' if analgesia/unconscious and retractedskin >=99; mode 'field' if limb has gunshotwound or explosiondamage. Otherwise it just pinches. Not consumed; blocked by stasis.",
+  "usage": "Use on a limb. Mode 'surgery' if analgesia/unconscious and Retracted Skin >=99; mode 'field' if limb has Gunshot Wound or Explosion Damage. Otherwise it just pinches. Not consumed; blocked by stasis.",
   "skill": {
    "skill": "surgery",
    "required": 30,
    "notes": "Surgery skill = medical skill unless Neurotrauma Surgery Plus (NTSP) is enabled, then max(surgery, medical/4). Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Internal damage.",
-  "summary": "Tweezers pull shrapnel/bullets (foreignbody) out. Best done in open surgery, where they also mend internal damage; in the field via a gunshot/explosion wound they cause traumatic shock. Small chance to return scrap.",
+  "summary": "Tweezers pull shrapnel/bullets (Foreign Body) out. Best done in open surgery, where they also mend internal damage; in the field via a gunshot/explosion wound they cause traumatic shock. Small chance to return scrap.",
   "hidden": false,
   "source": "Assets/Content/XML/Items/SurgicalEquipment.xml",
   "mechanicsSource": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077; SurgicalEquipment.xml:311-331"
@@ -9993,21 +9993,21 @@
    {
     "affliction": "dislocation",
     "amount": "-1000 (removed)",
-    "notes": "on success",
+    "notes": "On success",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:25-68, 1093-1105; Override.xml:5-59"
    }
   ],
   "causesDetail": [
    {
     "affliction": "fracturedextremity",
-    "amount": "+1 (or fracturedskull/fracturedribs by limb)",
-    "when": "on failure",
+    "amount": "+1 (or Fractured Skull/Fractured Ribs by limb)",
+    "when": "On failure",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:25-68, 1093-1105; Override.xml:5-59"
    },
    {
     "affliction": "severepain",
     "amount": "+5",
-    "when": "conditional: patient has no analgesia",
+    "when": "Sometimes. Patient has no analgesia",
     "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:25-68, 1093-1105; Override.xml:5-59"
    }
   ],
@@ -10015,7 +10015,7 @@
   "skill": {
    "skill": "medical",
    "required": 60,
-   "notes": "Lowered to 30 if patient has analgesia >=0.5 or afadrenaline >=0.5. Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
+   "notes": "Lowered to 30 if patient has analgesia >=0.5 or Adrenaline >=0.5. Skill checks are probabilistic: success chance = skill/required (capped at 100%), unless config NT_VanillaSkillCheck is on."
   },
   "onFailure": "Breaks the bone (fracture) instead of resetting it.",
   "summary": "Wrenches reset dislocated joints. Give painkillers or adrenaline first to halve the skill needed and avoid severe pain; failure fractures the limb.",
