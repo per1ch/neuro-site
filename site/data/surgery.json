@@ -30,7 +30,8 @@
    }
   ],
   "notes": "Each tool's affliction grows from 1+skill/2; the next step waits until it reaches 99 (95 for suture conditions). Higher skill = faster.",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1854-1911, 1518-1613; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1911-1914"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1854-1911, 1518-1613; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1911-1914",
+  "id": "opening-a-limb-base-surgical-access"
  },
  {
   "name": "Fracture repair (osteosynthesis)",
@@ -58,7 +59,8 @@
    }
   ],
   "notes": "Non-surgical alternative for arms/legs: antibleeding1 (bandage) then gypsum (plaster cast).",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805, 1914-1941"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1699-1805, 1914-1941",
+  "id": "fracture-repair-osteosynthesis"
  },
  {
   "name": "Surgical amputation",
@@ -81,7 +83,8 @@
    }
   ],
   "notes": "",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1944-1976, 1551-1563; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1854-1890"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1944-1976, 1551-1563; SharedProject/SharedSource/Libraries/HelperFunctions.cs:1854-1890",
+  "id": "surgical-amputation"
  },
  {
   "name": "Limb reattachment",
@@ -109,7 +112,8 @@
    }
   ],
   "notes": "Do not suture before attaching - suturing with sawedbones amputates.",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:182-222",
+  "id": "limb-reattachment"
  },
  {
   "name": "Organ transplant / swap (liver, heart, lungs, kidneys)",
@@ -137,7 +141,8 @@
    }
   ],
   "notes": "Heart swap sets cardiacarrest 100 (restart with AED/defibrillator); lung swap sets respiratoryarrest 100 (ventilate/BVM). Immunity drives rejection (config NT_organRejection) - give immunosuppressant. Using the organ scalpel a second time while in swap state extracts the organ instead.",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:488-687, 2080-2289"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:488-687, 2080-2289",
+  "id": "organ-transplant-swap-liver-heart-lungs-kidneys"
  },
  {
   "name": "Organ harvesting",
@@ -160,7 +165,8 @@
    }
   ],
   "notes": "Kills/cripples the donor: heart -> cardiacarrest, lungs -> respiratoryarrest, brain -> neurotrauma +100. Organs are placed into a container held in hand if it has room.",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2377"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2080-2377",
+  "id": "organ-harvesting"
  },
  {
   "name": "Brain transplant",
@@ -183,7 +189,8 @@
    }
   ],
   "notes": "",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:690-709, 2292-2377"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:690-709, 2292-2377",
+  "id": "brain-transplant"
  },
  {
   "name": "Aortic rupture repair (endovascular)",
@@ -211,7 +218,8 @@
    }
   ],
   "notes": "With config NT_HardmodeAorticRupture, sutures on a retracted torso can also clear aorticrupture.",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2494-2544, 1469-1474"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2494-2544, 1469-1474",
+  "id": "aortic-rupture-repair-endovascular"
  },
  {
   "name": "Pneumothorax / tamponade",
@@ -239,7 +247,8 @@
    }
   ],
   "notes": "",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1696, 1478-1483"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1616-1696, 1478-1483",
+  "id": "pneumothorax-tamponade"
  },
  {
   "name": "Arterial cut / internal bleeding / stroke repair",
@@ -262,7 +271,8 @@
    }
   ],
   "notes": "",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1459-1497, 765-788"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1459-1497, 765-788",
+  "id": "arterial-cut-internal-bleeding-stroke-repair"
  },
  {
   "name": "Foreign body removal",
@@ -285,7 +295,8 @@
    }
   ],
   "notes": "Field alternative: tweezers through a gunshot/explosion wound remove foreignbody only and cause traumaticshock +5.",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1979-2077",
+  "id": "foreign-body-removal"
  },
  {
   "name": "Infected cavity cleaning",
@@ -308,7 +319,8 @@
    }
   ],
   "notes": "",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2479"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:2431-2479",
+  "id": "infected-cavity-cleaning"
  },
  {
   "name": "Spinal cord repair",
@@ -331,7 +343,8 @@
    }
   ],
   "notes": "Code does not restrict the limb type.",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1808-1851"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1808-1851",
+  "id": "spinal-cord-repair"
  },
  {
   "name": "Severe burn treatment (skin graft)",
@@ -354,6 +367,7 @@
    }
   ],
   "notes": "",
-  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1346-1362"
+  "source": "SharedProject/SharedSource/NT Components/NTItemsData.cs:1346-1362",
+  "id": "severe-burn-treatment-skin-graft"
  }
 ]

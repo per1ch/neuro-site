@@ -129,7 +129,7 @@ def parse_xml(path):
 def rect(el, sheet_attr="texture"):
     if el is None:
         return None
-    tex, sr = el.get(sheet_attr) or "", el.get("sourcerect")
+    tex, sr = (el.get(sheet_attr) or "").replace("\\", "/"), el.get("sourcerect")
     if "%ModDir%" not in tex or not sr:
         return None  # vanilla texture: not shipped with the mod
     x, y, w, h = [int(float(v)) for v in sr.split(",")]
@@ -469,6 +469,8 @@ def merge_mechanics(afflictions, items):
                         it["causes"].append(aid)
             it["mechanicsSource"] = g.get("source")
         extra["surgery"] = data.get("surgeryProcedures", [])
+        for proc in extra["surgery"]:
+            proc.setdefault("id", re.sub(r"[^a-z0-9]+", "-", proc["name"].lower()).strip("-"))
         extra["itemNotes"] = data.get("notes")
     return extra
 
